@@ -10,10 +10,12 @@
  * GH REPOS
  * https://github.com/gatsbyjs/gatsby/issues/3025
  * https://github.com/gatsbyjs/gatsby/issues/2957
+ * 
+ * LAYOUT VS COMPONENT
+ * https://www.gatsbyjs.org/blog/2018-06-08-life-after-layouts/
  */
 
 const path = require('path');
-const slash = require(`slash`);
 const languagePath = {
   'fr': '/',
   'en': '/en',
@@ -24,14 +26,19 @@ exports.createPages = ({ graphql, actions }) => {
   const index = path.resolve(`src/pages/index.jsx`);
   
   Object.entries(languagePath).forEach( ([locale, path]) => {
-      console.log(locale, path);
-      // Home page
-      createPage({
-        path: path,
-        component: index,
-        context: {locale}
-        // Add optional context data. Data can be used as
-        // arguments to the page GraphQL query.
-      })
+    // console.log(locale, path);
+    
+    // Home page
+    createPage({
+      path: path,
+      component: index,
+      context: {
+        test: `hello from context`,
+        locale: locale
+      }
+      // Add optional context data, available at this.props.pageContext
+      // Data can be used as arguments to the page GraphQL query.
+    })
+    return;
   });
 };

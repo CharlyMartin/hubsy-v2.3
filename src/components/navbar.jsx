@@ -4,7 +4,7 @@ import { Link } from 'gatsby'
 const Navbar = (props) => (
   <h1>
     <Link to="/">
-      {props.test}
+      {console.log()}
     </Link>
   </h1>
 )

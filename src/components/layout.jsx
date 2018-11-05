@@ -1,12 +1,12 @@
 import React from 'react'
-import PropTypes from 'prop-types'
+// import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 import { StaticQuery, graphql } from 'gatsby'
 
 import Navbar from './navbar'
 import './layout.css'
 
-const Layout = ({ children }) => (
+const Layout = (props) => (
   <StaticQuery
     query={graphql`
       query SiteTitleQuery {
@@ -37,15 +37,15 @@ const Layout = ({ children }) => (
             paddingTop: 0,
           }}
         >
-          {children}
+          {props.children}
         </div>
       </>
     )}
   />
 )
 
-Layout.propTypes = {
-  children: PropTypes.node.isRequired,
-}
+// Layout.propTypes = {
+//   children: PropTypes.node.isRequired,
+// }
 
 export default Layout
