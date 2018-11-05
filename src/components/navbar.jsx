@@ -1,10 +1,10 @@
 import React from 'react'
 import { Link } from 'gatsby'
 
-const Navbar = ({ siteTitle }) => (
+const Navbar = (props) => (
   <h1>
     <Link to="/">
-      {siteTitle}
+      {props.test}
     </Link>
   </h1>
 )

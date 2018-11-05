@@ -1,3 +1,7 @@
+const apiKey = `keyLJFjUKsl2jfxfA`;
+const defaultView = `Grid view`
+const contentBaseId = `appjg3ShOoZQxtkqi`
+
 module.exports = {
   siteMetadata: {
     title: 'Gatsby Default Starter',
@@ -30,27 +34,37 @@ module.exports = {
     {
       resolve: `gatsby-source-airtable`,
       options: {
-        apiKey: `keyLJFjUKsl2jfxfA`, // may instead specify via env, see below
+        apiKey: apiKey, // may instead specify via env, see below
         tables: [
           // baseId = Content
           {
-            baseId: `appjg3ShOoZQxtkqi`,
+            baseId: contentBaseId,
             tableName: `navbar`,
-            tableView: `test`,
+            tableView: defaultView,
             // queryName: `OPTIONAL_NAME_TO_IDENTIFY_TABLE`, // optional
             // mapping: { `CASE_SENSITIVE_COLUMN_NAME`: `VALUE_FORMAT` }, // optional, e.g. "text/markdown", "fileNode"
             // tableLinks: [`CASE`, `SENSITIVE`, `COLUMN`, `NAMES`] // optional, for deep linking to records across tables.
+          },
+          {
+            baseId: contentBaseId,
+            tableName: `footer`,
+            tableView: defaultView,
+          },
+          {
+            baseId: contentBaseId,
+            tableName: `home`,
+            tableView: defaultView,
           },
         ]
       }
     },
     // i18n config
-    {
-      resolve: 'gatsby-plugin-i18n',
-      options: {        
-        langKeyDefault: 'fr',
-        useLangKeyLayout: false
-      }
-    }
+    // {
+    //   resolve: 'gatsby-plugin-i18n',
+    //   options: {        
+    //     langKeyDefault: 'fr',
+    //     useLangKeyLayout: false
+    //   }
+    // }
   ],
 }
