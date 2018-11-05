@@ -1,9 +1,10 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 import { StaticQuery, graphql } from 'gatsby'
 
-import Header from './navbar'
+import Navbar from './navbar'
+import Footer from './footer'
+
 import './layout.css'
 
 const Layout = ({ children }) => (
@@ -17,6 +18,7 @@ const Layout = ({ children }) => (
         }
       }
     `}
+    
     render={data => (
       <div>
         <Helmet
@@ -29,15 +31,12 @@ const Layout = ({ children }) => (
           <html lang="en" />
         </Helmet>
 
-        <Header siteTitle={data.site.siteMetadata.title} />
+        <Navbar siteTitle={data.site.siteMetadata.title} />
         {children}
+        <Footer/>
       </div>
     )}
   />
 )
-
-Layout.propTypes = {
-  children: PropTypes.node.isRequired,
-}
 
 export default Layout
