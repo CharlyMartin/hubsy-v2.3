@@ -17,7 +17,6 @@
 
 const path = require('path');
 const languagePath = {
-  'es': '/es',
   'fr': '/',
   'en': '/en',
 }
@@ -27,6 +26,7 @@ const languagePath = {
 exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions;
   const index = path.resolve(`src/pages/index.jsx`);
+  const shops = path.resolve(`src/pages/shops.jsx`);
   
   Object.entries(languagePath).forEach( ([locale, path]) => {
     // console.log(locale, path);
@@ -35,6 +35,17 @@ exports.createPages = ({ graphql, actions }) => {
     createPage({
       path: path,
       component: index,
+      context: {
+        test: `hello from context`,
+        locale: locale
+      }
+      // Add optional context data, available at this.props.pageContext
+      // Data can be used as arguments to the page GraphQL query.
+    })
+
+    createPage({
+      path: `${path}/shops`,
+      component: shops,
       context: {
         test: `hello from context`,
         locale: locale
