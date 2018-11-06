@@ -16,46 +16,84 @@
  */
 
 const path = require('path');
-const languagePath = {
-  'fr': '/',
-  'en': '/en',
-}
+const languagePath = {'fr': '/', 'en': '/en',}
 
 // The Gatsby API “createPages” is called once the
 // data layer is bootstrapped to let plugins create pages from data.
 exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions;
+
+  // PAGES
   const home = path.resolve(`src/pages/home.jsx`);
   const shops = path.resolve(`src/pages/shops.jsx`);
-  
-  Object.entries(languagePath).forEach( ([locale, path]) => {
-    // console.log(locale, path);
-    
-    // Home page
-    createPage({
-      path: path,
-      component: home,
-      context: {
-        locale
-      }
-      // Add optional context data, available at this.props.pageContext
-      // Data can be used as arguments to the page GraphQL query.
+
+  // TEMPLATES
+
+
+  // FUNCTIONS
+  function fetchHomeData(lang) {
+    const promise = new Promise(function(resolve) {
+      resolve(
+        graphql(`
+          {
+            allAirtable(filter: {table: {eq: "home_page"}, data: {language: {eq: "${lang}"}}}) {
+              edges {
+                node {
+                  data {
+                    brand
+                    caption
+                    button
+                    referrals
+                    pictures {
+                      url
+                    }
+                    concept
+                    language
+                  }
+                }
+              }
+            }
+          }
+        `)
+      )
     })
+    return promise;
+  }
+
+  // Creating pages for "/" and "/en"
+  Object.entries(languagePath).forEach( ([locale, prefix]) => {
+
+    fetchHomeData(locale)
+      .then(response => {
+        const results = response.data.allAirtable.edges;
+        results.forEach(result => {
+          // Home page
+          createPage({
+            path: prefix,
+            component: home,
+            context: {
+              locale,
+              prefix,
+              data: result.node.data
+            }
+            // Add optional context data, available at this.props.pageContext
+            // Data can be used as arguments to the page GraphQL query.
+          });
+          console.log(`${prefix} for ${locale.toUpperCase()} built 🎉`);
+        });
+      })
+
+
 
     // Shops page
-    createPage({
-      path: `${path}/shops`,
-      component: shops,
-      context: {
-        test: `hello from context`,
-        locale: locale
-      }
-    })
+    // createPage({
+    //   path: `${prefix}/shops`,
+    //   component: shops,
+    //   context: {locale, prefix}
+    // })
     return;
   });
 };
-
-
 
 // {
 //   allAirtable(filter: {table: {eq: "navbar"}}) {

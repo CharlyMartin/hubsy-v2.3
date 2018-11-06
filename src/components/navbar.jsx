@@ -2,7 +2,7 @@ import React from 'react'
 // import { graphql } from 'gatsby'
 // import { Link } from 'gatsby'
 
-const Navbar = (props) => {
+const Navbar = (props) =>  {
   return (
     <div>
       <h1>This is a Navbar in {props.locale}</h1>
@@ -36,4 +36,4 @@ const Navbar = (props) => {
 // `
   
 
-export default Navbar
+export default Navbar;

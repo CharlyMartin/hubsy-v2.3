@@ -25,6 +25,8 @@ class HomePage extends React.Component {
   
   render() {
     const locale = this.props.pageContext.locale;
+    const prefix = this.props.pageContext.prefix;
+    console.log(this.props);
     
     return (
       <Layout locale={locale}>
@@ -34,11 +36,10 @@ class HomePage extends React.Component {
         {/* <div style={{ maxWidth: '300px', marginBottom: '1.45rem' }}>
           <Image />
         </div> */}
-        <Link to="/shops/">Go to page 2</Link>
+        <Link to={`${prefix}/shops`} >Shops</Link>
       </Layout>
     )
   }
 }
   
-
-export default HomePage
+export default HomePage;
