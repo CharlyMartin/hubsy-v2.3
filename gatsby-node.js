@@ -42,3 +42,28 @@ exports.createPages = ({ graphql, actions }) => {
     return;
   });
 };
+
+
+
+// {
+//   allAirtable(filter: {table: {eq: "navbar"}}) {
+//     edges {
+//       node {
+//         data {
+//           concept
+//           rooms_all
+//           shops_all
+//           language
+//           barista_training
+//           privatize
+//           book
+//           privatize_text
+//           pricing
+//           book_text
+//           buy_coffee
+//           blog
+//         }
+//       }
+//     }
+//   }
+// }
