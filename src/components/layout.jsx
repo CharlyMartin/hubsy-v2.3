@@ -30,7 +30,7 @@ class Layout extends React.Component {
             { name: 'description', content: 'Sample' },
             { name: 'keywords', content: 'sample, something' },
           ]}>
-          <html lang="en" />
+          <html lang={this.props.locale} />
         </Helmet>
   
         <Navbar locale={this.props.locale} />

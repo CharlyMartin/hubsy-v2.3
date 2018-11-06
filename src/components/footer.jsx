@@ -4,10 +4,9 @@ import React from 'react'
 const Footer = (props) => {
   return (
     <div>
-      <h1>This is a Footer</h1>
+      <h1>This is a Footer in {props.locale}</h1>
     </div>
   )
 }
   
-
-export default Footer
+export default Footer;

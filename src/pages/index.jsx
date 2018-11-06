@@ -18,16 +18,18 @@ class IndexPage extends React.Component {
   // }
   
   render() {
+    const locale = this.props.pageContext.locale || 'fr'
+    console.log(locale);
+
     return (
-      <Layout locale={this.props.pageContext.locale}>
-        {console.log(this.props.pageContext.locale)}
+      <Layout locale={locale}>
         <h1>Hi people</h1>
-        <h2>This page is in</h2>
+        <h2>This page is in {locale}</h2>
         <p>Welcome to your new Gatsby site.</p>
-        <div style={{ maxWidth: '300px', marginBottom: '1.45rem' }}>
+        {/* <div style={{ maxWidth: '300px', marginBottom: '1.45rem' }}>
           <Image />
         </div>
-        <Link to="/page-2/">Go to page 2</Link>
+        <Link to="/page-2/">Go to page 2</Link> */}
       </Layout>
     )
   }
