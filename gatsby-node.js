@@ -17,10 +17,13 @@
 
 const path = require('path');
 const languagePath = {
+  'es': '/es',
   'fr': '/',
   'en': '/en',
 }
 
+// The Gatsby API “createPages” is called once the
+// data layer is bootstrapped to let plugins create pages from data.
 exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions;
   const index = path.resolve(`src/pages/index.jsx`);

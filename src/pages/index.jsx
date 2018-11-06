@@ -4,18 +4,34 @@ import { Link } from 'gatsby'
 import Layout from '../components/layout'
 import Image from '../components/image'
 
-const IndexPage = (data) => (
-  <Layout>
-    {console.log(data)}
-    <h1>Hi people</h1>
-    <h2>This page is in</h2>
-    <p>Welcome to your new Gatsby site.</p>
-    <p>Now go build something great.</p>
-    <div style={{ maxWidth: '300px', marginBottom: '1.45rem' }}>
-      <Image />
-    </div>
-    <Link to="/page-2/">Go to page 2</Link>
-  </Layout>
-)
+// Components under src/pages become pages automatically with paths based on their file name.
+// For example src/pages/index.jsx is mapped to yoursite.com and src/pages/about.jsx becomes yoursite.com/about/.
+// Every .js or .jsx file in the pages directory must resolve to either a string or react component, otherwise your build will fail.
+
+class IndexPage extends React.Component {
+  // constructor(props) {
+  //   super(props)
+    
+  //   this.state {
+
+  //   }
+  // }
+  
+  render() {
+    return (
+      <Layout locale={this.props.pageContext.locale}>
+        {console.log(this.props.pageContext.locale)}
+        <h1>Hi people</h1>
+        <h2>This page is in</h2>
+        <p>Welcome to your new Gatsby site.</p>
+        <div style={{ maxWidth: '300px', marginBottom: '1.45rem' }}>
+          <Image />
+        </div>
+        <Link to="/page-2/">Go to page 2</Link>
+      </Layout>
+    )
+  }
+}
+  
 
 export default IndexPage

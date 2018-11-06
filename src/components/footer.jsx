@@ -1,8 +1,13 @@
 import React from 'react'
 // import { Link } from 'gatsby'
 
-const Footer = ({ siteTitle }) => (
-  <h1>This is a footer</h1>
-)
+const Footer = (props) => {
+  return (
+    <div>
+      <h1>This is a Footer</h1>
+    </div>
+  )
+}
+  
 
 export default Footer
