@@ -25,7 +25,7 @@ const languagePath = {
 // data layer is bootstrapped to let plugins create pages from data.
 exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions;
-  const index = path.resolve(`src/pages/index.jsx`);
+  const home = path.resolve(`src/pages/home.jsx`);
   const shops = path.resolve(`src/pages/shops.jsx`);
   
   Object.entries(languagePath).forEach( ([locale, path]) => {
@@ -34,15 +34,15 @@ exports.createPages = ({ graphql, actions }) => {
     // Home page
     createPage({
       path: path,
-      component: index,
+      component: home,
       context: {
-        test: `hello from context`,
-        locale: locale
+        locale
       }
       // Add optional context data, available at this.props.pageContext
       // Data can be used as arguments to the page GraphQL query.
     })
 
+    // Shops page
     createPage({
       path: `${path}/shops`,
       component: shops,
@@ -50,8 +50,6 @@ exports.createPages = ({ graphql, actions }) => {
         test: `hello from context`,
         locale: locale
       }
-      // Add optional context data, available at this.props.pageContext
-      // Data can be used as arguments to the page GraphQL query.
     })
     return;
   });

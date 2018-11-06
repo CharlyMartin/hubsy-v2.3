@@ -8,26 +8,28 @@ import Layout from '../components/layout'
 // For example src/pages/index.jsx is mapped to yoursite.com and src/pages/about.jsx becomes yoursite.com/about/.
 // Every .js or .jsx file in the pages directory must resolve to either a string or react component, otherwise your build will fail.
 
-class IndexPage extends React.Component {
-  constructor(props) {
-    super(props);
-    const locale = this.props.pageContext.locale || 'fr';
-    const path = this.props.pageContext.locale || '/';
+class HomePage extends React.Component {
+  // constructor(props) {
+  //   super(props);
+  //   const locale = this.props.pageContext.locale || 'fr';
+  //   const path = this.props.pageContext.locale || '/';
 
-    this.state = {
-      locale,
-      path
-    }
-  }
+  //   // Index default to home page. Hence, "/" does not have access to 
+  //   // pageContext, as it is not created by createPage().
+  //   // There's nothing on "/en" so this one is created by createPage().
+  //   this.state = {
+  //     locale,
+  //     path
+  //   }
+  // }
   
   render() {
+    const locale = this.props.pageContext.locale;
     
-    console.log(this.state.locale);
-
     return (
-      <Layout locale={this.state.locale}>
+      <Layout locale={locale}>
         <h1>Hi people</h1>
-        <h2>This page is in {this.state.locale}</h2>
+        <h2>This page is in {locale}</h2>
         <p>Welcome to your new Gatsby site.</p>
         {/* <div style={{ maxWidth: '300px', marginBottom: '1.45rem' }}>
           <Image />
@@ -39,4 +41,4 @@ class IndexPage extends React.Component {
 }
   
 
-export default IndexPage
+export default HomePage
