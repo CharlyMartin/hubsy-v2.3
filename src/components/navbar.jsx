@@ -1,5 +1,5 @@
-import React from 'react'
-import { StaticQuery, graphql } from "gatsby"
+import React from 'react';
+import { StaticQuery, graphql } from "gatsby";
 // import { Link } from 'gatsby'
 
 function extractLocalisedObject(arrays, lang) {
@@ -47,5 +47,5 @@ export default (props) => {
         <h1>This is a Navbar in {content.language}</h1>
       )}
     }
-  />)  
+  />)
 }
