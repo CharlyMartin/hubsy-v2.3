@@ -16,7 +16,7 @@ export default (props) => {
   return (<StaticQuery
     query={graphql`
       query airtableNavbarData {
-        allAirtable(filter: {table: {eq: "navbar_comp"}}) {
+        allAirtable(filter: {table: {eq: "navbar"}}) {
           edges {
             node {
               data {

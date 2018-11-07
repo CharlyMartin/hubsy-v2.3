@@ -39,7 +39,7 @@ module.exports = {
           // baseId = Content
           {
             baseId: contentBaseId,
-            tableName: `navbar_comp`,
+            tableName: `navbar`,
             tableView: defaultView,
             // queryName: `OPTIONAL_NAME_TO_IDENTIFY_TABLE`, // optional
             // mapping: { `CASE_SENSITIVE_COLUMN_NAME`: `VALUE_FORMAT` }, // optional, e.g. "text/markdown", "fileNode"
@@ -47,7 +47,7 @@ module.exports = {
           },
           {
             baseId: contentBaseId,
-            tableName: `footer_comp`,
+            tableName: `footer`,
             tableView: defaultView,
           },
           {
