@@ -27,6 +27,7 @@ class HomePage extends React.Component {
     const locale = this.props.pageContext.locale;
     const prefix = this.props.pageContext.prefix;
     console.log(this.props);
+    console.log(this.props)
     
     return (
       <Layout locale={locale}>
@@ -43,3 +44,13 @@ class HomePage extends React.Component {
 }
   
 export default HomePage;
+
+export const query = graphql`
+  query {
+    site {
+      siteMetadata {
+        title
+      }
+    }
+  }
+`

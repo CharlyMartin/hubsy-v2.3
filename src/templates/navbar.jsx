@@ -12,7 +12,9 @@ export default (props) => (
 export const query = graphql`
   query {
     site {
-      siteMetadata
+      siteMetadata {
+        title
+      }
     }
   }
 `

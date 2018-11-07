@@ -1,38 +1,56 @@
-// import React from 'react'
-// import { StaticQuery, graphql } from "gatsby"
-// // import { Link } from 'gatsby'
+import React from 'react'
+import { StaticQuery, graphql } from "gatsby"
+// import { Link } from 'gatsby'
 
-// const Navbar = (props) =>  {
-//   return <StaticQuery
-//     query={graphql`
-//       {
-//         allAirtable(filter: {table: {eq: "navbar_comp"}, data: {language: {eq: "${props.locale}"}}}) {
-//           edges {
-//             node {
-//               data {
-//                 concept
-//                 rooms_all
-//                 shops_all
-//                 language
-//                 barista_training
-//                 privatize
-//                 book
-//                 privatize_text
-//                 pricing
-//                 book_text
-//                 buy_coffee
-//                 blog
-//               }
-//             }
-//           }
-//         }
-//       }
-//     `}
+function extractLocalisedObject(arrays, lang) {
+  const array = arrays.filter(array => array.node.data.language === lang);
+  const innerObject = array[0];
+  return innerObject;
+}
 
-//     render={data => (
-//       <h1>This is a Navbar</h1>
-//     )}
-//   />
-// }
-  
-// export default Navbar;
+function extractObjectData(object) {
+  return object.node.data;
+}
+
+export default (props) => {
+  return (<StaticQuery
+    query={graphql`
+      query airtableNavbarData {
+        allAirtable(filter: {table: {eq: "navbar_comp"}}) {
+          edges {
+            node {
+              data {
+                language
+                venues
+                booking
+                book
+                book_text
+                privatize
+                privatize_text
+                pricing
+                concept
+                blog
+                coffee
+                barista
+              }
+            }
+          }
+        }
+      }
+    `
+    }
+
+    render={(data) => {
+      const arrays = data.allAirtable.edges;
+      const locale = props.locale;
+
+      const localisedObject = extractLocalisedObject(arrays, locale);
+      const content = extractObjectData(localisedObject);
+
+      console.log(content);
+      return (
+        <h1>This is a Navbar in {content.language}</h1>
+      )}
+    }
+  />)  
+}

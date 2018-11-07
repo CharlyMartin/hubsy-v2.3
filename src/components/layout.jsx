@@ -1,8 +1,8 @@
 import React from 'react'
 import Helmet from 'react-helmet'
-// import { StaticQuery, graphql } from 'gatsby'
+import { StaticQuery, graphql } from 'gatsby'
 
-import Navbar from '../templates/navbar'
+import Navbar from './navbar'
 import Footer from './footer'
 
 import './layout.css'
@@ -31,4 +31,5 @@ const Layout = (props) => {
   )
 }
 
-export default Layout
+export default Layout;
+
