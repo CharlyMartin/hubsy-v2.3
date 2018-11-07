@@ -1,34 +1,16 @@
-/**
- * Implement Gatsby's Node APIs in this file.
- *
- * NODE API
- * https://www.gatsbyjs.org/docs/node-apis/
- * 
- * EXAMPLE NO GRAPHQL
- * https://www.gatsbyjs.org/blog/2018-10-25-unstructured-data/#1-use-gatsbys-createpages-api
- * 
- * GH REPOS
- * https://github.com/gatsbyjs/gatsby/issues/3025
- * https://github.com/gatsbyjs/gatsby/issues/2957
- * 
- * LAYOUT VS COMPONENT
- * https://www.gatsbyjs.org/blog/2018-06-08-life-after-layouts/
- */
-
 const path = require('path');
 const languagePath = {'fr': '/', 'en': '/en',}
+
+// PAGES
+const home = path.resolve(`src/pages/home.jsx`);
+const shops = path.resolve(`src/pages/shops.jsx`);
+
+// TEMPLATES
 
 // The Gatsby API “createPages” is called once the
 // data layer is bootstrapped to let plugins create pages from data.
 exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions;
-
-  // PAGES
-  const home = path.resolve(`src/pages/home.jsx`);
-  const shops = path.resolve(`src/pages/shops.jsx`);
-
-  // TEMPLATES
-
 
   // FUNCTIONS
   function fetchHomeData(lang) {
@@ -78,8 +60,8 @@ exports.createPages = ({ graphql, actions }) => {
             }
             // Add optional context data, available at this.props.pageContext
             // Data can be used as arguments to the page GraphQL query.
-          });
-          console.log(`${prefix} for ${locale.toUpperCase()} built 🎉`);
+          });          
+          console.log(`${prefix} built 🎉`);
         });
       })
 
