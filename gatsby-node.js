@@ -44,6 +44,38 @@ exports.createPages = ({ graphql, actions }) => {
     return promise;
   }
 
+  function fetchNavbarData(lang) {
+    const promise = new Promise(function(resolve) {
+      resolve(
+        graphql(`
+          {
+            allAirtable(filter: {table: {eq: "navbar"}, data: {language: {eq: "${lang}"}}}) {
+              edges {
+                node {
+                  data {
+                    venues
+                    booking
+                    book
+                    book_text
+                    privatize
+                    privatize_text
+                    pricing
+                    concept
+                    blog
+                    coffee
+                    barista
+                    language
+                  }
+                }
+              }
+            }
+          }        
+        `)
+      )
+    })
+    return promise;
+  }
+
   // Creating pages for "/" and "/en"
   Object.entries(languagePath).forEach( ([locale, prefix]) => {
 
@@ -67,22 +99,23 @@ exports.createPages = ({ graphql, actions }) => {
       });
 
 
-    // // NAVBAR NODES CREATION
-    // fetchNavbarData(locale)
-    //   .then(response => {
-    //     const results = response.data.allAirtable.edges;
-    //     results.forEach(result => {
+    // NAVBAR NODES CREATION
+    fetchNavbarData(locale)
+      .then(response => {
+        const results = response.data.allAirtable.edges;
+        results.forEach(result => {
 
-    //       createNode({
-    //         id: `${locale}`,
-    //         data: result.node.data,
-    //         internal: {
-    //           type: `Navbar`,
-    //           contentDigest: `navbar node in ${locale}`
-    //         }
-    //       });
-    //     });            
-    //   });
+          createNode({
+            id: `${locale}`,
+            data: result.node.data,
+            internal: {
+              type: `Navbar`,
+              contentDigest: `navbar node in ${locale}`
+            }
+          });
+          console.log(`navbar for ${prefix} loaded 🎉`);
+        });            
+      });
 
     return;
   });

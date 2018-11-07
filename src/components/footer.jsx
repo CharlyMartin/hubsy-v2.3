@@ -41,11 +41,11 @@ export default (props) => {
     }
 
     render={(data) => {
-      const arrays = data.allAirtable.edges;
-      const object = extractLocalisedObject(arrays, props.locale);
-      const content = object;
+      // const arrays = data.allAirtable.edges;
+      // const object = extractLocalisedObject(arrays, props.locale);
+      // const content = object;
 
-      console.log(content);
+      // console.log(content);
       return (
         <h1>This is a Footer in</h1>
       )}

@@ -8,19 +8,15 @@ function extractLocalisedObject(arrays, lang) {
   return innerObject;
 }
 
-// function extractData(object) {
-//   return object.node.data;
-// }
-
 export default (props) => {
   return (<StaticQuery
     query={graphql`
-      query airtableNavbarData {
-        allAirtable(filter: {table: {eq: "navbar"}}) {
+      query {
+        allNavbar {
           edges {
             node {
+              id
               data {
-                language
                 venues
                 booking
                 book
@@ -32,6 +28,7 @@ export default (props) => {
                 blog
                 coffee
                 barista
+                language
               }
             }
           }
@@ -41,13 +38,13 @@ export default (props) => {
     }
 
     render={(data) => {
-      const arrays = data.allAirtable.edges;
+      const arrays = data.allNavbar.edges;
       const object = extractLocalisedObject(arrays, props.locale);
-      const content = object;
+      const content = object.node.data;
 
-      console.log(content);
+      // console.log(content);
       return (
-        <h1>This is a Navbar in</h1>
+        <h1>This is a Navbar in {content.language}</h1>
       )}
     }
   />)  
