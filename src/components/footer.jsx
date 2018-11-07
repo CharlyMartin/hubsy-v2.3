@@ -8,9 +8,9 @@ function extractLocalisedObject(arrays, lang) {
   return innerObject;
 }
 
-function extractObjectData(object) {
-  return object.node.data;
-}
+// function extractObjectData(object) {
+//   return object.node.data;
+// }
 
 export default (props) => {
   return (<StaticQuery
@@ -42,14 +42,12 @@ export default (props) => {
 
     render={(data) => {
       const arrays = data.allAirtable.edges;
-      const locale = props.locale;
-
-      const localisedObject = extractLocalisedObject(arrays, locale);
-      const content = extractObjectData(localisedObject);
+      const object = extractLocalisedObject(arrays, props.locale);
+      const content = object;
 
       console.log(content);
       return (
-        <h1>This is a Footer in {content.language}</h1>
+        <h1>This is a Footer in</h1>
       )}
     }
   />)  
