@@ -28,15 +28,18 @@ class HomePage extends React.Component {
     return (
       <Layout locale={context.locale}>
         <img src={this.state.selectedImage.url} alt="Hero banner Hubsy Café" />
-        <h1>{context.data.brand}</h1>
-        <h2>{context.data.caption}</h2>
-        <p>This page is in {context.locale}</p>
+        
+        <div className="container">
+          <h1>{context.data.brand}</h1>
+          <h2>{context.data.caption}</h2>
+          <p>This page is in {context.locale}</p>
 
-        {/* <div style={{ maxWidth: '300px', marginBottom: '1.45rem' }}>
-          <Image />
-        </div> */}
+          {/* <div style={{ maxWidth: '300px', marginBottom: '1.45rem' }}>
+            <Image />
+          </div> */}
 
-        <Link to={`${context.prefix}/shops`} >Shops</Link>
+          <Link to={`${context.prefix}/shops`} >Shops</Link>
+        </div>
       </Layout>
     )
   }

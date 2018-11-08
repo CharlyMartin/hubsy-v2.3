@@ -22,13 +22,9 @@ class Navbar extends React.Component {
 
     return (
       <div>
-        <h1>This is a Navbar in {content.language}</h1>
-        <ul>
-          <li>{content.venues}</li>
-          <li>{content.booking}</li>
-          <li>{content.pricing}</li>
-          <li>{content.blog}</li>
-        </ul>
+        <div className="container">
+          <h1>This is a Navbar in {content.language}</h1>
+          </div>
       </div>
     )
   }

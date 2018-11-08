@@ -1,0 +1,23 @@
+:root {
+  /* Brand colours */
+  --hubsy-beige: rgba(227, 190, 124, 1);
+  --hubsy-red: rgba(226, 109, 90, 1);
+  --hubsy-green: rgba(88, 139, 139, 1);
+  
+  /* Blacks */
+  --black-dark: rgba(25, 25, 25, 1);
+  --black-normal: rgba(25, 25, 25, 0.8);
+  --black-light: rgba(25, 25, 25, 0.6);
+  --black-lighter: rgba(25, 25, 25, 0.3);
+  
+  /* Whites */
+  --white-dark: rgba(227, 190, 124, 0.2);
+  --white-normal: rgba(227, 190, 124, 0.14);
+  --white-light: rgba(227, 190, 124, 0.02);
+  --white-lighter: rgba(247, 247, 245, 1);
+  
+  /* Box Shadows */
+  --shadow-lighter: 0px 0px 14px rgba(25, 25, 25, 0.05);
+  --shadow-light: 0px 0px 12px rgba(25, 25, 25, 0.1);
+  --shadow-dark: 0px 0px 10px rgba(25, 25, 25, 0.2);
+}

@@ -1,0 +1,85 @@
+@import url('config/reset.css');
+@import url('config/colours.css');
+@import url('config/sizes.css');
+@import url('config/fonts.css');
+
+
+/* Text */
+h1 {
+  font-family: var(--font);
+  font-size: var(--h1-size);
+  font-weight: 800;
+  color: var(--black-dark);
+  letter-spacing: -0.02rem;
+  margin-bottom: var(--space-xl);
+}
+
+h2 {
+  font-family: var(--font);
+  font-size: var(--h2-size);
+  font-weight: 600;
+  color: var(--black-normal);
+  margin-bottom: var(--space-sm);
+}
+
+h3 {
+  font-family: var(--font);
+  font-size: var(--h3-size);
+  font-weight: 700;
+  color: var(--black-light);
+}
+
+p, .text {
+  font-family: var(--font);
+  font-size: var(--text-size);
+  font-weight: 400;
+  color: var(--black-normal);
+}
+
+.text-small {
+  font-family: var(--font);
+  font-size: var(--text-small-size);
+  font-weight: 300;
+  color: var(--black-light);
+}
+
+
+/* Container */
+.container {
+  width: 950px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.container-margin {
+  margin-top: var(--space-xxl);
+  margin-bottom: var(--space-xxl);
+}
+
+
+/* @media (max-width: $width-sm) {
+  .container {
+    width: 540px;
+  }
+}
+
+@media (max-width: $width-md) {
+  .container {
+    width: 720px;
+  }
+}
+
+@media (max-width: $width-lg) {
+  .container {
+    width: 960px;
+  }
+} */
+
+
+
+/* Media queries */
+/* @media only screen and (max-width: 480px) {
+  html {
+    font-size: 100%;
+  }
+} */

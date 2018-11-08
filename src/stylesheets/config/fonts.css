@@ -1,0 +1,19 @@
+@import url('https://fonts.googleapis.com/css?family=Nunito+Sans:200,300,400,600,700,800,900|Open+Sans:300,400');
+
+:root {  
+  /* Google Font */
+  --font: 'Nunito Sans', sans-serif;
+
+  /* Font sizes */
+  --title-size: 32px;
+  --h1-size: 28px;
+  --h2-size: 22px;
+  --h3-size: 18px;
+  --text-size: 16px;
+  --text-small-size: 14px;
+  
+  /* Misc */
+  --line-height: 1.7;
+  --letter-spacing: .01rem;
+  --negative-letter-spacing: -0.04rem;
+}

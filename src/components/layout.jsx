@@ -1,11 +1,11 @@
-import React from 'react'
-import Helmet from 'react-helmet'
-import { StaticQuery, graphql } from 'gatsby'
+import React from 'react';
+import Helmet from 'react-helmet';
+import { StaticQuery, graphql } from 'gatsby';
 
-import Navbar from './navbar'
-import Footer from './footer'
+import Navbar from './navbar';
+import Footer from './footer';
 
-import './layout.css'
+import '../stylesheets/global.css';
 
 // We can now add GraphQL queries to any component in our app (not just page components) using StaticQuery
 
