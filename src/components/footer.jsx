@@ -1,26 +1,23 @@
-import React from 'react'
-import { StaticQuery, graphql } from "gatsby"
+import React from 'react';
+import { StaticQuery, graphql } from "gatsby";
 // import { Link } from 'gatsby'
 
-function extractLocalisedObject(arrays, lang) {
-  const array = arrays.filter(array => array.node.data.language === lang);
-  const innerObject = array[0];
-  return innerObject;
+function extractObject(array, lang = 'fr') {
+  // Components are called internally during the build sequence,
+  // making locale = undefined which returns an empty object and fail the build.
+  // The default params 'fr' prevents that!
+  console.log(array, lang);
+  return array.filter(obj => obj.node.data.language === lang);
 }
-
-// function extractObjectData(object) {
-//   return object.node.data;
-// }
 
 export default (props) => {
   return (<StaticQuery
     query={graphql`
-      query airtableFooterData {
+      query {
         allAirtable(filter: {table: {eq: "footer"}}) {
           edges {
             node {
               data {
-                language
                 venues
                 booking
                 book
@@ -32,23 +29,23 @@ export default (props) => {
                 blog
                 coffee
                 barista
+                language
               }
             }
           }
         }
-      }
+      }  
     `
     }
 
-    render={(data) => {
-      // const arrays = data.allAirtable.edges;
-      // const object = extractLocalisedObject(arrays, props.locale);
-      // const content = object;
+    render={(data) => {      
+      const array = data.allAirtable.edges;
+      const obj = extractObject(array, props.locale);
+      const content = obj[0].node.data;
 
-      // console.log(content);
       return (
-        <h1>This is a Footer in</h1>
+        <h1>This is a Footer in {content.language}</h1>
       )}
     }
-  />)  
+  />)
 }

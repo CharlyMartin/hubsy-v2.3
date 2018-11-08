@@ -3,7 +3,7 @@ import Helmet from 'react-helmet'
 import { StaticQuery, graphql } from 'gatsby'
 
 import Navbar from './navbar'
-// import Footer from './footer'
+import Footer from './footer'
 
 import './layout.css'
 
@@ -40,7 +40,7 @@ export default (props) => {
 
             <Navbar locale={props.locale} />
             {props.children}
-            {/* <Footer locale={props.locale} /> */}
+            <Footer locale={props.locale} />
           </div>
         )}
       }

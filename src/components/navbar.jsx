@@ -3,9 +3,9 @@ import { StaticQuery, graphql } from "gatsby";
 // import { Link } from 'gatsby'
 
 function extractObject(array, lang = 'fr') {
-  // Components are called internally, making locale = undefined
-  // which returns an empty object and fail the build
-  // the default = 'fr' flag prevents that!
+  // Components are called internally during the build sequence,
+  // making locale = undefined which returns an empty object and fail the build.
+  // The default params 'fr' prevents that!
   console.log(array, lang);
   return array.filter(obj => obj.node.data.language === lang);
 }
@@ -42,8 +42,6 @@ export default (props) => {
       const array = data.allAirtable.edges;
       const obj = extractObject(array, props.locale);
       const content = obj[0].node.data;
-
-      console.log(content);
 
       return (
         <h1>This is a Navbar in {content.language}</h1>
