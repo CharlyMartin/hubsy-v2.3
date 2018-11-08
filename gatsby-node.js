@@ -2,7 +2,7 @@ const path = require('path');
 const languagePath = {'fr': '/', 'en': '/en',}
 
 // PAGES
-const home = path.resolve(`src/pages/home.jsx`);
+const home = path.resolve(`src/templates/home.jsx`);
 const shops = path.resolve(`src/pages/shops.jsx`);
 
 // TEMPLATES

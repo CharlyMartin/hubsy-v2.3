@@ -26,7 +26,7 @@ class HomePage extends React.Component {
   render() {
     const locale = this.props.pageContext.locale;
     const prefix = this.props.pageContext.prefix;
-    // console.log(this.props);
+    console.log(this.props);
     
     return (
       <Layout locale={locale}>
