@@ -45,10 +45,22 @@ class HomePage extends React.Component {
 export default HomePage;
 
 export const query = graphql`
-  query {
-    site {
-      siteMetadata {
-        title
+  {
+    allAirtable(filter: {table: {eq: "navbar"}}) {
+      edges {
+        node {
+          data {
+            brand
+            caption
+            button
+            referrals
+            pictures {
+              url
+            }
+            concept
+            language
+          }
+        }
       }
     }
   }

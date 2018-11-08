@@ -4,7 +4,7 @@ const contentBaseId = `appjg3ShOoZQxtkqi`
 
 module.exports = {
   siteMetadata: {
-    title: 'Gatsby Default Starter',
+    title: 'Hubsy | Café & Coworking',
   },
   plugins: [
     'gatsby-plugin-react-helmet',

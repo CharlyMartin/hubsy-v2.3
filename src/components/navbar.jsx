@@ -2,20 +2,21 @@ import React from 'react';
 import { StaticQuery, graphql } from "gatsby";
 // import { Link } from 'gatsby'
 
-function extractLocalisedObject(arrays, lang) {
-  const array = arrays.filter(array => array.node.data.language === lang);
-  const innerObject = array[0];
-  return innerObject;
+function extractObject(array, lang = 'fr') {
+  // Components are called internally, making locale = undefined
+  // which returns an empty object and fail the build
+  // the default = 'fr' flag prevents that!
+  console.log(array, lang);
+  return array.filter(obj => obj.node.data.language === lang);
 }
 
 export default (props) => {
   return (<StaticQuery
     query={graphql`
       query {
-        allNavbar {
+        allAirtable(filter: {table: {eq: "navbar"}}) {
           edges {
             node {
-              id
               data {
                 venues
                 booking
@@ -33,19 +34,55 @@ export default (props) => {
             }
           }
         }
-      }
+      }  
     `
     }
 
-    render={(data) => {
-      const arrays = data.allNavbar.edges;
-      const object = extractLocalisedObject(arrays, props.locale);
-      const content = object.node.data;
+    render={(data) => {      
+      const array = data.allAirtable.edges;
+      const obj = extractObject(array, props.locale);
+      const content = obj[0].node.data;
 
-      // console.log(content);
+      console.log(content);
+
       return (
         <h1>This is a Navbar in {content.language}</h1>
       )}
     }
   />)
 }
+
+
+// class Navbar extends React.Component {
+//   constructor(props) {
+//     super(props);
+//     this.state = {
+//       fr: {},
+//       en: {}
+//     }
+//   }
+  
+//   componentDidMount() {
+//     var Airtable = require('airtable');
+//     var base = new Airtable({apiKey: 'key7nPLJ4faTkoF4S'}).base('appjg3ShOoZQxtkqi');
+
+//     base('navbar').select({maxRecords: 10,})
+//       .eachPage(function page(records) {
+//         records.forEach(function(record) {
+//         console.log(record.fields);
+
+//         record.fields.language === 'en' ? this.setState({en: record.fields}) : null;
+//     });
+
+//     // this.setState({content: "new content"});
+//     });
+//   }
+
+//   render() {
+//     return (
+//       <h1>This is a Navbar in</h1>
+//     )
+//   }
+// }
+
+// export default Navbar;

@@ -3,7 +3,7 @@ import Helmet from 'react-helmet'
 import { StaticQuery, graphql } from 'gatsby'
 
 import Navbar from './navbar'
-import Footer from './footer'
+// import Footer from './footer'
 
 import './layout.css'
 
@@ -12,24 +12,41 @@ import './layout.css'
 // page queries can accept variables (via pageContext) but can only be added to page components
 // StaticQuery does not accept variables (hence the name “static”), but can be used in any component, including pages
 
-const Layout = (props) => {
+export default (props) => {
   return (
-    <div>
-      <Helmet
-        title={"Hubsy | Café & Coworking"}
-        meta={[
-          { name: 'description', content: 'Sample' },
-          { name: 'keywords', content: 'sample, something' },
-        ]}>
-        <html lang={props.locale} />
-      </Helmet>
+    <StaticQuery
+    query={graphql`
+      query HeadingQuery {
+        site {
+          siteMetadata {
+            title
+          }
+        }
+      }
+    `}
+      
+      render={(data) => {
+        console.log(data);
+        return (
+          <div>
+            <Helmet
+              title={data.site.siteMetadata.title}
+              meta={[
+                { name: 'description', content: 'Sample' },
+                { name: 'keywords', content: 'sample, something' },
+              ]}>
+              <html lang={props.locale} />
+            </Helmet>
 
-      <Navbar locale={props.locale} />
-      {props.children}
-      <Footer locale={props.locale} />
-    </div>
+            <Navbar locale={props.locale} />
+            {props.children}
+            {/* <Footer locale={props.locale} /> */}
+          </div>
+        )}
+      }
+    />
   )
 }
 
-export default Layout;
+// export default Layout;
 
