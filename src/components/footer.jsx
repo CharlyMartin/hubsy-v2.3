@@ -6,7 +6,7 @@ function extractObject(array, lang = 'fr') {
   // Components are called internally during the build sequence,
   // making locale = undefined which returns an empty object and fail the build.
   // The default params 'fr' prevents that!
-  console.log(array, lang);
+  // console.log(array, lang);
   return array.filter(obj => obj.node.data.language === lang);
 }
 

@@ -26,7 +26,7 @@ export default (props) => {
     `}
       
       render={(data) => {
-        console.log(data);
+        // console.log(data);
         return (
           <div>
             <Helmet
