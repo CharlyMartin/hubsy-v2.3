@@ -2,7 +2,7 @@ import React from 'react'
 import { Link, graphql } from 'gatsby'
 
 import Layout from '../components/layout'
-import Image from '../components/image'
+// import Logo from '../components/logo'
 
 // Components under src/pages become pages automatically with paths based on their file name.
 // For example src/pages/index.jsx is mapped to yoursite.com and src/pages/about.jsx becomes yoursite.com/about/.

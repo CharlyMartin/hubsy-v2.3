@@ -5,7 +5,7 @@ import { StaticQuery, graphql } from 'gatsby';
 import Navbar from './navbar';
 import Footer from './footer';
 
-import '../stylesheets/global.css';
+import '../css/global.css';
 
 // We can now add GraphQL queries to any component in our app (not just page components) using StaticQuery
 

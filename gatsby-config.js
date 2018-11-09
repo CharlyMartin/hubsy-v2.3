@@ -57,14 +57,6 @@ module.exports = {
           },
         ]
       }
-    },
-    // i18n config
-    // {
-    //   resolve: 'gatsby-plugin-i18n',
-    //   options: {        
-    //     langKeyDefault: 'fr',
-    //     useLangKeyLayout: false
-    //   }
-    // }
-  ],
+    }
+  ]
 }
