@@ -21,8 +21,6 @@ class Navbar extends React.Component {
     // }
   }
 
-
-
   componentDidMount() {
     navbarDropdown();
   }

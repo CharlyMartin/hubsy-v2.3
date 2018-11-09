@@ -3,9 +3,8 @@ function navbarDropdown() {
   const triggers = document.querySelectorAll('.with-dropdown');
 
   // 2. Functions
-  function toggle(event) {
+  function toggle() {
     const dropdown = this.querySelector('.navbar-dropdown');
-    console.log(event, dropdown);
     dropdown.classList.toggle('dropdown-active');
   }
 
