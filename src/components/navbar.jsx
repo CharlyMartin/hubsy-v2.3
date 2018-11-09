@@ -43,6 +43,7 @@ class Navbar extends React.Component {
   }
   
   render() {
+    console.log(this.props);
     const array = this.props.data.allAirtable.edges;
     const obj = this.extractObject(array, this.props.locale);
     const content = obj[0].node.data;

@@ -26,7 +26,7 @@ export default (props) => {
     `}
       
       render={(data) => {
-        // console.log(data);
+        console.log(props);
         return (
           <div>
             <Helmet
@@ -38,9 +38,9 @@ export default (props) => {
               <html lang={props.locale} />
             </Helmet>
 
-            <Navbar locale={props.locale} prefix={props.prefix} />
+            <Navbar locale={props.locale} prefix={props.prefix}/>
             {props.children}
-            <Footer locale={props.locale} prefix={props.prefix} />
+            <Footer locale={props.locale} prefix={props.prefix}/>
           </div>
         )}
       }

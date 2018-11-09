@@ -2,7 +2,6 @@ import React from 'react'
 import { Link, graphql } from 'gatsby'
 
 import Layout from '../components/layout'
-// import Logo from '../components/logo'
 
 // Components under src/pages become pages automatically with paths based on their file name.
 // For example src/pages/index.jsx is mapped to yoursite.com and src/pages/about.jsx becomes yoursite.com/about/.
@@ -12,27 +11,35 @@ class HomePage extends React.Component {
   constructor(props) {
     super(props);
 
-    // Index default to home page. Hence, "/" does not have access to 
+    // Index default to root url. Hence, "/" does not have access to 
     // pageContext, as it is not created by createPage().
-    // There's nothing on "/en" so this one is created by createPage().
+    // There's data on "/en" as this one is created by createPage().
     this.state = {
       images: this.props.pageContext.data.pictures,
-      selectedImage: this.props.pageContext.data.pictures[0]
+      selectedImage: this.props.pageContext.data.pictures[0],
+      locale: this.props.pageContext.locale,
+      prefix: this.props.pageContext.prefix,
+      data: this.props.pageContext.data
     }
   }
+
+  prefixLocale(path) {
+    return `${this.state.prefix}${path}`;
+  }
   
-  render() {
-    const context = this.props.pageContext;
-    
+  render() {    
     return (
-      <Layout prefix={context.prefix} locale={context.locale}>
+      <Layout
+        prefix={this.state.prefix}
+        locale={this.state.locale}>
+
         <img src={this.state.selectedImage.url} alt="Hero banner Hubsy Café" />
         
         <div className="container">
-          <h1>{context.data.brand}</h1>
-          <h2>{context.data.caption}</h2>
-          <p>This page is in {context.locale}</p>
-          <Link to={`${context.prefix}/shops`} >Shops</Link>
+          <h1>{this.state.data.brand}</h1>
+          <h2>{this.state.data.caption}</h2>
+          <p>This page is in {this.state.locale}</p>
+          <Link to={this.prefixLocale("/shops")} >Shops</Link>
         </div>
       </Layout>
     )
