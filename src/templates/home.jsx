@@ -2,6 +2,11 @@ import React from 'react';
 // import { Link, graphql } from 'gatsby'
 
 import { ButtonLink } from '../components/button_link'
+import LeParisien from '../components/images/le_parisien'
+import Timeout from '../components/images/timeout'
+import Tf1 from '../components/images/tf1'
+import Telerama from '../components/images/telerama'
+
 import Layout from '../components/layout'
 
 import '../css/pages/home.css'
@@ -31,70 +36,59 @@ class HomePage extends React.Component {
   }
   
   render() {    
+    const bannerStyle = { backgroundImage: `url(${this.state.selectedImage.url})`}
+
     return (
-      <Layout
-        prefix={this.state.prefix}
-        locale={this.state.locale}>
+      <Layout prefix={this.state.prefix} locale={this.state.locale}>
+        <div>
+          <div className="hero" style={bannerStyle} />
 
-      <div>
-        <div
-          className="hero"
-          style={{ backgroundImage: `url(${this.state.selectedImage.url})` }} />
+            <div className="container container-margin">
 
-          <div className="container container-margin">
-
-            <div className="brand-container">
-              <div className="brand-container-top">
-                <h1 id="title">{this.state.data.brand}</h1>
-                <ButtonLink class="button-beige" path="/shops" content={this.state.data.button} />
+              <div className="brand-container">
+                <div className="brand-container-top">
+                  <h1 id="title">{this.state.data.brand}</h1>
+                  <ButtonLink class="button-beige" path={this.prefixLocale("/shops")} content={this.state.data.button} />
+                </div>
+                <h2 id="caption">{this.state.data.caption}</h2>
               </div>
-              <h2 id="caption">{this.state.data.caption}</h2>
+
+              <br />
+
+              <div className="referral-container">
+                <div className="referral-container-top">
+                  <h3>{this.state.data.referrals}</h3>
+                </div>
+
+                <div className="referral-container-images">
+                  <a href="https://www.timeout.fr/paris/bars/hubsy" target="_blank" rel="noopener noreferrer">
+                    <Timeout />
+                  </a>
+
+                  <a href="https://vimeo.com/153919166#t=NaNs" target="_blank" rel="noopener noreferrer">
+                    <Tf1 />
+                  </a>
+
+                  <a href="https://sortir.telerama.fr/paris/lieux/bars/hubsy-cafe,28001.php" target="_blank" rel="noopener noreferrer">
+                    <Telerama />
+                  </a>
+
+                  <a href="http://www.leparisien.fr/paris-75/paris-75003/husby-reinvente-le-cafe-bureau-partage-pour-la-generation-y-a-paris-06-01-2016-5426597.php" target="_blank" rel="noopener noreferrer">
+                    <LeParisien />
+                  </a>
+                </div>
+
+                <div className="referral-container-button">
+                  <ButtonLink class="button-green" path={this.prefixLocale("/concept")} content={this.state.data.concept} />
+                </div>
+
+
+              </div>
             </div>
 
             <br />
-
-            <div className="referral-container">
-              <div className="referral-container-top">
-                <h3>{this.state.data.referrals}</h3>
-              </div>
-
-              <div className="referral-container-images">
-                <a href="https://www.timeout.fr/paris/bars/hubsy" target="_blank" rel="noopener noreferrer">
-                  {/* <img src={timeout} alt="" /> */}
-                </a>
-
-                <a href="https://vimeo.com/153919166#t=NaNs" target="_blank" rel="noopener noreferrer">
-                  {/* <img src={tf1} alt="" /> */}
-                </a>
-
-                <a href="https://sortir.telerama.fr/paris/lieux/bars/hubsy-cafe,28001.php" target="_blank" rel="noopener noreferrer">
-                  {/* <img src={telerama} alt="" /> */}
-                </a>
-
-                <a href="http://www.leparisien.fr/paris-75/paris-75003/husby-reinvente-le-cafe-bureau-partage-pour-la-generation-y-a-paris-06-01-2016-5426597.php" target="_blank" rel="noopener noreferrer">
-                  {/* <img src={parisien} alt="" /> */}
-                </a>
-              </div>
-
-              <div className="referral-container-button">
-                <ButtonLink class="button-green" path="/concept" content={this.state.data.concept} />
-              </div>
-
-
-            </div>
+            <br />
           </div>
-
-          <br />
-          <br />
-          <br />
-        </div>
-        
-        {/* <div className="container">
-          <h1>{this.state.data.brand}</h1>
-          <h2>{this.state.data.caption}</h2>
-          <p>This page is in {this.state.locale}</p>
-          <Link to={this.prefixLocale("/shops")} >Shops</Link>
-        </div> */}
       </Layout>
     )
   }

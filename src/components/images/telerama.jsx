@@ -13,11 +13,11 @@ import { StaticQuery, graphql } from 'gatsby'
  * - `StaticQuery`: https://gatsby.app/staticquery
  */
 
-const Logo = () => {
+const Telerama = () => {
   return (<StaticQuery
     query={graphql`
       query {
-        Logo: file(relativePath: {eq: "logo/logo.png"}) {
+        Telerama: file(relativePath: {eq: "referrals/telerama.png"}) {
           childImageSharp {
             fixed {
               srcSet
@@ -30,12 +30,12 @@ const Logo = () => {
 
     render={data => {
       return (<img
-        srcSet={data.Logo.childImageSharp.fixed.srcSet}
-        alt={data.Logo.childImageSharp.fixed.originalName}
+        srcSet={data.Telerama.childImageSharp.fixed.srcSet}
+        alt={data.Telerama.childImageSharp.fixed.originalName}
         />
       )}
     }
   />
 )}
 
-export default Logo;
+export default Telerama;

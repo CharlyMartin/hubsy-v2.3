@@ -1,5 +1,5 @@
 .hero {
-  height: 75vh;
+  height: 72vh;
   width: 100%;
   background-position: center;
   background-size: cover;
@@ -43,6 +43,6 @@
 }
 
 .referral-container-images img {
-  width: 100px;
-  margin: var(--space-lg);
+  width: 90px;
+  margin: var(--space-xl);
 }
