@@ -1,0 +1,48 @@
+.hero {
+  height: 75vh;
+  width: 100%;
+  background-position: center;
+  background-size: cover;
+}
+
+#title {
+  font-size: var(--title-size);
+  font-weight: 800;
+  letter-spacing: var(--negative-letter-spacing);
+  color: var(--black-dark);
+}
+
+#caption {
+ font-size: var(--h2-size);
+ font-weight: 400;
+ color: var(--black-normal);
+}
+
+.brand-container-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--space-xl);
+}
+
+.brand-container-top h1 {
+  margin: 0;
+}
+
+.referral-container {
+  margin: var(--space-xxl 0);
+  text-align: center;
+}
+
+.referral-container-top {
+  margin-bottom: var(--space-xl);
+}
+
+.referral-container-images {
+  margin-bottom: var(--space-xl);
+}
+
+.referral-container-images img {
+  width: 100px;
+  margin: var(--space-lg);
+}

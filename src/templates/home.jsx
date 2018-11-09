@@ -1,7 +1,10 @@
-import React from 'react'
-import { Link, graphql } from 'gatsby'
+import React from 'react';
+// import { Link, graphql } from 'gatsby'
 
+import { ButtonLink } from '../components/button_link'
 import Layout from '../components/layout'
+
+import '../css/pages/home.css'
 
 // Components under src/pages become pages automatically with paths based on their file name.
 // For example src/pages/index.jsx is mapped to yoursite.com and src/pages/about.jsx becomes yoursite.com/about/.
@@ -33,14 +36,65 @@ class HomePage extends React.Component {
         prefix={this.state.prefix}
         locale={this.state.locale}>
 
-        <img src={this.state.selectedImage.url} alt="Hero banner Hubsy Café" />
+      <div>
+        <div
+          className="hero"
+          style={{ backgroundImage: `url(${this.state.selectedImage.url})` }} />
+
+          <div className="container container-margin">
+
+            <div className="brand-container">
+              <div className="brand-container-top">
+                <h1 id="title">{this.state.data.brand}</h1>
+                <ButtonLink class="button-beige" path="/shops" content={this.state.data.button} />
+              </div>
+              <h2 id="caption">{this.state.data.caption}</h2>
+            </div>
+
+            <br />
+
+            <div className="referral-container">
+              <div className="referral-container-top">
+                <h3>{this.state.data.referrals}</h3>
+              </div>
+
+              <div className="referral-container-images">
+                <a href="https://www.timeout.fr/paris/bars/hubsy" target="_blank" rel="noopener noreferrer">
+                  {/* <img src={timeout} alt="" /> */}
+                </a>
+
+                <a href="https://vimeo.com/153919166#t=NaNs" target="_blank" rel="noopener noreferrer">
+                  {/* <img src={tf1} alt="" /> */}
+                </a>
+
+                <a href="https://sortir.telerama.fr/paris/lieux/bars/hubsy-cafe,28001.php" target="_blank" rel="noopener noreferrer">
+                  {/* <img src={telerama} alt="" /> */}
+                </a>
+
+                <a href="http://www.leparisien.fr/paris-75/paris-75003/husby-reinvente-le-cafe-bureau-partage-pour-la-generation-y-a-paris-06-01-2016-5426597.php" target="_blank" rel="noopener noreferrer">
+                  {/* <img src={parisien} alt="" /> */}
+                </a>
+              </div>
+
+              <div className="referral-container-button">
+                <ButtonLink class="button-green" path="/concept" content={this.state.data.concept} />
+              </div>
+
+
+            </div>
+          </div>
+
+          <br />
+          <br />
+          <br />
+        </div>
         
-        <div className="container">
+        {/* <div className="container">
           <h1>{this.state.data.brand}</h1>
           <h2>{this.state.data.caption}</h2>
           <p>This page is in {this.state.locale}</p>
           <Link to={this.prefixLocale("/shops")} >Shops</Link>
-        </div>
+        </div> */}
       </Layout>
     )
   }

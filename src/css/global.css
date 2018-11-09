@@ -5,9 +5,15 @@
 
 
 /* Text */
-h1, h2, h3, h4, p, a, span, div {
+body {
   font-family: var(--font);
+  line-height: var(--line-height);
+  background: var(--white-lighter);
 }
+
+/* h1, h2, h3, h4, p, a, span, div {
+  font-family: var(--font);
+} */
 
 h1 {
   font-size: var(--h1-size);

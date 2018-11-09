@@ -2,6 +2,8 @@ import React from 'react';
 import { StaticQuery, graphql } from "gatsby";
 // import { Link } from 'gatsby'
 
+import '../css/components/footer.css'
+
 class Footer extends React.Component {
   constructor(props) {
     super(props);
@@ -18,9 +20,11 @@ class Footer extends React.Component {
 
     return (
       <div>
-        <div className="container">
-          <h1>This is a Footer in {content.language}</h1>
+        <div className="footer">
+          <div className="container">
+            <h1>This is a Footer in {content.language}</h1>
           </div>
+        </div>
       </div>
     )
   }

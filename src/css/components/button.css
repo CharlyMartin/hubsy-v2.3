@@ -1,0 +1,23 @@
+.button {
+  padding: 10px 24px;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-lighter);
+  transition: all 200ms ease;
+  font-weight: 700;
+}
+
+.button:hover {
+  /* transform: translateY(2px); */
+  box-shadow: var(--shadow-light);
+}
+
+.button-beige {
+  background: var(--hubsy-beige);
+  color: white;
+}
+
+.button-green {
+  background: white;
+  border: 1px solid var(--hubsy-green);
+  color: var(--hubsy-green);
+}
