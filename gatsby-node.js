@@ -123,6 +123,6 @@ exports.createPages = ({ graphql, actions }) => {
 // End of the loop
 
 // Test
-exports.onPreBootstrap = () => {
-  console.log("onPreBootstrap hook test")
-}
+// exports.onPreBootstrap = () => {
+//   console.log("onPreBootstrap hook test")
+// }

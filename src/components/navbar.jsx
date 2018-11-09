@@ -5,6 +5,9 @@ import { Link } from 'gatsby'
 import Logo from './images/logo';
 import FlagFR from './images/flag_fr';
 import FlagEN from './images/flag_en';
+
+import { navbarDropdown } from '../utilities/dropdown';
+
 import '../css/components/navbar.css';
 
 
@@ -12,11 +15,25 @@ import '../css/components/navbar.css';
 class Navbar extends React.Component {
   constructor(props) {
     super(props);
+
+    // this.state = {
+    //   locale: this.props.locale
+    // }
   }
 
-  renderFlag(lang) {
-    if (lang === 'fr') return <FlagFR/>;
-    if (lang === 'en') return <FlagEN/>;
+
+
+  componentDidMount() {
+    navbarDropdown();
+  }
+
+  renderFlag() {
+    if (this.props.locale === 'fr') return <FlagFR />;
+    if (this.props.locale === 'en') return <FlagEN />;
+  }
+
+  prefixLocale(path) {
+    return `${this.props.prefix}${path}`;
   }
 
   extractObject(array, lang = 'fr') {
@@ -41,18 +58,18 @@ class Navbar extends React.Component {
 
               <div className="navbar-side" id="navbar-left">
                 <div className="navbar-element">
-                  <Link to="/shops">{content.venues}</Link>
+                  <Link to={this.prefixLocale("/shops")}>{content.venues}</Link>
                 </div>
 
                 <div className="navbar-element">
-                  <Link to="/pricing">{content.pricing}</Link>
+                  <Link to={this.prefixLocale("/tarifs")}>{content.pricing}</Link>
                 </div>
 
                 <div className="navbar-element with-dropdown">
                   <span>{content.booking}</span>
 
                   <div className="navbar-dropdown" id="booking">
-                    <Link to="/shops">
+                    <Link to={this.prefixLocale("/shops")}>
                       <div className="navbar-dropdown-item">
                         <h3>{content.book}</h3>
                         <p className="text-small">{content.book_text}</p>
@@ -69,12 +86,12 @@ class Navbar extends React.Component {
                 </div>
 
                 <div className="navbar-element">
-                  <Link to="/concept">{content.concept}</Link>
+                  <Link to={this.prefixLocale("/concept")}>{content.concept}</Link>
                 </div>
               </div>
 
               <div className="navbar-logo">
-                <Link to="/">
+                <Link to={this.prefixLocale("/")}>
                   <Logo />
                 </Link>
               </div>
@@ -91,23 +108,27 @@ class Navbar extends React.Component {
                   </span>
 
                   <span className="navbar-element">
-                    <Link to="/barista-training">{content.barista}</Link>
+                    <Link to={this.prefixLocale("/formation-barista")}>{content.barista}</Link>
                   </span>
                 </div>
 
                 <div className="navbar-language with-dropdown">
-                  {this.renderFlag(this.props.locale)}
+                  {this.renderFlag()}
 
                   <div className="navbar-dropdown" id="lang-selection">
-                    <div className="navbar-dropdown-item navbar-dropdown-item-flex" data-id="fr" onClick={this.handleClick}>
-                      {/* <img src={flagFR} alt="fr" /> */}
-                      <p>Français</p>
-                    </div>
+                    <Link to="/">
+                      <div className="navbar-dropdown-item navbar-dropdown-item-flex" data-id="fr" onClick={this.handleClick}>
+                        {<FlagFR />}
+                        <p>Français</p>
+                      </div>
+                    </Link>
 
-                    <div className="navbar-dropdown-item navbar-dropdown-item-flex" data-id="en" onClick={this.handleClick}>
-                      {/* <img src={flagEN} alt="en" /> */}
-                      <p>English</p>
-                    </div>
+                    <Link to="/en">
+                      <div className="navbar-dropdown-item navbar-dropdown-item-flex" data-id="en" onClick={this.handleClick}>
+                        {<FlagEN />}
+                        <p>English</p>
+                      </div>
+                    </Link>
                   </div>
                 </div>
               </div>
@@ -152,9 +173,10 @@ export default (props) => {
     `
     }
 
-    render={(data) => {      
+    render={(data) => {
+      console.log(props);
       return (
-        <Navbar data={data} locale={props.locale} />
+        <Navbar data={data} locale={props.locale} prefix={props.prefix} />
       )}
     }
   />)

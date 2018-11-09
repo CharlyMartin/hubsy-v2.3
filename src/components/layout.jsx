@@ -38,9 +38,9 @@ export default (props) => {
               <html lang={props.locale} />
             </Helmet>
 
-            <Navbar locale={props.locale} />
+            <Navbar locale={props.locale} prefix={props.prefix} />
             {props.children}
-            <Footer locale={props.locale} />
+            <Footer locale={props.locale} prefix={props.prefix} />
           </div>
         )}
       }
