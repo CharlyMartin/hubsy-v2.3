@@ -10,11 +10,9 @@ class BaristaPage extends React.Component {
     super(props);
 
     this.state = {
-      // images: this.props.pageContext.data.pictures,
-      // selectedImage: this.props.pageContext.data.pictures[0],
       locale: this.props.pageContext.locale,
       prefix: this.props.pageContext.prefix,
-      data: this.props.pageContext.data
+      static: this.props.pageContext.data
     }
   }
 
@@ -26,7 +24,7 @@ class BaristaPage extends React.Component {
     return (
       <Layout prefix={this.state.prefix} locale={this.state.locale}>
         <div className="container container-margin">
-          <h1>{this.state.data.title}</h1>
+          <h1>{this.state.static.title}</h1>
         </div>
       </Layout>
     )

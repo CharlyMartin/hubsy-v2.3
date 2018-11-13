@@ -3,7 +3,6 @@ import React from 'react';
 
 import Layout from '../components/layout'
 
-
 // import '../css/pages/home.css'
 
 
@@ -12,11 +11,10 @@ class ShopPage extends React.Component {
     super(props);
 
     this.state = {
-      // images: this.props.pageContext.data.pictures,
-      // selectedImage: this.props.pageContext.data.pictures[0],
       locale: this.props.pageContext.locale,
       prefix: this.props.pageContext.prefix,
-      data: this.props.pageContext.data
+      static: this.props.pageContext.data,
+      shopData: this.props.data.allAirtable.edges
     }
   }
 
@@ -24,11 +22,12 @@ class ShopPage extends React.Component {
     return `${this.state.prefix}${path}`;
   }
   
-  render() {    
+  render() {
+    console.log(this.props);
     return (
       <Layout prefix={this.state.prefix} locale={this.state.locale}>
         <div className="container container-margin">
-          <h1>{this.state.data.language}</h1>
+          <h1>{this.state.static.name}</h1>
         </div>
       </Layout>
     )
@@ -42,24 +41,25 @@ export default ShopPage;
 // - props.data => coming from the page Query below
 
 
-// export const query = graphql`
-//   {
-//     allAirtable(filter: {table: {eq: "navbar"}}) {
-//       edges {
-//         node {
-//           data {
-//             brand
-//             caption
-//             button
-//             referrals
-//             pictures {
-//               url
-//             }
-//             concept
-//             language
-//           }
-//         }
-//       }
-//     }
-//   }
-// `
+export const query = graphql`
+  {
+    allAirtable(filter: {table: {eq: "shop_page"}}) {
+      edges {
+        node {
+          data {
+            language
+            description
+            direction
+            hours
+            prices
+            contact
+            amenities
+            button_1
+            button_2
+            nearby
+          }
+        }
+      }
+    }
+  }
+`

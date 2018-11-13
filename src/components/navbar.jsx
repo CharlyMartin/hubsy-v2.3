@@ -173,7 +173,6 @@ export default (props) => {
     }
 
     render={(data) => {
-      console.log(props);
       return (
         <Navbar data={data} locale={props.locale} prefix={props.prefix} />
       )}

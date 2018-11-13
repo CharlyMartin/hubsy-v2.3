@@ -28,7 +28,7 @@ class HomePage extends React.Component {
       selectedImage: this.props.pageContext.data.pictures[0],
       locale: this.props.pageContext.locale,
       prefix: this.props.pageContext.prefix,
-      data: this.props.pageContext.data
+      static: this.props.pageContext.data
     }
   }
 
@@ -49,17 +49,17 @@ class HomePage extends React.Component {
 
               <div className="brand-container">
                 <div className="brand-container-top">
-                  <h1 id="title">{this.state.data.brand}</h1>
-                  <ButtonLink class="button-beige" path={this.prefixLocale("shops")} content={this.state.data.button} />
+                  <h1 id="title">{this.state.static.brand}</h1>
+                  <ButtonLink class="button-beige" path={this.prefixLocale("shops")} content={this.state.static.button} />
                 </div>
-                <h2 id="caption">{this.state.data.caption}</h2>
+                <h2 id="caption">{this.state.static.caption}</h2>
               </div>
 
               <br />
 
               <div className="referral-container">
                 <div className="referral-container-top">
-                  <h3>{this.state.data.referrals}</h3>
+                  <h3>{this.state.static.referrals}</h3>
                 </div>
 
                 <div className="referral-container-images">
@@ -81,7 +81,7 @@ class HomePage extends React.Component {
                 </div>
 
                 <div className="referral-container-button">
-                  <ButtonLink class="button-green" path={this.prefixLocale("concept")} content={this.state.data.concept} />
+                  <ButtonLink class="button-green" path={this.prefixLocale("concept")} content={this.state.static.concept} />
                 </div>
 
 
