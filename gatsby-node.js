@@ -1,7 +1,7 @@
+const fetch = require('./data-functions.js');
 const path = require('path');
 const languagePath = {'fr': '/', 'en': '/en/',}
-
-// TEMPLATES
+// console.log(fetch)hTEMPLATES
 const homePage = path.resolve(`src/templates/home.jsx`);
 const shopsPage = path.resolve(`src/templates/shops.jsx`);
 const shopPage = path.resolve(`src/templates/shop.jsx`);
@@ -12,56 +12,56 @@ const baristaPage = path.resolve(`src/templates/barista.jsx`);
 
 
 // FUNCTIONS (PULLING DATA FROM AIRTABLE)
-function fetchHomePage(lang, graphql) {
-  const promise = new Promise(function(resolve) {
-    resolve(
-      graphql(`
-        {
-          allAirtable(filter: {table: {eq: "home_page"}, data: {language: {eq: "${lang}"}}}) {
-            edges {
-              node {
-                data {
-                  brand
-                  caption
-                  button
-                  referrals
-                  pictures {
-                    url
-                  }
-                  concept
-                  language
-                }
-              }
-            }
-          }
-        }
-      `)
-    )
-  })
-  return promise;
-}
+// function fetchHomePage(lang, graphql) {
+//   const promise = new Promise(function(resolve) {
+//     resolve(
+//       graphql(`
+//         {
+//           allAirtable(filter: {table: {eq: "home_page"}, data: {language: {eq: "${lang}"}}}) {
+//             edges {
+//               node {
+//                 data {
+//                   brand
+//                   caption
+//                   button
+//                   referrals
+//                   pictures {
+//                     url
+//                   }
+//                   concept
+//                   language
+//                 }
+//               }
+//             }
+//           }
+//         }
+//       `)
+//     )
+//   })
+//   return promise;
+// }
 
 
-function fetchShopsPage(lang, graphql) {
-  const promise = new Promise(function(resolve) {
-    resolve(
-      graphql(`
-        {
-          allAirtable(filter: {table: {eq: "shops_page"}, data: {language: {eq: "${lang}"}}}) {
-            edges {
-              node {
-                data {
-                  title
-                }
-              }
-            }
-          }
-        }
-      `)
-    )
-  })
-  return promise;
-}
+// function fetchShopsPage(lang, graphql) {
+//   const promise = new Promise(function(resolve) {
+//     resolve(
+//       graphql(`
+//         {
+//           allAirtable(filter: {table: {eq: "shops_page"}, data: {language: {eq: "${lang}"}}}) {
+//             edges {
+//               node {
+//                 data {
+//                   title
+//                 }
+//               }
+//             }
+//           }
+//         }
+//       `)
+//     )
+//   })
+//   return promise;
+// }
 
 
 // function fetchShopPage(lang, graphql) {
@@ -95,91 +95,50 @@ function fetchShopsPage(lang, graphql) {
 // }
 
 
-function fetchShopsData(lang, graphql) {
-  const promise = new Promise(function(resolve) {
-    resolve(
-      graphql(`
-        {
-          allAirtable(filter: {table: {eq: "shops"}, data: {language: {eq: "${lang}"}}}) {
-            edges {
-              node {
-                data {
-                  name
-                  description
-                  language
-                  address
-                  postcode
-                  city
-                  status
-                  pictures {
-                    url
-                  }
-                  hours_weekdays
-                  hours_weekend
-                  price
-                  phone
-                  email
-                  internet
-                  food
-                  coffee
-                  transport
-                  drinks
-                  room
-                  screen
-                  printer
-                  slug
-                  meeting_rooms
-                }
-              }
-            }
-          }
-        }
-      `)
-    )
-  })
-  return promise;
-}
-
-
-function fetchPricingPage(lang, graphql) {
-  const promise = new Promise(function(resolve) {
-    resolve(
-      graphql(`
-        {
-          allAirtable(filter: {table: {eq: "pricing_page"}, data: {language: {eq: "${lang}"}}}) {
-            edges {
-              node {
-                data {
-                title
-                  language
-                  subtitle
-                  member_title
-                  member_subtitle
-                  member_first
-                  member_extra
-                  member_cap
-                  member_services
-                  member_checkout
-                  res_title
-                  res_subtitle
-                  res_prices
-                  res_access
-                  res_validity
-                  res_services
-                  res_checkout
-                  button_1
-                  button_2
-                  rooms
-                }
-              }
-            }
-          }
-        }
-      `)
-    )
-  })
-  return promise;
-}
+// function fetchShopsData(lang, graphql) {
+//   const promise = new Promise(function(resolve) {
+//     resolve(
+//       graphql(`
+//         {
+//           allAirtable(filter: {table: {eq: "shops"}, data: {language: {eq: "${lang}"}}}) {
+//             edges {
+//               node {
+//                 data {
+//                   name
+//                   description
+//                   language
+//                   address
+//                   postcode
+//                   city
+//                   status
+//                   pictures {
+//                     url
+//                   }
+//                   hours_weekdays
+//                   hours_weekend
+//                   price
+//                   phone
+//                   email
+//                   internet
+//                   food
+//                   coffee
+//                   transport
+//                   drinks
+//                   room
+//                   screen
+//                   printer
+//                   slug
+//                   meeting_rooms
+//                 }
+//               }
+//             }
+//           }
+//         }
+//       `)
+//     )
+//   })
+//   return promise;
+// }
 
 
 
@@ -193,7 +152,7 @@ exports.createPages = ({ graphql, actions }) => {
   Object.entries(languagePath).forEach( ([locale, prefix]) => {
 
     // HOME PAGE
-    fetchHomePage(locale, graphql)
+    fetch.homePage(locale, graphql)
       .then(response => {
         const results = response.data.allAirtable.edges;
         results.forEach(result => {
@@ -213,27 +172,28 @@ exports.createPages = ({ graphql, actions }) => {
 
 
     // SHOPS PAGE
-    fetchShopsPage(locale, graphql)
-    .then(response => {
-      const results = response.data.allAirtable.edges;
-      results.forEach(result => {
-        const url = `${prefix}shops`;
-        const obj = {
-          path: url,
-          component: shopsPage,
-          context: {
-            locale,
-            prefix,
-            data: result.node.data
-          }
-        };
-        createPage(obj);
-        console.log(`${url} - built`);
+    fetch.shopsPage(locale, graphql)
+      .then(response => {
+        const results = response.data.allAirtable.edges;
+        results.forEach(result => {
+          const url = `${prefix}shops`;
+          const obj = {
+            path: url,
+            component: shopsPage,
+            context: {
+              locale,
+              prefix,
+              data: result.node.data
+            }
+          };
+          createPage(obj);
+          console.log(`${url} - built`);
+        });
       });
-    });
+
 
     // SHOP PAGE
-    fetchShopsData(locale, graphql)
+    fetch.shopsData(locale, graphql)
       .then(response => {
         const results = response.data.allAirtable.edges;
         // console.log(results);
@@ -252,6 +212,25 @@ exports.createPages = ({ graphql, actions }) => {
           console.log(`${url} - built`);
         }))
       })
+
+    fetch.pricingPage(locale, graphql)
+      .then(response => {
+        const results = response.data.allAirtable.edges;
+        results.forEach(result => {
+          const url = `${prefix}pricing`;
+          const obj = {
+            path: url,
+            component: pricingPage,
+            context: {
+              locale,
+              prefix,
+              data: result.node.data
+            }
+          };
+          createPage(obj);
+          console.log(`${url} - built`);
+        });
+      });
 
     // return;
   });
