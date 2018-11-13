@@ -61,7 +61,7 @@ class Navbar extends React.Component {
                 </div>
 
                 <div className="navbar-element">
-                  <Link to={this.prefixLocale("tarifs")}>{content.pricing}</Link>
+                  <Link to={this.prefixLocale("pricing")}>{content.pricing}</Link>
                 </div>
 
                 <div className="navbar-element with-dropdown">
@@ -107,7 +107,7 @@ class Navbar extends React.Component {
                   </span>
 
                   <span className="navbar-element">
-                    <Link to={this.prefixLocale("formation-barista")}>{content.barista}</Link>
+                    <Link to={this.prefixLocale("barista-training")}>{content.barista}</Link>
                   </span>
                 </div>
 
@@ -173,7 +173,7 @@ export default (props) => {
     }
 
     render={(data) => {
-      // console.log(props);
+      console.log(props);
       return (
         <Navbar data={data} locale={props.locale} prefix={props.prefix} />
       )}

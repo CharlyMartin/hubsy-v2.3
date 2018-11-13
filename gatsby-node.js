@@ -1,8 +1,7 @@
 const fetch = require('./data-functions.js');
 const path = require('path');
-const languagePath = {'fr': '/', 'en': '/en/',}
-// console.log(fetch)hTEMPLATES
-const homePage = path.resolve(`src/templates/home.jsx`);
+
+// Page templates
 const shopsPage = path.resolve(`src/templates/shops.jsx`);
 const shopPage = path.resolve(`src/templates/shop.jsx`);
 const pricingPage = path.resolve(`src/templates/pricing.jsx`);
@@ -10,168 +9,42 @@ const conceptPage = path.resolve(`src/templates/concept.jsx`);
 const roomsPage = path.resolve(`src/templates/rooms.jsx`);
 const baristaPage = path.resolve(`src/templates/barista.jsx`);
 
-
-// FUNCTIONS (PULLING DATA FROM AIRTABLE)
-// function fetchHomePage(lang, graphql) {
-//   const promise = new Promise(function(resolve) {
-//     resolve(
-//       graphql(`
-//         {
-//           allAirtable(filter: {table: {eq: "home_page"}, data: {language: {eq: "${lang}"}}}) {
-//             edges {
-//               node {
-//                 data {
-//                   brand
-//                   caption
-//                   button
-//                   referrals
-//                   pictures {
-//                     url
-//                   }
-//                   concept
-//                   language
-//                 }
-//               }
-//             }
-//           }
-//         }
-//       `)
-//     )
-//   })
-//   return promise;
-// }
-
-
-// function fetchShopsPage(lang, graphql) {
-//   const promise = new Promise(function(resolve) {
-//     resolve(
-//       graphql(`
-//         {
-//           allAirtable(filter: {table: {eq: "shops_page"}, data: {language: {eq: "${lang}"}}}) {
-//             edges {
-//               node {
-//                 data {
-//                   title
-//                 }
-//               }
-//             }
-//           }
-//         }
-//       `)
-//     )
-//   })
-//   return promise;
-// }
-
-
-// function fetchShopPage(lang, graphql) {
-//   const promise = new Promise(function(resolve) {
-//     resolve(
-//       graphql(`
-//         {
-//           allAirtable(filter: {table: {eq: "shop_page"}, data: {language: {eq: "${lang}"}}}) {
-//             edges {
-//               node {
-//                 data {
-//                   description
-//                   language
-//                   direction
-//                   hours
-//                   prices
-//                   contact
-//                   amneties
-//                   button_1
-//                   button_2
-//                   nearby
-//                 }
-//               }
-//             }
-//           }
-//         }
-//       `)
-//     )
-//   })
-//   return promise;
-// }
-
-
-// function fetchShopsData(lang, graphql) {
-//   const promise = new Promise(function(resolve) {
-//     resolve(
-//       graphql(`
-//         {
-//           allAirtable(filter: {table: {eq: "shops"}, data: {language: {eq: "${lang}"}}}) {
-//             edges {
-//               node {
-//                 data {
-//                   name
-//                   description
-//                   language
-//                   address
-//                   postcode
-//                   city
-//                   status
-//                   pictures {
-//                     url
-//                   }
-//                   hours_weekdays
-//                   hours_weekend
-//                   price
-//                   phone
-//                   email
-//                   internet
-//                   food
-//                   coffee
-//                   transport
-//                   drinks
-//                   room
-//                   screen
-//                   printer
-//                   slug
-//                   meeting_rooms
-//                 }
-//               }
-//             }
-//           }
-//         }
-//       `)
-//     )
-//   })
-//   return promise;
-// }
-
-
+// Page Object Template
+function buildPageObj(url, comp, lang, pref, d) {
+  return {
+    path: url,
+    component: comp,
+    context: {
+      locale: lang,
+      prefix: pref,
+      data: d
+    }
+  }
+}
 
 exports.createPages = ({ graphql, actions }) => {
   // The Gatsby API “createPages” is called once the
   // data layer is bootstrapped to let plugins create pages from data.
-  const { createPage, createNode } = actions;
+  const { createPage } = actions;
 
   console.log("Page creation starting 💪");
   // Start of the loop to create pages in fr / en
+  const languagePath = {'fr': '/', 'en': '/en/',}
   Object.entries(languagePath).forEach( ([locale, prefix]) => {
 
-    // HOME PAGE
     fetch.homePage(locale, graphql)
       .then(response => {
+        const page = path.resolve(`src/templates/home.jsx`);
         const results = response.data.allAirtable.edges;
+        
         results.forEach(result => {
-          const obj = {
-            path: prefix,
-            component: homePage,
-            context: {
-              locale,
-              prefix,
-              data: result.node.data
-            }
-          };
+          const url = prefix;
+          const obj = buildPageObj(url, page, locale, prefix, result.node.data);
           createPage(obj);
-          console.log(`${prefix} - built`);
+          console.log(`built: ${prefix}`);
         });
       });
 
-
-    // SHOPS PAGE
     fetch.shopsPage(locale, graphql)
       .then(response => {
         const results = response.data.allAirtable.edges;
@@ -187,12 +60,11 @@ exports.createPages = ({ graphql, actions }) => {
             }
           };
           createPage(obj);
-          console.log(`${url} - built`);
+          console.log(`built: ${url}`);
         });
       });
-
-
-    // SHOP PAGE
+    
+    // Shop pages based on slugs in shops table
     fetch.shopsData(locale, graphql)
       .then(response => {
         const results = response.data.allAirtable.edges;
@@ -209,7 +81,7 @@ exports.createPages = ({ graphql, actions }) => {
             }
           };
           createPage(obj);
-          console.log(`${url} - built`);
+          console.log(`built: ${url}`);
         }))
       })
 
@@ -228,7 +100,64 @@ exports.createPages = ({ graphql, actions }) => {
             }
           };
           createPage(obj);
-          console.log(`${url} - built`);
+          console.log(`built: ${url}`);
+        });
+      });
+
+    fetch.conceptPage(locale, graphql)
+      .then(response => {
+        const results = response.data.allAirtable.edges;
+        results.forEach(result => {
+          const url = `${prefix}concept`;
+          const obj = {
+            path: url,
+            component: conceptPage,
+            context: {
+              locale,
+              prefix,
+              data: result.node.data
+            }
+          };
+          createPage(obj);
+          console.log(`built: ${url}`);
+        });
+      });
+
+    fetch.roomsPage(locale, graphql)
+      .then(response => {
+        const results = response.data.allAirtable.edges;
+        results.forEach(result => {
+          const url = `${prefix}rooms`;
+          const obj = {
+            path: url,
+            component: roomsPage,
+            context: {
+              locale,
+              prefix,
+              data: result.node.data
+            }
+          };
+          createPage(obj);
+          console.log(`built: ${url}`);
+        });
+      });
+
+    fetch.baristaPage(locale, graphql)
+      .then(response => {
+        const results = response.data.allAirtable.edges;
+        results.forEach(result => {
+          const url = `${prefix}barista-training`;
+          const obj = {
+            path: url,
+            component: baristaPage,
+            context: {
+              locale,
+              prefix,
+              data: result.node.data
+            }
+          };
+          createPage(obj);
+          console.log(`built: ${url}`);
         });
       });
 

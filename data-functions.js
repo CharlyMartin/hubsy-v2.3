@@ -1,7 +1,7 @@
 // FUNCTIONS (PULLING DATA FROM AIRTABLE)
 module.exports = {
 
-   homePage: function(lang, graphql) {
+  homePage: function(lang, graphql) {
     const promise = new Promise(function(resolve) {
       resolve(
         graphql(`
@@ -134,6 +134,110 @@ module.exports = {
       )
     })
     return promise;
-  }
+  },
+
+  conceptPage: function(lang, graphql) {
+    const promise = new Promise(function(resolve) {
+      resolve(
+        graphql(`
+          {
+            allAirtable(filter: {table: {eq: "concept_page"}, data: {language: {eq: "${lang}"}}}) {
+              edges {
+                node {
+                  data {
+                    title
+                    subtitle
+                    language
+                    item_1_title
+                    item_1_text
+                    item_1_button
+                    item_1_picture {
+                      url
+                    }
+                    item_2_title
+                    item_2_text
+                    item_2_button
+                    item_2_picture {
+                      url
+                    }
+                    item_3_title
+                    item_3_text
+                    item_3_button
+                    item_3_picture {
+                      url
+                    }
+                  }
+                }
+              }
+            }
+          }        
+        `)
+      )
+    })
+    return promise;
+  },
+
+  roomsPage: function(lang, graphql) {
+    const promise = new Promise(function(resolve) {
+      resolve(
+        graphql(`
+          {
+            allAirtable(filter: {table: {eq: "rooms_page"}, data: {language: {eq: "${lang}"}}}) {
+              edges {
+                node {
+                  data {
+                    title
+                    subtitle
+                    language
+                    privatise
+                    button
+                  }
+                }
+              }
+            }
+          }        
+        `)
+      )
+    })
+    return promise;
+  },
+
+  baristaPage: function(lang, graphql) {
+    const promise = new Promise(function(resolve) {
+      resolve(
+        graphql(`
+          {
+            allAirtable(filter: {table: {eq: "barista_page"}, data: {language: {eq: "${lang}"}}}) {
+              edges {
+                node {
+                  data {
+                    title
+                    subtitle
+                    language
+                    picture {
+                      url
+                    }
+                    description
+                    youtube
+                    training_1_title
+                    training_1_subtitle
+                    training_1_picture {
+                      url
+                    }
+                    training_2_title
+                    training_2_subtitle
+                    training_2_picture {
+                      url
+                    }
+                  }
+                }
+              }
+            }
+          }             
+        `)
+      )
+    })
+    return promise;
+  },
 
 }

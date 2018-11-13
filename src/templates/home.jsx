@@ -37,7 +37,6 @@ class HomePage extends React.Component {
   }
   
   render() {    
-    // console.log(this.state);
     const bannerStyle = { backgroundImage: `url(${this.state.selectedImage.url})`};
 
 
