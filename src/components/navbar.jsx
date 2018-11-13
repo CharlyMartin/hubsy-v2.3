@@ -43,7 +43,7 @@ class Navbar extends React.Component {
   }
   
   render() {
-    console.log(this.props);
+    // console.log(this.props);
     const array = this.props.data.allAirtable.edges;
     const obj = this.extractObject(array, this.props.locale);
     const content = obj[0].node.data;
@@ -57,18 +57,18 @@ class Navbar extends React.Component {
 
               <div className="navbar-side" id="navbar-left">
                 <div className="navbar-element">
-                  <Link to={this.prefixLocale("/shops")}>{content.venues}</Link>
+                  <Link to={this.prefixLocale("shops")}>{content.venues}</Link>
                 </div>
 
                 <div className="navbar-element">
-                  <Link to={this.prefixLocale("/tarifs")}>{content.pricing}</Link>
+                  <Link to={this.prefixLocale("tarifs")}>{content.pricing}</Link>
                 </div>
 
                 <div className="navbar-element with-dropdown">
                   <span>{content.booking}</span>
 
                   <div className="navbar-dropdown" id="booking">
-                    <Link to={this.prefixLocale("/shops")}>
+                    <Link to={this.prefixLocale("shops")}>
                       <div className="navbar-dropdown-item">
                         <h3>{content.book}</h3>
                         <p className="text-small">{content.book_text}</p>
@@ -85,12 +85,12 @@ class Navbar extends React.Component {
                 </div>
 
                 <div className="navbar-element">
-                  <Link to={this.prefixLocale("/concept")}>{content.concept}</Link>
+                  <Link to={this.prefixLocale("concept")}>{content.concept}</Link>
                 </div>
               </div>
 
               <div className="navbar-logo">
-                <Link to={this.prefixLocale("/")}>
+                <Link to={this.prefixLocale("")}>
                   <Logo />
                 </Link>
               </div>
@@ -107,7 +107,7 @@ class Navbar extends React.Component {
                   </span>
 
                   <span className="navbar-element">
-                    <Link to={this.prefixLocale("/formation-barista")}>{content.barista}</Link>
+                    <Link to={this.prefixLocale("formation-barista")}>{content.barista}</Link>
                   </span>
                 </div>
 
@@ -173,7 +173,7 @@ export default (props) => {
     }
 
     render={(data) => {
-      console.log(props);
+      // console.log(props);
       return (
         <Navbar data={data} locale={props.locale} prefix={props.prefix} />
       )}

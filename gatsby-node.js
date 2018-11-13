@@ -1,9 +1,9 @@
 const path = require('path');
-const languagePath = {'fr': '/', 'en': '/en',}
+const languagePath = {'fr': '/', 'en': '/en/',}
 
 // PAGES
-const home = path.resolve(`src/templates/home.jsx`);
-const shops = path.resolve(`src/pages/shops.jsx`);
+const homePage = path.resolve(`src/templates/home.jsx`);
+const shopsPage = path.resolve(`src/templates/shops.jsx`);
 
 // TEMPLATES
 
@@ -33,6 +33,27 @@ exports.createPages = ({ graphql, actions }) => {
                     }
                     concept
                     language
+                  }
+                }
+              }
+            }
+          }
+        `)
+      )
+    })
+    return promise;
+  }
+
+  function fetchShopsData(lang) {
+    const promise = new Promise(function(resolve) {
+      resolve(
+        graphql(`
+          {
+            allAirtable(filter: {table: {eq: "shops_page"}, data: {language: {eq: "${lang}"}}}) {
+              edges {
+                node {
+                  data {
+                    title
                   }
                 }
               }
@@ -84,19 +105,39 @@ exports.createPages = ({ graphql, actions }) => {
       .then(response => {
         const results = response.data.allAirtable.edges;
         results.forEach(result => {
-          const homePage = {
+          const obj = {
             path: prefix,
-            component: home,
+            component: homePage,
             context: {
               locale,
               prefix,
               data: result.node.data
             }
           };
-          createPage(homePage);
+          createPage(obj);
           console.log(`${prefix} built 🎉`);
         });
       });
+
+    // HOME PAGES CREATION
+    fetchShopsData(locale)
+    .then(response => {
+      const results = response.data.allAirtable.edges;
+      results.forEach(result => {
+        const url = `${prefix}shops`;
+        const obj = {
+          path: url,
+          component: shopsPage,
+          context: {
+            locale,
+            prefix,
+            data: result.node.data
+          }
+        };
+        createPage(obj);
+        console.log(`${url} built 🎉`);
+      });
+    });
 
 
     // // NAVBAR NODES CREATION

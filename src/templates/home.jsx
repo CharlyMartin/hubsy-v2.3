@@ -1,13 +1,14 @@
 import React from 'react';
 // import { Link, graphql } from 'gatsby'
 
+import Layout from '../components/layout'
 import { ButtonLink } from '../components/button_link'
 import LeParisien from '../components/images/le_parisien'
 import Timeout from '../components/images/timeout'
 import Tf1 from '../components/images/tf1'
 import Telerama from '../components/images/telerama'
 
-import Layout from '../components/layout'
+
 
 import '../css/pages/home.css'
 
@@ -36,7 +37,9 @@ class HomePage extends React.Component {
   }
   
   render() {    
-    const bannerStyle = { backgroundImage: `url(${this.state.selectedImage.url})`}
+    // console.log(this.state);
+    const bannerStyle = { backgroundImage: `url(${this.state.selectedImage.url})`};
+
 
     return (
       <Layout prefix={this.state.prefix} locale={this.state.locale}>
@@ -48,7 +51,7 @@ class HomePage extends React.Component {
               <div className="brand-container">
                 <div className="brand-container-top">
                   <h1 id="title">{this.state.data.brand}</h1>
-                  <ButtonLink class="button-beige" path={this.prefixLocale("/shops")} content={this.state.data.button} />
+                  <ButtonLink class="button-beige" path={this.prefixLocale("shops")} content={this.state.data.button} />
                 </div>
                 <h2 id="caption">{this.state.data.caption}</h2>
               </div>
@@ -79,7 +82,7 @@ class HomePage extends React.Component {
                 </div>
 
                 <div className="referral-container-button">
-                  <ButtonLink class="button-green" path={this.prefixLocale("/concept")} content={this.state.data.concept} />
+                  <ButtonLink class="button-green" path={this.prefixLocale("concept")} content={this.state.data.concept} />
                 </div>
 
 
