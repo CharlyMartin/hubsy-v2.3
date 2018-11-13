@@ -5,6 +5,11 @@ const languagePath = {'fr': '/', 'en': '/en/',}
 const homePage = path.resolve(`src/templates/home.jsx`);
 const shopsPage = path.resolve(`src/templates/shops.jsx`);
 const shopPage = path.resolve(`src/templates/shop.jsx`);
+const pricingPage = path.resolve(`src/templates/pricing.jsx`);
+const conceptPage = path.resolve(`src/templates/concept.jsx`);
+const roomsPage = path.resolve(`src/templates/rooms.jsx`);
+const baristaPage = path.resolve(`src/templates/barista.jsx`);
+
 
 // FUNCTIONS (PULLING DATA FROM AIRTABLE)
 function fetchHomePage(lang, graphql) {
@@ -135,6 +140,49 @@ function fetchShopsData(lang, graphql) {
   return promise;
 }
 
+
+function fetchPricingPage(lang, graphql) {
+  const promise = new Promise(function(resolve) {
+    resolve(
+      graphql(`
+        {
+          allAirtable(filter: {table: {eq: "pricing_page"}, data: {language: {eq: "${lang}"}}}) {
+            edges {
+              node {
+                data {
+                title
+                  language
+                  subtitle
+                  member_title
+                  member_subtitle
+                  member_first
+                  member_extra
+                  member_cap
+                  member_services
+                  member_checkout
+                  res_title
+                  res_subtitle
+                  res_prices
+                  res_access
+                  res_validity
+                  res_services
+                  res_checkout
+                  button_1
+                  button_2
+                  rooms
+                }
+              }
+            }
+          }
+        }
+      `)
+    )
+  })
+  return promise;
+}
+
+
+
 exports.createPages = ({ graphql, actions }) => {
   // The Gatsby API “createPages” is called once the
   // data layer is bootstrapped to let plugins create pages from data.
@@ -208,9 +256,10 @@ exports.createPages = ({ graphql, actions }) => {
     // return;
   });
   // End of the loop
+  console.log('All pages built 🎉');
 };
 
-// console.log('All pages built 🎉');
+
 
 
 // Test
