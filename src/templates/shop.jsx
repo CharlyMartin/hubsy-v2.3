@@ -16,7 +16,7 @@ import Layout from '../components/layout'
 // For example src/pages/index.jsx is mapped to yoursite.com and src/pages/about.jsx becomes yoursite.com/about/.
 // Every .js or .jsx file in the pages directory must resolve to either a string or react component, otherwise your build will fail.
 
-class ShopsPage extends React.Component {
+class ShopPage extends React.Component {
   constructor(props) {
     super(props);
 
@@ -37,20 +37,18 @@ class ShopsPage extends React.Component {
     return (
       <Layout prefix={this.state.prefix} locale={this.state.locale}>
         <div className="container container-margin">
-          <h1>{this.state.data.title}</h1>
+          <h1>{this.state.data.language}</h1>
         </div>
       </Layout>
     )
   }
 }
   
-export default ShopsPage;
+export default ShopPage;
 
 // Two sources of data for this component:
 // - props.pageContext => coming from the createPage() action in gatsby-node
 // - props.data => coming from the page Query below
-
-
 
 
 // export const query = graphql`

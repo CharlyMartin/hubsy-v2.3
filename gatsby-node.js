@@ -1,107 +1,151 @@
 const path = require('path');
 const languagePath = {'fr': '/', 'en': '/en/',}
 
-// PAGES
+// TEMPLATES
 const homePage = path.resolve(`src/templates/home.jsx`);
 const shopsPage = path.resolve(`src/templates/shops.jsx`);
+const shopPage = path.resolve(`src/templates/shop.jsx`);
 
-// TEMPLATES
+// FUNCTIONS (PULLING DATA FROM AIRTABLE)
+function fetchHomePage(lang, graphql) {
+  const promise = new Promise(function(resolve) {
+    resolve(
+      graphql(`
+        {
+          allAirtable(filter: {table: {eq: "home_page"}, data: {language: {eq: "${lang}"}}}) {
+            edges {
+              node {
+                data {
+                  brand
+                  caption
+                  button
+                  referrals
+                  pictures {
+                    url
+                  }
+                  concept
+                  language
+                }
+              }
+            }
+          }
+        }
+      `)
+    )
+  })
+  return promise;
+}
 
-// The Gatsby API “createPages” is called once the
-// data layer is bootstrapped to let plugins create pages from data.
 
-// Start of the loop
+function fetchShopsPage(lang, graphql) {
+  const promise = new Promise(function(resolve) {
+    resolve(
+      graphql(`
+        {
+          allAirtable(filter: {table: {eq: "shops_page"}, data: {language: {eq: "${lang}"}}}) {
+            edges {
+              node {
+                data {
+                  title
+                }
+              }
+            }
+          }
+        }
+      `)
+    )
+  })
+  return promise;
+}
+
+
+// function fetchShopPage(lang, graphql) {
+//   const promise = new Promise(function(resolve) {
+//     resolve(
+//       graphql(`
+//         {
+//           allAirtable(filter: {table: {eq: "shop_page"}, data: {language: {eq: "${lang}"}}}) {
+//             edges {
+//               node {
+//                 data {
+//                   description
+//                   language
+//                   direction
+//                   hours
+//                   prices
+//                   contact
+//                   amneties
+//                   button_1
+//                   button_2
+//                   nearby
+//                 }
+//               }
+//             }
+//           }
+//         }
+//       `)
+//     )
+//   })
+//   return promise;
+// }
+
+
+function fetchShopsData(lang, graphql) {
+  const promise = new Promise(function(resolve) {
+    resolve(
+      graphql(`
+        {
+          allAirtable(filter: {table: {eq: "shops"}, data: {language: {eq: "${lang}"}}}) {
+            edges {
+              node {
+                data {
+                  name
+                  description
+                  language
+                  address
+                  postcode
+                  city
+                  status
+                  pictures {
+                    url
+                  }
+                  hours_weekdays
+                  hours_weekend
+                  price
+                  phone
+                  email
+                  internet
+                  food
+                  coffee
+                  transport
+                  drinks
+                  room
+                  screen
+                  printer
+                  slug
+                  meeting_rooms
+                }
+              }
+            }
+          }
+        }
+      `)
+    )
+  })
+  return promise;
+}
+
 exports.createPages = ({ graphql, actions }) => {
+  // The Gatsby API “createPages” is called once the
+  // data layer is bootstrapped to let plugins create pages from data.
   const { createPage, createNode } = actions;
 
-  // DATA FUNCTIONS
-  function fetchHomeData(lang) {
-    const promise = new Promise(function(resolve) {
-      resolve(
-        graphql(`
-          {
-            allAirtable(filter: {table: {eq: "home_page"}, data: {language: {eq: "${lang}"}}}) {
-              edges {
-                node {
-                  data {
-                    brand
-                    caption
-                    button
-                    referrals
-                    pictures {
-                      url
-                    }
-                    concept
-                    language
-                  }
-                }
-              }
-            }
-          }
-        `)
-      )
-    })
-    return promise;
-  }
-
-  function fetchShopsData(lang) {
-    const promise = new Promise(function(resolve) {
-      resolve(
-        graphql(`
-          {
-            allAirtable(filter: {table: {eq: "shops_page"}, data: {language: {eq: "${lang}"}}}) {
-              edges {
-                node {
-                  data {
-                    title
-                  }
-                }
-              }
-            }
-          }
-        `)
-      )
-    })
-    return promise;
-  }
-
-  // function fetchNavbarData(lang) {
-  //   const promise = new Promise(function(resolve) {
-  //     resolve(
-  //       graphql(`
-  //         {
-  //           allAirtable(filter: {table: {eq: "navbar"}, data: {language: {eq: "${lang}"}}}) {
-  //             edges {
-  //               node {
-  //                 data {
-  //                   venues
-  //                   booking
-  //                   book
-  //                   book_text
-  //                   privatize
-  //                   privatize_text
-  //                   pricing
-  //                   concept
-  //                   blog
-  //                   coffee
-  //                   barista
-  //                   language
-  //                 }
-  //               }
-  //             }
-  //           }
-  //         }        
-  //       `)
-  //     )
-  //   })
-  //   return promise;
-  // }
-
-  // Creating pages for "/" and "/en"
+  console.log("Page creation starting 💪");
+  // Start of the loop to create pages in fr / en
   Object.entries(languagePath).forEach( ([locale, prefix]) => {
 
-    // HOME PAGES CREATION
-    fetchHomeData(locale)
+    // HOME PAGE
+    fetchHomePage(locale, graphql)
       .then(response => {
         const results = response.data.allAirtable.edges;
         results.forEach(result => {
@@ -115,12 +159,13 @@ exports.createPages = ({ graphql, actions }) => {
             }
           };
           createPage(obj);
-          console.log(`${prefix} built 🎉`);
+          console.log(`${prefix} - built`);
         });
       });
 
-    // HOME PAGES CREATION
-    fetchShopsData(locale)
+
+    // SHOPS PAGE
+    fetchShopsPage(locale, graphql)
     .then(response => {
       const results = response.data.allAirtable.edges;
       results.forEach(result => {
@@ -135,33 +180,38 @@ exports.createPages = ({ graphql, actions }) => {
           }
         };
         createPage(obj);
-        console.log(`${url} built 🎉`);
+        console.log(`${url} - built`);
       });
     });
 
+    // SHOP PAGE
+    fetchShopsData(locale, graphql)
+      .then(response => {
+        const results = response.data.allAirtable.edges;
+        // console.log(results);
+        results.forEach((result => {
+          const url = `${prefix}shops/${result.node.data.slug}`
+          const obj = {
+            path: url,
+            component: shopPage,
+            context: {
+              locale,
+              prefix,
+              data: result.node.data
+            }
+          };
+          createPage(obj);
+          console.log(`${url} - built`);
+        }))
+      })
 
-    // // NAVBAR NODES CREATION
-    // fetchNavbarData(locale)
-    //   .then(response => {
-    //     const results = response.data.allAirtable.edges;
-    //     results.forEach(result => {
-
-    //       createNode({
-    //         id: `${locale}`,
-    //         data: result.node.data,
-    //         internal: {
-    //           type: `Navbar`,
-    //           contentDigest: `navbar node in ${locale}`
-    //         }
-    //       });
-    //       console.log(`navbar for ${prefix} loaded 🎉`);
-    //     });            
-    //   });
-
-    return;
+    // return;
   });
+  // End of the loop
 };
-// End of the loop
+
+// console.log('All pages built 🎉');
+
 
 // Test
 // exports.onPreBootstrap = () => {
