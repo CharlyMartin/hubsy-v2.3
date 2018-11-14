@@ -1,0 +1,31 @@
+.image-centered {
+  background-position: center;
+  background-size: cover;
+}
+
+/* Paddings */
+.pad-md-all {
+  padding: var(--space-md);
+}
+
+.pad-lg-sides {
+  padding: var(--space-lg) 0;
+}
+
+.pad-lg-top-left {
+  padding-top: var(--space-lg);
+  padding-left: var(--space-lg);
+}
+
+.pad-lg-left {
+  padding-left: var(--space-lg);
+}
+
+.pad-lg-right {
+  padding-right: var(--space-lg);
+}
+
+/* Margins */
+.mar-xl-top {
+  margin-top: var(--space-xl);
+}

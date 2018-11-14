@@ -32,13 +32,13 @@ class HomePage extends React.Component {
   }
   
   render() {    
-    const bannerStyle = { backgroundImage: `url(${this.state.selectedImage.url})`};
     const pageContext = this.props.pageContext;
+    const backgroundImage = { backgroundImage: `url(${this.state.selectedImage.url})`};
 
     return (
       <Layout prefix={pageContext.prefix} locale={pageContext.locale}>
         <div>
-          <div className="hero" style={bannerStyle} />
+          <div className="home-hero image-centered" style={backgroundImage} />
 
             <div className="container container-margin">
 

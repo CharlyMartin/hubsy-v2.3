@@ -1,0 +1,16 @@
+/* Container */
+.container {
+  width: 950px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.container-margin {
+  margin-top: var(--space-xxl);
+  margin-bottom: var(--space-xxl);
+}
+
+/* Column */
+.column-layout {
+  display: flex;
+}

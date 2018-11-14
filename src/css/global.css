@@ -2,6 +2,8 @@
 @import url('config/sizes.css');
 @import url('config/fonts.css');
 @import url('config/reset.css');
+@import url('config/layouts.css');
+@import url('config/utilities.css');
 
 
 /* Text */
@@ -25,7 +27,7 @@ h1 {
 
 h2 {
   font-size: var(--h2-size);
-  font-weight: 600;
+  font-weight: 700;
   color: var(--black-normal);
   margin-bottom: var(--space-sm);
 }
@@ -40,6 +42,7 @@ p, .text {
   font-size: var(--text-size);
   font-weight: 400;
   color: var(--black-normal);
+  margin-top: var(--space-xs);
 }
 
 .text-small {
@@ -47,20 +50,6 @@ p, .text {
   font-weight: 300;
   color: var(--black-light);
 }
-
-
-/* Container */
-.container {
-  width: 950px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.container-margin {
-  margin-top: var(--space-xxl);
-  margin-bottom: var(--space-xxl);
-}
-
 
 /* @media (max-width: $width-sm) {
   .container {

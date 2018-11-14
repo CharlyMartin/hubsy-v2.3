@@ -14,12 +14,9 @@
 .card-picture {
   height: 100px;
   width: 100%;
-  background-position: center;
-  background-size: cover;
 }
 
 .card-content {
-  padding: var(--space-md);
   display: flex;
 }
 

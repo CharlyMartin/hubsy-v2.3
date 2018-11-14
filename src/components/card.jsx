@@ -17,10 +17,10 @@ class Card extends React.Component {
     return (
       <Link to={`${this.props.locale}shops/${this.props.slug}`}>
         <div className="card">
-          <div className="card-picture" style={{backgroundImage: `url(${this.props.picture})`}}>
+          <div className="card-picture image-centered" style={{backgroundImage: `url(${this.props.picture})`}}>
           </div>
   
-          <div className="card-content">
+          <div className="card-content pad-md-all">
             <div className="card-text-container">
               <h2>{this.props.name}</h2>
               <p>{this.props.address}</p>

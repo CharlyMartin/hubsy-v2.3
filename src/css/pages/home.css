@@ -1,8 +1,8 @@
-.hero {
+.home-hero {
   height: 72vh;
   width: 100%;
-  background-position: center;
-  background-size: cover;
+  /* background-position: center;
+  background-size: cover; */
 }
 
 #title {

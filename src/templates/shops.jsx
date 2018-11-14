@@ -55,13 +55,13 @@ class ShopsPage extends React.Component {
         <div className="container container-margin">
           <h1>{pageContext.data.title}</h1>
           
-          <div className="flex-layout">
+          <div className="column-layout">
             <div className="shops-container">
               {this.renderCards(cardsArray, pageContext.prefix)}
             </div>
 
-            <div className="map-container">
-              <div id="map" />
+            <div className="map-container pad-lg-top-left">
+              <div id="shops-map" />
             </div>
           </div>
 
