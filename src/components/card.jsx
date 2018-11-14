@@ -5,13 +5,22 @@ import '../css/components/card.css';
 
 const Card = (props) => {
   return (
-    <div className="card">
-      <Link to={`${props.locale}shops/${props.data.slug}`}>
-        <h2>{props.data.name}</h2>
-        <p>{props.data.address}</p>
-        <p>{props.data.status}</p>
-      </Link>
-    </div>
+    <Link disabled to={`${props.locale}shops/${props.slug}`}>
+      <div className="card">
+        <div className="card-picture"></div>
+
+        <div className="card-content">
+          <div className="card-text-container">
+            <h2>{props.name}</h2>
+            <p>{props.address}</p>
+          </div>
+
+          <div className="card-badge-container">
+            <p className="card-badge badge-green">{props.status}</p> 
+          </div>
+        </div>
+      </div>
+    </Link>
   );
 };
 

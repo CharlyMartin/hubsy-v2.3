@@ -1,0 +1,21 @@
+.flex-layout {
+  display: flex;
+}
+
+.shops-container {
+  flex: 1 1 40%;
+}
+
+.map-container {
+  flex: 1 1 60%;
+  padding-top: var(--space-lg);
+  padding-left: var(--space-lg);
+}
+
+#map {
+  width: 100%;
+  height: 75vh;
+  background: salmon;
+  position: sticky;
+  top: var(--navbar-height);
+}

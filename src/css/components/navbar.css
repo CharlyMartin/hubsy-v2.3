@@ -1,6 +1,6 @@
 .navbar-placeholder {
   width: 100%;
-  height: 65px;
+  height: var(--navbar-height);
 }
 
 .navbar {
@@ -9,13 +9,10 @@
   left: 0;
   right: 0;
   background: white;
-  height: 65px;
+  height: var(--navbar-height);
   box-shadow: var(--shadow-light);
+  z-index: 1;
 }
-
-/* .navbar > .container {
-  height: 100%;
-} */
 
 .navbar-flex-container {
   display: flex;
@@ -37,7 +34,7 @@
 }
 
 .navbar-logo img {
-  width: 65px;
+  width: var(--navbar-height);
 }
 
 #navbar-left {

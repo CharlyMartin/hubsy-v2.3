@@ -14,23 +14,29 @@
 .card-picture {
   height: 100px;
   width: 100%;
-  background: salmon;
+  background: blanchedalmond;
 }
 
 .card-content {
   padding: var(--space-md);
-}
-
-.card-content-container {
   display: flex;
 }
 
-.card-content-text {
+.card-text-container {
   flex: 1 1 auto;
 }
 
-.card-content-text p {
+.card-text-container h2 {
+  font-weight: 700;
+}
+
+.card-text-container p {
   color: var(--black-light);
+}
+
+.card-badge-container {
+  display: flex;
+  align-items: flex-end;
 }
 
 .card-content-badge {
@@ -39,18 +45,14 @@
 }
 
 .card-badge {
-  padding: 0 4px;
-  border-radius: var(--radius-lg);
   font-size: 14px;
   font-weight: 300;
 }
 
 .badge-green {
-  border: 1px solid var(--hubsy-green);
   color: var(--hubsy-green);
 }
 
 .badge-red {
-  border: 1px solid var(--hubsy-red);
   color: var(--hubsy-red);
 }

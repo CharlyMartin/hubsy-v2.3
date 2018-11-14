@@ -1,9 +1,10 @@
 import React from 'react';
-import { graphql } from 'gatsby'
+import { graphql } from 'gatsby';
 
 import Layout from '../components/layout';
-import Card from '../components/card'
-// import '../css/pages/home.css'
+import Card from '../components/card';
+
+import '../css/pages/shops.css';
 
 class ShopsPage extends React.Component {
   constructor(props) {
@@ -21,7 +22,10 @@ class ShopsPage extends React.Component {
           return (
             <Card
               key={obj.node.data.record_id}
-              data={obj.node.data}
+              name={obj.node.data.name}
+              address={obj.node.data.address}
+              slug={obj.node.data.slug}
+              status={obj.node.data.status}
               locale={locale}
             />
           )}
@@ -47,9 +51,19 @@ class ShopsPage extends React.Component {
       <Layout prefix={pageContext.prefix} locale={pageContext.locale}>
         <div className="container container-margin">
           <h1>{pageContext.data.title}</h1>
-          <div>
-            {this.renderCards(cardsArray, pageContext.prefix)}
+          
+          <div className="flex-layout">
+            <div className="shops-container">
+              {this.renderCards(cardsArray, pageContext.prefix)}
+            </div>
+
+            <div className="map-container">
+              <div id="map" />
+            </div>
           </div>
+
+            
+
         </div>
       </Layout>
     )
