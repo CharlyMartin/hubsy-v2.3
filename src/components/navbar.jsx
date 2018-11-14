@@ -15,10 +15,6 @@ import '../css/components/navbar.css';
 class Navbar extends React.Component {
   constructor(props) {
     super(props);
-
-    // this.state = {
-    //   locale: this.props.locale
-    // }
   }
 
   componentDidMount() {
@@ -34,19 +30,15 @@ class Navbar extends React.Component {
     return `${this.props.prefix}${path}`;
   }
 
-  extractObject(array, lang = 'fr') {
-    // Components are called internally during the build sequence,
-    // making locale = undefined which returns an empty object and fail the build.
-    // The default params 'fr' prevents that!
-    // console.log(array, lang);
+  filterObjects(array, lang = 'fr') {
     return array.filter(obj => obj.node.data.language === lang);
   }
   
   render() {
     // console.log(this.props);
-    const array = this.props.data.allAirtable.edges;
-    const obj = this.extractObject(array, this.props.locale);
-    const content = obj[0].node.data;
+    const edges = this.props.data.allAirtable.edges;
+    const array = this.filterObjects(edges, this.props.locale);
+    const content = array[0].node.data;
 
     return (
       <div>
@@ -60,15 +52,11 @@ class Navbar extends React.Component {
                   <Link to={this.prefixLocale("shops")}>{content.venues}</Link>
                 </div>
 
-                <div className="navbar-element">
-                  <Link to={this.prefixLocale("pricing")}>{content.pricing}</Link>
-                </div>
-
                 <div className="navbar-element with-dropdown">
                   <span>{content.booking}</span>
 
                   <div className="navbar-dropdown" id="booking">
-                    <Link to={this.prefixLocale("shops")}>
+                    <Link to={this.prefixLocale("rooms")}>
                       <div className="navbar-dropdown-item">
                         <h3>{content.book}</h3>
                         <p className="text-small">{content.book_text}</p>
@@ -82,6 +70,10 @@ class Navbar extends React.Component {
                       </div>
                     </a>
                   </div>
+                </div>
+
+                <div className="navbar-element">
+                  <Link to={this.prefixLocale("pricing")}>{content.pricing}</Link>
                 </div>
 
                 <div className="navbar-element">
@@ -133,7 +125,6 @@ class Navbar extends React.Component {
               </div>
 
             </div>
-          {/* </div> */}
         </div>
 
         <div className="navbar-placeholder" ></div>
@@ -215,7 +206,7 @@ export default (props) => {
 
 // export default Navbar;
 
-// function extractObject(array, lang = 'fr') {
+// function filterObjects(array, lang = 'fr') {
 //   // Components are called internally during the build sequence,
 //   // making locale = undefined which returns an empty object and fail the build.
 //   // The default params 'fr' prevents that!

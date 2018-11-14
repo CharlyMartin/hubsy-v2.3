@@ -2,13 +2,11 @@ import React from 'react';
 // import { Link, graphql } from 'gatsby'
 
 import Layout from '../components/layout'
-import { ButtonLink } from '../components/button_link'
+import ButtonLink from '../components/button_link'
 import LeParisien from '../components/images/le_parisien'
 import Timeout from '../components/images/timeout'
 import Tf1 from '../components/images/tf1'
 import Telerama from '../components/images/telerama'
-
-
 
 import '../css/pages/home.css'
 
@@ -26,22 +24,19 @@ class HomePage extends React.Component {
     this.state = {
       images: this.props.pageContext.data.pictures,
       selectedImage: this.props.pageContext.data.pictures[0],
-      locale: this.props.pageContext.locale,
-      prefix: this.props.pageContext.prefix,
-      static: this.props.pageContext.data
     }
   }
 
   prefixLocale(path) {
-    return `${this.state.prefix}${path}`;
+    return `${this.props.pageContext.prefix}${path}`;
   }
   
   render() {    
     const bannerStyle = { backgroundImage: `url(${this.state.selectedImage.url})`};
-
+    const pageContext = this.props.pageContext;
 
     return (
-      <Layout prefix={this.state.prefix} locale={this.state.locale}>
+      <Layout prefix={pageContext.prefix} locale={pageContext.locale}>
         <div>
           <div className="hero" style={bannerStyle} />
 
@@ -49,17 +44,17 @@ class HomePage extends React.Component {
 
               <div className="brand-container">
                 <div className="brand-container-top">
-                  <h1 id="title">{this.state.static.brand}</h1>
-                  <ButtonLink class="button-beige" path={this.prefixLocale("shops")} content={this.state.static.button} />
+                  <h1 id="title">{pageContext.data.brand}</h1>
+                  <ButtonLink class="button-beige" path={this.prefixLocale("shops")} content={pageContext.data.button} />
                 </div>
-                <h2 id="caption">{this.state.static.caption}</h2>
+                <h2 id="caption">{pageContext.data.caption}</h2>
               </div>
 
               <br />
 
               <div className="referral-container">
                 <div className="referral-container-top">
-                  <h3>{this.state.static.referrals}</h3>
+                  <h3>{pageContext.data.referrals}</h3>
                 </div>
 
                 <div className="referral-container-images">
@@ -81,9 +76,8 @@ class HomePage extends React.Component {
                 </div>
 
                 <div className="referral-container-button">
-                  <ButtonLink class="button-green" path={this.prefixLocale("concept")} content={this.state.static.concept} />
+                  <ButtonLink class="button-green" path={this.prefixLocale("concept")} content={pageContext.data.concept} />
                 </div>
-
 
               </div>
             </div>
@@ -97,30 +91,3 @@ class HomePage extends React.Component {
 }
   
 export default HomePage;
-
-// Two sources of data for this component:
-// - props.pageContext => coming from the createPage() action in gatsby-node
-// - props.data => coming from the page Query below
-
-
-// export const query = graphql`
-//   {
-//     allAirtable(filter: {table: {eq: "navbar"}}) {
-//       edges {
-//         node {
-//           data {
-//             brand
-//             caption
-//             button
-//             referrals
-//             pictures {
-//               url
-//             }
-//             concept
-//             language
-//           }
-//         }
-//       }
-//     }
-//   }
-// `

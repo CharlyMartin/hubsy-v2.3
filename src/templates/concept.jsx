@@ -8,23 +8,19 @@ import Layout from '../components/layout'
 class ConceptPage extends React.Component {
   constructor(props) {
     super(props);
-
-    this.state = {
-      locale: this.props.pageContext.locale,
-      prefix: this.props.pageContext.prefix,
-      static: this.props.pageContext.data
-    }
   }
 
   prefixLocale(path) {
-    return `${this.state.prefix}${path}`;
+    return `${this.props.pageContext.prefix}${path}`;
   }
   
-  render() {  
+  render() {
+    const pageContext = this.props.pageContext;
+
     return (
-      <Layout prefix={this.state.prefix} locale={this.state.locale}>
+      <Layout prefix={pageContext.prefix} locale={pageContext.locale}>
         <div className="container container-margin">
-          <h1>{this.state.static.title}</h1>
+          <h1>{pageContext.data.title}</h1>
         </div>
       </Layout>
     )

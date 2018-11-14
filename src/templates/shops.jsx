@@ -8,17 +8,10 @@ import Card from '../components/card'
 class ShopsPage extends React.Component {
   constructor(props) {
     super(props);
-
-    this.state = {
-      locale: this.props.pageContext.locale,
-      prefix: this.props.pageContext.prefix,
-      static: this.props.pageContext.data,
-      shopsData: this.props.data.allAirtable.edges
-    }
   }
 
   prefixLocale(path) {
-    return `${this.state.prefix}${path}`;
+    return `${this.props.pageContext.locale}${path}`;
   }
 
   renderCards(array, locale) {
@@ -29,31 +22,33 @@ class ShopsPage extends React.Component {
             <Card
               key={obj.node.data.record_id}
               data={obj.node.data}
-              locale={locale} />
-          )
-        } )}
+              locale={locale}
+            />
+          )}
+        )}
       </div>  
     )
   }
 
-  extractObjects(array, lang = 'fr') {
+  filterObjects(array, lang = 'fr') {
     // Components are called internally during the build sequence,
-    // and doesn't pass a locale arg, which makes it undefined.
+    // it doesn't pass a locale arg, which makes it undefined.
     // Hence the function returns an empty object and fails the build process.
     // The default params 'fr' prevents that!
     return array.filter(obj => obj.node.data.language === lang);
   }
   
   render() {
-    const localisedArray = this.extractObjects(this.state.shopsData, this.state.locale);
-    console.log(localisedArray);
+    const pageContext = this.props.pageContext;
+    const edges = this.props.data.allAirtable.edges;
+    const cardsArray = this.filterObjects(edges, pageContext.locale);
 
     return (
-      <Layout prefix={this.state.prefix} locale={this.state.locale}>
+      <Layout prefix={pageContext.prefix} locale={pageContext.locale}>
         <div className="container container-margin">
-          <h1>{this.state.static.title}</h1>
+          <h1>{pageContext.data.title}</h1>
           <div>
-            {this.renderCards(localisedArray, this.state.prefix)}
+            {this.renderCards(cardsArray, pageContext.prefix)}
           </div>
         </div>
       </Layout>

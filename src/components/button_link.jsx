@@ -13,4 +13,4 @@ const ButtonLink = (props) => {
   );
 };
 
-export { ButtonLink };
+export default ButtonLink;

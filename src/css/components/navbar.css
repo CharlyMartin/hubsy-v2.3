@@ -68,7 +68,7 @@
 
 .navbar-language > img {
   width: 20px;
-  margin: var(--space-xs) var(--space-lg) 0 var(--space-lg);
+  margin: var(--space-sm) var(--space-lg) 0 var(--space-lg);
 }
 
 /* Dropdown */
