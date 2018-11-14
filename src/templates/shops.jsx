@@ -19,6 +19,7 @@ class ShopsPage extends React.Component {
     return (
       <div className="cards">
         {array.map(obj => {
+          console.log(obj);
           return (
             <Card
               key={obj.node.data.record_id}
@@ -27,6 +28,8 @@ class ShopsPage extends React.Component {
               slug={obj.node.data.slug}
               status={obj.node.data.status}
               locale={locale}
+              picture={obj.node.data.pictures[0].url}
+              live={obj.node.data.live}
             />
           )}
         )}
@@ -87,6 +90,7 @@ export const query = graphql`
             name
             address
             status
+            live
             slug
             pictures {
               url

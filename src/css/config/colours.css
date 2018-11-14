@@ -3,6 +3,8 @@
   --hubsy-beige: rgba(227, 190, 124, 1);
   --hubsy-red: rgba(226, 109, 90, 1);
   --hubsy-green: rgba(88, 139, 139, 1);
+  --hubsy-red-light: rgba(226, 109, 90, 0.1);
+  --hubsy-green-light: rgba(88, 139, 139, 0.1);
   
   /* Blacks */
   --black-dark: rgba(25, 25, 25, 1);

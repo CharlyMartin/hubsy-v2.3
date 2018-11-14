@@ -3,25 +3,38 @@ import { Link } from 'gatsby';
 
 import '../css/components/card.css';
 
-const Card = (props) => {
-  return (
-    <Link disabled to={`${props.locale}shops/${props.slug}`}>
-      <div className="card">
-        <div className="card-picture"></div>
+class Card extends React.Component {
+  constructor(props) {
+    super(props)
+  }
 
-        <div className="card-content">
-          <div className="card-text-container">
-            <h2>{props.name}</h2>
-            <p>{props.address}</p>
+  setBadgeColor() {
+    if (this.props.live === "true") return "badge-green"
+    if (this.props.live === "false") return "badge-red"
+  }
+
+  render() {
+    return (
+      <Link to={`${this.props.locale}shops/${this.props.slug}`}>
+        <div className="card">
+          <div className="card-picture" style={{backgroundImage: `url(${this.props.picture})`}}>
           </div>
-
-          <div className="card-badge-container">
-            <p className="card-badge badge-green">{props.status}</p> 
+  
+          <div className="card-content">
+            <div className="card-text-container">
+              <h2>{this.props.name}</h2>
+              <p>{this.props.address}</p>
+            </div>
+  
+            <div className="card-badge-container">
+              <p className={`card-badge ${this.setBadgeColor()}`}>{this.props.status}</p>
+            </div>
           </div>
         </div>
-      </div>
-    </Link>
-  );
+      </Link>
+    );
+  }
+
 };
 
 export default Card;

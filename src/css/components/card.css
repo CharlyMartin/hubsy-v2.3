@@ -14,7 +14,8 @@
 .card-picture {
   height: 100px;
   width: 100%;
-  background: blanchedalmond;
+  background-position: center;
+  background-size: cover;
 }
 
 .card-content {
@@ -47,12 +48,16 @@
 .card-badge {
   font-size: 14px;
   font-weight: 300;
+  padding: 0 var(--space-xs);
+  border-radius: var(--radius-sm);
 }
 
 .badge-green {
   color: var(--hubsy-green);
+  background: var(--hubsy-green-light);
 }
 
 .badge-red {
   color: var(--hubsy-red);
+  background: var(--hubsy-red-light);
 }
