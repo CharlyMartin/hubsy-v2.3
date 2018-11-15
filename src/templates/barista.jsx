@@ -1,8 +1,8 @@
 import React from 'react';
 // import { Link, graphql } from 'gatsby'
 
-import Layout from '../components/layout'
-
+import Layout from '../components/layout';
+import PageHeader from '../components/page_header';
 // import '../css/pages/home.css'
 
 class BaristaPage extends React.Component {
@@ -20,7 +20,7 @@ class BaristaPage extends React.Component {
     return (
       <Layout prefix={pageContext.prefix} locale={pageContext.locale}>
         <div className="container mg-xxl-top-bottom">
-          <h1>{pageContext.data.title}</h1>
+          <PageHeader title={pageContext.data.title} subtitle={pageContext.data.subtitle} />
         </div>
       </Layout>
     )

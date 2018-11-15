@@ -4,6 +4,7 @@ import React from 'react';
 import Layout from '../components/layout';
 import Item from '../components/item';
 import ButtonLink from '../components/button_link';
+import PageHeader from '../components/page_header';
 
 import '../css/pages/pricing.css'
 
@@ -23,10 +24,7 @@ class PricingPage extends React.Component {
     return (
       <Layout prefix={pageContext.prefix} locale={pageContext.locale}>
         <div className="container mg-xxl-top-bottom">
-          <div className="page-header pd-xxl-bottom">
-            <h1>{pageContext.data.title}</h1>
-            <h3>{pageContext.data.subtitle}</h3>
-          </div>
+          <PageHeader title={pageContext.data.title} subtitle={pageContext.data.subtitle} />
 
           <div className="page-section mg-xxl-top">
             <div className="column-layout">
