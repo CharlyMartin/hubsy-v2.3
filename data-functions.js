@@ -63,7 +63,7 @@ module.exports = {
                     name
                     description
                     language
-                    address
+                    street
                     postcode
                     city
                     status
@@ -72,7 +72,7 @@ module.exports = {
                     }
                     hours_weekdays
                     hours_weekend
-                    price
+                    prices
                     phone
                     email
                     internet
@@ -80,11 +80,13 @@ module.exports = {
                     coffee
                     transport
                     drinks
-                    room
+                    booths
+                    meeting_rooms
                     screen
                     printer
                     slug
-                    meeting_rooms
+                    linked_rooms
+                    record_id
                   }
                 }
               }

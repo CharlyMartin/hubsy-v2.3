@@ -33,11 +33,13 @@ class ShopPage extends React.Component {
     const edges = this.props.data.allAirtable.edges;
     const array = this.filterObjects(edges, pageContext.locale);
     const content = array[0].node.data;
+    console.log('pageContext', pageContext);
+    console.log('content', content);
 
     const backgroundImage = {
       backgroundImage: `linear-gradient(rgba(25, 25, 25, 0), rgba(25, 25, 25, 0.5)), url(${this.state.selectedImage.url})`,
     };
-    const fullAddress = `${pageContext.data.address}, ${pageContext.data.postcode} ${pageContext.data.city}`
+    const fullAddress = `${pageContext.data.street}, ${pageContext.data.postcode} ${pageContext.data.city}`
 
     return (
       <Layout prefix={pageContext.prefix} locale={pageContext.locale}>
@@ -52,14 +54,15 @@ class ShopPage extends React.Component {
 
         <div className="container container-margin">
           <div className="column-layout">
+            {/* First Column */}
             <div className="shop-left-container pad-lg-right">
               
-              <div>
+              <div id="description">
                 <h2>{content.description}</h2>
                 <p>{pageContext.data.description}</p>
               </div>
               
-              <div className="mar-xl-top">
+              <div className="mar-xl-top" id="direction">
                 <h2>{content.direction}</h2>
                 <p>{fullAddress}</p>
                 <p>{pageContext.data.transport}</p>
@@ -67,13 +70,19 @@ class ShopPage extends React.Component {
                 <div id="shop-map" />
               </div>
 
-              <div className="mar-xl-top">
+              <div className="mar-xl-top" id="hours">
                 <h2>{content.hours}</h2>
                 <p>{`${content.hours_weekdays} : ${pageContext.data.hours_weekdays}`}</p>
                 <p>{`${content.hours_weekend} : ${pageContext.data.hours_weekend}`}</p>
               </div>
-            </div>
 
+              <div className="mar-xl-top" id="prices">
+                <h2>{content.prices}</h2>
+                <p>{pageContext.prices}</p>
+              </div>
+            </div>
+            
+            {/* Second Column */}
             <div className="shop-right-container pad-lg-left">
               <div className="shop-block">
                 <h2>{content.amenities}</h2>

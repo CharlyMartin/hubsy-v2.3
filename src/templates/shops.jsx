@@ -85,16 +85,16 @@ export const query = graphql`
       edges {
         node {
           data {
-            record_id
             language
             name
-            address
-            status
             live
             slug
+            status
+            street
             pictures {
               url
             }
+            record_id
           }
         }
       }
