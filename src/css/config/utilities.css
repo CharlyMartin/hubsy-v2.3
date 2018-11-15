@@ -26,7 +26,27 @@
   padding-right: var(--space-lg);
 }
 
+
+
+
 /* Margins */
 .mg-xxl-top {
   margin-top: var(--space-xxl);
+}
+
+.mg-xxl-top-bottom {
+  margin-top: var(--space-xxl);
+  margin-bottom: var(--space-xxl);
+}
+
+.mg-xl-bottom {
+  margin-bottom: var(--space-xl);
+}
+
+.mg-lg-bottom {
+  margin-bottom: var(--space-lg);
+}
+
+.mg-lg-right {
+  margin-right: var(--space-lg);
 }

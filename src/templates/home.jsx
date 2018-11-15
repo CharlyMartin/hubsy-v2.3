@@ -43,7 +43,7 @@ class HomePage extends React.Component {
             <div className="container mg-xxl-top-bottom">
 
               <div className="brand-container">
-                <div className="brand-container-top">
+                <div className="brand-container-top mg-xl-bottom">
                   <h1 id="title">{pageContext.data.brand}</h1>
                   <ButtonLink class="button-beige" path={this.prefixLocale("shops")} content={pageContext.data.button} />
                 </div>
@@ -53,11 +53,9 @@ class HomePage extends React.Component {
               <br />
 
               <div className="referral-container">
-                <div className="referral-container-top">
-                  <h3>{pageContext.data.referrals}</h3>
-                </div>
+                <h3 className="mg-xl-bottom">{pageContext.data.referrals}</h3>
 
-                <div className="referral-container-images">
+                <div className="referral-container-images mg-xl-bottom">
                   <a href="https://www.timeout.fr/paris/bars/hubsy" target="_blank" rel="noopener noreferrer">
                     <Timeout />
                   </a>

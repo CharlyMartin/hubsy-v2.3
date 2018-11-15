@@ -3,6 +3,16 @@ import { Link, graphql } from 'gatsby';
 
 import Layout from '../components/layout';
 import ButtonLink from '../components/button_link'
+import Item from '../components/item'
+
+import coffee from '../images/icons/coffee.png';
+import screen from '../images/icons/screen.png';
+import apple from '../images/icons/apple.png';
+import drinks from '../images/icons/drinks.png';
+import meeting from '../images/icons/meeting.png';
+import phone from '../images/icons/phone.png';
+import printer from '../images/icons/printer.png';
+import wifi from '../images/icons/wifi.png';
 
 import '../css/pages/shop.css';
 
@@ -99,7 +109,22 @@ class ShopPage extends React.Component {
             <div className="shop-right-container pd-lg-left">
               <div className="shop-block">
                 <h2>{content.amenities}</h2>
-                <p>{pageContext.data.transport}</p>
+                {/* <Item image={coffee} text={pageContext.data.coffee} />
+                <Item image={screen} text={pageContext.data.screen} />
+                <Item image={coffee} text={pageContext.data.coffee} />
+                <Item image={coffee} text={pageContext.data.coffee} />
+                <Item image={coffee} text={pageContext.data.coffee} />
+                <Item image={coffee} text={pageContext.data.coffee} /> */}
+
+                <Item image={wifi} text={pageContext.data.internet} />
+                <Item image={coffee} text={pageContext.data.coffee} />
+                <Item image={screen} text={pageContext.data.screen} />
+                <Item image={apple} text={pageContext.data.food} />
+                <Item image={drinks} text={pageContext.data.drinks} />
+                <Item image={meeting} text={pageContext.data.meeting_rooms} />
+                <Item image={phone} text={pageContext.data.booths} />
+                <Item image={printer} text={pageContext.data.printer} />
+                
               </div>
             </div>
 

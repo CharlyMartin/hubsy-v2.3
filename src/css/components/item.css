@@ -1,0 +1,9 @@
+.item {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.item img {
+  width: 25px;
+}
