@@ -52,7 +52,7 @@ class ShopsPage extends React.Component {
 
     return (
       <Layout prefix={pageContext.prefix} locale={pageContext.locale}>
-        <div className="container container-margin">
+        <div className="container mg-xxl-top-bottom">
           <h1>{pageContext.data.title}</h1>
           
           <div className="column-layout">
@@ -60,7 +60,7 @@ class ShopsPage extends React.Component {
               {this.renderCards(cardsArray, pageContext.prefix)}
             </div>
 
-            <div className="map-container pad-lg-top-left">
+            <div className="map-container pd-lg-top-left">
               <div id="shops-map" />
             </div>
           </div>

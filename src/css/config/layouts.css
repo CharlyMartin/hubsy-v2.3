@@ -4,8 +4,7 @@
   margin-left: auto;
   margin-right: auto;
 }
-
-.container-margin {
+.mg-xxl-top-bottom {
   margin-top: var(--space-xxl);
   margin-bottom: var(--space-xxl);
 }

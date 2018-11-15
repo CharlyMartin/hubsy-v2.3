@@ -40,7 +40,7 @@ class HomePage extends React.Component {
         <div>
           <div className="home-hero image-centered" style={backgroundImage} />
 
-            <div className="container container-margin">
+            <div className="container mg-xxl-top-bottom">
 
               <div className="brand-container">
                 <div className="brand-container-top">

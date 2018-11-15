@@ -25,3 +25,7 @@
   height: 200px;
   background: salmon;
 }
+
+#contact a {
+  color: inherit;
+}

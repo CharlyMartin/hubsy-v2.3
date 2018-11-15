@@ -19,7 +19,7 @@ class BaristaPage extends React.Component {
 
     return (
       <Layout prefix={pageContext.prefix} locale={pageContext.locale}>
-        <div className="container container-margin">
+        <div className="container mg-xxl-top-bottom">
           <h1>{pageContext.data.title}</h1>
         </div>
       </Layout>

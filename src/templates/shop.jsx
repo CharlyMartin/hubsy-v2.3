@@ -2,6 +2,7 @@ import React from 'react';
 import { Link, graphql } from 'gatsby';
 
 import Layout from '../components/layout';
+import ButtonLink from '../components/button_link'
 
 import '../css/pages/shop.css';
 
@@ -45,24 +46,24 @@ class ShopPage extends React.Component {
       <Layout prefix={pageContext.prefix} locale={pageContext.locale}>
         <div className="shop-hero image-centered" style={backgroundImage}>
           <div className="container">
-            <div className="pad-lg-sides">
+            <div className="pd-lg-sides">
               <h1>Hubsy {pageContext.data.name}</h1>
               {/* <h3>{fullAddress}</h3> */}
             </div>
           </div>
         </div>
 
-        <div className="container container-margin">
+        <div className="container mg-xxl-top-bottom">
           <div className="column-layout">
             {/* First Column */}
-            <div className="shop-left-container pad-lg-right">
+            <div className="shop-left-container pd-lg-right">
               
               <div id="description">
                 <h2>{content.description}</h2>
                 <p>{pageContext.data.description}</p>
               </div>
               
-              <div className="mar-xl-top" id="direction">
+              <div className="mg-xxl-top" id="direction">
                 <h2>{content.direction}</h2>
                 <p>{fullAddress}</p>
                 <p>{pageContext.data.transport}</p>
@@ -70,20 +71,32 @@ class ShopPage extends React.Component {
                 <div id="shop-map" />
               </div>
 
-              <div className="mar-xl-top" id="hours">
+              <div className="mg-xxl-top" id="hours">
                 <h2>{content.hours}</h2>
                 <p>{`${content.hours_weekdays} : ${pageContext.data.hours_weekdays}`}</p>
                 <p>{`${content.hours_weekend} : ${pageContext.data.hours_weekend}`}</p>
               </div>
 
-              <div className="mar-xl-top" id="prices">
+              <div className="mg-xxl-top" id="prices">
                 <h2>{content.prices}</h2>
-                <p>{pageContext.prices}</p>
+                <p>{pageContext.data.prices}</p>
+                <br />
+                <ButtonLink class="button-green" path={this.prefixLocale("pricing")} content={content.button_2} />
+              </div>
+
+              <div className="mg-xxl-top" id="contact">
+                <h2>{content.contact}</h2>
+                <p>
+                  <a href={`mailto:${pageContext.data.email}`}> {pageContext.data.email} </a>
+                </p>
+                <p>
+                <a href={`tel:${pageContext.data.phone}`}> {pageContext.data.phone} </a>
+                </p>
               </div>
             </div>
             
             {/* Second Column */}
-            <div className="shop-right-container pad-lg-left">
+            <div className="shop-right-container pd-lg-left">
               <div className="shop-block">
                 <h2>{content.amenities}</h2>
                 <p>{pageContext.data.transport}</p>
@@ -118,6 +131,8 @@ export const query = graphql`
             hours_weekend
             prices
             contact
+            phone
+            email
             amenities
             button_1
             button_2

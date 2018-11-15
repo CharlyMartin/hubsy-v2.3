@@ -20,7 +20,7 @@ class Card extends React.Component {
           <div className="card-picture image-centered" style={{backgroundImage: `url(${this.props.picture})`}}>
           </div>
   
-          <div className="card-content pad-md-all">
+          <div className="card-content pd-md">
             <div className="card-text-container">
               <h2>{this.props.name}</h2>
               <p>{this.props.address}</p>
