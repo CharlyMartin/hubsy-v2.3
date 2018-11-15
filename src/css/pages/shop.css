@@ -16,9 +16,9 @@
   margin-top: var(--space-sm);
 } */
 
-.shop-left-container, .shop-right-container {
+/* .shop-right-container {
   flex: 1 0 50%;
-}
+} */
 
 #shop-map {
   width: 100%;

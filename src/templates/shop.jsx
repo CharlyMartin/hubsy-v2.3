@@ -66,7 +66,7 @@ class ShopPage extends React.Component {
         <div className="container mg-xxl-top-bottom">
           <div className="column-layout">
             {/* First Column */}
-            <div className="shop-left-container pd-lg-right">
+            <div className="column-half pd-lg-right">
               
               <div id="description">
                 <h2>{content.description}</h2>
@@ -106,7 +106,7 @@ class ShopPage extends React.Component {
             </div>
             
             {/* Second Column */}
-            <div className="shop-right-container pd-lg-left">
+            <div className="column-half pd-lg-left">
               <div className="">
                 <h2>{content.amenities}</h2>
                 <Item image={wifi} text={pageContext.data.internet} />

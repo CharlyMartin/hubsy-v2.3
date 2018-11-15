@@ -5,7 +5,22 @@
   margin-right: auto;
 }
 
+
 /* Column */
 .column-layout {
   display: flex;
+}
+
+.column-half {
+  flex: 1 0 50%;
+}
+
+
+/* Headers */
+.page-header {
+  text-align: center;
+}
+
+.page-section {
+  /* text-align: center; */
 }
