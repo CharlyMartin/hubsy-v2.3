@@ -14,7 +14,7 @@ class Item extends React.Component {
 
   render() {
     return (
-      <div className="item mg-lg-bottom">
+      <div className="item mg-md-bottom">
         {this.renderImg()}
         <p>{this.props.text}</p>
       </div>

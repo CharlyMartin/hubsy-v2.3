@@ -117,6 +117,7 @@ module.exports = {
                     member_cap
                     member_services
                     member_checkout
+                    member_offer
                     res_title
                     res_subtitle
                     res_prices

@@ -1,10 +1,17 @@
 :root {
   /* Brand colours */
   --hubsy-beige: rgba(227, 190, 124, 1);
+  /* --hubsy-beige-light: rgba(227, 190, 124, 0.2);
+  --hubsy-beige-lighter: rgba(227, 190, 124, 0.04); */
+
   --hubsy-red: rgba(226, 109, 90, 1);
-  --hubsy-green: rgba(88, 139, 139, 1);
   --hubsy-red-light: rgba(226, 109, 90, 0.1);
+
+  --hubsy-green: rgba(88, 139, 139, 1);
   --hubsy-green-light: rgba(88, 139, 139, 0.1);
+  --hubsy-green-lighter: rgba(88, 139, 139, 0.03);
+  
+
   
   /* Blacks */
   --black-dark: rgba(25, 25, 25, 1);
@@ -14,8 +21,8 @@
   
   /* Whites */
   --white-dark: rgba(227, 190, 124, 0.2);
-  --white-normal: rgba(227, 190, 124, 0.14);
-  --white-light: rgba(227, 190, 124, 0.02);
+  --white-normal: rgba(227, 190, 124, 0.1);
+  --white-light: rgba(227, 190, 124, 0.03);
   --white-lighter: rgba(247, 247, 245, 1);
   
   /* Box Shadows */

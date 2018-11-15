@@ -44,8 +44,8 @@ class ShopPage extends React.Component {
     const edges = this.props.data.allAirtable.edges;
     const array = this.filterObjects(edges, pageContext.locale);
     const content = array[0].node.data;
-    console.log('pageContext', pageContext);
-    console.log('content', content);
+    // console.log('pageContext', pageContext);
+    // console.log('content', content);
 
     const backgroundImage = {
       backgroundImage: `linear-gradient(rgba(25, 25, 25, 0), rgba(25, 25, 25, 0.5)), url(${this.state.selectedImage.url})`,
@@ -63,7 +63,7 @@ class ShopPage extends React.Component {
           </div>
         </div>
 
-        <div className="container mg-xxl-top-bottom">
+        <div className="container mg-xxl-top-bottom" id="shop-page">
           <div className="column-layout">
             {/* First Column */}
             <div className="column-half pd-lg-right">

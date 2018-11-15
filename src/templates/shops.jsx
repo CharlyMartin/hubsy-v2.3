@@ -19,7 +19,6 @@ class ShopsPage extends React.Component {
     return (
       <div className="cards">
         {array.map(obj => {
-          console.log(obj);
           return (
             <Card
               key={obj.node.data.record_id}

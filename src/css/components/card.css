@@ -26,6 +26,7 @@
 
 .card-text-container h2 {
   font-weight: 700;
+  margin-bottom: var(--space-sm);
 }
 
 .card-text-container p {

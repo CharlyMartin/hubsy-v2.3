@@ -20,7 +20,7 @@ class Footer extends React.Component {
 
     return (
       <div>
-        <div className="footer">
+        <div className="footer mg-xxl-top">
           <div className="container">
             <h1>This is a Footer in {content.language}</h1>
           </div>

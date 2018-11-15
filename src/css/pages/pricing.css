@@ -1,3 +1,51 @@
-.price-table{
-  border: 1px solid red;
+.price-table {
+  /* border: 1px solid red; */
+  /* box-shadow: var(--shadow-lighter); */
+  border-radius: var(--radius-sm);
+}
+
+.price-table-header {
+  box-shadow: var(--shadow-ligth);
+  border-radius: var(--radius-sm);
+}
+
+#member .price-table-header {
+  background: var(--hubsy-green);
+}
+
+#member .price-table-header h2, #member .price-table-header p {
+  color: white;
+}
+
+#member .price-table-items {
+  background: var(--hubsy-green-lighter);
+}
+
+#member #offer p {
+  color: var(--hubsy-green);
+  font-weight: 700;
+}
+
+
+
+#resident .price-table-header {
+  background: var(--white-dark);
+}
+
+#resident .price-table-items {
+  background: var(--white-light);
+}
+
+#resident #offer p {
+  color: var(--hubsy-beige);
+  font-weight: 700;
+}
+
+
+.room-disclaimer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: white;
+  border-radius: var(--radius-sm)
 }

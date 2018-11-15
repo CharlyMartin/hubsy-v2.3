@@ -29,7 +29,7 @@ h2 {
   font-size: var(--h2-size);
   font-weight: 700;
   color: var(--black-normal);
-  margin-bottom: var(--space-sm);
+  margin-bottom: var(--space-md);
 }
 
 h3 {
