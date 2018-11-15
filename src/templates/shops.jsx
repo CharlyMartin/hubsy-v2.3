@@ -24,7 +24,7 @@ class ShopsPage extends React.Component {
             <Card
               key={obj.node.data.record_id}
               name={obj.node.data.name}
-              address={obj.node.data.address}
+              address={obj.node.data.street}
               slug={obj.node.data.slug}
               status={obj.node.data.status}
               locale={locale}
