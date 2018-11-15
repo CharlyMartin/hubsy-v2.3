@@ -1,6 +1,4 @@
 import React from 'react';
-import ButtonLink from './button_link'
-// import { Link } from 'gatsby';
 
 import '../css/components/item.css';
 
@@ -11,13 +9,8 @@ class Item extends React.Component {
 
   renderImg() {
     if (this.props.image === undefined) return;
-    return (<img src={this.props.image} alt="" className="mg-lg-right"/>);
+    return (<img src={this.props.image} alt="" className="mg-lg-right" />);
   }
-
-  // renderButton() {
-  //   if (this.props.button === undefined) return;
-  //   return <ButtonLink />;
-  // }
 
   render() {
     return (

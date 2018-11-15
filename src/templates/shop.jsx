@@ -56,7 +56,7 @@ class ShopPage extends React.Component {
       <Layout prefix={pageContext.prefix} locale={pageContext.locale}>
         <div className="shop-hero image-centered" style={backgroundImage}>
           <div className="container">
-            <div className="pd-lg-sides">
+            <div className="mg-lg-bottom">
               <h1>Hubsy {pageContext.data.name}</h1>
               {/* <h3>{fullAddress}</h3> */}
             </div>
@@ -107,25 +107,30 @@ class ShopPage extends React.Component {
             
             {/* Second Column */}
             <div className="shop-right-container pd-lg-left">
-              <div className="shop-block">
+              <div className="">
                 <h2>{content.amenities}</h2>
-                {/* <Item image={coffee} text={pageContext.data.coffee} />
-                <Item image={screen} text={pageContext.data.screen} />
-                <Item image={coffee} text={pageContext.data.coffee} />
-                <Item image={coffee} text={pageContext.data.coffee} />
-                <Item image={coffee} text={pageContext.data.coffee} />
-                <Item image={coffee} text={pageContext.data.coffee} /> */}
-
                 <Item image={wifi} text={pageContext.data.internet} />
                 <Item image={coffee} text={pageContext.data.coffee} />
                 <Item image={screen} text={pageContext.data.screen} />
                 <Item image={apple} text={pageContext.data.food} />
                 <Item image={drinks} text={pageContext.data.drinks} />
-                <Item image={meeting} text={pageContext.data.meeting_rooms} />
+                
+                <div className="button-item-container">
+                  <Item image={meeting} text={pageContext.data.meeting_rooms} />
+                  <ButtonLink content={content.button_1} path={this.prefixLocale("rooms")} class="button-beige"/>
+                </div>
+
                 <Item image={phone} text={pageContext.data.booths} />
                 <Item image={printer} text={pageContext.data.printer} />
                 
               </div>
+
+              <div className="mg-xxl-top">
+                <h2>{content.nearby}</h2>
+                <p>{pageContext.data.linked_rooms[0]}</p>
+                <p>{pageContext.data.linked_rooms[1]}</p>
+                <p>{pageContext.data.linked_rooms[2]}</p>
+              </div> 
             </div>
 
           </div>  

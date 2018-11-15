@@ -29,3 +29,9 @@
 #contact a {
   color: inherit;
 }
+
+.button-item-container {
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+}
