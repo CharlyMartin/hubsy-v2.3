@@ -25,3 +25,25 @@
   margin-top: var(--space-sm);
   border-radius: var(--radius-md);
 }
+
+.footer-bottom {
+  background: var(--black-light);
+  padding: var(--space-xs) 0;
+}
+
+.footer-bottom-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.footer-bottom h4 {
+  color: white;
+  font-size: var(--text-small-size);
+}
+
+.footer-bottom-element {
+  color: white;
+  font-size: var(--text-small-size);
+  font-weight: 300;
+  margin-left: var(--space-lg);
+}

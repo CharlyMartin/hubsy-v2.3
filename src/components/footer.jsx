@@ -25,7 +25,7 @@ class Footer extends React.Component {
     return (
       <div>
         <div className="footer mg-xxl-top">
-          <div className="container pd-lg">
+          <div className="container pd-xxl-top pd-xxl-bottom">
             <div className="column-layout">
               
               <div className="column-quarter">
@@ -65,6 +65,17 @@ class Footer extends React.Component {
             </div>
           </div>
         </div>
+
+        <div className="footer-bottom">
+          <div className="container">
+            <div className="footer-bottom-container">
+              <h4>Hubsy 2015 - 2018</h4>
+              <a className="footer-bottom-element" rel="noopener noreferrer" href='#' target="_blank">Mentions Légales</a>
+              <a className="footer-bottom-element" rel="noopener noreferrer" href='#' target="_blank">Conditions Générales de Ventes</a>
+            </div>
+          </div>
+        </div>
+
       </div>
     )
   }
