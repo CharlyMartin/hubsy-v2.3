@@ -5,3 +5,7 @@
   background: white;
   border-radius: var(--radius-sm)
 }
+
+.disclaimer p {
+  font-weight: 600;
+}
