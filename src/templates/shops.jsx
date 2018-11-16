@@ -2,7 +2,7 @@ import React from 'react';
 import { graphql } from 'gatsby';
 
 import Layout from '../components/layout';
-import Card from '../components/card';
+import CardLink from '../components/card_link';
 
 import '../css/pages/shops.css';
 
@@ -20,10 +20,10 @@ class ShopsPage extends React.Component {
       <div className="cards">
         {array.map(obj => {
           return (
-            <Card
+            <CardLink
               key={obj.node.data.record_id}
-              name={obj.node.data.name}
-              address={obj.node.data.street}
+              title={obj.node.data.name}
+              subtitle={obj.node.data.street}
               slug={obj.node.data.slug}
               status={obj.node.data.status}
               locale={locale}

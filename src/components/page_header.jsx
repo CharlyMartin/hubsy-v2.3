@@ -4,7 +4,7 @@ import '../css/components/button.css'
 
 const PageHeader = (props) => {
   return (
-    <div className="page-header pd-xxl-bottom">
+    <div className="page-header pd-xxl-bottom pd-xxl-top">
       <h1>{props.title}</h1>
       <h3>{props.subtitle}</h3>
     </div>

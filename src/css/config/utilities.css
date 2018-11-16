@@ -33,6 +33,10 @@
   padding-right: var(--space-xl);
 }
 
+.pd-xxl-top {
+  padding-top: var(--space-xxl);
+}
+
 .pd-xxl-bottom {
   padding-bottom: var(--space-xxl);
 }

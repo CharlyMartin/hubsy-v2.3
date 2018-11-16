@@ -5,7 +5,7 @@ import Layout from '../components/layout';
 import PageHeader from '../components/page_header';
 import Disclaimer from '../components/disclaimer';
 import ButtonA from '../components/button_a';
-import Card from '../components/card';
+import CardLink from '../components/card_link';
 
 import '../css/pages/room.css'
 

@@ -1,0 +1,18 @@
+.page-hero {
+  width: 100%;
+  height: 50vh;
+}
+
+.wrapper-beige {
+  background: var(--white-dark);
+}
+
+.wrapper-beige iframe  {
+  width: 100%;
+}
+
+.wrapper-text {
+  height: 100%;
+  display: flex;
+  align-items: center;
+}

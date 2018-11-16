@@ -54,7 +54,7 @@ class ShopPage extends React.Component {
 
     return (
       <Layout prefix={pageContext.prefix} locale={pageContext.locale}>
-        <div className="shop-hero image-centered" style={backgroundImage}>
+        <div className="page-hero image-centered" style={backgroundImage}>
           <div className="container">
             <div className="mg-lg-bottom">
               <h1>Hubsy {pageContext.data.name}</h1>

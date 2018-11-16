@@ -1,9 +1,9 @@
 import React from 'react';
-import { Link } from 'gatsby';
+// import { Link } from 'gatsby';
 
 import '../css/components/card.css';
 
-class Card extends React.Component {
+class CardLink extends React.Component {
   constructor(props) {
     super(props)
   }
@@ -15,26 +15,26 @@ class Card extends React.Component {
 
   render() {
     return (
-      <Link to={`${this.props.locale}shops/${this.props.slug}`}>
+      <a href={this.props.path} target="_blank" rel="noopener noreferrer">
         <div className="card">
           <div className="card-picture image-centered" style={{backgroundImage: `url(${this.props.picture})`}}>
           </div>
   
           <div className="card-content pd-md">
             <div className="card-text-container">
-              <h2>{this.props.name}</h2>
-              <p>{this.props.address}</p>
+              <h2>{this.props.title}</h2>
+              <p>{this.props.subtitle}</p>
             </div>
   
-            <div className="card-badge-container">
+            {/* <div className="card-badge-container">
               <p className={`card-badge ${this.setBadgeColor()}`}>{this.props.status}</p>
-            </div>
+            </div> */}
           </div>
         </div>
-      </Link>
+      </a>
     );
   }
 
 };
 
-export default Card;
+export default CardLink;
