@@ -1,0 +1,12 @@
+.concept-image {
+  height: 100%;
+  width: 100%;
+}
+
+.text-column {
+  flex: 1 0 55%;
+}
+
+.picture-column {
+  flex: 1 0 45%;
+}
