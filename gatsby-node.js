@@ -5,7 +5,7 @@ const path = require('path');
 const shopsPage = path.resolve(`src/templates/shops.jsx`);
 const shopPage = path.resolve(`src/templates/shop.jsx`);
 const pricingPage = path.resolve(`src/templates/pricing.jsx`);
-const conceptPage = path.resolve(`src/templates/concept.jsx`);
+const aboutPage = path.resolve(`src/templates/about.jsx`);
 const roomsPage = path.resolve(`src/templates/rooms.jsx`);
 const baristaPage = path.resolve(`src/templates/barista.jsx`);
 
@@ -104,14 +104,14 @@ exports.createPages = ({ graphql, actions }) => {
         });
       });
 
-    fetch.conceptPage(locale, graphql)
+    fetch.aboutPage(locale, graphql)
       .then(response => {
         const results = response.data.allAirtable.edges;
         results.forEach(result => {
-          const url = `${prefix}concept`;
+          const url = `${prefix}about`;
           const obj = {
             path: url,
-            component: conceptPage,
+            component: aboutPage,
             context: {
               locale,
               prefix,

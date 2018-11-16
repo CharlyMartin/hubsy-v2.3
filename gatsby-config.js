@@ -89,7 +89,7 @@ module.exports = {
           },
           {
             baseId: contentBaseId,
-            tableName: 'concept_page',
+            tableName: 'about_page',
             tableView: viewAll,
             // mapping: {
             //   'item_1_picture': 'fileNode',

@@ -139,12 +139,12 @@ module.exports = {
     return promise;
   },
 
-  conceptPage: function(lang, graphql) {
+  aboutPage: function(lang, graphql) {
     const promise = new Promise(function(resolve) {
       resolve(
         graphql(`
           {
-            allAirtable(filter: {table: {eq: "concept_page"}, data: {language: {eq: "${lang}"}}}) {
+            allAirtable(filter: {table: {eq: "about_page"}, data: {language: {eq: "${lang}"}}}) {
               edges {
                 node {
                   data {

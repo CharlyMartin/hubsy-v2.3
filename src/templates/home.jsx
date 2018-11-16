@@ -74,7 +74,7 @@ class HomePage extends React.Component {
                 </div>
 
                 <div className="referral-container-button">
-                  <ButtonLink class="button-green" path={this.prefixLocale("concept")} content={pageContext.data.concept} />
+                  <ButtonLink class="button-green" path={this.prefixLocale("about")} text={pageContext.data.concept} />
                 </div>
 
               </div>

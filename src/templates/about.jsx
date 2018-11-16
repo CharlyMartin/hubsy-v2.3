@@ -7,7 +7,7 @@ import TextImage from '../components/text_image';
 
 // import '../css/pages/home.css'
 
-class ConceptPage extends React.Component {
+class aboutPage extends React.Component {
   constructor(props) {
     super(props);
   }
@@ -65,7 +65,7 @@ class ConceptPage extends React.Component {
   }
 }
   
-export default ConceptPage;
+export default aboutPage;
 
 // Two sources of data for this component:
 // - props.pageContext => coming from the createPage() action in gatsby-node

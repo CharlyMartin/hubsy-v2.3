@@ -77,7 +77,7 @@ class Navbar extends React.Component {
                 </div>
 
                 <div className="navbar-element">
-                  <Link to={this.prefixLocale("concept")}>{content.concept}</Link>
+                  <Link to={this.prefixLocale("about")}>{content.concept}</Link>
                 </div>
               </div>
 
