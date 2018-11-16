@@ -23,7 +23,7 @@ class RoomsPage extends React.Component {
       <div className="rooms">
         {array.map(obj => {
           return (
-            <div className="room-item mg-xxl-bottom" key={obj.node.data.record_id}>
+            <div className="room-item mg-xxl-bottom pd-xxl-bottom" key={obj.node.data.record_id}>
               <div className="room-shop">
                 <h2>{`Husby ${obj.node.data.name}`}</h2>
                 <p>{obj.node.data.street}</p>
