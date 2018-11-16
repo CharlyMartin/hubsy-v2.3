@@ -45,7 +45,7 @@ class HomePage extends React.Component {
               <div className="brand-container">
                 <div className="brand-container-top mg-xl-bottom">
                   <h1 id="title">{pageContext.data.brand}</h1>
-                  <ButtonLink class="button-beige" path={this.prefixLocale("shops")} content={pageContext.data.button} />
+                  <ButtonLink class="button-beige" path={this.prefixLocale("shops")} text={pageContext.data.button} />
                 </div>
                 <h2 id="caption">{pageContext.data.caption}</h2>
               </div>
