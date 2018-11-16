@@ -47,7 +47,7 @@ class ShopsPage extends React.Component {
   render() {
     const pageContext = this.props.pageContext;
     const edges = this.props.data.allAirtable.edges;
-    const cardsArray = this.filterObjects(edges, pageContext.locale);
+    const shopsData = this.filterObjects(edges, pageContext.locale);
 
     return (
       <Layout prefix={pageContext.prefix} locale={pageContext.locale}>
@@ -56,7 +56,7 @@ class ShopsPage extends React.Component {
           
           <div className="column-layout">
             <div className="shops-container">
-              {this.renderCards(cardsArray, pageContext.prefix)}
+              {this.renderCards(shopsData, pageContext.prefix)}
             </div>
 
             <div className="map-container pd-lg-top-left">
