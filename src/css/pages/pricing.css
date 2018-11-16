@@ -40,12 +40,3 @@
   color: var(--hubsy-beige);
   font-weight: 700;
 }
-
-
-.room-disclaimer {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background: white;
-  border-radius: var(--radius-sm)
-}

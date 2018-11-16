@@ -5,6 +5,7 @@ import Layout from '../components/layout';
 import Item from '../components/item';
 import ButtonLink from '../components/button_link';
 import PageHeader from '../components/page_header';
+import Disclaimer from '../components/disclaimer'
 
 import '../css/pages/pricing.css'
 
@@ -78,10 +79,9 @@ class PricingPage extends React.Component {
           <br/>
 
           <div className="page-section mg-xxl-top">
-            <div className="room-disclaimer pd-md">
-              <p>{pageContext.data.rooms}</p>
-              <ButtonLink content={pageContext.data.button_1} path="rooms" class="button-beige"/>
-            </div>
+            <Disclaimer text={pageContext.data.rooms}>
+              <ButtonLink content={pageContext.data.button_1} path={this.prefixLocale('rooms')} class="button-beige" />
+            </Disclaimer>
           </div>
 
           <br/>

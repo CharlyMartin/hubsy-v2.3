@@ -3,6 +3,8 @@ import React from 'react';
 
 import Layout from '../components/layout';
 import PageHeader from '../components/page_header';
+import Disclaimer from '../components/disclaimer';
+import ButtonLink from '../components/button_link';
 
 // import '../css/pages/home.css'
 
@@ -22,6 +24,10 @@ class RoomsPage extends React.Component {
       <Layout prefix={pageContext.prefix} locale={pageContext.locale}>
         <div className="container mg-xxl-top-bottom">
           <PageHeader title={pageContext.data.title} subtitle={pageContext.data.subtitle} />
+
+          <Disclaimer text={pageContext.data.privatise}>
+            <ButtonLink content={pageContext.data.button} path={this.prefixLocale('rooms')} class="button-beige" />
+          </Disclaimer>
         </div>
       </Layout>
     )

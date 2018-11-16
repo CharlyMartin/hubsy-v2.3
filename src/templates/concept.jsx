@@ -18,7 +18,6 @@ class ConceptPage extends React.Component {
   
   render() {
     const pageContext = this.props.pageContext;
-    console.log(pageContext);
 
     return (
       <Layout prefix={pageContext.prefix} locale={pageContext.locale}>
@@ -58,15 +57,6 @@ class ConceptPage extends React.Component {
                         path: this.prefixLocale("shops")
                       }}
               />
-
-            {/* <TextImage
-              title={pageContext.data.item_2_title}
-              text={pageContext.data.item_2_text}
-              image={pageContext.data.item_2_picture[0].url}
-              image_side="left"
-              btn_text={pageContext.data.item_2_button}
-              btn_color="button-green"
-              btn_path={this.prefixLocale("shops")}/> */}
 
           </div>
         </div>

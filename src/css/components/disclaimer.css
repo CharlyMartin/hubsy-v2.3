@@ -1,0 +1,7 @@
+.disclaimer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: white;
+  border-radius: var(--radius-sm)
+}
