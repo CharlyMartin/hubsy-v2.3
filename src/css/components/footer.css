@@ -1,5 +1,27 @@
 .footer {
   background: var(--white-dark);
-  height: 100px;
   width: 100%;
+}
+
+.footer h3 {
+  color: var(--black-normal);
+  font-weight: 700;
+  margin-bottom: var(--space-md);
+}
+
+.footer-element {
+  color: var(--black-normal);
+  font-size: var(--text-size);
+  font-weight: 400;
+  cursor: pointer;
+  display: block;
+  margin-bottom: var(--space-xs);
+}
+
+.footer-button {
+  display: inline-block;
+  border: 1px solid var(--black-normal);
+  padding: var(--space-xs) var(--space-sm);
+  margin-top: var(--space-sm);
+  border-radius: var(--radius-md);
 }

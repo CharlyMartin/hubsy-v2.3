@@ -15,12 +15,16 @@
   flex: 1 0 50%;
 }
 
+.column-quarter {
+  flex: 1 0 25%;
+}
+
 
 /* Headers */
 .page-header {
   text-align: center;
 }
 
-.page-section {
-  /* text-align: center; */
-}
+/* .page-section {
+
+} */

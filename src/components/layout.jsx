@@ -15,18 +15,18 @@ import '../css/global.css';
 export default (props) => {
   return (
     <StaticQuery
-    query={graphql`
-      query HeadingQuery {
-        site {
-          siteMetadata {
-            title
+      query={graphql`
+        query HeadingQuery {
+          site {
+            siteMetadata {
+              title
+            }
           }
         }
-      }
-    `}
+      `}
       
       render={(data) => {
-
+        console.log(props);
         return (
           <div>
             <Helmet
@@ -38,9 +38,9 @@ export default (props) => {
               <html lang={props.locale} />
             </Helmet>
 
-            <Navbar locale={props.locale} prefix={props.prefix}/>
+            <Navbar locale={props.locale} prefix={props.prefix} />
             {props.children}
-            <Footer locale={props.locale} prefix={props.prefix}/>
+            <Footer locale={props.locale} prefix={props.prefix} test="test" />
           </div>
         )}
       }
