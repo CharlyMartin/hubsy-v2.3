@@ -8,7 +8,7 @@ const ButtonLink = (props) => {
   return (
     <Link to={props.path}>
       <span className={`button ${props.class}`}>
-        {props.content}
+        {props.text}
       </span>
     </Link>
   );
