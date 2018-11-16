@@ -1,7 +1,10 @@
+/* Images */
 .image-centered {
   background-position: center;
   background-size: cover;
 }
+
+
 
 /* Paddings */
 .pd-md {
@@ -22,12 +25,12 @@
   padding-left: var(--space-lg);
 }
 
-.pd-lg-left {
-  padding-left: var(--space-lg);
+.pd-xl-left {
+  padding-left: var(--space-xl);
 }
 
-.pd-lg-right {
-  padding-right: var(--space-lg);
+.pd-xl-right {
+  padding-right: var(--space-xl);
 }
 
 .pd-xxl-bottom {
@@ -40,6 +43,10 @@
 /* Margins */
 .mg-xxl-top {
   margin-top: var(--space-xxl);
+}
+
+.mg-xxl-bottom {
+  margin-bottom: var(--space-xxl);
 }
 
 .mg-md-top {
