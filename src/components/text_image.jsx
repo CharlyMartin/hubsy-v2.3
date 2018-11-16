@@ -8,7 +8,7 @@ class TextImage extends React.Component {
     super(props)
   }
 
-  renderLink() {
+  renderCorrectLink() {
     if (this.props.btn !== undefined) {
       return (
         <ButtonLink path={this.props.btn.path}
@@ -19,7 +19,7 @@ class TextImage extends React.Component {
 
     if (this.props.link !== undefined) {
       return (
-        <a class={`button ${this.props.link.color}`} href={this.props.link.path} target="_blank" rel="noopener noreferrer">
+        <a className={`button ${this.props.link.color}`} href={this.props.link.path} target="_blank" rel="noopener noreferrer">
           {this.props.link.content}
         </a>
       )
@@ -28,19 +28,19 @@ class TextImage extends React.Component {
     return "";
   }
 
-  renderText(padding_direction = "") {
+  renderText(padding_direction) {
     return (
       <div className={`text-column ${padding_direction}`}>
         <h2>{this.props.title}</h2>
         <p>{this.props.text}</p>
         <br/>
         <br/>
-        {this.renderLink()}
+        {this.renderCorrectLink()}
       </div>
     )
   }
 
-  renderImage(padding_direction = "") {
+  renderImage(padding_direction) {
     return (
       <div className={`picture-column ${padding_direction}`}>
         <div
