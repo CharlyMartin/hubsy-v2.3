@@ -80,7 +80,7 @@ class PricingPage extends React.Component {
 
           <div className="page-section mg-xxl-top">
             <Disclaimer text={pageContext.data.rooms}>
-              <ButtonLink text={pageContext.data.button_1} path={this.prefixLocale('rooms')} class="button-beige" />
+              <ButtonLink text={pageContext.data.button_1} path={this.prefixLocale('rooms')} class="button-beige-transparent" />
             </Disclaimer>
           </div>
 

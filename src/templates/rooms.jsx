@@ -71,7 +71,7 @@ class RoomsPage extends React.Component {
           </div>
 
           <Disclaimer text={pageContext.data.privatise}>
-            <ButtonA text={pageContext.data.button} path="#" class="button-beige" />
+            <ButtonA text={pageContext.data.button} path="#" class="button-beige-transparent" />
           </Disclaimer>
         </div>
       </Layout>

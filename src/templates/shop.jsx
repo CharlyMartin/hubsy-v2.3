@@ -91,7 +91,7 @@ class ShopPage extends React.Component {
                 <h2>{content.prices}</h2>
                 <p>{pageContext.data.prices}</p>
                 <br />
-                <ButtonLink class="button-green" path={this.prefixLocale("pricing")} text={content.button_2} />
+                <ButtonLink class="button-green-transparent" path={this.prefixLocale("pricing")} text={content.button_2} />
               </div>
 
               <div className="mg-xxl-top" id="contact">

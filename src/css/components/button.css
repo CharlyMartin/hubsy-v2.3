@@ -1,7 +1,6 @@
 .button {
   padding: 10px 24px;
   border-radius: var(--radius-md);
-  box-shadow: var(--shadow-lighter);
   transition: all 200ms ease;
   font-weight: 700;
 }
@@ -11,13 +10,23 @@
   box-shadow: var(--shadow-light);
 }
 
+/* Button plain */
 .button-beige {
+  box-shadow: var(--shadow-lighter);
   background: var(--hubsy-beige);
   color: white;
 }
 
-.button-green {
-  background: white;
-  border: 1px solid var(--hubsy-green);
+
+/* Button transparent */
+.button-beige-transparent {
+  border: 2px solid var(--hubsy-beige);
+  color: var(--hubsy-beige);
+}
+
+
+.button-green-transparent {
+  /* background: white; */
+  border: 2px solid var(--hubsy-green);
   color: var(--hubsy-green);
 }

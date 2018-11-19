@@ -55,7 +55,7 @@ class aboutPage extends React.Component {
                 <p>{pageContext.data.item_2_text}</p>
                 <br/>
                 <br/>
-                <ButtonA text={pageContext.data.item_2_button} path="https://shop.hubsy.fr/" class="button-green" />
+                <ButtonA text={pageContext.data.item_2_button} path="https://shop.hubsy.fr/" class="button-green-transparent" />
               </div>
             </div>
 
@@ -66,7 +66,7 @@ class aboutPage extends React.Component {
                 <p>{pageContext.data.item_3_text}</p>
                 <br/>
                 <br/>
-                <ButtonLink text={pageContext.data.item_3_button} path={this.prefixLocale("pricing")} class="button-green" />
+                <ButtonLink text={pageContext.data.item_3_button} path={this.prefixLocale("pricing")} class="button-green-transparent" />
               </div>
 
               <div className="picture-column pd-xl-left">
@@ -82,7 +82,7 @@ class aboutPage extends React.Component {
                       image_side="left"
                       link={{
                         content: pageContext.data.item_2_button,
-                        color: "button-green",
+                        color: "button-green-transparent",
                         path: 'https://shop.hubsy.fr/'
                       }}
               />
@@ -93,7 +93,7 @@ class aboutPage extends React.Component {
                       image_side="right"
                       btn={{
                         content: pageContext.data.item_3_button,
-                        color: "button-green",
+                        color: "button-green-transparent",
                         path: this.prefixLocale("shops")
                       }}
               /> */}

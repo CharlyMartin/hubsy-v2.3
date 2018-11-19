@@ -96,7 +96,7 @@
  }
 
 .navbar-dropdown-item:hover {
-  background: var(--white-normal);
+  background: var(--white-dark);
 }
 
 .navbar-dropdown-item-flex {

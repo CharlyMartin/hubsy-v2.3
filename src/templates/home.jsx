@@ -1,12 +1,19 @@
 import React from 'react';
 // import { Link, graphql } from 'gatsby'
 
-import Layout from '../components/layout'
-import ButtonLink from '../components/button_link'
-import LeParisien from '../components/images/le_parisien'
-import Timeout from '../components/images/timeout'
-import Tf1 from '../components/images/tf1'
-import Telerama from '../components/images/telerama'
+import Layout from '../components/layout';
+import ButtonLink from '../components/button_link';
+import Image from '../components/image';
+
+import leParisien from '../images/referrals/le_parisien.png'
+import timeout from '../images/referrals/timeout.png'
+import tf1 from '../images/referrals/tf1.png'
+import telerama from '../images/referrals/telerama.png'
+
+// import LeParisien from '../components/images/le_parisien'
+// import Timeout from '../components/images/timeout'
+// import Tf1 from '../components/images/tf1'
+// import Telerama from '../components/images/telerama'
 
 import '../css/pages/home.css'
 
@@ -57,24 +64,28 @@ class HomePage extends React.Component {
 
                 <div className="referral-container-images mg-xl-bottom">
                   <a href="https://www.timeout.fr/paris/bars/hubsy" target="_blank" rel="noopener noreferrer">
-                    <Timeout />
+                    <Image src={timeout} />
+                    {/* <Timeout /> */}
                   </a>
 
                   <a href="https://vimeo.com/153919166#t=NaNs" target="_blank" rel="noopener noreferrer">
-                    <Tf1 />
+                  <Image src={tf1} />
+                    {/* <Tf1 /> */}
                   </a>
 
                   <a href="https://sortir.telerama.fr/paris/lieux/bars/hubsy-cafe,28001.php" target="_blank" rel="noopener noreferrer">
-                    <Telerama />
+                  <Image src={telerama} />
+                    {/* <Telerama /> */}
                   </a>
 
                   <a href="http://www.leparisien.fr/paris-75/paris-75003/husby-reinvente-le-cafe-bureau-partage-pour-la-generation-y-a-paris-06-01-2016-5426597.php" target="_blank" rel="noopener noreferrer">
-                    <LeParisien />
+                  <Image src={leParisien} />
+                    {/* <LeParisien /> */}
                   </a>
                 </div>
 
                 <div className="referral-container-button">
-                  <ButtonLink class="button-green" path={this.prefixLocale("about")} text={pageContext.data.concept} />
+                  <ButtonLink class="button-green-transparent" path={this.prefixLocale("about")} text={pageContext.data.concept} />
                 </div>
 
               </div>

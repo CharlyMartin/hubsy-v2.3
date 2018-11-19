@@ -2,9 +2,16 @@ import React from 'react';
 import { StaticQuery, graphql } from "gatsby";
 import { Link } from 'gatsby'
 
-import Logo from './images/logo';
-import FlagFR from './images/flag_fr';
-import FlagEN from './images/flag_en';
+import Image from './image';
+
+// import Logo from './images/logo';
+// import FlagFR from './images/flag_fr';
+// import FlagEN from './images/flag_en';
+
+import logo from '../images/logo/logo.png';
+import flagFR from '../images/lang/fr.png';
+import flagEN from '../images/lang/en.png';
+
 
 import { navbarDropdown } from '../utilities/dropdown';
 
@@ -22,8 +29,8 @@ class Navbar extends React.Component {
   }
 
   renderFlag() {
-    if (this.props.locale === 'fr') return <FlagFR />;
-    if (this.props.locale === 'en') return <FlagEN />;
+    if (this.props.locale === 'fr') return (<Image src={flagFR} /> );
+    if (this.props.locale === 'en') return (<Image src={flagEN} /> );
   }
 
   prefixLocale(path) {
@@ -83,7 +90,7 @@ class Navbar extends React.Component {
 
               <div className="navbar-logo">
                 <Link to={this.prefixLocale("")}>
-                  <Logo />
+                  <Image src={logo} />
                 </Link>
               </div>
 
@@ -109,14 +116,16 @@ class Navbar extends React.Component {
                   <div className="navbar-dropdown" id="lang-selection">
                     <Link to="/">
                       <div className="navbar-dropdown-item navbar-dropdown-item-flex" data-id="fr" onClick={this.handleClick}>
-                        {<FlagFR />}
+                        {/* {<FlagFR />} */}
+                        <Image src={flagFR} />
                         <p>Français</p>
                       </div>
                     </Link>
 
                     <Link to="/en">
                       <div className="navbar-dropdown-item navbar-dropdown-item-flex" data-id="en" onClick={this.handleClick}>
-                        {<FlagEN />}
+                        {/* {<FlagEN />} */}
+                        <Image src={flagEN} />
                         <p>English</p>
                       </div>
                     </Link>
