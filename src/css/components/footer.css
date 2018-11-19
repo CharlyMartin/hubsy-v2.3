@@ -4,7 +4,7 @@
 }
 
 .footer h3 {
-  color: var(--black-normal);
+  color: var(--black-dark);
   font-weight: 700;
   margin-bottom: var(--space-md);
 }
@@ -21,7 +21,7 @@
 .footer-button {
   display: inline-block;
   border: 1px solid var(--black-normal);
-  padding: var(--space-xs) var(--space-sm);
+  padding: 2px 8px;
   margin-top: var(--space-sm);
   border-radius: var(--radius-md);
 }

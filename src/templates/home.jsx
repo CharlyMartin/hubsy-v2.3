@@ -65,22 +65,18 @@ class HomePage extends React.Component {
                 <div className="referral-container-images mg-xl-bottom">
                   <a href="https://www.timeout.fr/paris/bars/hubsy" target="_blank" rel="noopener noreferrer">
                     <Image src={timeout} />
-                    {/* <Timeout /> */}
                   </a>
 
                   <a href="https://vimeo.com/153919166#t=NaNs" target="_blank" rel="noopener noreferrer">
                   <Image src={tf1} />
-                    {/* <Tf1 /> */}
                   </a>
 
                   <a href="https://sortir.telerama.fr/paris/lieux/bars/hubsy-cafe,28001.php" target="_blank" rel="noopener noreferrer">
                   <Image src={telerama} />
-                    {/* <Telerama /> */}
                   </a>
 
                   <a href="http://www.leparisien.fr/paris-75/paris-75003/husby-reinvente-le-cafe-bureau-partage-pour-la-generation-y-a-paris-06-01-2016-5426597.php" target="_blank" rel="noopener noreferrer">
                   <Image src={leParisien} />
-                    {/* <LeParisien /> */}
                   </a>
                 </div>
 
