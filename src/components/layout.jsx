@@ -13,6 +13,7 @@ import '../css/global.css';
 // StaticQuery does not accept variables (hence the name “static”), but can be used in any component, including pages
 
 export default (props) => {
+  console.log(props);
   return (
     <StaticQuery
       query={graphql`
@@ -26,7 +27,6 @@ export default (props) => {
       `}
       
       render={(data) => {
-        console.log(props);
         return (
           <div>
             <Helmet

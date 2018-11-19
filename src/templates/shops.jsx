@@ -63,9 +63,6 @@ class ShopsPage extends React.Component {
               <div id="shops-map" />
             </div>
           </div>
-
-            
-
         </div>
       </Layout>
     )
