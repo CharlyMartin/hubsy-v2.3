@@ -49,7 +49,6 @@ class Navbar extends React.Component {
 
     return (
       <div>
-
         <div className="navbar">
           {/* <div className="container"> */}
             <div className="navbar-flex-container">
@@ -114,7 +113,7 @@ class Navbar extends React.Component {
                   {this.renderFlag()}
 
                   <div className="navbar-dropdown" id="lang-selection">
-                    <Link to="/">
+                    <Link to={`/${this.props.path}`}>
                       <div className="navbar-dropdown-item navbar-dropdown-item-flex" data-id="fr" onClick={this.handleClick}>
                         {/* {<FlagFR />} */}
                         <Image src={flagFR} />
@@ -122,7 +121,7 @@ class Navbar extends React.Component {
                       </div>
                     </Link>
 
-                    <Link to="/en">
+                    <Link to={`/en/${this.props.path}`}>
                       <div className="navbar-dropdown-item navbar-dropdown-item-flex" data-id="en" onClick={this.handleClick}>
                         {/* {<FlagEN />} */}
                         <Image src={flagEN} />
@@ -174,7 +173,7 @@ export default (props) => {
 
     render={(data) => {
       return (
-        <Navbar data={data} locale={props.locale} prefix={props.prefix} />
+        <Navbar data={data} locale={props.locale} prefix={props.prefix} path={props.path} />
       )}
     }
   />)

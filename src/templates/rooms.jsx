@@ -63,16 +63,18 @@ class RoomsPage extends React.Component {
 
     return (
       <Layout prefix={pageContext.prefix} locale={pageContext.locale}>
-        <div className="container mg-xxl-top-bottom">
-          <PageHeader title={pageContext.data.title} subtitle={pageContext.data.subtitle} />
+        <div path="rooms">
+          <div className="container mg-xxl-top-bottom">
+            <PageHeader title={pageContext.data.title} subtitle={pageContext.data.subtitle} />
 
-          <div className="page-section">
-            {this.renderCards(shopsData, pageContext.locale)}
+            <div className="page-section">
+              {this.renderCards(shopsData, pageContext.locale)}
+            </div>
+
+            <Disclaimer text={pageContext.data.privatise}>
+              <ButtonA text={pageContext.data.button} path="#" class="button-beige-transparent" />
+            </Disclaimer>
           </div>
-
-          <Disclaimer text={pageContext.data.privatise}>
-            <ButtonA text={pageContext.data.button} path="#" class="button-beige-transparent" />
-          </Disclaimer>
         </div>
       </Layout>
     )

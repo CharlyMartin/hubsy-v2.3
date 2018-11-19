@@ -13,7 +13,6 @@ import '../css/global.css';
 // StaticQuery does not accept variables (hence the name “static”), but can be used in any component, including pages
 
 export default (props) => {
-  console.log(props);
   return (
     <StaticQuery
       query={graphql`
@@ -38,9 +37,9 @@ export default (props) => {
               <html lang={props.locale} />
             </Helmet>
 
-            <Navbar locale={props.locale} prefix={props.prefix} />
+            <Navbar locale={props.locale} prefix={props.prefix} path={props.children.props.path} />
             {props.children}
-            <Footer locale={props.locale} prefix={props.prefix} test="test" />
+            <Footer locale={props.locale} prefix={props.prefix} />
           </div>
         )}
       }

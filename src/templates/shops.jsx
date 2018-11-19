@@ -51,16 +51,18 @@ class ShopsPage extends React.Component {
 
     return (
       <Layout prefix={pageContext.prefix} locale={pageContext.locale}>
-        <div className="container mg-xxl-top-bottom">
-          <h1>{pageContext.data.title}</h1>
-          
-          <div className="column-layout">
-            <div className="shops-container">
-              {this.renderCards(shopsData, pageContext.prefix)}
-            </div>
+        <div path="shops">
+          <div className="container mg-xxl-top-bottom">
+            <h1>{pageContext.data.title}</h1>
+            
+            <div className="column-layout">
+              <div className="shops-container">
+                {this.renderCards(shopsData, pageContext.prefix)}
+              </div>
 
-            <div className="map-container pd-lg-top-left">
-              <div id="shops-map" />
+              <div className="map-container pd-lg-top-left">
+                <div id="shops-map" />
+              </div>
             </div>
           </div>
         </div>

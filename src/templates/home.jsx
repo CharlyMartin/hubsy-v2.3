@@ -44,7 +44,7 @@ class HomePage extends React.Component {
 
     return (
       <Layout prefix={pageContext.prefix} locale={pageContext.locale}>
-        <div>
+        <div path="home">
           <div className="home-hero image-centered" style={backgroundImage} />
 
             <div className="container mg-xxl-top-bottom">

@@ -21,7 +21,7 @@ class BaristaPage extends React.Component {
 
     return (
       <Layout prefix={pageContext.prefix} locale={pageContext.locale}>
-        <div>
+        <div path="barista-training">
           <div className="page-hero image-centered"
               style={{backgroundImage: `url(${pageContext.data.picture[0].url})`}}/>
 
