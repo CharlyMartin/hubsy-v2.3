@@ -54,5 +54,5 @@ export default [
     content: "Staff are friendly, coffee is good, snacks are delicious and an excellent place to work from. I will be a regular customer for sure.",
     date: "2018",
     language: "en"
-  },
+  }
 ]
