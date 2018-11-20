@@ -88,10 +88,12 @@ class HomePage extends React.Component {
 
           <br />
           <br />
+          <br />
+          <br />
           
           {/* Google Reviews */}
-          <div className="wrapper-beige">
-            <div className="container">
+          <div className="wrapper-beige text-center">
+            <div className="container pd-xxl-top pd-xxl-bottom">
               <h3 className="mg-xl-bottom">{pageContext.data.testimonials}</h3>
               
               <div className="reviews">
@@ -103,13 +105,15 @@ class HomePage extends React.Component {
             </div>
           </div>
 
-          <br/>
-          <br/>
+          <br />
+          <br />
 
           <div className="container text-center mg-xl-bottom">
             <ButtonLink class="button-beige-transparent" path={this.prefixLocale("about")} text={pageContext.data.concept} />
           </div>
 
+          <br />
+          <br />
           <br />
           <br />
 
@@ -135,9 +139,7 @@ class HomePage extends React.Component {
               </a>
             </div>
           </div>
-
-          <br />
-          <br />
+          
         </div>
       </Layout>
     )

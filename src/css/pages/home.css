@@ -28,6 +28,10 @@
   margin: 0;
 }
 
+.wrapper-beige h3 {
+  color: var(--black-dark);
+}
+
 .referrals img {
   width: 90px;
   margin: var(--space-xl);
