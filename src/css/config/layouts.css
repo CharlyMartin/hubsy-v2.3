@@ -32,4 +32,5 @@
 /* Wrapper */
 .wrapper-beige {
   background: var(--white-dark);
+  box-shadow: var(--shadow-lighter);
 }

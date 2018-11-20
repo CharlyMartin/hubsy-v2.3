@@ -55,16 +55,21 @@ class HomePage extends React.Component {
     return arr.slice(0, number);
   }
 
+  textEllipsis(str, limit) {
+    if (str.length > limit) return (`${str.substring(0, limit - 1).trim()}...`);
+    return str
+  }
+
   renderReviews() {
     const reviews = this.sample(this.filterReviews(), 3);
     return reviews.map(r => {
+      const clippedContent = this.textEllipsis(r.content, 110);
       return (
-        <div className="column-third" key={r.id}>
-          <CardReview first={r.first} content={r.content} />
+        <div className="column-third pd-md" key={r.id}>
+          <CardReview first={r.first} content={clippedContent} />
         </div>
       )
     })
-    reviews.forEach(r => console.log(r));
   }
   
   render() {    
@@ -74,7 +79,7 @@ class HomePage extends React.Component {
 
     return (
       <Layout prefix={pageContext.prefix} locale={pageContext.locale}>
-        <div path="home">
+        <div path="">
           <div className="home-hero image-centered" style={backgroundImage} />
 
           {/* Brand + Tagline */}
@@ -139,7 +144,7 @@ class HomePage extends React.Component {
               </a>
             </div>
           </div>
-          
+
         </div>
       </Layout>
     )

@@ -50,7 +50,7 @@ class Footer extends React.Component {
                 <a className="footer-element" href="https://shop.hubsy.fr/" target="_blank" rel="noopener noreferrer">{content.coffee}</a>
                 {/* <Link to={this.prefixLocale("shops")} className="footer-element">Hubsy ...</Link> */}
                 <Link to={this.prefixLocale("barista-training")} className="footer-element">{content.barista}</Link>
-                <a className="footer-element footer-button" href="#" target="_blank" rel="noopener noreferrer">{content.franchise}</a>
+                {/* <a className="footer-element footer-button" href="#" target="_blank" rel="noopener noreferrer">{content.franchise}</a> */}
               </div>
 
               

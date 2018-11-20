@@ -24,9 +24,17 @@
   color: var(--hubsy-beige);
 }
 
+.button-beige-transparent:hover {
+  background: white;
+}
+
 
 .button-green-transparent {
   /* background: white; */
   border: 2px solid var(--hubsy-green);
   color: var(--hubsy-green);
+}
+
+.button-green-transparent:hover {
+  background: white;
 }
