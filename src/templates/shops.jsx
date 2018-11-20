@@ -19,11 +19,12 @@ class ShopsPage extends React.Component {
     return (
       <div className="cards">
         {array.map(obj => {
+          const address = `${obj.node.data.street}, ${obj.node.data.postcode}`
           return (
             <CardLink
               key={obj.node.data.record_id}
               title={obj.node.data.name}
-              subtitle={obj.node.data.street}
+              subtitle={address}
               slug={obj.node.data.slug}
               status={obj.node.data.status}
               locale={locale}
@@ -89,6 +90,7 @@ export const query = graphql`
             slug
             status
             street
+            postcode
             pictures {
               url
             }
