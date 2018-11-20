@@ -1,12 +1,16 @@
 import React from 'react';
+import star from '../images/icons/star.png';
 // import { Link } from 'gatsby';
 
 import '../css/components/review.css'
 
-const ButtonLink = (props) => {
+const CardReview = (props) => {
   return (
-    <div className="review"></div>
+    <div className="review">
+      {props.first}
+      {props.content}
+    </div>
   );
 };
 
-export default ButtonLink;
+export default CardReview;

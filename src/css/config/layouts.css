@@ -15,6 +15,10 @@
   flex: 1 0 50%;
 }
 
+.column-third {
+  flex: 1 0 33.33333%;
+}
+
 .column-quarter {
   flex: 1 0 25%;
 }

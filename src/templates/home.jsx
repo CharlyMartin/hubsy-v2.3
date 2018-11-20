@@ -5,6 +5,7 @@ import React from 'react';
 import Layout from '../components/layout';
 import ButtonLink from '../components/button_link';
 import Image from '../components/image';
+import CardReview from '../components/card_review';
 
 // Images
 import leParisien from '../images/referrals/le_parisien.png';
@@ -56,6 +57,13 @@ class HomePage extends React.Component {
 
   renderReviews() {
     const reviews = this.sample(this.filterReviews(), 3);
+    return reviews.map(r => {
+      return (
+        <div className="column-third" key={r.id}>
+          <CardReview first={r.first} content={r.content} />
+        </div>
+      )
+    })
     reviews.forEach(r => console.log(r));
   }
   
@@ -85,21 +93,31 @@ class HomePage extends React.Component {
           <div className="wrapper-beige">
             <div className="container">
               <h3 className="mg-xl-bottom">{pageContext.data.testimonials}</h3>
-              <div className="column-layout">
-              Hello
-              {this.renderReviews()}
+              
+              <div className="reviews">
+                <div className="column-layout">
+                  {this.renderReviews()}
+                </div>
               </div>
+              
             </div>
+          </div>
+
+          <br/>
+          <br/>
+
+          <div className="container text-center mg-xl-bottom">
+            <ButtonLink class="button-beige-transparent" path={this.prefixLocale("about")} text={pageContext.data.concept} />
           </div>
 
           <br />
           <br />
 
           {/* Company Referrals */}
-          <div className="referrals">
+          <div className="container text-center">
             <h3 className="mg-xl-bottom">{pageContext.data.referrals}</h3>
 
-            <div className="referrals-images mg-xl-bottom">
+            <div className="referrals">
               <a href="https://www.timeout.fr/paris/bars/hubsy" target="_blank" rel="noopener noreferrer">
                 <Image src={timeout} />
               </a>
@@ -116,8 +134,6 @@ class HomePage extends React.Component {
               <Image src={leParisien} />
               </a>
             </div>
-
-            <ButtonLink class="button-green-transparent" path={this.prefixLocale("about")} text={pageContext.data.concept} />
           </div>
 
           <br />
