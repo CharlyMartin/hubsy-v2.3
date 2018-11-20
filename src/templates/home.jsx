@@ -12,6 +12,7 @@ import leParisien from '../images/referrals/le_parisien.png';
 import timeout from '../images/referrals/timeout.png';
 import tf1 from '../images/referrals/tf1.png';
 import telerama from '../images/referrals/telerama.png';
+import forbes from '../images/referrals/forbes.png';
 
 // CSS
 import '../css/pages/home.css';
@@ -132,15 +133,19 @@ class HomePage extends React.Component {
               </a>
 
               <a href="https://vimeo.com/153919166#t=NaNs" target="_blank" rel="noopener noreferrer">
-              <Image src={tf1} />
+                <Image src={tf1} />
               </a>
 
-              <a href="https://sortir.telerama.fr/paris/lieux/bars/hubsy-cafe,28001.php" target="_blank" rel="noopener noreferrer">
-              <Image src={telerama} />
+              <a href="https://www.forbes.fr/management/les-tiers-lieux-s-imposent/" target="_blank" rel="noopener noreferrer">
+                <Image src={forbes} />
               </a>
 
               <a href="http://www.leparisien.fr/paris-75/paris-75003/husby-reinvente-le-cafe-bureau-partage-pour-la-generation-y-a-paris-06-01-2016-5426597.php" target="_blank" rel="noopener noreferrer">
-              <Image src={leParisien} />
+                <Image src={leParisien} />
+              </a>
+
+              <a href="https://sortir.telerama.fr/paris/lieux/bars/hubsy-cafe,28001.php" target="_blank" rel="noopener noreferrer">
+                <Image src={telerama} />
               </a>
             </div>
           </div>
