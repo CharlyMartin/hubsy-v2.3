@@ -14,6 +14,7 @@ module.exports = {
                     caption
                     button
                     referrals
+                    testimonials
                     pictures {
                       url
                     }

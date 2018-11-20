@@ -25,6 +25,7 @@
   text-align: center;
 }
 
-/* .page-section {
-
-} */
+/* Wrapper */
+.wrapper-beige {
+  background: var(--white-dark);
+}

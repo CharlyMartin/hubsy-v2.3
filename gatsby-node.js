@@ -7,7 +7,7 @@ const shopPage = path.resolve(`src/templates/shop.jsx`);
 const pricingPage = path.resolve(`src/templates/pricing.jsx`);
 const aboutPage = path.resolve(`src/templates/about.jsx`);
 const roomsPage = path.resolve(`src/templates/rooms.jsx`);
-const baristaPage = path.resolve(`src/templates/barista.jsx`);
+const baristaPage = path.resolve(`src/templates/barista-training.jsx`);
 
 // Page Object Template
 function buildPageObj(url, comp, lang, pref, d) {

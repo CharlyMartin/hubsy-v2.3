@@ -28,12 +28,13 @@
   margin: 0;
 }
 
-.referral-container {
-  margin: var(--space-xxl 0);
+
+.referrals {
+  /* margin: var(--space-xxl) 0; */
   text-align: center;
 }
 
-.referral-container-images img {
+.referrals-images img {
   width: 90px;
   margin: var(--space-xl);
 }

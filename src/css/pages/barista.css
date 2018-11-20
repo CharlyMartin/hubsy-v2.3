@@ -3,10 +3,6 @@
   height: 50vh;
 }
 
-.wrapper-beige {
-  background: var(--white-dark);
-}
-
 .wrapper-beige iframe  {
   width: 100%;
 }
