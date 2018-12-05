@@ -30,7 +30,7 @@ class aboutPage extends React.Component {
               
               {/* Item 1 */}
               <div className="column-layout pd-xxl-bottom mg-xxl-bottom">
-                <div className="text-column pd-xl-right">
+                <div className="text-column">
                   <h2>{pageContext.data.item_1_title}</h2>
                   <p>{pageContext.data.item_1_text}</p>
                   <br/>
@@ -38,31 +38,31 @@ class aboutPage extends React.Component {
                   <ButtonLink text={pageContext.data.item_1_button} path={this.prefixLocale("shops")} class="button-beige" />
                 </div>
 
-                <div className="picture-column pd-xl-left">
+                <div className="picture-column">
                   <div className="concept-image image-centered"
                       style={{backgroundImage: `url(${pageContext.data.item_1_picture[0].url})`}} />
                 </div>
               </div>
 
               {/* Item 2 */}
-              <div className="column-layout pd-xxl-bottom mg-xxl-bottom">
-                <div className="picture-column pd-xl-right">
-                  <div className="concept-image image-centered"
-                      style={{backgroundImage: `url(${pageContext.data.item_2_picture[0].url})`}} />
-                </div>
-
-                <div className="text-column pd-xl-left">
+              <div className="column-layout pd-xxl-bottom mg-xxl-bottom image-left">
+                <div className="text-column">
                   <h2>{pageContext.data.item_2_title}</h2>
                   <p>{pageContext.data.item_2_text}</p>
                   <br/>
                   <br/>
                   <ButtonA text={pageContext.data.item_2_button} path="https://shop.hubsy.fr/" class="button-green-transparent" />
                 </div>
+
+                <div className="picture-column">
+                  <div className="concept-image image-centered"
+                      style={{backgroundImage: `url(${pageContext.data.item_2_picture[0].url})`}} />
+                </div>
               </div>
 
               {/* Item 3 */}
               <div className="column-layout pd-xxl-bottom mg-xxl-bottom">
-                <div className="text-column pd-xl-right">
+                <div className="text-column">
                   <h2>{pageContext.data.item_3_title}</h2>
                   <p>{pageContext.data.item_3_text}</p>
                   <br/>
@@ -70,34 +70,11 @@ class aboutPage extends React.Component {
                   <ButtonLink text={pageContext.data.item_3_button} path={this.prefixLocale("pricing")} class="button-green-transparent" />
                 </div>
 
-                <div className="picture-column pd-xl-left">
+                <div className="picture-column">
                   <div className="concept-image image-centered"
                       style={{backgroundImage: `url(${pageContext.data.item_3_picture[0].url})`}} />
                 </div>
               </div>
-
-
-              {/* <TextImage title={pageContext.data.item_2_title}
-                        text={pageContext.data.item_2_text}
-                        image={pageContext.data.item_2_picture[0].url}
-                        image_side="left"
-                        link={{
-                          content: pageContext.data.item_2_button,
-                          color: "button-green-transparent",
-                          path: 'https://shop.hubsy.fr/'
-                        }}
-                />
-
-              <TextImage title={pageContext.data.item_3_title}
-                        text={pageContext.data.item_3_text}
-                        image={pageContext.data.item_3_picture[0].url}
-                        image_side="right"
-                        btn={{
-                          content: pageContext.data.item_3_button,
-                          color: "button-green-transparent",
-                          path: this.prefixLocale("shops")
-                        }}
-                /> */}
 
             </div>
           </div>

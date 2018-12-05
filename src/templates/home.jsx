@@ -34,6 +34,7 @@ class HomePage extends React.Component {
     this.state = {
       images: this.props.pageContext.data.pictures,
       selectedImage: this.props.pageContext.data.pictures[0],
+      reviews: this.sample(this.filterReviews(), 3)
     }
   }
 
@@ -56,15 +57,14 @@ class HomePage extends React.Component {
     return arr.slice(0, number);
   }
 
-  textEllipsis(str, limit) {
+  textEllipsis(str, limit = 110) {
     if (str.length > limit) return (`${str.substring(0, limit - 1).trim()}...`);
     return str
   }
 
   renderReviews() {
-    const reviews = this.sample(this.filterReviews(), 3);
-    return reviews.map(r => {
-      const clippedContent = this.textEllipsis(r.content, 110);
+    return this.state.reviews.map(r => {
+      const clippedContent = this.textEllipsis(r.content);
       return (
         <div className="column-third pd-md" key={r.id}>
           <CardReview first={r.first} content={clippedContent} />
@@ -72,7 +72,7 @@ class HomePage extends React.Component {
       )
     })
   }
-  
+
   render() {    
     const pageContext = this.props.pageContext;
     const backgroundImage = { backgroundImage: `url(${this.state.selectedImage.url})`};

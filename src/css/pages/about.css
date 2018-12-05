@@ -6,8 +6,21 @@
 
 .text-column {
   flex: 1 0 55%;
+  padding-right: var(--space-xl);
 }
 
 .picture-column {
   flex: 1 0 45%;
+  padding-left: var(--space-xl);
+}
+
+.image-left .picture-column {
+  order: -1;
+  padding-right: var(--space-xl);
+  padding-left: 0;
+}
+
+.image-left .text-column {
+  padding-left: var(--space-xl);
+  padding-right: 0;
 }
