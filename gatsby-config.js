@@ -1,3 +1,7 @@
+require("dotenv").config({
+  path: `.env.${process.env.NODE_ENV}`,
+})
+
 const readOnlyKey = process.env.AIRTABLE;
 const viewAll = 'Grid view';
 const contentBaseId = 'appjg3ShOoZQxtkqi';
