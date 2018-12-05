@@ -50,7 +50,7 @@ class Map extends React.Component {
 
     const map = new mapboxgl.Map({
       container: 'map',
-      style: 'mapbox://styles/hubsy/cjpb9rjyw7eid2sqjf1g7p6l1',
+      style: 'mapbox://styles/hubsy/cjpba7g8e1nkm2sqnagv0s2gr',
       zoom: 12,
       center: center // Paris
     });
