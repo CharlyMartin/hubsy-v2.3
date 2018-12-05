@@ -19,23 +19,6 @@ class ShopsPage extends React.Component {
     return `${this.props.pageContext.locale}${path}`;
   }
 
-  initMap() {
-    mapboxgl.accessToken = 'pk.eyJ1IjoiaHVic3kiLCJhIjoiY2pwYXl1NHl3MDYxNDNxcDhkbm5qZm9ueiJ9.rTv8xFX5CHvdxHpz08id8Q';
-    
-    const map = new mapboxgl.Map({
-      container: 'shops-map',
-      style: 'mapbox://styles/mapbox/streets-v10',
-      zoom: 11,
-      center: [2.3522219, 48.856614] // Paris
-    });
-
-    map.addControl(new mapboxgl.NavigationControl());
-
-    // const marker = new mapboxgl.Marker()
-    //   .setLngLat([2.3522219, 48.856614])
-    //   .addTo(map);
-  }
-
   filterObjects(array, lang = 'fr') {
     // Components are called internally during the build sequence,
     // it doesn't pass a locale arg, which makes it undefined.
@@ -64,6 +47,32 @@ class ShopsPage extends React.Component {
         )}
       </div>  
     )
+  }
+
+  initMap() {
+    const pageContext = this.props.pageContext;
+    const edges = this.props.data.allAirtable.edges;
+    const shopsData = this.filterObjects(edges, pageContext.locale);
+    
+    mapboxgl.accessToken = 'pk.eyJ1IjoiaHVic3kiLCJhIjoiY2pwYXl1NHl3MDYxNDNxcDhkbm5qZm9ueiJ9.rTv8xFX5CHvdxHpz08id8Q';
+    
+    const map = new mapboxgl.Map({
+      container: 'shops-map',
+      style: 'mapbox://styles/mapbox/streets-v10',
+      zoom: 12,
+      center: [2.3522219, 48.856614] // Paris
+    });
+
+    map.addControl(new mapboxgl.NavigationControl());
+
+    shopsData.forEach(obj => {
+      console.log(obj.node.data.lat);
+      const marker = new mapboxgl.Marker()
+        .setLngLat([obj.node.data.lng, obj.node.data.lat])
+        .addTo(map);
+    })
+
+    
   }
 
   componentDidMount() {
@@ -123,6 +132,8 @@ export const query = graphql`
               url
             }
             record_id
+            lat
+            lng
           }
         }
       }
