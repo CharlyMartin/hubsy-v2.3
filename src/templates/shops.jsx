@@ -30,6 +30,10 @@ class ShopsPage extends React.Component {
     return array.filter(obj => obj.node.data.language === lang);
   }
 
+  handleMouse(event) {
+    console.log(event);
+  }
+
   renderCards(array, locale) {
     return (
       <div className="cards">
@@ -71,7 +75,7 @@ class ShopsPage extends React.Component {
 
               <div className="map-container pd-lg-top-left">
                 <div className="shops-map-container">
-                  <Map data={edges}/>
+                  <Map data={edges} selectedShop={this.state.selectedShop}/>
                 </div>
               </div>
             </div>

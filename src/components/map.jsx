@@ -1,7 +1,7 @@
 import React from 'react';
 import mapboxgl from 'mapbox-gl/dist/mapbox-gl.js';
 
-import icon from '../images/icons/marker-white.png';
+import icon from '../images/icons/marker-red.png';
 
 import '../css/components/map.css';
 
@@ -17,7 +17,7 @@ class Map extends React.Component {
 
     const map = new mapboxgl.Map({
       container: 'map',
-      style: 'mapbox://styles/mapbox/streets-v10',
+      style: 'mapbox://styles/hubsy/cjpb9rjyw7eid2sqjf1g7p6l1',
       zoom: 12,
       center: [2.34711000, 48.872353333333] // Paris
     });
