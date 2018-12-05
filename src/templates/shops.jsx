@@ -1,19 +1,22 @@
 import React from 'react';
 import { graphql } from 'gatsby';
-import mapboxgl from 'mapbox-gl/dist/mapbox-gl.js';
 
 import Layout from '../components/layout';
 import CardLink from '../components/card_link';
-
-import icon from '../images/icons/marker.png';
-console.log(icon);
+import Map from '../components/map';
 
 import '../css/pages/shops.css';
 
 class ShopsPage extends React.Component {
   constructor(props) {
     super(props);
+
+    this.state = {
+      shops: this.filterObjects(this.props.data.allAirtable.edges, this.props.pageContext.locale),
+      selectedShop: ''
+    }
   }
+
 
   prefixLocale(path) {
     return `${this.props.pageContext.locale}${path}`;
@@ -48,36 +51,6 @@ class ShopsPage extends React.Component {
       </div>  
     )
   }
-
-  initMap() {
-    const pageContext = this.props.pageContext;
-    const edges = this.props.data.allAirtable.edges;
-    const shopsData = this.filterObjects(edges, pageContext.locale);
-    
-    mapboxgl.accessToken = 'pk.eyJ1IjoiaHVic3kiLCJhIjoiY2pwYXl1NHl3MDYxNDNxcDhkbm5qZm9ueiJ9.rTv8xFX5CHvdxHpz08id8Q';
-    
-    const map = new mapboxgl.Map({
-      container: 'shops-map',
-      style: 'mapbox://styles/mapbox/streets-v10',
-      zoom: 12,
-      center: [2.3522219, 48.856614] // Paris
-    });
-
-    map.addControl(new mapboxgl.NavigationControl());
-
-    shopsData.forEach(obj => {
-      console.log(obj.node.data.lat);
-      const marker = new mapboxgl.Marker()
-        .setLngLat([obj.node.data.lng, obj.node.data.lat])
-        .addTo(map);
-    })
-
-    
-  }
-
-  componentDidMount() {
-    this.initMap()
-  }
   
   render() {
     const pageContext = this.props.pageContext;
@@ -87,9 +60,7 @@ class ShopsPage extends React.Component {
     return (
       <Layout prefix={pageContext.prefix} locale={pageContext.locale}>
         <div path="shops">
-          <link href='https://api.mapbox.com/mapbox-gl-js/v0.51.0/mapbox-gl.css' rel='stylesheet' />
-          {/* Mapbox stylesheet */}
-
+        
           <div className="container mg-xxl-top-bottom">
             <h1>{pageContext.data.title}</h1>
             
@@ -99,7 +70,9 @@ class ShopsPage extends React.Component {
               </div>
 
               <div className="map-container pd-lg-top-left">
-                <div id="shops-map" />
+                <div className="shops-map-container">
+                  <Map data={edges}/>
+                </div>
               </div>
             </div>
           </div>
