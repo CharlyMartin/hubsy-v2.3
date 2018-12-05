@@ -13,26 +13,26 @@ class CardLink extends React.Component {
   }
 
   setBadgeColor() {
-    if (this.props.live === "true") return "badge-green"
-    if (this.props.live === "false") return "badge-red"
+    if (this.props.live === "true") return "badge-green";
+    if (this.props.live === "false") return "badge-red";
+    return "";
   }
 
-  handleMouseOut() {
-    this.setState({mouseOver: false})
-  }
+  // handleMouseOut() {
+  //   this.setState({mouseOver: false});
+  // }
 
-  handleMouseIn() {
-    this.setState({mouseOver: true})
-    console.log(this.props)
-  }
+  // handleMouseIn() {
+  //   this.setState({mouseOver: true});
+  //   console.log(this.props);
+  // }
 
   render() {
-    console.log(this.state.mouseOver);
     return (
       <Link to={`${this.props.locale}shops/${this.props.slug}`}>
         <div className="card"
-          onMouseEnter={this.handleMouseIn.bind(this, this.props)}
-          onMouseLeave={this.handleMouseOut.bind(this, this.props)}
+          // onMouseEnter={this.handleMouseIn.bind(this, this.props)}
+          // onMouseLeave={this.handleMouseOut.bind(this, this.props)}
           >
           <div className="card-picture image-centered" style={{backgroundImage: `url(${this.props.picture})`}}>
           </div>

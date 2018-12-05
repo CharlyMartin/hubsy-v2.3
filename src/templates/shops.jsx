@@ -1,5 +1,6 @@
 import React from 'react';
 import { graphql } from 'gatsby';
+// import ReactMapboxGl, { Layer, Feature, Marker } from "react-mapbox-gl";
 
 import Layout from '../components/layout';
 import CardLink from '../components/card_link';
@@ -11,12 +12,24 @@ class ShopsPage extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = {
-      shops: this.filterObjects(this.props.data.allAirtable.edges, this.props.pageContext.locale),
-      selectedShop: ''
-    }
+    // this.state = {
+    //   shops: this.filterObjects(this.props.data.allAirtable.edges, this.props.pageContext.locale),
+    //   selectedShop: ''
+    // }
   }
 
+  formatMarkers(array) {
+    return array.map((obj) => {
+      return {
+        lng: obj.node.data.lng,
+        lat: obj.node.data.lat,
+        name: obj.node.data.name,
+        street: obj.node.data.street,
+        postcode: obj.node.data.postcode,
+        slug: obj.node.data.slug
+      }
+    })
+  }
 
   prefixLocale(path) {
     return `${this.props.pageContext.locale}${path}`;
@@ -28,10 +41,6 @@ class ShopsPage extends React.Component {
     // Hence the function returns an empty object and fails the build process.
     // The default params 'fr' prevents that!
     return array.filter(obj => obj.node.data.language === lang);
-  }
-
-  handleMouse(event) {
-    console.log(event);
   }
 
   renderCards(array, locale) {
@@ -60,6 +69,7 @@ class ShopsPage extends React.Component {
     const pageContext = this.props.pageContext;
     const edges = this.props.data.allAirtable.edges;
     const shopsData = this.filterObjects(edges, pageContext.locale);
+    const markersData = this.formatMarkers(shopsData);
 
     return (
       <Layout prefix={pageContext.prefix} locale={pageContext.locale}>
@@ -75,7 +85,7 @@ class ShopsPage extends React.Component {
 
               <div className="map-container pd-lg-top-left">
                 <div className="shops-map-container">
-                  <Map data={edges} selectedShop={this.state.selectedShop}/>
+                  <Map data={markersData}/>
                 </div>
               </div>
             </div>

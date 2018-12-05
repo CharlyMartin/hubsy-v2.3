@@ -20,10 +20,11 @@
   flex: 1 0 50%;
 } */
 
-#shop-map {
+.shop-map-container {
   width: 100%;
-  height: 200px;
-  background: salmon;
+  height: 250px;
+  box-shadow: var(--shadow-light);
+
 }
 
 #contact a {

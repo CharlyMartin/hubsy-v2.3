@@ -6,39 +6,66 @@ import icon from '../images/icons/marker-red.png';
 import '../css/components/map.css';
 
 
-
 class Map extends React.Component {
   constructor(props) {
     super(props);
   }
 
+  computeCenter(array) {
+    if (array.length === 1) {
+      return [array[0].lng, array[0].lat]
+    }
+
+    const lgn = array.map(obj => obj.lng).reduce((t, c) => t += c) / array.length;
+    const lat = array.map(obj => obj.lat).reduce((t, c) => t += c) / array.length;
+    return [lgn, lat];
+  }
+
+  createMarker(obj) {
+    const el = document.createElement('div');
+    el.style.backgroundImage = `url(${icon})`;
+    el.className = 'marker';
+
+    const markerHTML = `
+      <div data-target=${obj.slug}>
+        <h3>Hubsy ${obj.name}</h3>
+        <p>${obj.street} ${obj.postcode}</p>
+      </div>
+    `
+
+    const marker = new mapboxgl.Marker(el)
+      .setLngLat([obj.lng, obj.lat])
+      .setPopup(
+        new mapboxgl.Popup({ offset: 20 }) // add popups
+        .setHTML(markerHTML)
+      )
+    
+    return marker;
+  }
+
   initMap() {
     mapboxgl.accessToken = 'pk.eyJ1IjoiaHVic3kiLCJhIjoiY2pwYXl1NHl3MDYxNDNxcDhkbm5qZm9ueiJ9.rTv8xFX5CHvdxHpz08id8Q';
+
+    const center = this.computeCenter(this.props.data);
 
     const map = new mapboxgl.Map({
       container: 'map',
       style: 'mapbox://styles/hubsy/cjpb9rjyw7eid2sqjf1g7p6l1',
       zoom: 12,
-      center: [2.34711000, 48.872353333333] // Paris
+      center: center // Paris
     });
 
     map.addControl(new mapboxgl.NavigationControl());
-
-    this.props.data.forEach(obj => {
-      var marker = document.createElement('div');
-      marker.style.backgroundImage = `url(${icon})`;
-      marker.className = 'marker';
-
-    const marker = new mapboxgl.Marker(marker)
-      .setLngLat([obj.node.data.lng, obj.node.data.lat])
-      .setPopup(new mapboxgl.Popup({ offset: 25 }) // add popups
-      .setHTML(`<h3> Hubsy ${obj.node.data.name} </h3><p> ${obj.node.data.street} ${obj.node.data.postcode} </p>`))
-      .addTo(map);
-    })
+    map.scrollZoom.disable();
+    return map;
   }
 
   componentDidMount() {
-    this.initMap()
+    const map = this.initMap();
+
+    this.props.data.forEach(obj => {
+      this.createMarker(obj).addTo(map)
+    })
   }
 
   render() {

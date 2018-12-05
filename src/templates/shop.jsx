@@ -2,8 +2,9 @@ import React from 'react';
 import { Link, graphql } from 'gatsby';
 
 import Layout from '../components/layout';
-import ButtonLink from '../components/button_link'
-import Item from '../components/item'
+import ButtonLink from '../components/button_link';
+import Item from '../components/item';
+import Map from '../components/map';
 
 import coffee from '../images/icons/coffee.png';
 import screen from '../images/icons/screen.png';
@@ -26,6 +27,19 @@ class ShopPage extends React.Component {
     }
   }
 
+  formatMarker(obj) {
+    return [
+      {
+        lng: obj.data.lng,
+        lat: obj.data.lat,
+        name: obj.data.name,
+        street: obj.data.street,
+        postcode: obj.data.postcode,
+        slug: obj.data.slug
+      }
+    ]
+  }
+
   prefixLocale(path) {
     return `${this.props.pageContext.prefix}${path}`;
   }
@@ -44,6 +58,7 @@ class ShopPage extends React.Component {
     const edges = this.props.data.allAirtable.edges;
     const array = this.filterObjects(edges, pageContext.locale);
     const content = array[0].node.data;
+    const markers = this.formatMarker(pageContext);
     // console.log('pageContext', pageContext);
     // console.log('content', content);
 
@@ -79,7 +94,9 @@ class ShopPage extends React.Component {
                   <p>{fullAddress}</p>
                   <p>{pageContext.data.transport}</p>
                   <br/>
-                  <div id="shop-map" />
+                  <div className="shop-map-container">
+                    <Map data={markers}/>
+                  </div>
                 </div>
 
                 <div className="mg-xxl-top" id="hours">
@@ -110,18 +127,18 @@ class ShopPage extends React.Component {
               <div className="column-half pd-xl-left">
                 <div className="">
                   <h2>{content.amenities}</h2>
-                  <Item image={wifi} text={pageContext.data.internet} />
-                  <Item image={coffee} text={pageContext.data.coffee} />
-                  <Item image={screen} text={pageContext.data.screen} />
-                  <Item image={apple} text={pageContext.data.food} />
-                  <Item image={drinks} text={pageContext.data.drinks} />
+                  <Item image={wifi}    text={pageContext.data.internet} />
+                  <Item image={coffee}  text={pageContext.data.coffee} />
+                  <Item image={screen}  text={pageContext.data.screen} />
+                  <Item image={apple}   text={pageContext.data.food} />
+                  <Item image={drinks}  text={pageContext.data.drinks} />
                   
                   <div className="button-item-container">
                     <Item image={meeting} text={pageContext.data.meeting_rooms} />
                     <ButtonLink text={content.button_1} path={this.prefixLocale("rooms")} class="button-beige"/>
                   </div>
 
-                  <Item image={phone} text={pageContext.data.booths} />
+                  <Item image={phone}   text={pageContext.data.booths} />
                   <Item image={printer} text={pageContext.data.printer} />
                   
                 </div>
