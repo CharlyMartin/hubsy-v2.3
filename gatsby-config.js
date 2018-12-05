@@ -1,4 +1,4 @@
-const readOnlyKey = 'keyLJFjUKsl2jfxfA';
+const readOnlyKey = process.env.AIRTABLE;
 const viewAll = 'Grid view';
 const contentBaseId = 'appjg3ShOoZQxtkqi';
 

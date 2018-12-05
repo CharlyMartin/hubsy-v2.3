@@ -44,7 +44,7 @@ class Map extends React.Component {
   }
 
   initMap() {
-    mapboxgl.accessToken = 'pk.eyJ1IjoiaHVic3kiLCJhIjoiY2pwYXl1NHl3MDYxNDNxcDhkbm5qZm9ueiJ9.rTv8xFX5CHvdxHpz08id8Q';
+    mapboxgl.accessToken = process.env.MAPBOX;
 
     const center = this.computeCenter(this.props.data);
 
@@ -52,7 +52,7 @@ class Map extends React.Component {
       container: 'map',
       style: 'mapbox://styles/hubsy/cjpba7g8e1nkm2sqnagv0s2gr',
       zoom: 12,
-      center: center // Paris
+      center: center
     });
 
     map.addControl(new mapboxgl.NavigationControl());
