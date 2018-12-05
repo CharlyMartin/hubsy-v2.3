@@ -88,6 +88,8 @@ module.exports = {
                     slug
                     linked_rooms
                     record_id
+                    lat
+                    lng
                   }
                 }
               }

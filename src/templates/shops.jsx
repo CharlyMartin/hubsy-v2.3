@@ -5,6 +5,9 @@ import mapboxgl from 'mapbox-gl/dist/mapbox-gl.js';
 import Layout from '../components/layout';
 import CardLink from '../components/card_link';
 
+import icon from '../images/icons/marker.png';
+console.log(icon);
+
 import '../css/pages/shops.css';
 
 class ShopsPage extends React.Component {
@@ -27,6 +30,10 @@ class ShopsPage extends React.Component {
     });
 
     map.addControl(new mapboxgl.NavigationControl());
+
+    // const marker = new mapboxgl.Marker()
+    //   .setLngLat([2.3522219, 48.856614])
+    //   .addTo(map);
   }
 
   filterObjects(array, lang = 'fr') {
