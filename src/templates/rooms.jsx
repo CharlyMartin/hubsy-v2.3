@@ -59,7 +59,6 @@ class RoomsPage extends React.Component {
     const pageContext = this.props.pageContext;
     const edges = this.props.data.allAirtable.edges;
     const shopsData = this.filterObjects(edges, pageContext.locale);
-    console.log(shopsData);
 
     return (
       <Layout prefix={pageContext.prefix} locale={pageContext.locale}>

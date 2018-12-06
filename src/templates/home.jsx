@@ -76,11 +76,10 @@ class HomePage extends React.Component {
   render() {    
     const pageContext = this.props.pageContext;
     const backgroundImage = { backgroundImage: `url(${this.state.selectedImage.url})`};
-    console.log(pageContext);
 
     return (
       <Layout prefix={pageContext.prefix} locale={pageContext.locale}>
-        <div path="">
+        <div path="" title="Home">
           <div className="home-hero image-centered" style={backgroundImage} />
 
           {/* Brand + Tagline */}

@@ -5,7 +5,10 @@ import { StaticQuery, graphql } from 'gatsby';
 import Navbar from './navbar';
 import Footer from './footer';
 
+import meta from '../data/meta';
+
 import '../css/global.css';
+import image from '../images/hubsy.jpg';
 
 // We can now add GraphQL queries to any component in our app (not just page components) using StaticQuery
 
@@ -26,15 +29,27 @@ export default (props) => {
       `}
       
       render={(data) => {
+        console.log(props);
         return (
           <div>
             <Helmet
-              title={data.site.siteMetadata.title}
+              title={meta[props.locale].title}
               meta={[
-                { name: 'description', content: 'Sample' },
-                { name: 'keywords', content: 'sample, something' },
+                { name: 'description', content: meta[props.locale].description },
+                { name: 'keywords', content: meta[props.locale].keywords },
+                // { name: 'viewport', content: 'width=device-width, initial-scale=1, viewport-fit=cover' },
               ]}>
               <html lang={props.locale} />
+
+              <meta property="og:url"           content={meta[props.locale].facebook.url} />
+              <meta property="og:type"          content="website" />
+              <meta property="og:locale"        content={meta[props.locale].facebook.locale} />
+              <meta property="og:site_name"     content={meta[props.locale].facebook.title} />
+              <meta property="og:title"         content={meta[props.locale].facebook.title} />
+              <meta property="og:description"   content={meta[props.locale].facebook.description} />
+              <meta property="og:image"         content={image} />
+              <meta property="og:image:width"   content="1200" />
+              <meta property="og:image:height"  content="800" />
             </Helmet>
 
             <Navbar locale={props.locale} prefix={props.prefix} path={props.children.props.path} />
