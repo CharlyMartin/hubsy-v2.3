@@ -23,7 +23,7 @@ class PricingPage extends React.Component {
 
     return (
       <Layout prefix={pageContext.prefix} locale={pageContext.locale}>
-        <div path="pricing">
+        <div path="pricing" title={{"fr": "Tarifs", "en": "Pricing"}}>
           <div className="container mg-xxl-top-bottom">
             <PageHeader title={pageContext.data.title} subtitle={pageContext.data.subtitle} />
 

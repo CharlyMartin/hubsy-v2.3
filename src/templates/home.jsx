@@ -79,7 +79,7 @@ class HomePage extends React.Component {
 
     return (
       <Layout prefix={pageContext.prefix} locale={pageContext.locale}>
-        <div path="" title="Home">
+        <div path="" title={{"fr": "Accueil", "en": "Home"}}>
           <div className="home-hero image-centered" style={backgroundImage} />
 
           {/* Brand + Tagline */}

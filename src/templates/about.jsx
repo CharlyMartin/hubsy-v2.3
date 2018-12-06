@@ -22,7 +22,7 @@ class aboutPage extends React.Component {
 
     return (
       <Layout prefix={pageContext.prefix} locale={pageContext.locale}>
-        <div path="about">
+        <div path="about" title={{"fr": "Concept", "en": "About"}}>
           <div className="container mg-xxl-top-bottom">
             <PageHeader title={pageContext.data.title} subtitle={pageContext.data.subtitle} />
 

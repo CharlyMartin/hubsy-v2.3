@@ -32,14 +32,13 @@ export default (props) => {
         console.log(props);
         return (
           <div>
-            <Helmet
-              title={meta[props.locale].title}
-              meta={[
-                { name: 'description', content: meta[props.locale].description },
-                { name: 'keywords', content: meta[props.locale].keywords },
-                // { name: 'viewport', content: 'width=device-width, initial-scale=1, viewport-fit=cover' },
-              ]}>
+            <Helmet title={`${props.children.props.title[props.locale]} | ${meta[props.locale].title}`}>
+              {/* Already done by Gatsby */}
+              {/* <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" /> */}
+
               <html lang={props.locale} />
+              <meta name="description" content={meta[props.locale].description} />
+              <meta name="keywords" content={meta[props.locale].keywords} />
 
               <meta property="og:url"           content={meta[props.locale].facebook.url} />
               <meta property="og:type"          content="website" />

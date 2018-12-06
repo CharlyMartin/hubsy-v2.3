@@ -62,7 +62,7 @@ class RoomsPage extends React.Component {
 
     return (
       <Layout prefix={pageContext.prefix} locale={pageContext.locale}>
-        <div path="rooms">
+        <div path="rooms" title={{"fr": "Salles de Réunions", "en": "Meeting Rooms"}}>
           <div className="container mg-xxl-top-bottom">
             <PageHeader title={pageContext.data.title} subtitle={pageContext.data.subtitle} />
 
