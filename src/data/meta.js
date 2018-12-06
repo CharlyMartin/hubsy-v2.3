@@ -8,7 +8,7 @@ export default {
       type: "webiste",
       title: "Hubsy | Café & Coworking",
       description: "Hubsy Café & Coworking, votre bureau au café en plein coeur de Paris.",
-      locale: "fr_FR"
+      locale: "fr_FR",
     }
   },
   "en": {
