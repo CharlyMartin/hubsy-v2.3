@@ -33,12 +33,12 @@ class BaristaPage extends React.Component {
             <div className="container">
               <div className="column-layout pd-lg">
                 
-                <div className="column-half pd-xl-right">
+                <div className="column-half column-one">
                   <div className="wrapper-text">
                     <p>{pageContext.data.description}</p>
                   </div>
                 </div>
-                <div className="column-half pd-xl-left">
+                <div className="column-half column-two">
                   <iframe height="250" src="https://www.youtube.com/embed/dXO8Zufs2Es" frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen>
                   </iframe>
                 </div>
@@ -49,7 +49,7 @@ class BaristaPage extends React.Component {
 
           <div className="container pd-xxl-top pd-xxl-bottom">
             <div className="column-layout">
-              <div className="column-half pd-xl-right">
+              <div className="column-half column-one">
                 <CardA
                   title={pageContext.data.training_1_title}
                   subtitle={pageContext.data.training_1_subtitle}
@@ -57,7 +57,7 @@ class BaristaPage extends React.Component {
                   picture={pageContext.data.training_1_picture[0].url}
                 />
               </div>
-              <div className="column-half pd-xl-left">
+              <div className="column-half column-two">
                 <CardA
                   title={pageContext.data.training_2_title}
                   subtitle={pageContext.data.training_2_subtitle}

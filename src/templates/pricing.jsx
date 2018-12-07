@@ -30,7 +30,7 @@ class PricingPage extends React.Component {
             <div className="page-section mg-xxl-top">
               <div className="column-layout">
                 {/* First column */}
-                <div className="column-half pd-xl-right">
+                <div className="column-half column-one">
                   
                   <div className="price-table" id="member">
                     <div className="price-table-header pd-md pd-lg-sides">
@@ -53,7 +53,7 @@ class PricingPage extends React.Component {
 
                 </div>
                 {/* Second column */}
-                <div className="column-half pd-xl-left">
+                <div className="column-half column-two">
 
                   <div className="price-table" id="resident">
                     <div className="price-table-header pd-md pd-lg-sides">
