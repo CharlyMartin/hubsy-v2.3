@@ -16,6 +16,7 @@
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
+  padding-bottom: var(--space-xs);
 }
 
 .review-bottom {

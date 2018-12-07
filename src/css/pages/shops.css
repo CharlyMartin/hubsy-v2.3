@@ -18,6 +18,12 @@
 }
 
 
+@media screen and (max-width: 1000px) {
+  /* Up to that screen width, the following rules apply: */
+  .shops-container, .map-container {
+    flex: 1 0 50%;
+  }
+}
 
 @media screen and (max-width: 560px) {
   /* Up to that screen width, the following rules apply: */
