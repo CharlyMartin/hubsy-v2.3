@@ -34,3 +34,27 @@
   background: var(--white-dark);
   box-shadow: var(--shadow-lighter);
 }
+
+
+
+/* Responsiveness */
+@media screen and (max-width: 992px) {
+  /* Up to that screen width, the following rules apply: */
+  .container {
+    width: 750px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  /* Up to that screen width, the following rules apply: */
+  .container {
+    width: 550px;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  /* Up to that screen width, the following rules apply: */
+  .container {
+    width: 350px;
+  }
+}

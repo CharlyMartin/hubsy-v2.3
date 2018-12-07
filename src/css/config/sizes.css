@@ -7,7 +7,7 @@
   --space-xl: 2rem;
   --space-xxl: 3rem;
 
-  /* Media */
+  /* Breakpoints */
   --screen-xl: 1200px;
   --screen-lg: 992px;
   --screen-md: 768px;
@@ -15,11 +15,11 @@
   --screen-xs: 0px;
 
   /* Containers */
-  --width-xs: 0px;
+  /* --width-xs: 0px;
   --width-sm: 576px;
   --width-md: 768px;
   --width-lg: 992px;
-  --width-xl: 1200px;
+  --width-xl: 1200px; */
 
   /* Radius */
   --radius-sm: 2px;

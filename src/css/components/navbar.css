@@ -1,8 +1,3 @@
-.navbar-placeholder {
-  width: 100%;
-  height: var(--navbar-height);
-}
-
 .navbar {
   position: fixed;
   top: 0;
@@ -12,6 +7,11 @@
   height: var(--navbar-height);
   box-shadow: var(--shadow-light);
   z-index: 1;
+}
+
+.navbar-placeholder {
+  width: 100%;
+  height: var(--navbar-height);
 }
 
 .navbar-flex-container {
@@ -115,9 +115,21 @@
 
 
 
+.navbar-mobile {
+  display: none;
+}
 
 
+/* Responsiveness */
+@media screen and (max-width: 992px) {
+  /* Up to that screen width, the following rules apply: */
+  .navbar, .navbar-placeholder {
+    display: none;
+  }
 
-
+  .navbar-mobile {
+    display: block;
+  }
+}
 
 
