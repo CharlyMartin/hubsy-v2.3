@@ -83,7 +83,7 @@ class ShopsPage extends React.Component {
                 {this.renderCards(shopsData, pageContext.prefix)}
               </div>
 
-              <div className="map-container pd-lg-top-left">
+              <div className="map-container">
                 <div className="shops-map-container">
                   <Map data={markersData}/>
                 </div>

@@ -25,11 +25,6 @@
   padding-right: var(--space-lg);
 }
 
-.pd-lg-top-left {
-  padding-top: var(--space-lg);
-  padding-left: var(--space-lg);
-}
-
 .pd-xl-left {
   padding-left: var(--space-xl);
 }
