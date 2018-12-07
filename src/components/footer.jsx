@@ -28,7 +28,7 @@ class Footer extends React.Component {
           <div className="container pd-xxl-top pd-xxl-bottom">
             <div className="column-layout">
               
-              <div className="column-quarter">
+              <div className="column-quarter footer-column">
                 <h3>{content.coworking_title}</h3>
                 <Link to={this.prefixLocale("about")} className="footer-element">{content.concept}</Link>
                 <Link to={this.prefixLocale("pricing")} className="footer-element">{content.pricing}</Link>
@@ -36,7 +36,7 @@ class Footer extends React.Component {
               </div>
 
               
-              <div className="column-quarter">
+              <div className="column-quarter footer-column">
                 <h3>{content.location_title}</h3>
                 <Link to={this.prefixLocale("shops")} className="footer-element">Hubsy ...</Link>
                 <Link to={this.prefixLocale("shops")} className="footer-element">Hubsy ...</Link>
@@ -44,7 +44,7 @@ class Footer extends React.Component {
               </div>
 
               
-              <div className="column-quarter">
+              <div className="column-quarter footer-column">
                 <h3>{content.services_title}</h3>
                 <Link to={this.prefixLocale("rooms")} className="footer-element">{content.book}</Link>
                 <a className="footer-element" href="https://shop.hubsy.fr/" target="_blank" rel="noopener noreferrer">{content.coffee}</a>
@@ -54,7 +54,7 @@ class Footer extends React.Component {
               </div>
 
               
-              <div className="column-quarter">
+              <div className="column-quarter footer-column">
                 <h3>{content.contact_title}</h3>
                 <a className="footer-element" rel="noopener noreferrer" href='mailto:contact@hubsy.fr'>{content.email}</a>
                 <a className="footer-element" rel="noopener noreferrer" href='tel:00000000'>{content.phone}</a>

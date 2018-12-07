@@ -38,3 +38,14 @@
 .button-green-transparent:hover {
   background: white;
 }
+
+
+
+/* Mobile (Iphone, Pixel, Galaxy) */
+@media screen and (max-width: 560px) {
+  .button {
+    display: block;
+    width: 100%;
+    text-align: center;
+  }
+}

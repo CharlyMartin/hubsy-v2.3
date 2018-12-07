@@ -9,6 +9,10 @@
   margin-bottom: var(--space-md);
 }
 
+.footer-column {
+  padding-bottom: var(--space-lg)
+}
+
 .footer-element {
   color: var(--black-normal);
   font-size: var(--text-size);
@@ -49,4 +53,22 @@
   font-weight: 300;
   margin-left: var(--space-lg);
   text-decoration: underline;
+}
+
+
+
+
+/* Mobile (Iphone, Pixel, Galaxy) */
+@media screen and (max-width: 560px) {
+  /* Up to that screen width, the following rules apply: */
+  .footer-bottom-container {
+    flex-direction: column;
+    padding-top: var(--space-lg);
+    padding-bottom: var(--space-lg);
+  }
+
+  .footer-bottom-element {
+    margin-left: 0;
+    margin-top: var(--space-sm)
+  }
 }

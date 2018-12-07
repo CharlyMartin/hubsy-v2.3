@@ -120,8 +120,8 @@
 }
 
 
-/* Responsiveness */
-@media screen and (max-width: 992px) {
+/* Laptop 11 inches */
+@media screen and (max-width: 960px) {
   /* Up to that screen width, the following rules apply: */
   .navbar, .navbar-placeholder {
     display: none;
