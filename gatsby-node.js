@@ -167,8 +167,22 @@ exports.createPages = ({ graphql, actions }) => {
   console.log('All pages built 🎉');
 };
 
-
-
+// mapbox-gl expects global obj window to be able, but it's not during build sequence.
+// This overrides the webpack config and doesn't run mapbox-gl code server-side.
+exports.onCreateWebpackConfig = ({ actions, stage }) => {
+  if (stage === "build-html") {
+    actions.setWebpackConfig({
+      module: {
+        rules: [
+          {
+            test: /mapbox-gl/,
+            use: ['null-loader']
+          },
+        ],
+      }
+    })
+  }
+};
 
 // Test
 // exports.onPreBootstrap = () => {
