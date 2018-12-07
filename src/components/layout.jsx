@@ -3,6 +3,7 @@ import Helmet from 'react-helmet';
 import { StaticQuery, graphql } from 'gatsby';
 
 import Navbar from './navbar';
+import NavbarMobile from './navbar_mobile';
 import Footer from './footer';
 
 import meta from '../data/meta';
@@ -52,6 +53,7 @@ export default (props) => {
             </Helmet>
 
             <Navbar locale={props.locale} prefix={props.prefix} path={props.children.props.path} />
+            <NavbarMobile locale={props.locale} prefix={props.prefix} path={props.children.props.path} />
             {props.children}
             <Footer locale={props.locale} prefix={props.prefix} />
           </div>
