@@ -9,3 +9,17 @@
 .disclaimer p {
   font-weight: 600;
 }
+
+/* Mobile (Iphone, Pixel, Galaxy) */
+@media screen and (max-width: 560px) {
+  /* Up to that screen width, the following rules apply: */
+  .disclaimer {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .disclaimer p {
+    font-weight: 600;
+    padding-bottom: var(--space-lg);
+  }
+}

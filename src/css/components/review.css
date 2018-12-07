@@ -3,7 +3,7 @@
   background: white;
   border-radius: var(--radius-md);
   box-shadow: var(--shadow-lighter);
-  height: 12rem;
+  min-height: 12rem;
 }
 
 .review-padding {
