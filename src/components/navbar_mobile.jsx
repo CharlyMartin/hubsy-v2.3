@@ -26,10 +26,15 @@ class NavbarMobile extends React.Component {
     navbarMobile();
   }
 
-  // renderFlag() {
-  //   if (this.props.locale === 'fr') return (<Image src={flagFR} /> );
-  //   if (this.props.locale === 'en') return (<Image src={flagEN} /> );
-  // }
+  renderFlag() {
+    if (this.props.locale === 'fr') return (<Image src={flagEN} /> );
+    if (this.props.locale === 'en') return (<Image src={flagFR} /> );
+  }
+
+  createLangLink() {
+    if (this.props.locale === 'fr') return `/en/${this.props.path}`;
+    if (this.props.locale === 'en') return `/${this.props.path}`;
+  }
 
   prefixLocale(path) {
     return `${this.props.prefix}${path}`;
@@ -54,15 +59,25 @@ class NavbarMobile extends React.Component {
         </div>
 
         <div className="navbar-mobile-content">
+          <div className="navbar-mobile-content-border"></div>
+          <div className="navbar-mobile-content-background">
+
+          </div>
           <div className="corner top-right" id="close-button">
             <Image src={close}/>
           </div>
-          <div className="corner bottom-right">
-            <Image src={flagFR}/>
-          </div>
-          <div className="corner bottom-left">
-            <Image src={instagram}/>
-          </div>
+
+          <Link to={this.createLangLink()}>
+            <div className="corner bottom-right">
+              {this.renderFlag()}
+            </div>
+          </Link>
+
+          <a rel="noopener noreferrer" href='https://www.instagram.com/hubsycafe/' target="_blank">
+            <div className="corner bottom-left">
+              <Image src={instagram}/>
+            </div>
+          </a>
         </div>  
       </div>
     )
