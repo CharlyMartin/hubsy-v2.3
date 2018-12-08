@@ -1,6 +1,6 @@
 .navbar-mobile {
   position: fixed;
-  bottom: -100vh;
+  bottom: calc(-100vh + 0px);
   left: 0;
   right: 0;
   height: calc(100vh + 100px);
@@ -40,7 +40,7 @@
 /* Nav content */
 .navbar-mobile-content {
   background: var(--white-lighter);
-  height: 100vh;
+  height: calc(100vh - 0px);
   position: relative;
   overflow-y: hidden;
 }
