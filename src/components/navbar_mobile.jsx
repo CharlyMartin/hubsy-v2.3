@@ -5,7 +5,6 @@ import { Link } from 'gatsby'
 import Image from '../components/image'
 
 import { navbarMobile } from '../utilities/navbar_mobile';
-import { safariFix } from '../utilities/safari_mobile_menu';
 
 import logo from '../images/logo/logo.png';
 import flagFR from '../images/lang/fr.png';
@@ -24,7 +23,6 @@ class NavbarMobile extends React.Component {
   }
 
   componentDidMount() {
-    safariFix();
     navbarMobile();
   }
 
