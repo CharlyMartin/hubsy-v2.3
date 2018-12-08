@@ -28,6 +28,10 @@
   height: 100%;
 }
 
+.navbar-side-container {
+  display: flex;
+}
+
 .navbar-logo {
   flex-basis: 10%;
   text-align: center;
@@ -63,9 +67,24 @@
   border-top: 1px solid transparent;
 }
 
-.navbar-language > img {
+.navbar-language {
+  border: 1px solid var(--black-lightest);
+  border-radius: 2px;
+  padding: var(--space-xs);
+  display: flex;
+  justify-content: space-around;
+  width: 55px;
+  align-items: center;
+  cursor: pointer;
+  box-shadow: var(--shadow-light);
+}
+
+.navbar-language > img:nth-child(1) {
   width: 20px;
-  margin: var(--space-sm) var(--space-lg) 0 var(--space-lg);
+}
+
+.navbar-language > img:nth-child(2) {
+  width: 8px;
 }
 
 /* Dropdown */
@@ -78,7 +97,7 @@
   min-width: fit-content;
   overflow: visible;
   border-radius: var(--radius-sm);
-  box-shadow: var(--shadow-light);
+  box-shadow: var(--shadow-lighter);
 }
 
 .navbar-dropdown-item {
@@ -96,7 +115,7 @@
  }
 
 .navbar-dropdown-item:hover {
-  background: var(--white-dark);
+  background: var(--white-normal);
 }
 
 .navbar-dropdown-item-flex {
@@ -112,8 +131,6 @@
   display: block;
   opacity: 1;
 }
-
-
 
 .navbar-mobile {
   display: none;
@@ -133,9 +150,16 @@
   }
 
   /* The flag in the navbar, not the one in the dropdown */
-  .navbar-language > img {
+  .navbar-language {
+   width: 30px;
+   padding: 0;
+  }
+  
+  .navbar-language > img:nth-child(1) {
     width: 15px;
-    margin: var(--space-sm) var(--space-xs) 0 var(--space-xs);
+  }
+  .navbar-language > img:nth-child(2) {
+    display: none;
   }
 
   /* the language dropdown, not the reservation one */

@@ -11,7 +11,7 @@ import Image from './image';
 import logo from '../images/logo/logo.png';
 import flagFR from '../images/lang/fr.png';
 import flagEN from '../images/lang/en.png';
-
+import caret from '../images/icons/caret.png';
 
 import { navbarDropdown } from '../utilities/dropdown';
 
@@ -107,29 +107,32 @@ class Navbar extends React.Component {
                   <span className="navbar-element">
                     <Link to={this.prefixLocale("barista-training")}>{content.barista}</Link>
                   </span>
-                </div>
 
-                <div className="navbar-language with-dropdown">
-                  {this.renderFlag()}
+                  <div className="navbar-language with-dropdown">
+                    {this.renderFlag()}
+                    <Image src={caret} />
 
-                  <div className="navbar-dropdown" id="lang-selection">
-                    <Link to={`/${this.props.path}`}>
-                      <div className="navbar-dropdown-item navbar-dropdown-item-flex" data-id="fr" onClick={this.handleClick}>
-                        {/* {<FlagFR />} */}
-                        <Image src={flagFR} />
-                        <p>Français</p>
-                      </div>
-                    </Link>
+                    <span className="navbar-dropdown" id="lang-selection">
+                      <Link to={`/${this.props.path}`}>
+                        <div className="navbar-dropdown-item navbar-dropdown-item-flex" data-id="fr" onClick={this.handleClick}>
+                          {/* {<FlagFR />} */}
+                          <Image src={flagFR} />
+                          <p>Français</p>
+                        </div>
+                      </Link>
 
-                    <Link to={`/en/${this.props.path}`}>
-                      <div className="navbar-dropdown-item navbar-dropdown-item-flex" data-id="en" onClick={this.handleClick}>
-                        {/* {<FlagEN />} */}
-                        <Image src={flagEN} />
-                        <p>English</p>
-                      </div>
-                    </Link>
+                      <Link to={`/en/${this.props.path}`}>
+                        <div className="navbar-dropdown-item navbar-dropdown-item-flex" data-id="en" onClick={this.handleClick}>
+                          {/* {<FlagEN />} */}
+                          <Image src={flagEN} />
+                          <p>English</p>
+                        </div>
+                      </Link>
+                    </span>
                   </div>
                 </div>
+
+
               </div>
 
             </div>
