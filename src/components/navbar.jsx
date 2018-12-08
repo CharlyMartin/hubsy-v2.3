@@ -163,6 +163,7 @@ export default (props) => {
                 coffee
                 barista
                 language
+                home
               }
             }
           }

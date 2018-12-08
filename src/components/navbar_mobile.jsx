@@ -59,25 +59,68 @@ class NavbarMobile extends React.Component {
         </div>
 
         <div className="navbar-mobile-content">
-          <div className="navbar-mobile-content-border"></div>
-          <div className="navbar-mobile-content-background">
+          <div className="navbar-mobile-content-border" />
+          <div className="navbar-mobile-content-background" />
 
-          </div>
+          {/* CLOSE BUTTON */}
           <div className="corner top-right" id="close-button">
             <Image src={close}/>
           </div>
-
+          
+          {/* LANG FLAG */}
           <Link to={this.createLangLink()}>
             <div className="corner bottom-right">
               {this.renderFlag()}
             </div>
           </Link>
 
+          {/* INSTAGRAM */}
           <a rel="noopener noreferrer" href='https://www.instagram.com/hubsycafe/' target="_blank">
             <div className="corner bottom-left">
               <Image src={instagram}/>
             </div>
           </a>
+
+          <div className="navbar-mobile-content-container">
+            <div className="navbar-mobile-content-top">
+              <div className="navbar-mobile-element">
+                <Link to={this.prefixLocale("about")}>{content.concept}</Link>
+              </div>
+
+              <div className="navbar-mobile-element">
+                <Link to={this.prefixLocale("pricing")}>{content.pricing}</Link>
+              </div>
+
+              <div className="navbar-mobile-element">
+                <Link to={this.prefixLocale("shops")}>{content.booking}</Link>
+              </div>
+
+              <div className="navbar-mobile-element" id="navbar-mobile-main">
+                <Link to={this.prefixLocale("shops")}>{content.venues}</Link>
+              </div>
+            </div>
+
+            <div className="navbar-mobile-content-bottom">
+              <div className="navbar-mobile-element">
+                <Link to={this.prefixLocale("")}>{content.home}</Link>
+              </div>
+
+              <div className="navbar-mobile-element">
+                <a href="https://blog.hubsy.fr/" target="_blank" rel="noopener noreferrer">{content.blog}</a>
+              </div>
+
+              <div className="navbar-mobile-element">
+                <a href="https://shop.hubsy.fr/" target="_blank" rel="noopener noreferrer">{content.coffee}</a>
+              </div>
+
+              <div className="navbar-mobile-element">
+                <Link to={this.prefixLocale("barista-training")}>{content.barista}</Link>
+              </div>
+
+            </div>
+          </div>
+          {/* End of Navbar-mobile-content-container */}
+
         </div>  
       </div>
     )
@@ -106,6 +149,7 @@ export default (props) => {
                 coffee
                 barista
                 language
+                home
               }
             }
           }

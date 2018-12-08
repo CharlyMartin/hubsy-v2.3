@@ -8,6 +8,7 @@
   z-index: 1;
 }
 
+/* Button triggering the nav */
 .navbar-mobile-top {
   /* display: flex;
   justify-content: flex-end;
@@ -34,6 +35,9 @@
   width: calc(var(--navbar-height) / 3);
 }
 
+
+
+/* Nav content */
 .navbar-mobile-content {
   background: var(--white-lighter);
   height: 100vh;
@@ -41,6 +45,7 @@
   overflow-y: hidden;
 }
 
+/* Skewed box */
 .navbar-mobile-content-background {
   z-index: 1;
   height: 60%;
@@ -53,6 +58,7 @@
   box-shadow: var(--shadow-light);
 }
 
+/* Top border */
 .navbar-mobile-content-border {
   border-top: 2px solid var(--hubsy-beige);
   z-index: 3;
@@ -61,6 +67,7 @@
   position: fixed;
 }
 
+/* Swipe up animation */
 .navbar-mobile-active {
   transform: translateY(-100vh);
   transition-property: all;
@@ -68,11 +75,12 @@
 	transition-timing-function: cubic-bezier(0.18, 0.89, 0.36, 1);
 }
 
+/* Corners with images */
 .corner {
-  width: calc(var(--navbar-height) * 1.3);
-  height: calc(var(--navbar-height) * 1.3);
+  width: calc(var(--navbar-height) * 1);
+  height: calc(var(--navbar-height) * 1);
   background: white;
-  padding: var(--space-lg);
+  padding: var(--space-md);
   position: absolute;
   display: flex;
   z-index: 2;
@@ -83,7 +91,7 @@
 }
 
 #close-button img {
-  width: 15px;
+  width: 14px;
 }
 
 .top-right {
@@ -108,4 +116,47 @@
   border-radius: 0% 100% 0% 100% / 100% 100% 0% 0%;
   align-items: flex-end;
   justify-content: flex-start;
+}
+
+
+/* Links global containers */
+.navbar-mobile-content-container {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 56%;
+  margin: 0 22%;
+  z-index: 4;
+}
+
+.navbar-mobile-content-bottom, .navbar-mobile-content-top {
+  height: 50%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: var(--space-xxl) 0;
+}
+
+/* Links */
+.navbar-mobile-element {
+  background: linear-gradient(rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7));
+  border-radius: var(--radius-lg);
+  text-align: center;
+  padding: var(--space-xs) 0;
+  box-shadow: var(--shadow-lighter);
+}
+
+.navbar-mobile-element > a {
+  color: var(--black-normal);
+  font-size: var(--text-size);
+  font-weight: 600;
+}
+
+#navbar-mobile-main {
+  background: var(--hubsy-green);
+}
+
+#navbar-mobile-main > a {
+  color: white;
 }
