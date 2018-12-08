@@ -5,6 +5,7 @@ import { Link } from 'gatsby'
 import Image from '../components/image'
 
 import { navbarMobile } from '../utilities/navbar_mobile';
+import { safariFix } from '../utilities/safari_mobile_menu';
 
 import logo from '../images/logo/logo.png';
 import flagFR from '../images/lang/fr.png';
@@ -23,6 +24,7 @@ class NavbarMobile extends React.Component {
   }
 
   componentDidMount() {
+    safariFix();
     navbarMobile();
   }
 
@@ -75,7 +77,7 @@ class NavbarMobile extends React.Component {
           </Link>
 
           {/* INSTAGRAM */}
-          <a rel="noopener noreferrer" href='https://www.instagram.com/hubsycafe/' target="_blank">
+          <a rel="noopener noreferrer" href='instagram://user?username={hubsycafe}' target="_blank">
             <div className="corner bottom-left">
               <Image src={instagram}/>
             </div>
@@ -92,7 +94,7 @@ class NavbarMobile extends React.Component {
               </div>
 
               <div className="navbar-mobile-element">
-                <Link to={this.prefixLocale("shops")}>{content.booking}</Link>
+                <Link to={this.prefixLocale("rooms")}>{content.booking}</Link>
               </div>
 
               <div className="navbar-mobile-element" id="navbar-mobile-main">

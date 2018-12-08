@@ -77,8 +77,8 @@
 
 /* Corners with images */
 .corner {
-  width: calc(var(--navbar-height) * 1);
-  height: calc(var(--navbar-height) * 1);
+  width: calc(var(--navbar-height) * 1.2);
+  height: calc(var(--navbar-height) * 1.1);
   background: white;
   padding: var(--space-md);
   position: absolute;
@@ -124,8 +124,8 @@
   position: absolute;
   top: 0;
   bottom: 0;
-  width: 56%;
-  margin: 0 22%;
+  width: 52%;
+  margin: 0 24%;
   z-index: 4;
 }
 
