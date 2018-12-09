@@ -18,11 +18,11 @@
 }
 
 .column-half.column-one {
-  padding-right: var(--space-xl);
+  padding-right: var(--space-xxl);
 }
 
 .column-half.column-two {
-  padding-left: var(--space-xl);
+  padding-left: var(--space-xxl);
 }
 
 .column-third {
