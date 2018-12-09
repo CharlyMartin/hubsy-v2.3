@@ -45,6 +45,7 @@ class ShopPage extends React.Component {
   }
 
   filterObjects(array, lang = 'fr') {
+    console.log(array);
     // Components are called internally during the build sequence,
     // it doesn't pass a locale arg, which makes it undefined.
     // Hence the function returns an empty object and fails the build process.
@@ -107,22 +108,6 @@ class ShopPage extends React.Component {
                   <p>{`${content.hours_weekend} : ${pageContext.data.hours_weekend}`}</p>
                 </div>
 
-                <div className="mg-xxl-top" id="prices">
-                  <h2>{content.prices}</h2>
-                  <p>{pageContext.data.prices}</p>
-                  <br />
-                  <ButtonLink class="button-green-transparent" path={this.prefixLocale("pricing")} text={content.button_2} />
-                </div>
-
-                <div className="mg-xxl-top" id="contact">
-                  <h2>{content.contact}</h2>
-                  <p>
-                    <a href={`mailto:${pageContext.data.email}`}> {pageContext.data.email} </a>
-                  </p>
-                  <p>
-                  <a href={`tel:${pageContext.data.phone}`}> {pageContext.data.phone} </a>
-                  </p>
-                </div>
               </div>
               
               {/* Second Column */}
@@ -142,15 +127,27 @@ class ShopPage extends React.Component {
 
                   <Item image={phone}   text={pageContext.data.booths} />
                   <Item image={printer} text={pageContext.data.printer} />
-                  
+                </div>
+                {/* <div className="mg-xxl-top">
+                  <h2>{content.nearby}</h2>
+                </div> */}
+
+                <div className="mg-xxl-top" id="prices">
+                  <h2>{content.prices}</h2>
+                  <p>{pageContext.data.prices}</p>
+                  <br />
+                  <ButtonLink class="button-green-transparent" path={this.prefixLocale("pricing")} text={content.button_2} />
                 </div>
 
-                <div className="mg-xxl-top">
-                  <h2>{content.nearby}</h2>
-                  {/* <p>{pageContext.data.linked_rooms[0]}</p>
-                  <p>{pageContext.data.linked_rooms[1]}</p>
-                  <p>{pageContext.data.linked_rooms[2]}</p> */}
-                </div> 
+                <div className="mg-xxl-top" id="contact">
+                  <h2>{content.contact}</h2>
+                  <p>
+                    <a href={`mailto:${pageContext.data.email}`}> {pageContext.data.email} </a>
+                  </p>
+                  <p>
+                  <a href={`tel:${pageContext.data.phone}`}> {pageContext.data.phone} </a>
+                  </p>
+                </div>
               </div>
 
             </div>  

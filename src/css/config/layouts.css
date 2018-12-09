@@ -65,14 +65,6 @@
   .container {
     width: 520px;
   }
-}
-
-/* Mobile (Iphone, Pixel, Galaxy) */
-@media screen and (max-width: 560px) {
-  /* Up to that screen width, the following rules apply: */
-  .container {
-    width: 310px;
-  }
 
   .column-third, .column-half, .column-quarter {
     flex: 1 0 100%;
@@ -81,5 +73,13 @@
   .column-half.column-one, .column-half.column-two {
     padding-right: 0;
     padding-left: 0;
+  }
+}
+
+/* Mobile (Iphone, Pixel, Galaxy) */
+@media screen and (max-width: 560px) {
+  /* Up to that screen width, the following rules apply: */
+  .container {
+    width: 310px;
   }
 }
