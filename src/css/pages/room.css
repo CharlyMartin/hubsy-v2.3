@@ -1,3 +1,7 @@
-.room-shop h2 {
-  margin-bottom: var(--space-xs);
+.rooms p:first-child {
+  display: inline;
+}
+
+.rooms a > p:hover {
+  text-decoration: underline;
 }

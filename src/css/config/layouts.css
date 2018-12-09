@@ -26,7 +26,7 @@
 }
 
 .column-third {
-  flex: 1 0 33.33333%;
+  flex: 0 0 33.33333%;
 }
 
 .column-quarter {
@@ -52,6 +52,10 @@
   /* Up to that screen width, the following rules apply: */
   .container {
     width: 720px;
+  }
+
+  .column-third, .column-half, .column-quarter {
+    flex: 0 0 50%;
   }
 }
 

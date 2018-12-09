@@ -8,6 +8,7 @@ import ButtonA from '../components/button_a';
 import Card from '../components/card';
 
 import '../css/pages/room.css'
+import { div } from 'gl-matrix/src/gl-matrix/vec3';
 
 class RoomsPage extends React.Component {
   constructor(props) {
@@ -18,12 +19,7 @@ class RoomsPage extends React.Component {
     return `${this.props.pageContext.prefix}${path}`;
   }
 
-  filterRooms(array, lang = 'fr') {
-    console.log(array)
-    // return array.filter(obj => obj.node.data.language === lang);
-  }
-
-  filterShops(array, lang = 'fr') {
+  filterObjects(array, lang = 'fr') {
     // Components are called internally during the build sequence,
     // it doesn't pass a locale arg, which makes it undefined.
     // Hence the function returns an empty object and fails the build process.
@@ -31,37 +27,59 @@ class RoomsPage extends React.Component {
     return array.filter(obj => obj.node.data.language === lang);
   }
 
-  renderCards(array, locale) {
-    return (
-      <div className="rooms">
-        {array.map(obj => {
-          const rooms = obj.node.data.linked_rooms;
-          return (
-            <div className="room-item mg-xxl-bottom pd-xxl-bottom" key={obj.node.data.name}>
-              <div className="room-shop">
-                <a href={this.prefixLocale(`shops/${obj.node.data.slug}`)}>
-                  <p id={obj.node.data.slug}>
-                    {`Husby ${obj.node.data.name}`} 
-                    <span className="text-small"> - {obj.node.data.street} {obj.node.data.postcode}
-                    </span>
-                  </p>
-                </a>
-                
-                {rooms.map(obj => {
-                  console.log(obj.data)
-                })}
-              </div>
-            </div>
-          )}
-        )}
-      </div>  
-    )
+  renderRightComponent(obj) {
+    if (obj.node.data.live === "false") {
+      return (
+        <div className="mg-md-top">
+          <h2>Opening Soon 😄</h2>
+        </div>
+      )
+    }
+
+    return this.renderCards(obj.node.data.linked_rooms);
   }
+
+  renderCards(array) {
+    return array.map(obj => {      
+      return (
+        <div className="column-third pd-md" key={obj.data.record_id}>
+          <a href={obj.data.supersaas} target="_blank" rel="noopener noreferrer">
+            <Card
+              title={obj.data.name}
+              subtitle={obj.data.capacity}
+              picture={obj.data.pictures[0].url}
+              status=""
+            />
+          </a>
+        </div>
+      )
+    })
+  }
+
+  // renderShops(array, locale) {
+  //   return (
+  //     <div className="rooms">
+  //       {array.map(obj => {
+  //         return (
+  //           <div className="room-item mg-xxl-bottom pd-xxl-bottom" key={obj.node.data.name} id={obj.node.data.slug}>
+  //             <a href={this.prefixLocale(`shops/${obj.node.data.slug}`)}>
+  //               <p>{`Husby ${obj.node.data.name}`}</p>
+  //               <span className="text-small"> - {obj.node.data.street} {obj.node.data.postcode}
+  //               </span>
+  //             </a>
+                
+  //             {this.renderRooms(obj.node.data.linked_rooms)}
+  //           </div>
+  //         )}
+  //       )}
+  //     </div>  
+  //   )
+  // }
   
   render() {
     const pageContext = this.props.pageContext;
     const edges = this.props.data.allAirtable.edges;
-    const shopsData = this.filterShops(edges, pageContext.locale);
+    const shopsData = this.filterObjects(edges, pageContext.locale);
 
     return (
       <Layout prefix={pageContext.prefix} locale={pageContext.locale}>
@@ -70,7 +88,26 @@ class RoomsPage extends React.Component {
             <PageHeader title={pageContext.data.title} subtitle={pageContext.data.subtitle} />
 
             <div className="page-section">
-              {this.renderCards(shopsData, pageContext.locale)}
+              <div className="rooms">
+                
+                {shopsData.map(obj => {
+                  return (
+                    <div className="room-item mg-xxl-bottom pd-xxl-bottom" key={obj.node.data.name} id={obj.node.data.slug}>
+                      <a href={this.prefixLocale(`shops/${obj.node.data.slug}`)}>
+                        <p>{`Husby ${obj.node.data.name}`}</p>
+                        <span className="text-small"> - {obj.node.data.street} {obj.node.data.postcode}
+                        </span>
+                      </a>
+
+                      <div className="column-layout">
+                        {this.renderRightComponent(obj)}
+                        {/* {(obj.node.data.live === "true") ? this.renderCards(obj.node.data.linked_rooms) : <h2>Opening Soon 😄</h2>} */}
+                      </div>
+                    </div>
+                  )}
+                )}
+
+              </div>
             </div>
 
             <Disclaimer text={pageContext.data.privatise}>
@@ -111,11 +148,11 @@ export const query = graphql`
               name
               language
               capacity
-              capacity
               pictures {
                 url
               }
               supersaas
+              record_id
             }
           }
         }
