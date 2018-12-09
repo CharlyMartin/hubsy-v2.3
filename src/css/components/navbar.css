@@ -76,7 +76,10 @@
   width: 55px;
   align-items: center;
   cursor: pointer;
-  box-shadow: var(--shadow-light);
+}
+
+.navbar-language:hover {
+  box-shadow: var(--shadow-lighter);
 }
 
 .navbar-language > img:nth-child(1) {

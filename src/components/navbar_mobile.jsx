@@ -75,7 +75,7 @@ class NavbarMobile extends React.Component {
           </Link>
 
           {/* INSTAGRAM */}
-          <a rel="noopener noreferrer" href='instagram://user?username={hubsycafe}' target="_blank">
+          <a rel="noopener noreferrer" href='instagram://user?username=hubsycafe' target="_blank">
             <div className="corner bottom-left">
               <Image src={instagram}/>
             </div>

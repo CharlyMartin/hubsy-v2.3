@@ -67,11 +67,14 @@ module.exports = {
                     street
                     postcode
                     city
+                    lat
+                    lng
                     status
                     pictures {
                       url
                     }
                     hours_weekdays
+                    hours_friday
                     hours_weekend
                     prices
                     phone
@@ -79,7 +82,8 @@ module.exports = {
                     internet
                     food
                     coffee
-                    transport
+                    metro
+                    bus
                     drinks
                     booths
                     meeting_rooms
@@ -88,8 +92,6 @@ module.exports = {
                     slug
                     linked_rooms
                     record_id
-                    lat
-                    lng
                   }
                 }
               }

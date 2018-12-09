@@ -92,7 +92,8 @@ class ShopPage extends React.Component {
                 <div className="mg-xxl-top" id="direction">
                   <h2>{content.direction}</h2>
                   <p>{fullAddress}</p>
-                  <p>{pageContext.data.transport}</p>
+                  <p>{pageContext.data.metro}</p>
+                  <p>{pageContext.data.bus}</p>
                   <br/>
                   <div className="shop-map-container">
                     <Map data={markers}/>
@@ -102,6 +103,7 @@ class ShopPage extends React.Component {
                 <div className="mg-xxl-top" id="hours">
                   <h2>{content.hours}</h2>
                   <p>{`${content.hours_weekdays} : ${pageContext.data.hours_weekdays}`}</p>
+                  <p>{`${content.hours_friday} : ${pageContext.data.hours_friday}`}</p>
                   <p>{`${content.hours_weekend} : ${pageContext.data.hours_weekend}`}</p>
                 </div>
 
@@ -177,6 +179,7 @@ export const query = graphql`
             direction
             hours
             hours_weekdays
+            hours_friday
             hours_weekend
             prices
             contact
