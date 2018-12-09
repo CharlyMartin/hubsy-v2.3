@@ -122,13 +122,14 @@ module.exports = {
             baseId: contentBaseId,
             tableName: 'footer',
             tableView: viewAll,
+            tableLinks: ['linked_rooms'],
           },
           {
             baseId: contentBaseId,
             tableName: 'shops',
             tableView: viewAll,
             // mapping: {'meeting_rooms': 'fileNode'},
-            tableLinks: ['linked_rooms'],
+            tableLinks: ['linked_rooms', 'footer'],
             // mapping: {'pictures': 'fileNode'}
           },
           {

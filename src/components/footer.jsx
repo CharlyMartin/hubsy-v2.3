@@ -13,6 +13,16 @@ class Footer extends React.Component {
     return `${this.props.prefix}${path}`;
   }
 
+  renderShopLinks(array) {
+    return array.map(obj => {      
+      return (
+        <Link to={this.prefixLocale(`shops/${obj.data.slug}`)} className="footer-element" key={obj.data.slug}>
+          {`Hubsy ${obj.data.name}`}
+        </Link>
+      )
+    })
+  }
+
   filterObjects(array, lang = 'fr') {
     return array.filter(obj => obj.node.data.language === lang);
   }
@@ -38,9 +48,10 @@ class Footer extends React.Component {
               
               <div className="column-quarter footer-column">
                 <h3>{content.location_title}</h3>
+                {this.renderShopLinks(content.linked_rooms)}
+                {/* <Link to={this.prefixLocale("shops")} className="footer-element">Hubsy ...</Link>
                 <Link to={this.prefixLocale("shops")} className="footer-element">Hubsy ...</Link>
-                <Link to={this.prefixLocale("shops")} className="footer-element">Hubsy ...</Link>
-                <Link to={this.prefixLocale("shops")} className="footer-element">Hubsy ...</Link>
+                <Link to={this.prefixLocale("shops")} className="footer-element">Hubsy ...</Link> */}
               </div>
 
               
@@ -110,6 +121,12 @@ export default (props) => {
                 facebook
                 instagram
 
+                linked_rooms {
+                  data {
+                    name
+                    slug
+                  }
+                }
               }
             }
           }
