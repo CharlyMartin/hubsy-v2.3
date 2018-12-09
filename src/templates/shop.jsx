@@ -2,7 +2,7 @@ import React from 'react';
 import { Link, graphql } from 'gatsby';
 
 import Layout from '../components/layout';
-import ButtonLink from '../components/button_link';
+import Button from '../components/button';
 import Item from '../components/item';
 import Map from '../components/map';
 
@@ -122,7 +122,9 @@ class ShopPage extends React.Component {
                   
                   <div className="button-item-container">
                     <Item image={meeting} text={pageContext.data.meeting_rooms} />
-                    <ButtonLink text={content.button_1} path={this.prefixLocale(`rooms#${pageContext.data.slug}`)} class="button-beige"/>
+                    <Link to={this.prefixLocale(`rooms#${pageContext.data.slug}`)}>
+                      <Button text={content.button_1} class="button-beige"/>
+                    </Link>
                   </div>
 
                   <Item image={phone}   text={pageContext.data.booths} />
@@ -136,7 +138,9 @@ class ShopPage extends React.Component {
                   <h2>{content.prices}</h2>
                   <p>{pageContext.data.prices}</p>
                   <br />
-                  <ButtonLink class="button-green-transparent" path={this.prefixLocale("pricing")} text={content.button_2} />
+                  <Link to={this.prefixLocale("pricing")}>
+                    <Button class="button-green-transparent" text={content.button_2} />
+                  </Link>
                 </div>
 
                 <div className="mg-xxl-top" id="contact">

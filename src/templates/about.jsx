@@ -1,7 +1,6 @@
 import React from 'react';
-// import { Link, graphql } from 'gatsby'
-import ButtonLink from '../components/button_link';
-import ButtonA from '../components/button_a';
+import { Link } from 'gatsby'
+import Button from '../components/button';
 import Layout from '../components/layout';
 import PageHeader from '../components/page_header';
 // import TextImage from '../components/text_image';
@@ -35,7 +34,9 @@ class aboutPage extends React.Component {
                   <p>{pageContext.data.item_1_text}</p>
                   <br/>
                   <br/>
-                  <ButtonLink text={pageContext.data.item_1_button} path={this.prefixLocale("shops")} class="button-beige" />
+                  <Link to={this.prefixLocale("shops")}>
+                    <Button text={pageContext.data.item_1_button} class="button-beige" />
+                  </Link>
                 </div>
 
                 <div className="picture-column">
@@ -51,7 +52,9 @@ class aboutPage extends React.Component {
                   <p>{pageContext.data.item_2_text}</p>
                   <br/>
                   <br/>
-                  <ButtonA text={pageContext.data.item_2_button} path="https://shop.hubsy.fr/" class="button-green-transparent" />
+                  <a href="https://shop.hubsy.fr/" target="_blank" rel="noopener noreferrer">
+                    <Button text={pageContext.data.item_2_button} class="button-green-transparent" />
+                  </a>
                 </div>
 
                 <div className="picture-column">
@@ -67,7 +70,9 @@ class aboutPage extends React.Component {
                   <p>{pageContext.data.item_3_text}</p>
                   <br/>
                   <br/>
-                  <ButtonLink text={pageContext.data.item_3_button} path={this.prefixLocale("pricing")} class="button-green-transparent" />
+                  <Link to={this.prefixLocale("pricing")}>
+                    <Button text={pageContext.data.item_3_button} class="button-green-transparent" />
+                  </Link>
                 </div>
 
                 <div className="picture-column">

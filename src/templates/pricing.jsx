@@ -1,9 +1,9 @@
 import React from 'react';
-// import { Link, graphql } from 'gatsby'
+import { Link, graphql } from 'gatsby'
 
 import Layout from '../components/layout';
 import Item from '../components/item';
-import ButtonLink from '../components/button_link';
+import Button from '../components/button';
 import PageHeader from '../components/page_header';
 import Disclaimer from '../components/disclaimer'
 
@@ -80,7 +80,9 @@ class PricingPage extends React.Component {
 
             <div className="page-section mg-xxl-top">
               <Disclaimer text={pageContext.data.rooms}>
-                <ButtonLink text={pageContext.data.button_1} path={this.prefixLocale('rooms')} class="button-beige-transparent" />
+                <Link to={this.prefixLocale("rooms")}>
+                  <Button text={pageContext.data.button_1} class="button-beige-transparent" />
+                </Link>
               </Disclaimer>
             </div>
 

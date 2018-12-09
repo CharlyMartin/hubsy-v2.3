@@ -1,9 +1,9 @@
 import React from 'react';
-// import { Link, graphql } from 'gatsby'
+import { Link, graphql } from 'gatsby'
 
 // Components
 import Layout from '../components/layout';
-import ButtonLink from '../components/button_link';
+import Button from '../components/button';
 import Image from '../components/image';
 import CardReview from '../components/card_review';
 
@@ -86,7 +86,9 @@ class HomePage extends React.Component {
           <div className="container mg-xxl-top-bottom">
             <div className="brand-container-top mg-xl-bottom">
               <h1 id="title">{pageContext.data.brand}</h1>
-              <ButtonLink class="button-beige" path={this.prefixLocale("shops")} text={pageContext.data.button} />
+              <Link to={this.prefixLocale("shops")}>
+                <Button class="button-beige" text={pageContext.data.button} />
+              </Link>
             </div>
             <h2 id="caption">{pageContext.data.caption}</h2>
           </div>
@@ -114,7 +116,9 @@ class HomePage extends React.Component {
           <br />
 
           <div className="container text-center mg-xl-bottom">
-            <ButtonLink class="button-beige-transparent" path={this.prefixLocale("about")} text={pageContext.data.concept} />
+            <Link to={this.prefixLocale("about")}>
+              <Button class="button-beige-transparent" text={pageContext.data.concept} />
+            </Link>
           </div>
 
           <br />

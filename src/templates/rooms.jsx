@@ -4,11 +4,11 @@ import { Link, graphql } from 'gatsby'
 import Layout from '../components/layout';
 import PageHeader from '../components/page_header';
 import Disclaimer from '../components/disclaimer';
-import ButtonA from '../components/button_a';
+import Button from '../components/button';
 import Card from '../components/card';
 
 import '../css/pages/room.css'
-import { div } from 'gl-matrix/src/gl-matrix/vec3';
+// import { div } from 'gl-matrix/src/gl-matrix/vec3';
 
 class RoomsPage extends React.Component {
   constructor(props) {
@@ -111,7 +111,9 @@ class RoomsPage extends React.Component {
             </div>
 
             <Disclaimer text={pageContext.data.privatise}>
-              <ButtonA text={pageContext.data.button} path="#" class="button-beige-transparent" />
+              <a href="#" target="_blank" rel="noopener noreferrer">
+                <Button text={pageContext.data.button} class="button-beige-transparent" />
+              </a>
             </Disclaimer>
           </div>
         </div>
