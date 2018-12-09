@@ -1,9 +1,9 @@
 import React from 'react';
-import { graphql } from 'gatsby';
+import { graphql, Link } from 'gatsby';
 // import ReactMapboxGl, { Layer, Feature, Marker } from "react-mapbox-gl";
 
 import Layout from '../components/layout';
-import CardLink from '../components/card_link';
+import Card from '../components/card';
 import Map from '../components/map';
 
 import '../css/pages/shops.css';
@@ -49,16 +49,15 @@ class ShopsPage extends React.Component {
         {array.map(obj => {
           const address = `${obj.node.data.street}, ${obj.node.data.postcode}`
           return (
-            <CardLink
-              key={obj.node.data.record_id}
-              title={obj.node.data.name}
-              subtitle={address}
-              slug={obj.node.data.slug}
-              status={obj.node.data.status}
-              locale={locale}
-              picture={obj.node.data.pictures[0].url}
-              live={obj.node.data.live}
-            />
+            <Link to={`${locale}shops/${obj.node.data.slug}`} key={obj.node.data.record_id}>
+              <Card
+                title={obj.node.data.name}
+                subtitle={address}
+                status={obj.node.data.status}
+                picture={obj.node.data.pictures[0].url}
+                live={obj.node.data.live}
+              />
+            </Link>
           )}
         )}
       </div>  

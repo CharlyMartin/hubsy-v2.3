@@ -5,7 +5,7 @@ import Layout from '../components/layout';
 import PageHeader from '../components/page_header';
 import Disclaimer from '../components/disclaimer';
 import ButtonA from '../components/button_a';
-import CardLink from '../components/card_link';
+import Card from '../components/card';
 
 import '../css/pages/room.css'
 
@@ -18,6 +18,19 @@ class RoomsPage extends React.Component {
     return `${this.props.pageContext.prefix}${path}`;
   }
 
+  filterRooms(array, lang = 'fr') {
+    console.log(array)
+    // return array.filter(obj => obj.node.data.language === lang);
+  }
+
+  filterShops(array, lang = 'fr') {
+    // Components are called internally during the build sequence,
+    // it doesn't pass a locale arg, which makes it undefined.
+    // Hence the function returns an empty object and fails the build process.
+    // The default params 'fr' prevents that!
+    return array.filter(obj => obj.node.data.language === lang);
+  }
+
   renderCards(array, locale) {
     return (
       <div className="rooms">
@@ -26,9 +39,17 @@ class RoomsPage extends React.Component {
           return (
             <div className="room-item mg-xxl-bottom pd-xxl-bottom" key={obj.node.data.name}>
               <div className="room-shop">
-                <h2>{`Husby ${obj.node.data.name}`}</h2>
-                <p>{obj.node.data.street}</p>
-                {console.log(rooms)}
+                <a href={this.prefixLocale(`shops/${obj.node.data.slug}`)}>
+                  <p>
+                    {`Husby ${obj.node.data.name}`} 
+                    <span className="text-small"> - {obj.node.data.street} {obj.node.data.postcode}
+                    </span>
+                  </p>
+                </a>
+                
+                {rooms.map(obj => {
+                  console.log(obj.data)
+                })}
               </div>
             </div>
           )}
@@ -36,19 +57,11 @@ class RoomsPage extends React.Component {
       </div>  
     )
   }
-
-  filterObjects(array, lang = 'fr') {
-    // Components are called internally during the build sequence,
-    // it doesn't pass a locale arg, which makes it undefined.
-    // Hence the function returns an empty object and fails the build process.
-    // The default params 'fr' prevents that!
-    return array.filter(obj => obj.node.data.language === lang);
-  }
   
   render() {
     const pageContext = this.props.pageContext;
     const edges = this.props.data.allAirtable.edges;
-    const shopsData = this.filterObjects(edges, pageContext.locale);
+    const shopsData = this.filterShops(edges, pageContext.locale);
 
     return (
       <Layout prefix={pageContext.prefix} locale={pageContext.locale}>
