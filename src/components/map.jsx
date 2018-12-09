@@ -44,7 +44,7 @@ class Map extends React.Component {
   }
 
   initMap() {
-    mapboxgl.accessToken = process.env.MAPBOX;
+    mapboxgl.accessToken = process.env.MAPBOX_API_KEY;
 
     const center = this.computeCenter(this.props.data);
 

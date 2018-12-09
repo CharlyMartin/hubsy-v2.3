@@ -33,7 +33,7 @@
 
 /* Thin black banner at the bottom */
 .footer-bottom {
-  background: var(--black-normal);
+  background: var(--black-dark);
   /* padding: var(--space-xs) 0; */
 }
 

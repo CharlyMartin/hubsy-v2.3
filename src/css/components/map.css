@@ -33,3 +33,8 @@
   top: 6px !important;
   right: 9px !important;
 }
+
+/* Icons on top of the map */
+.mapboxgl-ctrl-bottom-left, .mapboxgl-ctrl-bottom-right, .mapboxgl-ctrl-top-right {
+  z-index: 0 !important;
+}
