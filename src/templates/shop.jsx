@@ -137,7 +137,7 @@ class ShopPage extends React.Component {
                   
                   <div className="button-item-container">
                     <Item image={meeting} text={pageContext.data.meeting_rooms} />
-                    <ButtonLink text={content.button_1} path={this.prefixLocale("rooms")} class="button-beige"/>
+                    <ButtonLink text={content.button_1} path={this.prefixLocale(`rooms#${pageContext.data.slug}`)} class="button-beige"/>
                   </div>
 
                   <Item image={phone}   text={pageContext.data.booths} />

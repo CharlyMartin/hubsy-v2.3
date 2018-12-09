@@ -3,7 +3,7 @@ import React from 'react';
 
 import Layout from '../components/layout';
 import PageHeader from '../components/page_header';
-import CardA from '../components/card_a';
+import Card from '../components/card';
 
 import '../css/pages/barista.css'
 
@@ -50,20 +50,25 @@ class BaristaPage extends React.Component {
           <div className="container pd-xxl-top pd-xxl-bottom">
             <div className="column-layout">
               <div className="column-half column-one">
-                <CardA
-                  title={pageContext.data.training_1_title}
-                  subtitle={pageContext.data.training_1_subtitle}
-                  path="#"
-                  picture={pageContext.data.training_1_picture[0].url}
-                />
+                <a href="#" target="_blank" rel="noopener noreferrer">
+                  <Card
+                    title={pageContext.data.training_1_title}
+                    subtitle={pageContext.data.training_1_subtitle}
+                    path="#"
+                    picture={pageContext.data.training_1_picture[0].url}
+                  />
+                </a>
               </div>
+
               <div className="column-half column-two">
-                <CardA
-                  title={pageContext.data.training_2_title}
-                  subtitle={pageContext.data.training_2_subtitle}
-                  path="#"
-                  picture={pageContext.data.training_2_picture[0].url}
-                />
+              <a href="#" target="_blank" rel="noopener noreferrer">
+                  <Card
+                    title={pageContext.data.training_2_title}
+                    subtitle={pageContext.data.training_2_subtitle}
+                    path="#"
+                    picture={pageContext.data.training_2_picture[0].url}
+                  />
+                </a>
               </div>
             </div>
           </div>
