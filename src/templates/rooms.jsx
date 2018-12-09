@@ -22,25 +22,15 @@ class RoomsPage extends React.Component {
     return (
       <div className="rooms">
         {array.map(obj => {
+          const rooms = obj.node.data.linked_rooms;
           return (
-            <div className="room-item mg-xxl-bottom pd-xxl-bottom" key={obj.node.data.record_id}>
+            <div className="room-item mg-xxl-bottom pd-xxl-bottom" key={obj.node.data.name}>
               <div className="room-shop">
                 <h2>{`Husby ${obj.node.data.name}`}</h2>
                 <p>{obj.node.data.street}</p>
+                {console.log(rooms)}
               </div>
-              <p>👉 Room List</p>
-              {console.log(obj.node.data.linked_rooms)}
             </div>
-            // <Card
-            //   key={obj.node.data.record_id}
-            //   name={obj.node.data.name}
-            //   address={obj.node.data.street}
-            //   slug={obj.node.data.slug}
-            //   status={obj.node.data.status}
-            //   locale={locale}
-            //   picture={obj.node.data.pictures[0].url}
-            //   live={obj.node.data.live}
-            // />
           )}
         )}
       </div>  
@@ -96,19 +86,25 @@ export const query = graphql`
       node {
         data {
           name
-          description
           language
           street
           postcode
           city
           status
           live
-          pictures {
-            url
-          }
           slug
-          linked_rooms
-          record_id
+          linked_rooms {
+            data {
+              name
+              language
+              capacity
+              capacity
+              pictures {
+                url
+              }
+              supersaas
+            }
+          }
         }
       }
     }

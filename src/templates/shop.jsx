@@ -147,9 +147,9 @@ class ShopPage extends React.Component {
 
                 <div className="mg-xxl-top">
                   <h2>{content.nearby}</h2>
-                  <p>{pageContext.data.linked_rooms[0]}</p>
+                  {/* <p>{pageContext.data.linked_rooms[0]}</p>
                   <p>{pageContext.data.linked_rooms[1]}</p>
-                  <p>{pageContext.data.linked_rooms[2]}</p>
+                  <p>{pageContext.data.linked_rooms[2]}</p> */}
                 </div> 
               </div>
 

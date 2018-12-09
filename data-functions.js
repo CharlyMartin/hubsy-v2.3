@@ -90,8 +90,6 @@ module.exports = {
                     screen
                     printer
                     slug
-                    linked_rooms
-                    record_id
                   }
                 }
               }

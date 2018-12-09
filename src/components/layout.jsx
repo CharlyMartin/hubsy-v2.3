@@ -30,7 +30,6 @@ export default (props) => {
       `}
       
       render={(data) => {
-        console.log(props);
         return (
           <div>
             <Helmet title={`${props.children.props.title[props.locale]} | ${meta[props.locale].title}`}>

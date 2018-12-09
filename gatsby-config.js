@@ -128,7 +128,7 @@ module.exports = {
             tableName: 'shops',
             tableView: viewAll,
             // mapping: {'meeting_rooms': 'fileNode'},
-            tableLinks: ['rooms'],
+            tableLinks: ['linked_rooms'],
             // mapping: {'pictures': 'fileNode'}
           },
           {
@@ -136,7 +136,7 @@ module.exports = {
             tableName: 'rooms',
             tableView: viewAll,
             // mapping: {'belongs_to': 'fileNode'},
-            tableLinks: ['shops'],
+            tableLinks: ['belongs_to'],
             // mapping: {'pictures': 'fileNode'}
           },
         ]
