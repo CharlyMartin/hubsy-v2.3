@@ -3,6 +3,10 @@
   text-align: center;
 }
 
+.page-section {
+  margin-top: var(--space-xxl);
+}
+
 .wrapper-beige {
   background: var(--white-dark);
   box-shadow: var(--shadow-lighter);

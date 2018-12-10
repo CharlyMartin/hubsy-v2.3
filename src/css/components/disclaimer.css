@@ -3,7 +3,9 @@
   justify-content: space-between;
   align-items: center;
   background: white;
-  border-radius: var(--radius-sm)
+  border-radius: var(--radius-sm);
+  padding: var(--space-md);
+  margin-top: var(--space-xxl);
 }
 
 .disclaimer p {

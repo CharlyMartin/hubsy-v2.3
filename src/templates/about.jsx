@@ -25,7 +25,7 @@ class aboutPage extends React.Component {
           <div className="container mg-xxl-top-bottom">
             <PageHeader title={pageContext.data.title} subtitle={pageContext.data.subtitle} />
 
-            <div className="page-section mg-xxl-top">
+            <div className="page-section">
               
               {/* Item 1 */}
               <div className="column-layout pd-xxl-bottom mg-xxl-bottom">

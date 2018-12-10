@@ -4,7 +4,7 @@ import '../css/components/disclaimer.css'
 
 const Disclaimer = (props) => {
   return (
-    <div className="disclaimer pd-md">
+    <div className="disclaimer">
       <p>{props.text}</p>
       {props.children}
     </div>

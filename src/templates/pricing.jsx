@@ -27,7 +27,7 @@ class PricingPage extends React.Component {
           <div className="container mg-xxl-top-bottom">
             <PageHeader title={pageContext.data.title} subtitle={pageContext.data.subtitle} />
 
-            <div className="page-section mg-xxl-top">
+            <div className="page-section">
               <div className="column-layout">
                 {/* First column */}
                 <div className="column-half column-one">
@@ -74,11 +74,7 @@ class PricingPage extends React.Component {
               </div>
             </div>
 
-            <br/>
-            <br/>
-            <br/>
-
-            <div className="page-section mg-xxl-top">
+            <div className="page-section">
               <Disclaimer text={pageContext.data.rooms}>
                 <Link to={this.prefixLocale("rooms")}>
                   <Button text={pageContext.data.button_1} class="button-beige-transparent" />
