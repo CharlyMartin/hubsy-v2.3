@@ -1,3 +1,13 @@
+/* Pages */
+.page-header {
+  text-align: center;
+}
+
+.wrapper-beige {
+  background: var(--white-dark);
+  box-shadow: var(--shadow-lighter);
+}
+
 /* Images */
 .image-centered {
   background-position: center;

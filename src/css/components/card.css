@@ -3,7 +3,6 @@
   background: white;
   border-radius: var(--radius-md);
   box-shadow: var(--shadow-lighter);
-  margin-top: var(--space-lg);
   transition: all 200ms ease;
 }
 

@@ -1,0 +1,30 @@
+/* Container */
+.container {
+  width: 950px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Laptop 11 inches */
+@media screen and (max-width: 1000px) {
+  /* Up to that screen width, the following rules apply: */
+  .container {
+    width: 720px;
+  }
+}
+
+/* iPad */
+@media screen and (max-width: 760px) {
+  /* Up to that screen width, the following rules apply: */
+  .container {
+    width: 520px;
+  }
+}
+
+/* Mobile (Iphone, Pixel, Galaxy) */
+@media screen and (max-width: 560px) {
+  /* Up to that screen width, the following rules apply: */
+  .container {
+    width: 310px;
+  }
+}

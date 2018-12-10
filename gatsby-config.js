@@ -2,6 +2,8 @@ require("dotenv").config({
   path: `.env.${process.env.NODE_ENV}`,
 })
 
+// window.env = NODE_ENV;
+
 const readOnlyKey = process.env.AIRTABLE_API_KEY;
 const contentBaseId = process.env.AIRTABLE_BASE_ID;
 const viewAll = 'Grid view';

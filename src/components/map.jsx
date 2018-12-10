@@ -1,7 +1,7 @@
 import React from 'react';
 import mapboxgl from 'mapbox-gl/dist/mapbox-gl.js';
 
-import icon from '../images/icons/marker-red.png';
+import markerIcon from '../images/icons/marker.png';
 
 import '../css/components/map.css';
 
@@ -23,10 +23,10 @@ class Map extends React.Component {
 
   createMarker(obj) {
     const el = document.createElement('div');
-    el.style.backgroundImage = `url(${icon})`;
-    el.className = 'marker';
+    el.style.backgroundImage = `url(${markerIcon})`;
+    el.className = 'marker image-centered';
 
-    const markerHTML = `
+    const popupHTML = `
       <div data-target=${obj.slug}>
         <h3>Hubsy ${obj.name}</h3>
         <p>${obj.street} ${obj.postcode}</p>
@@ -37,15 +37,18 @@ class Map extends React.Component {
       .setLngLat([obj.lng, obj.lat])
       .setPopup(
         new mapboxgl.Popup({ offset: 20 }) // add popups
-        .setHTML(markerHTML)
+        .setHTML(popupHTML)
       )
     
     return marker;
   }
 
   initMap() {
-    // mapboxgl.accessToken = process.env.MAPBOX_API_KEY;
-    mapboxgl.accessToken = 'pk.eyJ1IjoiaHVic3kiLCJhIjoiY2pwYXl4Yjc1MmRmczNwcHhqZGE3ZDZkNSJ9.zCPsBiHOviAzl9avh6VA5g';
+    const isLocal = window.location.hostname === 'localhost'
+    let mapboxKey = isLocal ? process.env.MAPBOX_API_KEY : 'pk.eyJ1IjoiaHVic3kiLCJhIjoiY2pwYXl4Yjc1MmRmczNwcHhqZGE3ZDZkNSJ9.zCPsBiHOviAzl9avh6VA5g';
+    console.log(mapboxKey);
+
+    mapboxgl.accessToken = mapboxKey;
 
     const center = this.computeCenter(this.props.data);
 

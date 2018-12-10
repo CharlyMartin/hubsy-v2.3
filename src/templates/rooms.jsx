@@ -42,7 +42,7 @@ class RoomsPage extends React.Component {
   renderCards(array) {
     return array.map(obj => {      
       return (
-        <div className="column-third pd-md" key={obj.data.record_id}>
+        <div className="" key={obj.data.record_id}>
           <a href={obj.data.supersaas} target="_blank" rel="noopener noreferrer">
             <Card
               title={obj.data.name}
@@ -88,26 +88,24 @@ class RoomsPage extends React.Component {
             <PageHeader title={pageContext.data.title} subtitle={pageContext.data.subtitle} />
 
             <div className="page-section">
-              <div className="rooms">
                 
-                {shopsData.map(obj => {
-                  return (
-                    <div className="room-item mg-xxl-bottom pd-xxl-bottom" key={obj.node.data.name} id={obj.node.data.slug}>
-                      <a href={this.prefixLocale(`shops/${obj.node.data.slug}`)}>
-                        <p>{`Husby ${obj.node.data.name}`}</p>
-                        <span className="text-small"> - {obj.node.data.street} {obj.node.data.postcode}
-                        </span>
-                      </a>
+              {shopsData.map(obj => {
+                return (
+                  <div className="room-item pd-xxl-top pd-xxl-bottom" key={obj.node.data.name} id={obj.node.data.slug}>
+                    <a href={this.prefixLocale(`shops/${obj.node.data.slug}`)}>
+                      <p>{`Husby ${obj.node.data.name}`}</p>
+                      <span className="text-small"> - {obj.node.data.street} {obj.node.data.postcode}
+                      </span>
+                    </a>
 
-                      <div className="column-layout">
-                        {this.renderRightComponent(obj)}
-                        {/* {(obj.node.data.live === "true") ? this.renderCards(obj.node.data.linked_rooms) : <h2>Opening Soon 😄</h2>} */}
-                      </div>
+                    <div className="grid">
+                      {this.renderRightComponent(obj)}
+                      {/* {(obj.node.data.live === "true") ? this.renderCards(obj.node.data.linked_rooms) : <h2>Opening Soon 😄</h2>} */}
                     </div>
-                  )}
+                  </div>
                 )}
+              )}
 
-              </div>
             </div>
 
             <Disclaimer text={pageContext.data.privatise}>

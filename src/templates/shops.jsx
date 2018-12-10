@@ -45,7 +45,7 @@ class ShopsPage extends React.Component {
 
   renderCards(array, locale) {
     return (
-      <div className="cards">
+      <div className="shops-container">
         {array.map(obj => {
           const address = `${obj.node.data.street}, ${obj.node.data.postcode}`
           return (
@@ -78,9 +78,7 @@ class ShopsPage extends React.Component {
             <h1>{pageContext.data.title}</h1>
             
             <div className="column-layout">
-              <div className="shops-container">
-                {this.renderCards(shopsData, pageContext.prefix)}
-              </div>
+              {this.renderCards(shopsData, pageContext.prefix)}
 
               <div className="map-container">
                 <div className="shops-map-container">

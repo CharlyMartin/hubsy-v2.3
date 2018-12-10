@@ -2,6 +2,11 @@
   flex: 1 0 40%;
 }
 
+.shops-container .card {
+  margin-top: var(--space-lg);
+}
+
+
 .map-container {
   flex: 1 0 60%;
   /* padding-top: var(--space-lg);

@@ -4,10 +4,11 @@
 }
 
 .marker {
-  background-size: cover;
-  width: 25px;
-  height: 25px;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
   cursor: pointer;
+  box-shadow: var(--shadow-light);
 }
 
 .mapboxgl-popup-content {

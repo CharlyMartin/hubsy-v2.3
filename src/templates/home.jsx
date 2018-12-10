@@ -66,7 +66,7 @@ class HomePage extends React.Component {
     return this.state.reviews.map(r => {
       const clippedContent = this.textEllipsis(r.content);
       return (
-        <div className="column-third pd-md" key={r.id}>
+        <div className="column-third" key={r.id}>
           <CardReview first={r.first} content={clippedContent} />
         </div>
       )
