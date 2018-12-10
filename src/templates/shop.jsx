@@ -97,7 +97,7 @@ class ShopPage extends React.Component {
                   <p>{pageContext.data.bus}</p>
                   <br/>
                   <div className="shop-map-container">
-                    <Map data={markers}/>
+                    <Map data={markers} zoom={14}/>
                   </div>
                 </div>
 

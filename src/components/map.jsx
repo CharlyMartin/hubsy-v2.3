@@ -55,7 +55,7 @@ class Map extends React.Component {
     const map = new mapboxgl.Map({
       container: 'map',
       style: 'mapbox://styles/hubsy/cjpba7g8e1nkm2sqnagv0s2gr',
-      zoom: 12,
+      zoom: this.props.zoom,
       center: center
     });
 

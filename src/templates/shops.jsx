@@ -82,7 +82,7 @@ class ShopsPage extends React.Component {
 
               <div className="map-container">
                 <div className="shops-map-container">
-                  <Map data={markersData}/>
+                  <Map data={markersData} zoom={12}/>
                 </div>
               </div>
             </div>
