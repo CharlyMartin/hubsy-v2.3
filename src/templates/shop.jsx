@@ -45,7 +45,6 @@ class ShopPage extends React.Component {
   }
 
   filterObjects(array, lang = 'fr') {
-    console.log(array);
     // Components are called internally during the build sequence,
     // it doesn't pass a locale arg, which makes it undefined.
     // Hence the function returns an empty object and fails the build process.
