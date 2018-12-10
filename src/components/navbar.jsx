@@ -13,7 +13,7 @@ import flagFR from '../images/lang/fr.png';
 import flagEN from '../images/lang/en.png';
 import caret from '../images/icons/caret.png';
 
-import { navbarDropdown } from '../utilities/dropdown';
+import { navbarDropdown } from '../utilities/navbar_dropdown';
 
 import '../css/components/navbar.css';
 
