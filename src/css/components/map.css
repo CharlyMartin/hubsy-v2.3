@@ -9,6 +9,11 @@
   border-radius: 50%;
   cursor: pointer;
   box-shadow: var(--shadow-light);
+  transition: all ease 200ms;
+}
+
+.marker:hover {
+  box-shadow: var(--shadow-dark);
 }
 
 .mapboxgl-popup-content {

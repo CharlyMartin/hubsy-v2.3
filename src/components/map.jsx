@@ -16,8 +16,8 @@ class Map extends React.Component {
       return [array[0].lng, array[0].lat]
     }
 
-    const lgn = array.map(obj => obj.lng).reduce((t, c) => t += c) / array.length;
-    const lat = array.map(obj => obj.lat).reduce((t, c) => t += c) / array.length;
+    const lgn = array.map(obj => obj.lng).reduce((tot, cur) => tot += cur) / array.length;
+    const lat = array.map(obj => obj.lat).reduce((tot, cur) => tot += cur) / array.length;
     return [lgn, lat];
   }
 
