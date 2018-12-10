@@ -36,22 +36,24 @@ class RoomsPage extends React.Component {
       )
     }
 
-    return this.renderCards(obj.node.data.linked_rooms);
+    return (
+      <div className="grid">
+        {this.renderCards(obj.node.data.linked_rooms)}
+      </div>
+    );
   }
 
   renderCards(array) {
     return array.map(obj => {      
       return (
-        <div className="" key={obj.data.record_id}>
-          <a href={obj.data.supersaas} target="_blank" rel="noopener noreferrer">
-            <Card
-              title={obj.data.name}
-              subtitle={obj.data.capacity}
-              picture={obj.data.pictures[0].url}
-              status=""
-            />
-          </a>
-        </div>
+        <a href={obj.data.supersaas} target="_blank" rel="noopener noreferrer" key={obj.data.record_id}>
+          <Card
+            title={obj.data.name}
+            subtitle={obj.data.capacity}
+            picture={obj.data.pictures[0].url}
+            status=""
+          />
+        </a>
       )
     })
   }
@@ -91,17 +93,14 @@ class RoomsPage extends React.Component {
                 
               {shopsData.map(obj => {
                 return (
-                  <div className="room-item pd-xxl-top pd-xxl-bottom" key={obj.node.data.name} id={obj.node.data.slug}>
+                  <div className="rooms pd-xxl-top pd-xxl-bottom" key={obj.node.data.name} id={obj.node.data.slug}>
                     <a href={this.prefixLocale(`shops/${obj.node.data.slug}`)}>
                       <p>{`Husby ${obj.node.data.name}`}</p>
                       <span className="text-small"> - {obj.node.data.street} {obj.node.data.postcode}
                       </span>
                     </a>
 
-                    <div className="grid">
-                      {this.renderRightComponent(obj)}
-                      {/* {(obj.node.data.live === "true") ? this.renderCards(obj.node.data.linked_rooms) : <h2>Opening Soon 😄</h2>} */}
-                    </div>
+                    {this.renderRightComponent(obj)}
                   </div>
                 )}
               )}

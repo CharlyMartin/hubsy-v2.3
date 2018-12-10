@@ -5,3 +5,7 @@
 .rooms a > p:hover {
   text-decoration: underline;
 }
+
+.rooms .grid {
+  margin-top: var(--space-lg);
+}
