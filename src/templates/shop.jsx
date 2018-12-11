@@ -17,7 +17,7 @@ import wifi from '../images/icons/wifi.png';
 
 import '../css/pages/shop.css';
 import '../css/components/badge.css';
-import '../css/components/carousel.css';
+import '../css/components/hero_image.css';
 
 class ShopPage extends React.Component {
   constructor(props) {
@@ -68,8 +68,7 @@ class ShopPage extends React.Component {
     const array = this.filterObjects(edges, pageContext.locale);
     const content = array[0].node.data;
     const markers = this.formatMarker(pageContext);
-    // console.log('pageContext', pageContext);
-    // console.log('content', content);
+    console.log(this.state.images)
 
     const backgroundImage = {
       backgroundImage: `url(${this.state.selectedImage.url})`,
@@ -87,6 +86,7 @@ class ShopPage extends React.Component {
                 <p className={`badge ${this.setBadgeColor()}`}>{pageContext.data.status_long}</p>
               </div>
             </div>
+
           </div>
 
           <div className="container mg-xxl-top-bottom pd-lg-top" id="shop-page">

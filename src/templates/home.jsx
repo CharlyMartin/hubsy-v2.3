@@ -7,6 +7,7 @@ import Button from '../components/button';
 import Image from '../components/image';
 import CardReview from '../components/card_review';
 import Alert from '../components/alert';
+import HeroImage from '../components/hero_image';
 
 // Images
 import leParisien from '../images/referrals/le_parisien.png';
@@ -17,7 +18,7 @@ import forbes from '../images/referrals/forbes.png';
 
 // CSS
 import '../css/pages/home.css';
-import '../css/components/carousel.css';
+import '../css/components/hero_image.css';
 
 // Reviews Data
 import reviews from '../data/reviews.js';
@@ -34,8 +35,6 @@ class HomePage extends React.Component {
     // pageContext, as it is not created by createPage().
     // There's data on "/en" as this one is created by createPage().
     this.state = {
-      images: this.props.pageContext.data.pictures,
-      selectedImage: this.props.pageContext.data.pictures[0],
       reviews: this.sample(this.filterReviews(), 3)
     }
   }
@@ -75,17 +74,23 @@ class HomePage extends React.Component {
     })
   }
 
+  renderAlert(data) {
+    return (
+      data.alert === "true" ? <Alert content={data.alert_message}/> : <div />
+    )
+  }
+
   render() {    
     const pageContext = this.props.pageContext;
-    const backgroundImage = { backgroundImage: `url(${this.state.selectedImage.url})`};
-    console.log(this.state.images)
+    // const images = this.formatImages(pageContext.data.pictures);
 
     return (
       <Layout prefix={pageContext.prefix} locale={pageContext.locale}>
         <div path="" title={{"fr": "Accueil", "en": "Home"}}>
-          <div className="home-hero hero-image image-centered" style={backgroundImage}>
-            {(pageContext.data.alert === "true") ? <Alert content={pageContext.data.alert_message}/> : <div />}
-          </div>
+
+          <HeroImage class="home-hero" images={pageContext.data.pictures}>
+            {this.renderAlert(pageContext.data)}
+          </HeroImage>
 
           {/* Brand + Tagline */}
           <div className="container mg-xl-top mg-xxl-bottom">

@@ -1,0 +1,51 @@
+.hero-image {
+  height: 75vh;
+  width: 100%;
+  animation: fadein 2000ms;
+  position: relative;
+}
+
+.arrows {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: calc(var(--space-xxl) * 2.2);
+  height: var(--space-xxl);
+  background: var(--white-lighter);
+  border-radius: var(--radius-xs) 0 0 0;
+  box-shadow: var(--shadow-top);
+}
+
+.arrow {
+  flex-basis: 50%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.arrow:hover {
+  background: var(--white-normal);
+}
+
+.arrow img {
+  width: 16px;
+}
+
+.arrow#left img {
+  transform: rotate(90deg);
+  
+}
+
+.arrow#right img {
+  transform: rotate(-90deg);
+}
+
+@keyframes fadein {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
