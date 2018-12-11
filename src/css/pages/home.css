@@ -1,8 +1,7 @@
 .home-hero {
   height: 72vh;
   width: 100%;
-  /* background-position: center;
-  background-size: cover; */
+  animation: fadein 1200ms;
 }
 
 #title {
@@ -38,12 +37,10 @@
 }
 
 
-
-
-/* Laptop 11 inches */
-/* @media screen and (max-width: 960px) {
-
-} */
+@keyframes fadein {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
 
 /* iPad */
 @media screen and (max-width: 760px) {
