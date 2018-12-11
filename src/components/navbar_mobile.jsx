@@ -6,7 +6,7 @@ import Image from '../components/image'
 
 import { navbarMobile } from '../utilities/navbar_mobile';
 
-import logo from '../images/logo/logo.png';
+// import logo from '../images/logo/logo.png';
 import flagFR from '../images/lang/fr.png';
 import flagEN from '../images/lang/en.png';
 import menu from '../images/icons/menu.png';

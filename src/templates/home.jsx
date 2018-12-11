@@ -6,6 +6,7 @@ import Layout from '../components/layout';
 import Button from '../components/button';
 import Image from '../components/image';
 import CardReview from '../components/card_review';
+import Alert from '../components/alert';
 
 // Images
 import leParisien from '../images/referrals/le_parisien.png';
@@ -81,7 +82,9 @@ class HomePage extends React.Component {
     return (
       <Layout prefix={pageContext.prefix} locale={pageContext.locale}>
         <div path="" title={{"fr": "Accueil", "en": "Home"}}>
-          <div className="home-hero image-centered" style={backgroundImage} />
+          <div className="home-hero image-centered" style={backgroundImage}>
+            {(pageContext.data.alert === "true") ? <Alert content={pageContext.data.alert_message}/> : <div />}
+          </div>
 
           {/* Brand + Tagline */}
           <div className="container mg-xl-top mg-xxl-bottom">

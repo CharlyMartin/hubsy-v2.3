@@ -19,6 +19,8 @@ module.exports = {
                       url
                     }
                     concept
+                    alert
+                    alert_message
                     language
                   }
                 }

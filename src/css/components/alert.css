@@ -1,0 +1,29 @@
+.alert {
+  background: var(--hubsy-red);
+  position: relative;
+  padding: var(--space-xs) 0;
+  box-shadow: var(--shadow-light);
+}
+
+.alert p {
+  color:white;
+  margin: 0;
+  font-weight: 600;
+}
+
+.alert .cross-container {
+  position: absolute;
+  right: 0px;
+  bottom: 0px;
+  top: 0px;
+  width: 10%;
+  padding-right: var(--space-lg);
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  cursor: pointer;
+}
+
+.cross-container img {
+  width: 12px;
+}
