@@ -17,6 +17,7 @@ import forbes from '../images/referrals/forbes.png';
 
 // CSS
 import '../css/pages/home.css';
+import '../css/components/carousel.css';
 
 // Reviews Data
 import reviews from '../data/reviews.js';
@@ -82,7 +83,7 @@ class HomePage extends React.Component {
     return (
       <Layout prefix={pageContext.prefix} locale={pageContext.locale}>
         <div path="" title={{"fr": "Accueil", "en": "Home"}}>
-          <div className="home-hero image-centered" style={backgroundImage}>
+          <div className="home-hero hero-image image-centered" style={backgroundImage}>
             {(pageContext.data.alert === "true") ? <Alert content={pageContext.data.alert_message}/> : <div />}
           </div>
 

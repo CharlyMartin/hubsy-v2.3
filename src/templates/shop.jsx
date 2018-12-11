@@ -17,6 +17,7 @@ import wifi from '../images/icons/wifi.png';
 
 import '../css/pages/shop.css';
 import '../css/components/badge.css';
+import '../css/components/carousel.css';
 
 class ShopPage extends React.Component {
   constructor(props) {
@@ -79,7 +80,7 @@ class ShopPage extends React.Component {
       <Layout prefix={pageContext.prefix} locale={pageContext.locale}>
         <div path="shops" title={{"fr": `Hubsy ${pageContext.data.name}`, "en": `Hubsy ${pageContext.data.name}`}}>
           
-          <div className="shop-hero image-centered" style={backgroundImage}>
+          <div className="shop-hero hero-image image-centered" style={backgroundImage}>
             <div className="container">
               <div className="shop-hero-title">
                 <h1>Hubsy {pageContext.data.name}</h1>

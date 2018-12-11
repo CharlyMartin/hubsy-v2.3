@@ -1,0 +1,10 @@
+.hero-image {
+  height: 75vh;
+  width: 100%;
+  animation: fadein 2000ms;
+}
+
+@keyframes fadein {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}

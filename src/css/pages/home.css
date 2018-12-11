@@ -1,7 +1,6 @@
 .home-hero {
-  height: 75vh;
-  width: 100%;
-  animation: fadein 1200ms;
+  display: flex;
+  align-items: flex-start;
 }
 
 #title {
@@ -34,12 +33,6 @@
 .referrals img {
   width: 90px;
   margin: var(--space-xl);
-}
-
-
-@keyframes fadein {
-  from { opacity: 0; }
-  to   { opacity: 1; }
 }
 
 /* iPad */
