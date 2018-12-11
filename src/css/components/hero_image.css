@@ -33,7 +33,7 @@
 }
 
 .arrow img {
-  width: 16px;
+  width: 15px;
 }
 
 .arrow#left img {
@@ -48,4 +48,12 @@
 @keyframes fadein {
   from { opacity: 0; }
   to   { opacity: 1; }
+}
+
+/* Mobile (Iphone, Pixel, Galaxy) */
+@media screen and (max-width: 560px) {
+  /* Up to that screen width, the following rules apply: */
+  .arrows {
+    display: none;
+  }
 }

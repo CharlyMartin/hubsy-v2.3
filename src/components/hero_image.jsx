@@ -9,7 +9,8 @@ class HeroImage extends React.Component {
     super(props)
     this.state = {
       images: this.formatImages(this.props.images),
-      index: 0
+      index: 0,
+      intervalID: this.initSlider
     }
   }
 
@@ -36,7 +37,7 @@ class HeroImage extends React.Component {
       return;
     }
 
-    this.setState({index: this.state.index += 1})
+    this.setState({index: this.state.index += 1});
   }
 
   getPreviousSlide() {
@@ -47,6 +48,16 @@ class HeroImage extends React.Component {
 
     this.setState({index: this.state.index -= 1})
   }
+
+  // initSlider() {
+  //   return setInterval(() => {
+  //     this.getNextSlide();
+  //   }, 2000);
+  // }
+
+  // componentDidMount() {
+  //   this.initSlider()
+  // }
 
 
   render() {
