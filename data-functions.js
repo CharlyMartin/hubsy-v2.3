@@ -69,7 +69,9 @@ module.exports = {
                     city
                     lat
                     lng
-                    status
+                    live
+                    status_short
+                    status_long
                     pictures {
                       url
                     }

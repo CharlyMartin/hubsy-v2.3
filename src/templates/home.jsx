@@ -76,6 +76,7 @@ class HomePage extends React.Component {
   render() {    
     const pageContext = this.props.pageContext;
     const backgroundImage = { backgroundImage: `url(${this.state.selectedImage.url})`};
+    console.log(this.state.images)
 
     return (
       <Layout prefix={pageContext.prefix} locale={pageContext.locale}>
@@ -83,7 +84,7 @@ class HomePage extends React.Component {
           <div className="home-hero image-centered" style={backgroundImage} />
 
           {/* Brand + Tagline */}
-          <div className="container mg-xxl-top-bottom">
+          <div className="container mg-xl-top mg-xxl-bottom">
             <div className="brand-container-top mg-xl-bottom">
               <h1 id="title">{pageContext.data.brand}</h1>
               <Link to={this.prefixLocale("shops")}>
@@ -95,11 +96,9 @@ class HomePage extends React.Component {
 
           <br />
           <br />
-          <br />
-          <br />
           
           {/* Google Reviews */}
-          <div className="wrapper-beige text-center">
+          <div className="wrapper-beige text-center mg-xl-bottom">
             <div className="container pd-xxl-top pd-xxl-bottom">
               <h3 className="mg-xl-bottom">{pageContext.data.testimonials}</h3>
               
@@ -112,19 +111,15 @@ class HomePage extends React.Component {
             </div>
           </div>
 
-          <br />
-          <br />
-
           <div className="container text-center mg-xl-bottom">
             <Link to={this.prefixLocale("about")}>
               <Button class="button-beige-transparent" text={pageContext.data.concept} />
             </Link>
           </div>
 
-          <br />
-          <br />
-          <br />
-          <br />
+          <br/>
+          <br/>
+          <br/>
 
           {/* Company Referrals */}
           <div className="container text-center">

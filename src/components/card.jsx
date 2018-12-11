@@ -1,6 +1,7 @@
 import React from 'react';
 
 import '../css/components/card.css';
+import '../css/components/badge.css';
 
 class Card extends React.Component {
   constructor(props) {
@@ -42,7 +43,7 @@ class Card extends React.Component {
           </div>
 
           <div className="card-badge-container">
-            <p className={`card-badge ${this.setBadgeColor()}`}>{this.props.status}</p>
+            <p className={`badge ${this.setBadgeColor()}`}>{this.props.status}</p>
           </div>
         </div>
       </div>

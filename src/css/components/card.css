@@ -40,20 +40,3 @@
   display: flex;
   align-items: flex-end;
 }
-
-.card-badge {
-  font-size: 14px;
-  font-weight: 300;
-  padding: 0 var(--space-xs);
-  border-radius: var(--radius-sm);
-}
-
-.badge-green {
-  color: var(--hubsy-green);
-  background: var(--hubsy-green-light);
-}
-
-.badge-red {
-  color: var(--hubsy-red);
-  background: var(--hubsy-red-light);
-}

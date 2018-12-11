@@ -48,12 +48,13 @@ class ShopsPage extends React.Component {
       <div className="shops-container">
         {array.map(obj => {
           const address = `${obj.node.data.street}, ${obj.node.data.postcode}`
+          console.log(obj.node.data.status_short);
           return (
             <Link to={`${locale}shops/${obj.node.data.slug}`} key={obj.node.data.record_id}>
               <Card
                 title={obj.node.data.name}
                 subtitle={address}
-                status={obj.node.data.status}
+                status={obj.node.data.status_short}
                 picture={obj.node.data.pictures[0].url}
                 live={obj.node.data.live}
               />
@@ -109,7 +110,7 @@ export const query = graphql`
             name
             live
             slug
-            status
+            status_short
             street
             postcode
             pictures {

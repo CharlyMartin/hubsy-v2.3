@@ -47,6 +47,10 @@
   padding-right: var(--space-xl);
 }
 
+.pd-lg-top {
+  padding-top: var(--space-lg);
+}
+
 .pd-xxl-top {
   padding-top: var(--space-xxl);
 }
@@ -69,6 +73,10 @@
 
 .mg-md-top {
   margin-top: var(--space-md);
+}
+
+.mg-xl-top {
+  margin-top: var(--space-xl);
 }
 
 .mg-xxl-top-bottom {

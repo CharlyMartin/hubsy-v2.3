@@ -16,6 +16,7 @@ import printer from '../images/icons/printer.png';
 import wifi from '../images/icons/wifi.png';
 
 import '../css/pages/shop.css';
+import '../css/components/badge.css';
 
 class ShopPage extends React.Component {
   constructor(props) {
@@ -25,6 +26,13 @@ class ShopPage extends React.Component {
       images: this.props.pageContext.data.pictures,
       selectedImage: this.props.pageContext.data.pictures[0],
     }
+  }
+
+  setBadgeColor() {
+    const live = this.props.pageContext.data.live;
+    if (live === "true") return "badge-green";
+    if (live === "false") return "badge-red";
+    return "";
   }
 
   formatMarker(obj) {
@@ -63,23 +71,24 @@ class ShopPage extends React.Component {
     // console.log('content', content);
 
     const backgroundImage = {
-      backgroundImage: `linear-gradient(rgba(25, 25, 25, 0), rgba(25, 25, 25, 0.5)), url(${this.state.selectedImage.url})`,
+      backgroundImage: `url(${this.state.selectedImage.url})`,
     };
     const fullAddress = `${pageContext.data.street}, ${pageContext.data.postcode} ${pageContext.data.city}`
 
     return (
       <Layout prefix={pageContext.prefix} locale={pageContext.locale}>
         <div path="shops" title={{"fr": `Hubsy ${pageContext.data.name}`, "en": `Hubsy ${pageContext.data.name}`}}>
+          
           <div className="shop-hero image-centered" style={backgroundImage}>
             <div className="container">
-              <div className="mg-lg-bottom">
+              <div className="shop-hero-title">
                 <h1>Hubsy {pageContext.data.name}</h1>
-                {/* <h3>{fullAddress}</h3> */}
+                <p className={`badge ${this.setBadgeColor()}`}>{pageContext.data.status_long}</p>
               </div>
             </div>
           </div>
 
-          <div className="container mg-xxl-top-bottom" id="shop-page">
+          <div className="container mg-xxl-top-bottom pd-lg-top" id="shop-page">
             <div className="column-layout">
               {/* First Column */}
               <div className="column-half column-one">

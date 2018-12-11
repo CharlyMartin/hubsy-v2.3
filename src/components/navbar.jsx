@@ -58,6 +58,14 @@ class Navbar extends React.Component {
                   <Link to={this.prefixLocale("shops")}>{content.venues}</Link>
                 </div>
 
+                <div className="navbar-element">
+                  <Link to={this.prefixLocale("about")}>{content.concept}</Link>
+                </div>
+
+                <div className="navbar-element">
+                  <Link to={this.prefixLocale("pricing")}>{content.pricing}</Link>
+                </div>
+
                 <div className="navbar-element with-dropdown">
                   <span>{content.booking}</span>
 
@@ -76,14 +84,6 @@ class Navbar extends React.Component {
                       </div>
                     </a>
                   </div>
-                </div>
-
-                <div className="navbar-element">
-                  <Link to={this.prefixLocale("pricing")}>{content.pricing}</Link>
-                </div>
-
-                <div className="navbar-element">
-                  <Link to={this.prefixLocale("about")}>{content.concept}</Link>
                 </div>
               </div>
 

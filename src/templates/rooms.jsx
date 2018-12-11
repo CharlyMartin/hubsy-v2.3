@@ -139,7 +139,6 @@ export const query = graphql`
           street
           postcode
           city
-          status
           live
           slug
           linked_rooms {
