@@ -5,6 +5,7 @@ import Layout from '../components/layout';
 import Button from '../components/button';
 import Item from '../components/item';
 import Map from '../components/map';
+import HeroImage from '../components/hero_image';
 
 import coffee from '../images/icons/coffee.png';
 import screen from '../images/icons/screen.png';
@@ -68,26 +69,25 @@ class ShopPage extends React.Component {
     const array = this.filterObjects(edges, pageContext.locale);
     const content = array[0].node.data;
     const markers = this.formatMarker(pageContext);
-    console.log(this.state.images)
+    const fullAddress = `${pageContext.data.street}, ${pageContext.data.postcode} ${pageContext.data.city}`
 
     const backgroundImage = {
       backgroundImage: `url(${this.state.selectedImage.url})`,
     };
-    const fullAddress = `${pageContext.data.street}, ${pageContext.data.postcode} ${pageContext.data.city}`
+    
 
     return (
       <Layout prefix={pageContext.prefix} locale={pageContext.locale}>
         <div path="shops" title={{"fr": `Hubsy ${pageContext.data.name}`, "en": `Hubsy ${pageContext.data.name}`}}>
           
-          <div className="shop-hero hero-image image-centered" style={backgroundImage}>
+          <HeroImage class="shop-hero" images={pageContext.data.pictures}>
             <div className="container">
               <div className="shop-hero-title">
                 <h1>Hubsy {pageContext.data.name}</h1>
-                <p className={`badge ${this.setBadgeColor()}`}>{pageContext.data.status_long}</p>
+                <p className={`badge badge-big ${this.setBadgeColor()}`}>{pageContext.data.status_long}</p>
               </div>
             </div>
-
-          </div>
+          </HeroImage>
 
           <div className="container mg-xxl-top-bottom pd-lg-top" id="shop-page">
             <div className="column-layout">

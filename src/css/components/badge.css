@@ -1,9 +1,13 @@
 .badge {
-  font-size: 14px;
+  font-size: var(--text-small-size);
   font-weight: 300;
   padding: 0 var(--space-xs);
   border-radius: var(--radius-sm);
   width: fit-content;
+}
+
+.badge.badge-big {
+  font-size: var(--text-size);
 }
 
 .badge-green {
