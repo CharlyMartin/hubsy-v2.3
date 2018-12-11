@@ -15,6 +15,7 @@ import timeout from '../images/referrals/timeout.png';
 import tf1 from '../images/referrals/tf1.png';
 import telerama from '../images/referrals/telerama.png';
 import forbes from '../images/referrals/forbes.png';
+import google from '../images/icons/google.png';
 
 // CSS
 import '../css/pages/home.css';
@@ -107,9 +108,13 @@ class HomePage extends React.Component {
           <br />
           
           {/* Google Reviews */}
-          <div className="wrapper-beige text-center mg-xl-bottom">
+          <div className="wrapper-beige testimonials text-center mg-xl-bottom">
             <div className="container pd-xxl-top pd-xxl-bottom">
-              <h3 className="mg-xl-bottom">{pageContext.data.testimonials}</h3>
+              <h3>{pageContext.data.testimonials}</h3>
+              <p className="mg-xl-bottom testimonials-subtitle">{pageContext.data.google}</p>
+              <div id="google">
+                <Image src={google} />
+              </div>
               
               <div className="reviews">
                 <div className="column-layout">

@@ -26,9 +26,32 @@
   margin: 0;
 }
 
-.wrapper-beige h3 {
+.testimonials {
+  position: relative;
+}
+
+.testimonials h3 {
   color: var(--black-dark);
 }
+
+.testimonials-subtitle {
+  color: var(--black-light);
+}
+
+#google {
+  position: absolute;
+  right: var(--space-md);
+  top: var(--space-md);
+}
+
+#google img {
+  width: 25px;
+}
+
+.reviews img {
+  width: 15px;
+}
+
 
 .referrals img {
   width: 90px;
