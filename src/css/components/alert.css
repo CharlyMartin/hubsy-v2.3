@@ -1,5 +1,5 @@
 .alert {
-  background: var(--hubsy-red);
+  background: var(--hubsy-green);
   position: relative;
   padding: var(--space-xs) 0;
   box-shadow: var(--shadow-light);
