@@ -23,39 +23,13 @@ class PricingPage extends React.Component {
 
     return (
       <Layout prefix={pageContext.prefix} locale={pageContext.locale}>
-        <div path="pricing" title={{"fr": "Tarifs", "en": "Pricing"}} id="pricing-page">
+        <div path="pricing" title={{"fr": "Tarifs", "en": "Pricing"}}>
           <div className="container mg-xxl-top-bottom">
             <PageHeader title={pageContext.data.title} subtitle={pageContext.data.subtitle} />
 
             <div className="page-section">
-              <div className="column-layout prices">
-
-                <div className="column-half">
-                  <div className="prices-container">
-                    <div>
-                      <h2>{pageContext.data.hour_first}</h2>
-                      <h2>{pageContext.data.hour_extra}</h2>
-                      <div className="prices-cap">
-                        <h2>{pageContext.data.hour_cap}</h2>
-                        <p>({pageContext.data.hour_students})</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="column-half">
-                  <div className="benefits-container">
-                    <h2>{pageContext.data.benefit_main}</h2>
-                    <p>{pageContext.data.benefit_2}</p>
-                    <p>{pageContext.data.benefit_3}</p>
-                  </div>
-                </div>
-              </div>
-
-
-
-              {/* <div className="column-layout">
-                First column
+              <div className="column-layout">
+                {/* First column */}
                 <div className="column-half column-one">
                   
                   <div className="price-table" id="member">
@@ -78,7 +52,7 @@ class PricingPage extends React.Component {
                   </div>
 
                 </div>
-                Second column
+                {/* Second column */}
                 <div className="column-half column-two">
 
                   <div className="price-table" id="resident">
@@ -96,16 +70,16 @@ class PricingPage extends React.Component {
                     </div>
                   </div>
 
-                </div> 
-              </div> */}
+                </div>
+              </div>
             </div>
 
             <div className="page-section">
-              {/* <Disclaimer text={pageContext.data.rooms}>
+              <Disclaimer text={pageContext.data.rooms}>
                 <Link to={this.prefixLocale("rooms")}>
                   <Button text={pageContext.data.button_1} class="button-green-transparent" />
                 </Link>
-              </Disclaimer> */}
+              </Disclaimer>
             </div>
 
             <br/>
@@ -122,3 +96,28 @@ export default PricingPage;
 // Two sources of data for this component:
 // - props.pageContext => coming from the createPage() action in gatsby-node
 // - props.data => coming from the page Query below
+
+
+
+
+// export const query = graphql`
+//   {
+//     allAirtable(filter: {table: {eq: "navbar"}}) {
+//       edges {
+//         node {
+//           data {
+//             brand
+//             caption
+//             button
+//             referrals
+//             pictures {
+//               url
+//             }
+//             concept
+//             language
+//           }
+//         }
+//       }
+//     }
+//   }
+// `

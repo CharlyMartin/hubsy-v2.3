@@ -116,16 +116,15 @@ module.exports = {
                 node {
                   data {
                   title
-                    language
                     subtitle
-                    member_title
-                    member_subtitle
-                    member_first
-                    member_extra
-                    member_cap
-                    member_services
-                    member_checkout
-                    member_offer
+                    hour_first
+                    hour_extra
+                    hour_cap
+                    hour_students
+                    benefit_main
+                    benefit_2
+                    benefit_3
+
                     res_title
                     res_subtitle
                     res_prices
@@ -135,7 +134,7 @@ module.exports = {
                     res_checkout
                     button_1
                     button_2
-                    rooms
+                    language
                   }
                 }
               }
