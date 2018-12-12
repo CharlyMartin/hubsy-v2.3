@@ -1,5 +1,5 @@
 .hero-image {
-  height: 75vh;
+  height: var(--hero-height);
   width: 100%;
   animation: fadein 2000ms;
   position: relative;
@@ -50,10 +50,46 @@
   to   { opacity: 1; }
 }
 
-/* Mobile (Iphone, Pixel, Galaxy) */
-@media screen and (max-width: 560px) {
-  /* Up to that screen width, the following rules apply: */
+
+/* iPad */
+@media screen and (max-width: 760px) {
+  .hero-image {
+    height: var(--hero-height-mobile);
+  }
+
   .arrows {
-    display: none;
+    width: 100%;
+    justify-content: space-between;
+    background: transparent;
+    box-shadow: none;
+    padding: 0 var(--space-md);
+    bottom: calc(var(--hero-height-mobile) / 2);
+  }
+
+  .arrow {
+    flex-basis: auto;
+    width: var(--space-xxl);
+    height: var(--space-xxl);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    background: var(--white-lighter);
+    box-shadow: var(--shadow-dark);
+    opacity: 0.95;
+  }
+
+  .arrow:hover {
+    background: var(--white-lighter);
+  }
+
+  .arrow img {
+    width: 12px;
   }
 }
+
+/* Mobile (Iphone, Pixel, Galaxy) */
+/* @media screen and (max-width: 560px) {
+
+} */

@@ -78,7 +78,7 @@ class ShopPage extends React.Component {
 
     return (
       <Layout prefix={pageContext.prefix} locale={pageContext.locale}>
-        <div path="shops" title={{"fr": `Hubsy ${pageContext.data.name}`, "en": `Hubsy ${pageContext.data.name}`}}>
+        <div path="shops" title={{"fr": `Hubsy ${pageContext.data.name}`, "en": `Hubsy ${pageContext.data.name}`}} id="shop-page">
           
           <HeroImage class="shop-hero" images={pageContext.data.pictures}>
             <div className="container">
@@ -89,7 +89,9 @@ class ShopPage extends React.Component {
             </div>
           </HeroImage>
 
-          <div className="container mg-xxl-top-bottom pd-lg-top" id="shop-page">
+          <br/>
+
+          <div className="container mg-xxl-top-bottom">
             <div className="column-layout">
               {/* First Column */}
               <div className="column-half column-one">

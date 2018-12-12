@@ -24,10 +24,6 @@ class Navbar extends React.Component {
     super(props);
   }
 
-  componentDidMount() {
-    navbarDropdown();
-  }
-
   renderFlag() {
     if (this.props.locale === 'fr') return (<Image src={flagFR} /> );
     if (this.props.locale === 'en') return (<Image src={flagEN} /> );
@@ -39,6 +35,10 @@ class Navbar extends React.Component {
 
   filterObjects(array, lang = 'fr') {
     return array.filter(obj => obj.node.data.language === lang);
+  }
+
+  componentDidMount() {
+    navbarDropdown();
   }
   
   render() {

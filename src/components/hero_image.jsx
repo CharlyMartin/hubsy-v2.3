@@ -64,6 +64,7 @@ class HeroImage extends React.Component {
     const style = {
       backgroundImage: `url(${this.state.images[this.state.index]})`,
     }
+
     return (
       <div className={`hero-image image-centered ${this.props.class}`} style={style}>
         

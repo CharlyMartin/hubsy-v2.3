@@ -14,7 +14,7 @@
   --screen-sm: 576px;
   --screen-xs: 0px;
 
-  /* Containers */
+  /* Devices */
   /* --width-xs: 0px;
   --width-sm: 576px;
   --width-md: 768px;
@@ -28,4 +28,8 @@
 
   /* Navbar */
   --navbar-height: 65px;
+
+  /* Hero image */
+  --hero-height: 75vh;
+  --hero-height-mobile: 60vh;
 }
