@@ -77,7 +77,7 @@ class PricingPage extends React.Component {
             <div className="page-section">
               <Disclaimer text={pageContext.data.rooms}>
                 <Link to={this.prefixLocale("rooms")}>
-                  <Button text={pageContext.data.button_1} class="button-beige-transparent" />
+                  <Button text={pageContext.data.button_1} class="button-green-transparent" />
                 </Link>
               </Disclaimer>
             </div>

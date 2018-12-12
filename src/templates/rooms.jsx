@@ -109,7 +109,7 @@ class RoomsPage extends React.Component {
 
             <Disclaimer text={pageContext.data.privatise}>
               <a href="#" target="_blank" rel="noopener noreferrer">
-                <Button text={pageContext.data.button} class="button-beige-transparent" />
+                <Button text={pageContext.data.button} class="button-green-transparent" />
               </a>
             </Disclaimer>
           </div>
