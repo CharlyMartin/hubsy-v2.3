@@ -33,7 +33,7 @@ class PricingPage extends React.Component {
                 <div className="column-half">
                   <div className="prices-container">
                     <div>
-                      <h2>{pageContext.data.hour_first}</h2>
+                      <h1>{pageContext.data.hour_first}</h1>
                       <h2>{pageContext.data.hour_extra}</h2>
                       <div className="prices-cap">
                         <h2>{pageContext.data.hour_cap}</h2>

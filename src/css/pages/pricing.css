@@ -23,8 +23,16 @@
   color: white;
 }
 
-.prices-cap p {
+.prices-container h1 {
+  margin-bottom: var(--space-md);
+}
+
+.prices-container h2 {
   opacity: 0.9;
+}
+
+.prices-container p {
+  opacity: 0.8;
 }
 
 .prices-cap * {
