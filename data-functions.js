@@ -116,25 +116,33 @@ module.exports = {
                 node {
                   data {
                   title
-                    subtitle
-                    hour_first
-                    hour_extra
-                    hour_cap
-                    hour_students
-                    benefit_main
-                    benefit_2
-                    benefit_3
+                  subtitle
+                  language
+                  hour_first
+                  hour_extra
+                  hour_cap
+                  hour_students
+                  benefit_main
+                  benefit_2
+                  benefit_3
 
-                    res_title
-                    res_subtitle
-                    res_prices
-                    res_access
-                    res_validity
-                    res_services
-                    res_checkout
-                    button_1
-                    button_2
-                    language
+                  loyalty_title
+                  loyalty_subtitle
+                  loyalty_price
+                  loyalty_button
+
+                  week_title
+                  week_subtitle
+                  week_price
+                  week_button
+
+                  month_title
+                  month_subtitle
+                  month_price
+                  month_button
+
+                  button_1
+                  excluding_tax
                   }
                 }
               }

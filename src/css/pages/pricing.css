@@ -23,6 +23,10 @@
   color: white;
 }
 
+.prices-cap p {
+  opacity: 0.9;
+}
+
 .prices-cap * {
   margin-bottom: 0;
 }
@@ -33,55 +37,10 @@
 .benefits-container {
   padding: var(--space-xl);
   padding-left: 0;
+  padding-right: var(--space-xl);
 }
 
 .benefits-container h2 {
   color: var(--hubsy-beige);
   margin-bottom: var(--space-xxl)
-}
-
-
-
-
-.price-table {
-  /* border: 1px solid red; */
-  /* box-shadow: var(--shadow-lighter); */
-  border-radius: var(--radius-sm);
-}
-
-.price-table-header {
-  box-shadow: var(--shadow-ligth);
-  border-radius: var(--radius-sm);
-}
-
-#member .price-table-header {
-  background: var(--hubsy-green);
-}
-
-#member .price-table-header h2, #member .price-table-header p {
-  color: white;
-}
-
-#member .price-table-items {
-  background: var(--hubsy-green-lighter);
-}
-
-#member #offer p {
-  color: var(--hubsy-green);
-  font-weight: 800;
-}
-
-
-
-#resident .price-table-header {
-  background: var(--white-dark);
-}
-
-#resident .price-table-items {
-  background: var(--white-light);
-}
-
-#resident #offer p {
-  color: var(--hubsy-beige);
-  font-weight: 700;
 }

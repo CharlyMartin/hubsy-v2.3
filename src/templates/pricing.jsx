@@ -52,6 +52,14 @@ class PricingPage extends React.Component {
                 </div>
               </div>
 
+              <br/>
+
+              <div className="text-center">
+                <a href="#memberships">
+                  <Button class="button-beige-transparent" text="Members" />
+                </a>
+              </div>
+
 
 
               {/* <div className="column-layout">
