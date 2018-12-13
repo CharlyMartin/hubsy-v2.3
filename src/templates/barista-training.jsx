@@ -23,7 +23,8 @@ class BaristaPage extends React.Component {
       <Layout prefix={pageContext.prefix} locale={pageContext.locale}>
         <div path="barista-training" title={{"fr": "Devenir Barista", "en": "Become a Barista"}}>
           <div className="page-hero image-centered"
-              style={{backgroundImage: `url(${pageContext.data.picture[0].url})`}}/>
+                style={{backgroundImage: `url(${pageContext.data.picture[0].url})`}}
+                data-animation="fade-in" />
 
           <div className="mg-xxl-top-bottom">
             <PageHeader title={pageContext.data.title} subtitle={pageContext.data.subtitle} />

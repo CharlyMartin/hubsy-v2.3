@@ -33,8 +33,9 @@ class Card extends React.Component {
         // onMouseEnter={this.handleMouseIn.bind(this, this.props)}
         // onMouseLeave={this.handleMouseOut.bind(this, this.props)}
         >
-        <div className="card-picture image-centered" style={{backgroundImage: `url(${this.props.picture})`}}>
-        </div>
+        <div  className="card-picture image-centered"
+              style={{backgroundImage: `url(${this.props.picture})`}}
+              data-animation="fade-in" />
 
         <div className="card-content pd-md">
           <div className="card-text-container">

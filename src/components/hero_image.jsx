@@ -4,6 +4,8 @@ import Image from '../components/image';
 import '../css/components/hero_image.css';
 import caret from '../images/icons/caret.png'
 
+import { fadeinImages } from '../utilities/fadein_images';
+
 class HeroImage extends React.Component {
   constructor(props) {
     super(props)
@@ -59,14 +61,13 @@ class HeroImage extends React.Component {
   //   this.initSlider()
   // }
 
-
   render() {
     const style = {
       backgroundImage: `url(${this.state.images[this.state.index]})`,
     }
 
     return (
-      <div className={`hero-image ${this.props.class}`} style={style}>
+      <div className={`hero-image ${this.props.class}`} style={style} data-animation="fade-in">
         
         {this.props.children}
 

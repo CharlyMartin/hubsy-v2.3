@@ -1,3 +1,7 @@
+.fade-in {
+  animation: fadein 3500ms;
+}
+
 @keyframes fadein {
   from { opacity: 0; }
   to   { opacity: 1; }

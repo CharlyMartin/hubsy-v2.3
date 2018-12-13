@@ -1,7 +1,6 @@
 .hero-image {
   height: var(--hero-height);
   width: 100%;
-  animation: fadein 3500ms;
   position: relative;
 }
 
@@ -10,6 +9,7 @@
   justify-content: center;
   align-items: center;
   position: absolute;
+  height: var(--space-xxl);
   right: 0;
   bottom: 0;
   width: calc(var(--space-xxl) * 2.2);
@@ -52,6 +52,7 @@
 
   .arrows {
     width: 100%;
+    height: auto;
     justify-content: space-between;
     background: transparent;
     box-shadow: none;

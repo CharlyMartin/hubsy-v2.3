@@ -48,7 +48,6 @@ class ShopsPage extends React.Component {
       <div className="shops-container">
         {array.map(obj => {
           const address = `${obj.node.data.street}, ${obj.node.data.postcode}`
-          console.log(obj.node.data.status_short);
           return (
             <Link to={`${locale}shops/${obj.node.data.slug}`} key={obj.node.data.record_id}>
               <Card

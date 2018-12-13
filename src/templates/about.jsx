@@ -40,8 +40,9 @@ class aboutPage extends React.Component {
                 </div>
 
                 <div className="picture-column">
-                  <div className="concept-image image-centered"
-                      style={{backgroundImage: `url(${pageContext.data.item_1_picture[0].url})`}} />
+                  <div  className="concept-image image-centered"
+                        style={{backgroundImage: `url(${pageContext.data.item_1_picture[0].url})`}}
+                        data-animation="fade-in" />
                 </div>
               </div>
 
@@ -58,8 +59,9 @@ class aboutPage extends React.Component {
                 </div>
 
                 <div className="picture-column">
-                  <div className="concept-image image-centered"
-                      style={{backgroundImage: `url(${pageContext.data.item_2_picture[0].url})`}} />
+                  <div  className="concept-image image-centered"
+                        style={{backgroundImage: `url(${pageContext.data.item_2_picture[0].url})`}}
+                        data-animation="fade-in" />
                 </div>
               </div>
 
@@ -76,8 +78,9 @@ class aboutPage extends React.Component {
                 </div>
 
                 <div className="picture-column">
-                  <div className="concept-image image-centered"
-                      style={{backgroundImage: `url(${pageContext.data.item_3_picture[0].url})`}} />
+                  <div  className="concept-image image-centered"
+                        style={{backgroundImage: `url(${pageContext.data.item_3_picture[0].url})`}}
+                        data-animation="fade-in" />
                 </div>
               </div>
 
