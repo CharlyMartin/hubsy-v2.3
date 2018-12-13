@@ -97,7 +97,7 @@ class Navbar extends React.Component {
 
                 <div className="navbar-side-container">
                   <span className="navbar-element">
-                    <a href="https://blog.hubsy.fr/" target="_blank" rel="noopener noreferrer">{content.blog}</a>
+                    <Link to={this.prefixLocale("barista-training")}>{content.barista}</Link>
                   </span>
 
                   <span className="navbar-element">
@@ -105,7 +105,7 @@ class Navbar extends React.Component {
                   </span>
 
                   <span className="navbar-element">
-                    <Link to={this.prefixLocale("barista-training")}>{content.barista}</Link>
+                    <a href="https://blog.hubsy.fr/" target="_blank" rel="noopener noreferrer">{content.blog}</a>
                   </span>
 
                   <div className="navbar-language with-dropdown">
