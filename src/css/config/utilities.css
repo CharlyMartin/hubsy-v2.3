@@ -18,6 +18,11 @@
   background-size: cover;
 }
 
+.image-bottom {
+  background-position: center;
+  background-size: cover;
+}
+
 
 /* Text */
 .text-center {

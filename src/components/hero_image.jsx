@@ -66,7 +66,7 @@ class HeroImage extends React.Component {
     }
 
     return (
-      <div className={`hero-image image-centered ${this.props.class}`} style={style}>
+      <div className={`hero-image ${this.props.class}`} style={style}>
         
         {this.props.children}
 

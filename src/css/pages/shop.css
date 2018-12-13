@@ -54,13 +54,23 @@
   align-content: center;
 }
 
+
+
 @media screen and (max-width: 760px) {
   .shop-hero .container {
-    transform: translateY(var(--space-xxl));
+    transform: translateY(calc(var(--space-xl) * 2.2));
+  }
+
+  .shop-hero .shop-hero-title {
+    width: 100%;
   }
 
   #shop-page .column-layout {
     padding-top: var(--space-xxl);
+  }
+
+  .shop-hero-title h1 {
+    font-size: var(--title-size-mobile);
   }
 
 }

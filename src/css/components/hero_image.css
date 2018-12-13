@@ -13,7 +13,6 @@
   right: 0;
   bottom: 0;
   width: calc(var(--space-xxl) * 2.2);
-  height: var(--space-xxl);
   background: var(--white-lighter);
   border-radius: var(--radius-xs) 0 0 0;
   box-shadow: var(--shadow-top);
@@ -37,12 +36,12 @@
 }
 
 .arrow#left img {
-  transform: rotate(90deg);
+  transform: rotate(90deg) translateY(1px);
   
 }
 
 .arrow#right img {
-  transform: rotate(-90deg);
+  transform: rotate(-90deg) translateY(1px);
 }
 
 @keyframes fadein {
@@ -62,14 +61,14 @@
     justify-content: space-between;
     background: transparent;
     box-shadow: none;
-    padding: 0 var(--space-md);
-    bottom: calc(var(--hero-height-mobile) / 2);
+    padding: 0 var(--space-lg);
+    bottom: calc(var(--space-lg));
   }
 
   .arrow {
     flex-basis: auto;
-    width: var(--space-xxl);
-    height: var(--space-xxl);
+    width: var(--space-xl);
+    height: var(--space-xl);
     border-radius: 50%;
     display: flex;
     justify-content: center;
@@ -77,7 +76,7 @@
     cursor: pointer;
     background: var(--white-lighter);
     box-shadow: var(--shadow-dark);
-    opacity: 0.95;
+    opacity: 0.8;
   }
 
   .arrow:hover {

@@ -21,7 +21,7 @@ import google from '../images/icons/google.png';
 import '../css/pages/home.css';
 import '../css/components/hero_image.css';
 
-// Reviews Data
+// Data
 import reviews from '../data/reviews.js';
 
 // Components under src/pages become pages automatically with paths based on their file name.
@@ -87,9 +87,9 @@ class HomePage extends React.Component {
 
     return (
       <Layout prefix={pageContext.prefix} locale={pageContext.locale}>
-        <div path="" title={{"fr": "Accueil", "en": "Home"}}>
+        <div path="" title={{"fr": "Accueil", "en": "Home"}} id="home-page">
 
-          <HeroImage class="home-hero" images={pageContext.data.pictures}>
+          <HeroImage class="home-hero image-centered" images={pageContext.data.pictures}>
             {this.renderAlert(pageContext.data)}
           </HeroImage>
 

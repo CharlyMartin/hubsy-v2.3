@@ -1,6 +1,5 @@
-.home-hero {
-  /* display: flex;
-  align-items: flex-start; */
+#home-page .hero-image {
+  height: 75vh;
 }
 
 #title {
@@ -61,12 +60,20 @@
 /* iPad */
 @media screen and (max-width: 760px) {
   /* Up to that screen width, the following rules apply: */
+  #home-page .hero-image {
+    height: var(--hero-height-mobile);
+  }
+  
   .brand-container-top {
     display: block;
   }
 
   .brand-container-top h1 {
     margin-bottom: var(--space-xl);
+  }
+
+  #title {
+    font-size: var(--title-size-mobile);
   }
 }
 
