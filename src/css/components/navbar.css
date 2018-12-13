@@ -45,6 +45,22 @@
   display: none;
 }
 
+.navbar-menu img {
+  width: calc(var(--navbar-height) / 3);
+}
+
+/* #menu-button {
+  background: var(--hubsy-green);
+  width: var(--navbar-height);
+  height: var(--navbar-height);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  box-shadow: var(--shadow-dark);
+} */
+
 #navbar-left {
   justify-content: flex-end;
 }
@@ -180,7 +196,7 @@
 @media screen and (max-width: 850px) {
   /* Up to that screen width, the following rules apply: */
   .navbar {
-    padding: 0 var(--space-lg);
+    /* padding: 0 var(--space-lg); */
   }
 
   .navbar-side {
@@ -189,15 +205,18 @@
 
   .navbar-flex-container {
     justify-content: space-between;
+    align-items: stretch;
   }
 
   .navbar-menu {
     display: block;
-    height: fit-content;
   }
 
-  .navbar-menu img {
-    width: calc(var(--navbar-height) / 3);
+  .navbar-logo, .navbar-menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 var(--space-xl);
   }
   /* .navbar-mobile {
     display: block;

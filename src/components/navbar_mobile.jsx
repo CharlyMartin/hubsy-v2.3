@@ -9,8 +9,8 @@ import { navbarMobile } from '../utilities/navbar_mobile';
 // import logo from '../images/logo/logo.png';
 import flagFR from '../images/lang/fr.png';
 import flagEN from '../images/lang/en.png';
-import menu from '../images/icons/menu.png';
-import close from '../images/icons/close.png';
+// import menu from '../images/icons/menu.png';
+// import close from '../images/icons/close.png';
 import instagram from '../images/icons/instagram.png';
 
 import '../css/components/navbar_mobile.css';
@@ -51,77 +51,102 @@ class NavbarMobile extends React.Component {
     const content = array[0].node.data;
 
     return (
-      <div className="navbar-mobile">
-        <div className="navbar-mobile-top">
-          <div id="menu-button">
-            <Image src={menu} />
-          </div>
-        </div>
+      <div className="mobile">
 
-        <div className="navbar-mobile-content">
-          <div className="navbar-mobile-content-border" />
-          <div className="navbar-mobile-content-background" />
+        <div className="mobile-content">
+          {/* <div className="mobile-content-border" /> */}
+          <div className="mobile-background" />
 
           {/* CLOSE BUTTON */}
-          <div className="corner top-right" id="close-button">
+          {/* <div className="corner top-right" id="close-button">
             <Image src={close}/>
-          </div>
+          </div> */}
           
           {/* LANG FLAG */}
-          <Link to={this.createLangLink()}>
+          {/* <Link to={this.createLangLink()}>
             <div className="corner bottom-right">
               {this.renderFlag()}
             </div>
-          </Link>
+          </Link> */}
 
           {/* INSTAGRAM */}
-          <a rel="noopener noreferrer" href='instagram://user?username=hubsycafe' target="_blank">
+          {/* <a rel="noopener noreferrer" href='instagram://user?username=hubsycafe' target="_blank">
             <div className="corner bottom-left">
               <Image src={instagram}/>
             </div>
-          </a>
+          </a> */}
 
-          <div className="navbar-mobile-content-container">
-            <div className="navbar-mobile-content-top">
-              <div className="navbar-mobile-element">
-                <Link to={this.prefixLocale("about")}>{content.concept}</Link>
+          <div className="mobile-content-container">
+
+            <Link to={this.prefixLocale("about")}>
+              <div className="mobile-element">
+                {content.concept}
               </div>
+            </Link>
 
-              <div className="navbar-mobile-element">
-                <Link to={this.prefixLocale("pricing")}>{content.pricing}</Link>
+            <Link to={this.prefixLocale("pricing")}>
+              <div className="mobile-element">
+                {content.pricing}
               </div>
+            </Link>
 
-              <div className="navbar-mobile-element">
-                <Link to={this.prefixLocale("rooms")}>{content.booking}</Link>
+            <Link to={this.prefixLocale("rooms")}>
+              <div className="mobile-element">
+                {content.booking}
               </div>
+            </Link>
 
-              <div className="navbar-mobile-element" id="navbar-mobile-main">
-                <Link to={this.prefixLocale("shops")}>{content.venues}</Link>
+            <Link to={this.prefixLocale("shops")}>
+              <div className="mobile-element" id="mobile-main">
+                {content.venues}
               </div>
-            </div>
+            </Link>
 
-            <div className="navbar-mobile-content-bottom">
-              <div className="navbar-mobile-element">
-                <Link to={this.prefixLocale("")}>{content.home}</Link>
+            {/* <Link to={this.prefixLocale("")}>
+              <div className="mobile-element">
+                {content.home}
               </div>
+            </Link> */}
 
-              <div className="navbar-mobile-element">
-                <a href="https://blog.hubsy.fr/" target="_blank" rel="noopener noreferrer">{content.blog}</a>
+            <a href="https://blog.hubsy.fr/" target="_blank" rel="noopener noreferrer">
+              <div className="mobile-element">
+                {content.blog}
               </div>
+            </a>
 
-              <div className="navbar-mobile-element">
-                <a href="https://shop.hubsy.fr/" target="_blank" rel="noopener noreferrer">{content.coffee}</a>
+            <a href="https://shop.hubsy.fr/" target="_blank" rel="noopener noreferrer">
+              <div className="mobile-element">
+                {content.coffee}
               </div>
+            </a>
 
-              <div className="navbar-mobile-element">
-                <Link to={this.prefixLocale("barista-training")}>{content.barista}</Link>
+            <Link to={this.prefixLocale("barista-training")}>
+              <div className="mobile-element">
+                {content.barista}
               </div>
+            </Link>
 
-            </div>
           </div>
           {/* End of Navbar-mobile-content-container */}
 
-        </div>  
+          <div className="mobile-links">
+            {/* LANG FLAG */}
+            <Link to={this.createLangLink()}>
+              <div className="square">
+                {this.renderFlag()}
+              </div>
+            </Link>
+
+            {/* INSTAGRAM */}
+            <a rel="noopener noreferrer" href='instagram://user?username=hubsycafe' target="_blank">
+              <div className="square">
+                <Image src={instagram}/>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <div className="mobile-right" id="close"/>
       </div>
     )
   }

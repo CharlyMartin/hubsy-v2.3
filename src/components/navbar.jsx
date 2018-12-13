@@ -94,7 +94,7 @@ class Navbar extends React.Component {
                 </Link>
               </div>
 
-              <div className="navbar-menu">
+              <div className="navbar-menu" id="menu-button">
                 <Image src={menu} />
               </div>
 
@@ -135,7 +135,7 @@ class Navbar extends React.Component {
                       </Link>
                     </span>
                   </div>
-                  
+
                 </div>
 
               </div>
