@@ -41,6 +41,10 @@
   width: var(--navbar-height);
 }
 
+.navbar-menu {
+  display: none;
+}
+
 #navbar-left {
   justify-content: flex-end;
 }
@@ -149,7 +153,7 @@
   }
 
   .navbar-logo img {
-    width: calc(var(--navbar-height) / 1.5);
+    width: calc(var(--navbar-height) / 1.2);
   }
 
   /* The flag in the navbar, not the one in the dropdown */
@@ -171,14 +175,32 @@
   }
 }
 
+
+
 @media screen and (max-width: 850px) {
   /* Up to that screen width, the following rules apply: */
-  .navbar, .navbar-placeholder {
+  .navbar {
+    padding: 0 var(--space-lg);
+  }
+
+  .navbar-side {
     display: none;
   }
 
-  .navbar-mobile {
-    display: block;
+  .navbar-flex-container {
+    justify-content: space-between;
   }
+
+  .navbar-menu {
+    display: block;
+    height: fit-content;
+  }
+
+  .navbar-menu img {
+    width: calc(var(--navbar-height) / 3);
+  }
+  /* .navbar-mobile {
+    display: block;
+  } */
 }
 

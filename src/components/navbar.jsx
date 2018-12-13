@@ -12,6 +12,7 @@ import logo from '../images/logo/logo.png';
 import flagFR from '../images/lang/fr.png';
 import flagEN from '../images/lang/en.png';
 import caret from '../images/icons/caret.png';
+import menu from '../images/icons/menu.png';
 
 import { navbarDropdown } from '../utilities/navbar_dropdown';
 
@@ -93,6 +94,10 @@ class Navbar extends React.Component {
                 </Link>
               </div>
 
+              <div className="navbar-menu">
+                <Image src={menu} />
+              </div>
+
               <div className="navbar-side" id="navbar-right">
 
                 <div className="navbar-side-container">
@@ -130,8 +135,8 @@ class Navbar extends React.Component {
                       </Link>
                     </span>
                   </div>
+                  
                 </div>
-
 
               </div>
 
@@ -225,3 +230,4 @@ export default (props) => {
 //   // console.log(array, lang);
 //   return array.filter(obj => obj.node.data.language === lang);
 // }
+
