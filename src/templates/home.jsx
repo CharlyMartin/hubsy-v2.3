@@ -5,7 +5,7 @@ import { Link, graphql } from 'gatsby'
 import Layout from '../components/layout';
 import Button from '../components/button';
 import Image from '../components/image';
-import CardReview from '../components/card_review';
+import Review from '../components/review';
 import Alert from '../components/alert';
 import HeroImage from '../components/hero_image';
 
@@ -69,7 +69,7 @@ class HomePage extends React.Component {
       const clippedContent = this.textEllipsis(r.content);
       return (
         <div className="column-third" key={r.id}>
-          <CardReview first={r.first} content={clippedContent} />
+          <Review first={r.first} content={clippedContent} />
         </div>
       )
     })

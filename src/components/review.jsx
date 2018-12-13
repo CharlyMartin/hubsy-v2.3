@@ -5,7 +5,7 @@ import Image from './image';
 
 import '../css/components/review.css'
 
-const CardReview = (props) => {
+const Review = (props) => {
   return (
     <div className="review pd-lg">
       <div className="review-padding">
@@ -33,4 +33,4 @@ const CardReview = (props) => {
   );
 };
 
-export default CardReview;
+export default Review;

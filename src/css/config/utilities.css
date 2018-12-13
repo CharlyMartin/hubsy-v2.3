@@ -64,6 +64,10 @@
   padding-bottom: var(--space-xxl);
 }
 
+.pd-xl-top-bottom {
+  padding: var(--space-xl) 0;
+}
+
 
 
 
@@ -104,3 +108,4 @@
 .mg-lg-right {
   margin-right: var(--space-lg);
 }
+

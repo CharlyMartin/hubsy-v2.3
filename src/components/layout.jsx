@@ -23,12 +23,6 @@ class Layout extends React.Component {
   }
 
   componentDidMount() {
-    console.log("mounted");
-    fadeinImages();
-  }
-
-  componentDidUpdate() {
-    console.log("updated");
     fadeinImages();
   }
 

@@ -28,15 +28,6 @@
   margin: var(--space-sm) var(--space-lg) 0 var(--space-lg);
 }
 
-/* .shop-hero h3 {
-  color: white;
-  margin-top: var(--space-sm);
-} */
-
-/* .shop-right-container {
-  flex: 1 0 50%;
-} */
-
 .shop-map-container {
   width: 100%;
   height: 250px;
@@ -71,6 +62,10 @@
 
   .shop-hero-title h1 {
     font-size: var(--title-size-mobile);
+  }
+
+  .button-item-container .button {
+    transform: translateY(-0.3rem);
   }
 
 }

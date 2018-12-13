@@ -1,41 +1,49 @@
-.prices {
+#pricing-page .column-layout {
   background: white;
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-light);
 }
 
-.prices .column-half {
-  flex: 0 0 47%;
+.prices {
+  flex: 1 1 45%;
+}
+
+.benefits {
+  flex: 1 1 55%;
 }
 
 .prices-container {
+  padding: var(--space-xxl);
   background: var(--hubsy-beige);
-  padding: var(--space-xl);
   border-radius: var(--radius-lg) 0 0 var(--radius-lg);
   height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
 }
 
 .prices-container * {
   color: white;
 }
 
-.prices-container h1 {
-  margin-bottom: var(--space-md);
+.prices-container > h2:first-child {
+  margin-bottom: var(--space-lg);
+  font-size: var(--h1-size);
+  font-weight: 800;
+  opacity: 1;
 }
 
 .prices-container h2 {
-  opacity: 0.9;
+  opacity: 0.94;
+  margin-bottom: var(--space-lg);
 }
 
 .prices-container p {
-  opacity: 0.8;
+  opacity: 0.85;
 }
 
 .prices-cap * {
+  margin-bottom: 0;
+}
+
+.prices-cap h2 {
   margin-bottom: 0;
 }
 
@@ -43,12 +51,48 @@
 
 
 .benefits-container {
-  padding: var(--space-xl);
-  padding-left: 0;
-  padding-right: var(--space-xl);
+  padding: var(--space-xxl);
 }
 
 .benefits-container h2 {
   color: var(--hubsy-beige);
-  margin-bottom: var(--space-xxl)
+  margin-bottom: var(--space-lg);
+  font-size: var(--h1-size);
+}
+
+/* Laptop 11 inches */
+@media screen and (max-width: 1000px) {
+  /* Up to that screen width, the following rules apply: */
+  .prices {
+    flex: 1 1 40%;
+  }
+  
+  .benefits {
+    flex: 1 1 50%;
+  }
+  /* .grid {
+    grid-template-columns: repeat(2, 2fr);
+  } */
+}
+
+/* iPad */
+@media screen and (max-width: 760px) {
+  /* Up to that screen width, the following rules apply: */
+  .prices, .benefits {
+    flex: 1 1 100%;
+  }
+
+  .prices-container {
+    border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+  }
+
+  #pricing-page .column-layout h2 {
+    font-size: var(--h1-size-mobile);
+  }
+  
+}
+
+/* Mobile (Iphone, Pixel, Galaxy) */
+@media screen and (max-width: 560px) {
+  /* Up to that screen width, the following rules apply: */
 }

@@ -1,3 +1,12 @@
+#rooms-page .page-section {
+  margin-top: 0;
+}
+
+.rooms {
+  padding-top: calc(var(--space-xl) * 2);
+  padding-bottom: var(--space-xxl);
+}
+
 .rooms p:first-child {
   display: inline;
 }

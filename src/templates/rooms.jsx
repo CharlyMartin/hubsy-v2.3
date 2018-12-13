@@ -27,21 +27,21 @@ class RoomsPage extends React.Component {
     return array.filter(obj => obj.node.data.language === lang);
   }
 
-  renderRightComponent(obj) {
-    if (obj.node.data.live === "false") {
-      return (
-        <div className="mg-md-top">
-          <h2>Opening Soon 😄</h2>
-        </div>
-      )
-    }
+  // renderRightComponent(obj) {
+  //   if (obj.node.data.live === "false") {
+  //     return (
+  //       <div className="mg-md-top">
+  //         <h2>Opening Soon 😄</h2>
+  //       </div>
+  //     )
+  //   }
 
-    return (
-      <div className="grid">
-        {this.renderCards(obj.node.data.linked_rooms)}
-      </div>
-    );
-  }
+  //   return (
+  //     <div className="grid">
+  //       {this.renderCards(obj.node.data.linked_rooms)}
+  //     </div>
+  //   );
+  // }
 
   renderCards(array) {
     return array.map(obj => {      
@@ -57,26 +57,6 @@ class RoomsPage extends React.Component {
       )
     })
   }
-
-  // renderShops(array, locale) {
-  //   return (
-  //     <div className="rooms">
-  //       {array.map(obj => {
-  //         return (
-  //           <div className="room-item mg-xxl-bottom pd-xxl-bottom" key={obj.node.data.name} id={obj.node.data.slug}>
-  //             <a href={this.prefixLocale(`shops/${obj.node.data.slug}`)}>
-  //               <p>{`Husby ${obj.node.data.name}`}</p>
-  //               <span className="text-small"> - {obj.node.data.street} {obj.node.data.postcode}
-  //               </span>
-  //             </a>
-                
-  //             {this.renderRooms(obj.node.data.linked_rooms)}
-  //           </div>
-  //         )}
-  //       )}
-  //     </div>  
-  //   )
-  // }
   
   render() {
     const pageContext = this.props.pageContext;
@@ -85,7 +65,7 @@ class RoomsPage extends React.Component {
 
     return (
       <Layout prefix={pageContext.prefix} locale={pageContext.locale}>
-        <div path="rooms" title={{"fr": "Salles de Réunions", "en": "Meeting Rooms"}}>
+        <div path="rooms" title={{"fr": "Salles de Réunions", "en": "Meeting Rooms"}} id="rooms-page">
           <div className="container mg-xxl-top-bottom">
             <PageHeader title={pageContext.data.title} subtitle={pageContext.data.subtitle} />
 
@@ -93,25 +73,30 @@ class RoomsPage extends React.Component {
                 
               {shopsData.map(obj => {
                 return (
-                  <div className="rooms pd-xxl-top pd-xxl-bottom" key={obj.node.data.name} id={obj.node.data.slug}>
+                  <div className="rooms" key={obj.node.data.name} id={obj.node.data.slug}>
                     <a href={this.prefixLocale(`shops/${obj.node.data.slug}`)}>
                       <p>{`Hubsy ${obj.node.data.name}`}</p>
                       <span className="text-small"> - {obj.node.data.street} {obj.node.data.postcode}
                       </span>
                     </a>
-
-                    {this.renderRightComponent(obj)}
+                    
+                    <div className="grid">
+                      {this.renderCards(obj.node.data.linked_rooms)}
+                    </div>
                   </div>
                 )}
               )}
 
             </div>
 
+            {/* <div className="page-section"> */}
+
             <Disclaimer text={pageContext.data.privatise}>
               <a href="#" target="_blank" rel="noopener noreferrer">
                 <Button text={pageContext.data.button} class="button-green-transparent" />
               </a>
             </Disclaimer>
+            
           </div>
         </div>
       </Layout>

@@ -116,7 +116,8 @@ module.exports = {
                 node {
                   data {
                   title
-                  subtitle
+                  subtitle_1
+                  subtitle_2
                   language
                   hour_first
                   hour_extra

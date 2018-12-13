@@ -82,7 +82,7 @@ class Footer extends React.Component {
             <div className="footer-bottom-container">
               <h4>Hubsy 2015 - {new Date().getFullYear()}</h4>
               <a className="footer-bottom-element" rel="noopener noreferrer" href='#' target="_blank">Mentions Légales</a>
-              <a className="footer-bottom-element" rel="noopener noreferrer" href='#' target="_blank">Conditions Générales de Ventes</a>
+              {/* <a className="footer-bottom-element" rel="noopener noreferrer" href='#' target="_blank">Conditions Générales de Ventes</a> */}
             </div>
           </div>
         </div>
