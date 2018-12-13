@@ -1,7 +1,7 @@
 .hero-image {
   height: var(--hero-height);
   width: 100%;
-  animation: fadein 2000ms;
+  animation: fadein 3500ms;
   position: relative;
 }
 
@@ -43,12 +43,6 @@
 .arrow#right img {
   transform: rotate(-90deg) translateY(1px);
 }
-
-@keyframes fadein {
-  from { opacity: 0; }
-  to   { opacity: 1; }
-}
-
 
 /* iPad */
 @media screen and (max-width: 760px) {
