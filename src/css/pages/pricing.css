@@ -61,7 +61,7 @@
 }
 
 /* Laptop 11 inches */
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 1070px) {
   /* Up to that screen width, the following rules apply: */
   .prices {
     flex: 1 1 40%;
@@ -76,7 +76,7 @@
 }
 
 /* iPad */
-@media screen and (max-width: 760px) {
+@media screen and (max-width: 850px) {
   /* Up to that screen width, the following rules apply: */
   .prices, .benefits {
     flex: 1 1 100%;

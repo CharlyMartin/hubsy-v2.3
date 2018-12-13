@@ -58,7 +58,7 @@
 }
 
 /* iPad */
-@media screen and (max-width: 760px) {
+@media screen and (max-width: 850px) {
   /* Up to that screen width, the following rules apply: */
   #home-page .hero-image {
     height: var(--hero-height-mobile);

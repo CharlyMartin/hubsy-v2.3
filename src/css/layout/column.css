@@ -22,7 +22,7 @@
 
 
 /* Laptop 11 inches */
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 1070px) {
   /* Up to that screen width, the following rules apply: */
   .column-third, .column-half, .column-quarter {
     flex: 0 0 48%;
@@ -31,7 +31,7 @@
 }
 
 /* iPad */
-@media screen and (max-width: 760px) {
+@media screen and (max-width: 850px) {
   /* Up to that screen width, the following rules apply: */
 
   /* TWO,  THREE AND FOUR COL => 100% width */

@@ -47,7 +47,7 @@
 
 
 
-@media screen and (max-width: 760px) {
+@media screen and (max-width: 850px) {
   .shop-hero .container {
     transform: translateY(calc(var(--space-xl) * 2.2));
   }
