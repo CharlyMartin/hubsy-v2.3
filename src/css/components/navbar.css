@@ -3,7 +3,7 @@
   top: 0;
   left: 0;
   right: 0;
-  background: white;
+  background-image: linear-gradient(rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.95));
   height: var(--navbar-height);
   box-shadow: var(--shadow-light);
   z-index: 1;
@@ -12,6 +12,7 @@
 .navbar-placeholder {
   width: 100%;
   height: var(--navbar-height);
+  background: white;
 }
 
 .navbar-flex-container {
@@ -197,6 +198,10 @@
   /* Up to that screen width, the following rules apply: */
   .navbar {
     /* padding: 0 var(--space-lg); */
+  }
+
+  .navbar-logo img {
+    width: var(--navbar-height);
   }
 
   .navbar-side {

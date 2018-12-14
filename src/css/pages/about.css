@@ -2,6 +2,7 @@
   height: 100%;
   width: 100%;
   border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-lighter);
 }
 
 .text-column {
