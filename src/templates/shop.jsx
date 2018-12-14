@@ -100,6 +100,13 @@ class ShopPage extends React.Component {
                   <h2>{content.description}</h2>
                   <p>{pageContext.data.description}</p>
                 </div>
+
+                <div className="mg-xxl-top" id="hours">
+                  <h2>{content.hours}</h2>
+                  <p>{`${content.hours_weekdays} : ${pageContext.data.hours_weekdays}`}</p>
+                  <p>{`${content.hours_friday} : ${pageContext.data.hours_friday}`}</p>
+                  <p>{`${content.hours_weekend} : ${pageContext.data.hours_weekend}`}</p>
+                </div>
                 
                 <div className="mg-xxl-top" id="direction">
                   <h2>{content.direction}</h2>
@@ -110,13 +117,6 @@ class ShopPage extends React.Component {
                   <div className="shop-map-container">
                     <Map data={markers} zoom={14}/>
                   </div>
-                </div>
-
-                <div className="mg-xxl-top" id="hours">
-                  <h2>{content.hours}</h2>
-                  <p>{`${content.hours_weekdays} : ${pageContext.data.hours_weekdays}`}</p>
-                  <p>{`${content.hours_friday} : ${pageContext.data.hours_friday}`}</p>
-                  <p>{`${content.hours_weekend} : ${pageContext.data.hours_weekend}`}</p>
                 </div>
 
               </div>

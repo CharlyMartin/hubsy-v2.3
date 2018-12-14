@@ -209,6 +209,7 @@ module.exports = {
                     subtitle
                     language
                     privatise
+                    capacity
                     button
                   }
                 }
