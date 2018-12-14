@@ -54,7 +54,7 @@ class aboutPage extends React.Component {
                   <p>{pageContext.data.item_2_text}</p>
                   <br/>
                   <br/>
-                  <a href={links.blog} target="_blank" rel="noopener noreferrer">
+                  <a href={links.shopify} target="_blank" rel="noopener noreferrer">
                     <Button text={pageContext.data.item_2_button} class="button-green-transparent" />
                   </a>
                 </div>
