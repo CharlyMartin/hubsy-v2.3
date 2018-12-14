@@ -1,0 +1,17 @@
+export default {
+  fb_desktop: 'https://www.facebook.com/hubsycafe/',
+  fb_mobile: 'https://www.facebook.com/hubsycafe/',
+  ig_desktop: 'https://www.instagram.com/hubsycafe/',
+  ig_mobile: 'instagram://user?username=hubsycafe',
+  blog: 'https://blog.hubsy.fr/',
+  shopify: 'https://shop.hubsy.fr/',
+  privatise_form: 'https://airtable.com/shrrHubige4ugQJch',
+  barista_form: 'https://airtable.com/shrzTy7DEXHBDkgk6',
+  jobs_form: 'https://airtable.com/shrqayJO2lp3kx2c8',
+  barista_video: 'https://www.youtube.com/embed/dXO8Zufs2Es',
+  timeout: 'https://www.timeout.fr/paris/bars/hubsy',
+  tf1: 'https://vimeo.com/153919166#t=NaNs',
+  forbes: 'https://www.forbes.fr/management/les-tiers-lieux-s-imposent/',
+  le_parisien: 'http://www.leparisien.fr/paris-75/paris-75003/husby-reinvente-le-cafe-bureau-partage-pour-la-generation-y-a-paris-06-01-2016-5426597.php',
+  telerama: 'https://sortir.telerama.fr/paris/lieux/bars/hubsy-cafe,28001.php',
+}

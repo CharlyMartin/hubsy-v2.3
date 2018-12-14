@@ -235,12 +235,12 @@ module.exports = {
                     subtitle
                     subtitle_2
                     button
-                    form
+                    language
                     picture {
                       url
                     }
+
                     description
-                    youtube
                     training_1_title
                     training_1_subtitle
                     training_1_picture {
@@ -249,6 +249,7 @@ module.exports = {
                     training_1_pdf {
                       url
                     }
+
                     training_2_title
                     training_2_subtitle
                     training_2_picture {
@@ -257,7 +258,6 @@ module.exports = {
                     training_2_pdf {
                       url
                     }
-                    language
                   }
                 }
               }

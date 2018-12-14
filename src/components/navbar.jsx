@@ -4,10 +4,6 @@ import { Link } from 'gatsby'
 
 import Image from './image';
 
-// import Logo from './images/logo';
-// import FlagFR from './images/flag_fr';
-// import FlagEN from './images/flag_en';
-
 import logo from '../images/logo/logo.png';
 import flagFR from '../images/lang/fr.png';
 import flagEN from '../images/lang/en.png';
@@ -15,6 +11,8 @@ import caret from '../images/icons/caret.png';
 import menu from '../images/icons/menu.png';
 
 import { navbarDropdown } from '../utilities/navbar_dropdown';
+
+import links from '../data/links';
 
 import '../css/components/navbar.css';
 
@@ -78,7 +76,7 @@ class Navbar extends React.Component {
                       </div>
                     </Link>
 
-                    <a href="https://airtable.com/shrrHubige4ugQJch" target="_blank" rel="noopener noreferrer">
+                    <a href={links.privatise_form} target="_blank" rel="noopener noreferrer">
                       <div className="navbar-dropdown-item">
                         <h3>{content.privatize}</h3>
                         <p className="text-small">{content.privatize_text}</p>
@@ -106,11 +104,11 @@ class Navbar extends React.Component {
                   </span>
 
                   <span className="navbar-element">
-                    <a href="https://shop.hubsy.fr/" target="_blank" rel="noopener noreferrer">{content.coffee}</a>
+                    <a href={links.shopify} target="_blank" rel="noopener noreferrer">{content.coffee}</a>
                   </span>
 
                   <span className="navbar-element">
-                    <a href="https://blog.hubsy.fr/" target="_blank" rel="noopener noreferrer">{content.blog}</a>
+                    <a href={links.blog} target="_blank" rel="noopener noreferrer">{content.blog}</a>
                   </span>
 
                   <div className="navbar-language with-dropdown">

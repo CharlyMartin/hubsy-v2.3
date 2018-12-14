@@ -6,7 +6,9 @@ import PageHeader from '../components/page_header';
 import Card from '../components/card';
 import Button from '../components/button';
 
-import '../css/pages/barista.css'
+import '../css/pages/barista.css';
+
+import links from '../data/links';
 
 class BaristaPage extends React.Component {
   constructor(props) {
@@ -42,7 +44,7 @@ class BaristaPage extends React.Component {
                   </div>
                 </div>
                 <div className="column-half column-two">
-                  <iframe height="250" src="https://www.youtube.com/embed/dXO8Zufs2Es" frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen>
+                  <iframe height="250" src={links.barista_video} frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen>
                   </iframe>
                 </div>
 
@@ -88,7 +90,7 @@ class BaristaPage extends React.Component {
             <br/>
 
             <div className="text-center">
-              <a href={pageContext.data.form} target="_blank" rel="noopener noreferrer">
+              <a href={links.barista_form} target="_blank" rel="noopener noreferrer">
                 <Button text={pageContext.data.button} class="button-beige" />
               </a>
             </div>

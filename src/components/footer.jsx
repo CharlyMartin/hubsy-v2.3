@@ -2,6 +2,8 @@ import React from 'react';
 import { StaticQuery, graphql } from "gatsby";
 import { Link } from 'gatsby'
 
+import links from '../data/links';
+
 import '../css/components/footer.css'
 
 class Footer extends React.Component {
@@ -42,7 +44,7 @@ class Footer extends React.Component {
                 <h3>{content.coworking_title}</h3>
                 <Link to={this.prefixLocale("about")} className="footer-element">{content.concept}</Link>
                 <Link to={this.prefixLocale("pricing")} className="footer-element">{content.pricing}</Link>
-                <a className="footer-element" href="https://blog.hubsy.fr/" target="_blank" rel="noopener noreferrer">{content.blog}</a>
+                <a className="footer-element" href={links.blog} target="_blank" rel="noopener noreferrer">{content.blog}</a>
               </div>
 
               
@@ -58,20 +60,20 @@ class Footer extends React.Component {
               <div className="column-quarter footer-column">
                 <h3>{content.services_title}</h3>
                 <Link to={this.prefixLocale("rooms")} className="footer-element">{content.book}</Link>
-                <a className="footer-element" href="https://airtable.com/shrrHubige4ugQJch" target="_blank" rel="noopener noreferrer">{content.privatise}</a>
-                <a className="footer-element" href="https://shop.hubsy.fr/" target="_blank" rel="noopener noreferrer">{content.coffee}</a>
+                <a className="footer-element" href={links.privatise_form} target="_blank" rel="noopener noreferrer">{content.privatise}</a>
+                <a className="footer-element" href={links.shopify} target="_blank" rel="noopener noreferrer">{content.coffee}</a>
                 <Link to={this.prefixLocale("barista-training")} className="footer-element">{content.barista}</Link>
-                <a className="footer-element" href="https://airtable.com/shrqayJO2lp3kx2c8" target="_blank" rel="noopener noreferrer">{content.jobs}</a>
-                {/* <a className="footer-element footer-button" href="https://airtable.com/shrqayJO2lp3kx2c8" target="_blank" rel="noopener noreferrer">{content.jobs}</a> */}
+                <a className="footer-element" href={links.jobs_form} target="_blank" rel="noopener noreferrer">{content.jobs}</a>
+                {/* <a className="footer-element footer-button" href="" target="_blank" rel="noopener noreferrer">{content.jobs}</a> */}
               </div>
 
               
               <div className="column-quarter footer-column">
                 <h3>{content.contact_title}</h3>
-                <a className="footer-element" rel="noopener noreferrer" href='mailto:contact@hubsy.fr'>{content.email}</a>
-                <a className="footer-element" rel="noopener noreferrer" href='tel:00000000'>{content.phone}</a>
-                <a className="footer-element" rel="noopener noreferrer" href='https://www.facebook.com/hubsycafe/' target="_blank">{content.facebook}</a>
-                <a className="footer-element" rel="noopener noreferrer" href='https://www.instagram.com/hubsycafe/' target="_blank">{content.instagram}</a>
+                <a className="footer-element" rel="noopener noreferrer" href={`mailto:${content.email}`}>{content.email}</a>
+                <a className="footer-element" rel="noopener noreferrer" href={`tel:${content.phone}`}>{content.phone}</a>
+                <a className="footer-element" rel="noopener noreferrer" href={links.fb_desktop} target="_blank">Facebook</a>
+                <a className="footer-element" rel="noopener noreferrer" href={links.ig_desktop} target="_blank">Instagram</a>
               </div>
 
             </div>
@@ -120,8 +122,6 @@ export default (props) => {
 
                 phone
                 email
-                facebook
-                instagram
 
                 linked_rooms {
                   data {

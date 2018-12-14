@@ -9,9 +9,9 @@ import { navbarMobile } from '../utilities/navbar_mobile';
 // import logo from '../images/logo/logo.png';
 import flagFR from '../images/lang/fr.png';
 import flagEN from '../images/lang/en.png';
-// import menu from '../images/icons/menu.png';
-// import close from '../images/icons/close.png';
 import instagram from '../images/icons/instagram.png';
+
+import links from '../data/links';
 
 import '../css/components/navbar_mobile.css';
 
@@ -82,13 +82,13 @@ class NavbarMobile extends React.Component {
                 </div>
               </Link>
 
-              <a href="https://blog.hubsy.fr/" target="_blank" rel="noopener noreferrer">
+              <a href={links.blog} target="_blank" rel="noopener noreferrer">
                 <div className="mobile-element">
                   {content.blog}
                 </div>
               </a>
 
-              <a href="https://shop.hubsy.fr/" target="_blank" rel="noopener noreferrer">
+              <a href={links.shopify} target="_blank" rel="noopener noreferrer">
                 <div className="mobile-element">
                   {content.coffee}
                 </div>
@@ -110,7 +110,7 @@ class NavbarMobile extends React.Component {
               </Link>
 
               {/* INSTAGRAM */}
-              <a rel="noopener noreferrer" href='instagram://user?username=hubsycafe' target="_blank">
+              <a rel="noopener noreferrer" href={links.ig_mobile} target="_blank">
                 <div className="square">
                   <Image src={instagram}/>
                 </div>

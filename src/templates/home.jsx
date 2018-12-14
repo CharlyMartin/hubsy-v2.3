@@ -23,6 +23,7 @@ import '../css/components/hero_image.css';
 
 // Data
 import reviews from '../data/reviews.js';
+import links from '../data/links.js';
 
 // Components under src/pages become pages automatically with paths based on their file name.
 // For example src/pages/index.jsx is mapped to yoursite.com and src/pages/about.jsx becomes yoursite.com/about/.
@@ -140,23 +141,23 @@ class HomePage extends React.Component {
             <h3 className="mg-xl-bottom">{pageContext.data.referrals}</h3>
 
             <div className="referrals">
-              <a href="https://www.timeout.fr/paris/bars/hubsy" target="_blank" rel="noopener noreferrer">
+              <a href={links.timeout} target="_blank" rel="noopener noreferrer">
                 <Image src={timeout} />
               </a>
 
-              <a href="https://vimeo.com/153919166#t=NaNs" target="_blank" rel="noopener noreferrer">
+              <a href={links.tf1} target="_blank" rel="noopener noreferrer">
                 <Image src={tf1} />
               </a>
 
-              <a href="https://www.forbes.fr/management/les-tiers-lieux-s-imposent/" target="_blank" rel="noopener noreferrer">
+              <a href={links.forbes} target="_blank" rel="noopener noreferrer">
                 <Image src={forbes} />
               </a>
 
-              <a href="http://www.leparisien.fr/paris-75/paris-75003/husby-reinvente-le-cafe-bureau-partage-pour-la-generation-y-a-paris-06-01-2016-5426597.php" target="_blank" rel="noopener noreferrer">
+              <a href={links.le_parisien} target="_blank" rel="noopener noreferrer">
                 <Image src={leParisien} />
               </a>
 
-              <a href="https://sortir.telerama.fr/paris/lieux/bars/hubsy-cafe,28001.php" target="_blank" rel="noopener noreferrer">
+              <a href={links.telerama} target="_blank" rel="noopener noreferrer">
                 <Image src={telerama} />
               </a>
             </div>

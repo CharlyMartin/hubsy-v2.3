@@ -3,9 +3,10 @@ import { Link } from 'gatsby'
 import Button from '../components/button';
 import Layout from '../components/layout';
 import PageHeader from '../components/page_header';
-// import TextImage from '../components/text_image';
 
-import '../css/pages/about.css'
+import '../css/pages/about.css';
+
+import links from '../data/links';
 
 class aboutPage extends React.Component {
   constructor(props) {
@@ -53,7 +54,7 @@ class aboutPage extends React.Component {
                   <p>{pageContext.data.item_2_text}</p>
                   <br/>
                   <br/>
-                  <a href="https://shop.hubsy.fr/" target="_blank" rel="noopener noreferrer">
+                  <a href={links.blog} target="_blank" rel="noopener noreferrer">
                     <Button text={pageContext.data.item_2_button} class="button-green-transparent" />
                   </a>
                 </div>

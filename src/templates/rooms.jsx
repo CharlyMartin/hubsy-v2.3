@@ -8,7 +8,8 @@ import Button from '../components/button';
 import Card from '../components/card';
 
 import '../css/pages/room.css'
-// import { div } from 'gl-matrix/src/gl-matrix/vec3';
+
+import links from '../data/links';
 
 class RoomsPage extends React.Component {
   constructor(props) {
@@ -93,7 +94,7 @@ class RoomsPage extends React.Component {
             {/* <div className="page-section"> */}
 
             <Disclaimer text={pageContext.data.privatise}>
-              <a href="https://airtable.com/shrrHubige4ugQJch" target="_blank" rel="noopener noreferrer">
+              <a href={links.privatise_form} target="_blank" rel="noopener noreferrer">
                 <Button text={pageContext.data.button} class="button-green-transparent" />
               </a>
             </Disclaimer>
