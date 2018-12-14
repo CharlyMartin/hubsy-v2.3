@@ -18,7 +18,7 @@
 /* Nav content */
 .mobile-content {
   background: var(--white-lighter);
-  height: 100vh;
+  height: 120vh;
   overflow-y: hidden;
   flex-basis: 85%;
   box-shadow: var(--shadow-dark);
