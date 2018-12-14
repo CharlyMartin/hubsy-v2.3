@@ -29,7 +29,8 @@ class Layout extends React.Component {
   render() {
     return (
       <div>
-        <Helmet title={`${this.props.children.props.title[this.props.locale]} | ${meta[this.props.locale].title}`}>
+        <Helmet title={`${meta[this.props.locale].title}`}>
+        {/* <Helmet title={`${this.props.children.props.title[this.props.locale]} | ${meta[this.props.locale].title}`}> */}
           {/* Already done by Gatsby */}
           {/* <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" /> */}
 
