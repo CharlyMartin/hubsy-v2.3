@@ -4,6 +4,7 @@ import React from 'react';
 import Layout from '../components/layout';
 import PageHeader from '../components/page_header';
 import Card from '../components/card';
+import Button from '../components/button';
 
 import '../css/pages/barista.css'
 
@@ -18,6 +19,7 @@ class BaristaPage extends React.Component {
   
   render() {
     const pageContext = this.props.pageContext;
+    console.log(pageContext.data.training_1_pdf[0].url);
 
     return (
       <Layout prefix={pageContext.prefix} locale={pageContext.locale}>
@@ -48,30 +50,49 @@ class BaristaPage extends React.Component {
             </div>
           </div>
 
-          <div className="container pd-xxl-top pd-xxl-bottom">
-            <div className="column-layout">
-              <div className="column-half column-one">
-                <a href="#" target="_blank" rel="noopener noreferrer">
-                  <Card
-                    title={pageContext.data.training_1_title}
-                    subtitle={pageContext.data.training_1_subtitle}
-                    path="#"
-                    picture={pageContext.data.training_1_picture[0].url}
-                  />
-                </a>
-              </div>
+          <br/>
+          <br/>
 
-              <div className="column-half column-two">
-              <a href="#" target="_blank" rel="noopener noreferrer">
-                  <Card
-                    title={pageContext.data.training_2_title}
-                    subtitle={pageContext.data.training_2_subtitle}
-                    path="#"
-                    picture={pageContext.data.training_2_picture[0].url}
-                  />
-                </a>
+          <div className="page-section">
+            <div className="text-center">
+              <h3>{pageContext.data.subtitle_2}</h3>
+            </div>
+
+            <div className="container pd-xxl-top pd-xxl-bottom">
+              <div className="column-layout">
+              
+                <div className="column-half column-one">
+                  <a href={pageContext.data.training_1_pdf[0].url} target="_blank" rel="noopener noreferrer">
+                    <Card
+                      title={pageContext.data.training_1_title}
+                      subtitle={pageContext.data.training_1_subtitle}
+                      path="#"
+                      picture={pageContext.data.training_1_picture[0].url}
+                    />
+                  </a>
+                </div>
+
+                <div className="column-half column-two">
+                  <a href={pageContext.data.training_2_pdf[0].url} target="_blank" rel="noopener noreferrer">
+                    <Card
+                      title={pageContext.data.training_2_title}
+                      subtitle={pageContext.data.training_2_subtitle}
+                      path="#"
+                      picture={pageContext.data.training_2_picture[0].url}
+                    />
+                  </a>
+                </div>
               </div>
             </div>
+
+            <br/>
+
+            <div className="text-center">
+              <a href={pageContext.data.form} target="_blank" rel="noopener noreferrer">
+                <Button text={pageContext.data.button} class="button-beige" />
+              </a>
+            </div>
+
           </div>
         </div>
       </Layout>

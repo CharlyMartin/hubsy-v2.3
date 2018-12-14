@@ -233,7 +233,9 @@ module.exports = {
                   data {
                     title
                     subtitle
-                    language
+                    subtitle_2
+                    button
+                    form
                     picture {
                       url
                     }
@@ -244,11 +246,18 @@ module.exports = {
                     training_1_picture {
                       url
                     }
+                    training_1_pdf {
+                      url
+                    }
                     training_2_title
                     training_2_subtitle
                     training_2_picture {
                       url
                     }
+                    training_2_pdf {
+                      url
+                    }
+                    language
                   }
                 }
               }

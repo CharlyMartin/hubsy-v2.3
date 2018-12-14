@@ -5,11 +5,11 @@
 }
 
 .prices {
-  flex: 1 1 45%;
+  flex: 1 1 40%;
 }
 
 .benefits {
-  flex: 1 1 55%;
+  flex: 1 1 60%;
 }
 
 .prices-container {
@@ -63,13 +63,13 @@
 /* Laptop 11 inches */
 @media screen and (max-width: 1070px) {
   /* Up to that screen width, the following rules apply: */
-  .prices {
-    flex: 1 1 40%;
+  /* .prices {
+    flex: 1 1 50%;
   }
   
   .benefits {
     flex: 1 1 50%;
-  }
+  } */
   /* .grid {
     grid-template-columns: repeat(2, 2fr);
   } */

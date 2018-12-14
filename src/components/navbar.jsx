@@ -78,7 +78,7 @@ class Navbar extends React.Component {
                       </div>
                     </Link>
 
-                    <a href="#" target="_blank" rel="noopener noreferrer">
+                    <a href="https://airtable.com/shrrHubige4ugQJch" target="_blank" rel="noopener noreferrer">
                       <div className="navbar-dropdown-item">
                         <h3>{content.privatize}</h3>
                         <p className="text-small">{content.privatize_text}</p>

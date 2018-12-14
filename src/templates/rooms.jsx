@@ -93,7 +93,7 @@ class RoomsPage extends React.Component {
             {/* <div className="page-section"> */}
 
             <Disclaimer text={pageContext.data.privatise}>
-              <a href="#" target="_blank" rel="noopener noreferrer">
+              <a href="https://airtable.com/shrrHubige4ugQJch" target="_blank" rel="noopener noreferrer">
                 <Button text={pageContext.data.button} class="button-green-transparent" />
               </a>
             </Disclaimer>

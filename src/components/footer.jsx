@@ -58,10 +58,11 @@ class Footer extends React.Component {
               <div className="column-quarter footer-column">
                 <h3>{content.services_title}</h3>
                 <Link to={this.prefixLocale("rooms")} className="footer-element">{content.book}</Link>
+                <a className="footer-element" href="https://airtable.com/shrrHubige4ugQJch" target="_blank" rel="noopener noreferrer">{content.privatise}</a>
                 <a className="footer-element" href="https://shop.hubsy.fr/" target="_blank" rel="noopener noreferrer">{content.coffee}</a>
-                {/* <Link to={this.prefixLocale("shops")} className="footer-element">Hubsy ...</Link> */}
                 <Link to={this.prefixLocale("barista-training")} className="footer-element">{content.barista}</Link>
-                {/* <a className="footer-element footer-button" href="#" target="_blank" rel="noopener noreferrer">{content.franchise}</a> */}
+                <a className="footer-element" href="https://airtable.com/shrqayJO2lp3kx2c8" target="_blank" rel="noopener noreferrer">{content.jobs}</a>
+                {/* <a className="footer-element footer-button" href="https://airtable.com/shrqayJO2lp3kx2c8" target="_blank" rel="noopener noreferrer">{content.jobs}</a> */}
               </div>
 
               
@@ -114,7 +115,8 @@ export default (props) => {
                 book
                 coffee
                 barista
-                franchise
+                privatise
+                jobs
 
                 phone
                 email
