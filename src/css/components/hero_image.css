@@ -18,13 +18,22 @@
   box-shadow: var(--shadow-top);
 }
 
-.arrow {
+.arrow-container {
   flex-basis: 50%;
   height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   cursor: pointer;
+}
+
+.arrow {
+  /* flex-basis: 50%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer; */
 }
 
 .arrow:hover {
@@ -35,12 +44,12 @@
   width: 15px;
 }
 
-.arrow#left img {
+#left .arrow img {
   transform: rotate(90deg) translateY(1px);
   
 }
 
-.arrow#right img {
+#right .arrow img {
   transform: rotate(-90deg) translateY(1px);
 }
 
@@ -56,19 +65,23 @@
     justify-content: space-between;
     background: transparent;
     box-shadow: none;
-    padding: 0 var(--space-lg);
-    bottom: calc(var(--space-lg));
+    /* padding: 0 var(--space-lg); */
+    /* bottom: calc(var(--space-lg)); */
+  }
+
+  .arrow-container {
+    padding: var(--space-lg);
+    /* Flex-basis makes them fit the size of the arrow */
+    flex-basis: auto;
   }
 
   .arrow {
-    flex-basis: auto;
     width: var(--space-xl);
     height: var(--space-xl);
     border-radius: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
-    cursor: pointer;
     background: var(--white-lighter);
     box-shadow: var(--shadow-dark);
     opacity: 0.8;

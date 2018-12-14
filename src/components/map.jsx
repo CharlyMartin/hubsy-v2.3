@@ -60,6 +60,8 @@ class Map extends React.Component {
 
     map.addControl(new mapboxgl.NavigationControl());
     map.scrollZoom.disable();
+    map.dragPan.disable();
+    console.log(map);
     return map;
   }
 

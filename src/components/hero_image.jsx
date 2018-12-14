@@ -72,11 +72,16 @@ class HeroImage extends React.Component {
         {this.props.children}
 
         <div className="arrows">
-          <div className="arrow" id="left" onClick={this.getPreviousSlide.bind(this)}>
-            <Image src={caret} />
+          <div className="arrow-container" id="left" onClick={this.getPreviousSlide.bind(this)}>
+            <div className="arrow">
+              <Image src={caret} />
+            </div>
           </div>
-          <div className="arrow" id="right" onClick={this.getNextSlide.bind(this)}>
-            <Image src={caret} />
+          
+          <div className="arrow-container" id="right" onClick={this.getNextSlide.bind(this)}>
+            <div className="arrow">
+              <Image src={caret} />
+            </div>
           </div>
         </div>
       </div>
@@ -84,5 +89,6 @@ class HeroImage extends React.Component {
   }
 
 };
+
 
 export default HeroImage;

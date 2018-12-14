@@ -60,6 +60,14 @@
     padding-top: var(--space-xxl);
   }
 
+  #shop-page .column-half {
+    padding-bottom: var(--space-xxl);
+  }
+
+  .shop-map-container {
+    height: 300px;
+  }
+
   .shop-hero-title h1 {
     font-size: var(--title-size-mobile);
   }
