@@ -82,6 +82,12 @@ class NavbarMobile extends React.Component {
                 </div>
               </Link>
 
+              <Link to={this.prefixLocale("barista-training")}>
+                <div className="mobile-element">
+                  {content.barista}
+                </div>
+              </Link>
+
               <a href={links.blog} target="_blank" rel="noopener noreferrer">
                 <div className="mobile-element">
                   {content.blog}
@@ -93,12 +99,6 @@ class NavbarMobile extends React.Component {
                   {content.coffee}
                 </div>
               </a>
-
-              <Link to={this.prefixLocale("barista-training")}>
-                <div className="mobile-element">
-                  {content.barista}
-                </div>
-              </Link>
             </div>
 
             <div className="mobile-links">

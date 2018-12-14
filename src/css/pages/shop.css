@@ -68,4 +68,12 @@
     transform: translateY(-0.3rem);
   }
 
+  .column-one {
+    order: 1
+  }
+
+  .column-two {
+    order: 0
+  }
 }
+

@@ -77,7 +77,7 @@ class RoomsPage extends React.Component {
                 return (
                   <div className="rooms" key={obj.node.data.name} id={obj.node.data.slug}>
                     <a href={this.prefixLocale(`shops/${obj.node.data.slug}`)}>
-                      <p>{`Hubsy ${obj.node.data.name}`}</p>
+                      <h3>{`Hubsy ${obj.node.data.name}`}</h3>
                       <span className="text-small"> - {obj.node.data.street} {obj.node.data.postcode}
                       </span>
                     </a>
