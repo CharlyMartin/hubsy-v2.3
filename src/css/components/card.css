@@ -9,21 +9,18 @@
 
 .card-picture {
   transition: all 400ms ease;
-  height: 130px;
+  height: 135px;
   width: 100%;
 }
 
 .card:hover {
   box-shadow: var(--shadow-light);
-  transform: scale(1.01, 1.01);
+  transform: scale(1.02, 1.02);
 }
 
 .card:hover .card-picture {
-  background-position: 50% 80%;
-  height: 150px;
+  background-position: 50% 60%;
 }
-
-
 
 .card-content {
   display: flex;

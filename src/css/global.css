@@ -32,20 +32,21 @@ h2 {
   font-size: var(--h2-size);
   font-weight: 700;
   color: var(--black-normal);
-  margin-bottom: var(--space-md);
+  margin-bottom: var(--space-lg);
 }
 
 h3 {
   font-size: var(--h3-size);
   font-weight: 600;
   color: var(--black-light);
+  margin-bottom: var(--space-md);
 }
 
 p, .text {
   font-size: var(--text-size);
   font-weight: 400;
   color: var(--black-normal);
-  margin-top: var(--space-xs);
+  margin-top: var(--space-sm);
 }
 
 .text-small {
