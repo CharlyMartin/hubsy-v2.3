@@ -14,12 +14,12 @@
 
 /* Images */
 .image-centered {
-  background-position: center;
+  background-position: 50% 50%;
   background-size: cover;
 }
 
 .image-bottom {
-  background-position: center;
+  background-position: 50% 100%;
   background-size: cover;
 }
 

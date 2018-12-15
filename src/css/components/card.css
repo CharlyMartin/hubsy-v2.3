@@ -3,18 +3,27 @@
   background: white;
   border-radius: var(--radius-md);
   box-shadow: var(--shadow-lighter);
-  transition: all 200ms ease;
+  transition: all 400ms ease;
   cursor: pointer;
+}
+
+.card-picture {
+  transition: all 400ms ease;
+  height: 130px;
+  width: 100%;
 }
 
 .card:hover {
   box-shadow: var(--shadow-light);
+  transform: scale(1.01, 1.01);
 }
 
-.card-picture {
-  height: 135px;
-  width: 100%;
+.card:hover .card-picture {
+  background-position: 50% 80%;
+  height: 150px;
 }
+
+
 
 .card-content {
   display: flex;
