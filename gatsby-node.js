@@ -163,47 +163,27 @@ exports.createPages = ({ graphql, actions }) => {
         });
       });
 
-    fetch.cgvPage(locale, graphql)
-      .then(response => {
-        const results = response.data.allAirtable.edges;
-        results.forEach(result => {
-          const url = `${prefix}conditions-generales-ventes`;
-          const obj = {
-            path: url,
-            component: cgvPage,
-            context: {
-              locale,
-              prefix,
-              data: result.node.data
-            }
-          };
-          createPage(obj);
-          console.log(`built: ${url}`);
-        });
-      });
+  }); // End of the loop
 
-    fetch.cgvPage(locale, graphql)
-      .then(response => {
-        const results = response.data.allAirtable.edges;
-        results.forEach(result => {
-          const url = `${prefix}mentions-legales`;
-          const obj = {
-            path: url,
-            component: mlPage,
-            context: {
-              locale,
-              prefix,
-              data: result.node.data
-            }
-          };
-          createPage(obj);
-          console.log(`built: ${url}`);
-        });
-      });
+  createPage({
+    path: 'conditions-generales-vente',
+    component: cgvPage,
+    context: {
+      locale: "fr",
+      prefix: "/"
+    }
+  })
+  console.log(`built: /cgv`);
 
+  createPage({
+    path: 'mentions-legales',
+    component: mlPage,
+    context: {
+      locale: "fr",
+      prefix: "/"
+    }
   });
-  // End of the loop
-  // console.log('All pages built 🎉');
+  console.log(`built: /ml`);
 };
 
 // mapbox-gl expects global obj window to be able, but it's not during build sequence.

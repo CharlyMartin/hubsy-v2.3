@@ -1,4 +1,4 @@
-// FUNCTIONS (PULLING DATA FROM AIRTABLE)
+// FUNCTIONS PULLING DATA FROM AIRTABLE
 module.exports = {
 
   homePage: function(lang, graphql) {
@@ -280,7 +280,6 @@ module.exports = {
                   data {
                     title
                     language
-                    content_md
                   }
                 }
               }  
@@ -303,7 +302,6 @@ module.exports = {
                   data {
                     title
                     language
-                    content_md
                   }
                 }
               }  

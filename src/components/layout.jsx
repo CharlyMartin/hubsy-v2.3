@@ -49,8 +49,9 @@ class Layout extends React.Component {
           <meta property="og:image:height"  content="800" />
         </Helmet>
 
-        <Navbar locale={this.props.locale} prefix={this.props.prefix} path={this.props.children.props.path} />
-        <NavbarMobile locale={this.props.locale} prefix={this.props.prefix} path={this.props.children.props.path} />
+        {/* <Navbar locale={this.props.locale} prefix={this.props.prefix} path={this.props.children.props.path} /> */}
+        <Navbar locale={this.props.locale} prefix={this.props.prefix} />
+        <NavbarMobile locale={this.props.locale} prefix={this.props.prefix} />
         {this.props.children}
         <Footer locale={this.props.locale} prefix={this.props.prefix} />
       </div>

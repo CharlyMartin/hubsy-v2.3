@@ -59,6 +59,7 @@ module.exports = {
       },
     },
     'gatsby-plugin-offline',
+    'gatsby-transformer-remark',
     // Airtable config
     // Split data into 2 tables: Pages + Shared (Navbar + Footer + Shops + Rooms)
     {
@@ -125,27 +126,25 @@ module.exports = {
             baseId: contentBaseId,
             tableName: 'shops',
             tableView: viewAll,
-            // mapping: {'meeting_rooms': 'fileNode'},
             tableLinks: ['linked_rooms', 'footer'],
-            // mapping: {'pictures': 'fileNode'}
           },
           {
             baseId: contentBaseId,
             tableName: 'rooms',
             tableView: viewAll,
-            // mapping: {'belongs_to': 'fileNode'},
             tableLinks: ['belongs_to'],
-            // mapping: {'pictures': 'fileNode'}
           },
           {
             baseId: contentBaseId,
             tableName: 'cgv_page',
             tableView: viewAll,
+            mapping: {'content_md': 'text/markdown'}
           },
           {
             baseId: contentBaseId,
             tableName: 'ml_page',
             tableView: viewAll,
+            mapping: {'content_md': 'text/markdown'}
           },
         ]
       }
