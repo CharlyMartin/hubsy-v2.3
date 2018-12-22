@@ -46,7 +46,6 @@ class Map extends React.Component {
   initMap() {
     const isLocal = window.location.hostname === 'localhost'
     let mapboxKey = isLocal ? process.env.MAPBOX_API_KEY : 'pk.eyJ1IjoiaHVic3kiLCJhIjoiY2pwYXl4Yjc1MmRmczNwcHhqZGE3ZDZkNSJ9.zCPsBiHOviAzl9avh6VA5g';
-
     mapboxgl.accessToken = mapboxKey;
 
     const center = this.computeCenter(this.props.data);
@@ -60,8 +59,8 @@ class Map extends React.Component {
 
     map.addControl(new mapboxgl.NavigationControl());
     map.scrollZoom.disable();
-    map.dragPan.disable();
-    console.log(map);
+    // Disable drag on touch on mobile (less than 850px wide);
+    if (window.outerWidth <= 850) {map.dragPan.disable()};
     return map;
   }
 
