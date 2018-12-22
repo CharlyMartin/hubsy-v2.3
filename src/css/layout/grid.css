@@ -6,10 +6,8 @@
   grid-gap: 5%;
 }
 
-@supports not (grid-gap: 5%) {
-  .grid > * {
-    margin-bottom: var(--space-xxl);
-  }
+.grid > * {
+  margin-bottom: var(--space-xxl);
 }
 
 /* Laptop 11 inches */
