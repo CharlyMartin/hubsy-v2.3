@@ -8,6 +8,8 @@ const pricingPage = path.resolve(`src/templates/pricing.jsx`);
 const aboutPage = path.resolve(`src/templates/about.jsx`);
 const roomsPage = path.resolve(`src/templates/rooms.jsx`);
 const baristaPage = path.resolve(`src/templates/barista-training.jsx`);
+const cgvPage = path.resolve(`src/templates/cgv.jsx`);
+const mlPage = path.resolve(`src/templates/legal.jsx`);
 
 // Page Object Template
 function buildPageObj(url, comp, lang, pref, d) {
@@ -161,10 +163,47 @@ exports.createPages = ({ graphql, actions }) => {
         });
       });
 
-    // return;
+    fetch.cgvPage(locale, graphql)
+      .then(response => {
+        const results = response.data.allAirtable.edges;
+        results.forEach(result => {
+          const url = `${prefix}conditions-generales-ventes`;
+          const obj = {
+            path: url,
+            component: cgvPage,
+            context: {
+              locale,
+              prefix,
+              data: result.node.data
+            }
+          };
+          createPage(obj);
+          console.log(`built: ${url}`);
+        });
+      });
+
+    fetch.cgvPage(locale, graphql)
+      .then(response => {
+        const results = response.data.allAirtable.edges;
+        results.forEach(result => {
+          const url = `${prefix}mentions-legales`;
+          const obj = {
+            path: url,
+            component: mlPage,
+            context: {
+              locale,
+              prefix,
+              data: result.node.data
+            }
+          };
+          createPage(obj);
+          console.log(`built: ${url}`);
+        });
+      });
+
   });
   // End of the loop
-  console.log('All pages built 🎉');
+  // console.log('All pages built 🎉');
 };
 
 // mapbox-gl expects global obj window to be able, but it's not during build sequence.

@@ -137,6 +137,16 @@ module.exports = {
             tableLinks: ['belongs_to'],
             // mapping: {'pictures': 'fileNode'}
           },
+          {
+            baseId: contentBaseId,
+            tableName: 'cgv_page',
+            tableView: viewAll,
+          },
+          {
+            baseId: contentBaseId,
+            tableName: 'ml_page',
+            tableView: viewAll,
+          },
         ]
       }
     }
