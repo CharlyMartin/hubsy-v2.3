@@ -65,8 +65,11 @@ class Navbar extends React.Component {
                   <Link to={this.prefixLocale("pricing")}>{content.pricing}</Link>
                 </div>
 
-                <div className="navbar-element with-dropdown">
-                  <span>{content.booking}</span>
+                {/* <div className="navbar-element with-dropdown">
+                  <span>{content.booking}</span> */}
+                <div className="navbar-element">
+                  <Link to={this.prefixLocale("rooms")}>{content.booking}</Link>
+                  
 
                   <div className="navbar-dropdown" id="booking">
                     <Link to={this.prefixLocale("rooms")}>

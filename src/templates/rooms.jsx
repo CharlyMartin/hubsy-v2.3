@@ -45,7 +45,6 @@ class RoomsPage extends React.Component {
   // }
 
   renderCards(array) {
-    console.log(this.props);
     return array.map(obj => {      
       return (
         <a href={obj.data.supersaas} target="_blank" rel="noopener noreferrer" key={obj.data.record_id}>

@@ -10,7 +10,7 @@ function navbarDropdown() {
     })
   }
 
-  function open() {
+  function open(event) {
     closeAll();
     // currentTarget = the element on which the event listener is attached;
     const dropdown = event.currentTarget.querySelector('.navbar-dropdown');

@@ -7,7 +7,7 @@
 }
 
 .grid > * {
-  margin-bottom: var(--space-xxl);
+  margin-bottom: var(--space-xl);
 }
 
 /* Laptop 11 inches */
