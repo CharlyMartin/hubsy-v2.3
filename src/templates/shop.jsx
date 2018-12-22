@@ -111,8 +111,8 @@ class ShopPage extends React.Component {
                 <div className="mg-xxl-top" id="direction">
                   <h2>{content.direction}</h2>
                   <p>{fullAddress}</p>
-                  <p>{`${content.metro} : ${pageContext.data.metro}`}</p>
-                  <p>{`${content.bus} : ${pageContext.data.bus}`}</p>
+                  <p>{`${content.metro} ${pageContext.data.metro}`}</p>
+                  <p>{`${content.bus} ${pageContext.data.bus}`}</p>
                   <br/>
                   <div className="shop-map-container">
                     <Map data={markers} zoom={14}/>
