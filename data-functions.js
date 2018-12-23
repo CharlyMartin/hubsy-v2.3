@@ -267,50 +267,6 @@ module.exports = {
       )
     })
     return promise;
-  },
-
-  cgvPage: function(lang, graphql) {
-    const promise = new Promise(function(resolve) {
-      resolve(
-        graphql(`
-          {
-            allAirtable(filter: {table: {eq: "cgv_page"}, data: {language: {eq: "${lang}"}}}) {
-              edges {
-                node {
-                  data {
-                    title
-                    language
-                  }
-                }
-              }  
-            }  
-          }             
-        `)
-      )
-    })
-    return promise;
-  },
-
-  mlPage: function(lang, graphql) {
-    const promise = new Promise(function(resolve) {
-      resolve(
-        graphql(`
-          {
-            allAirtable(filter: {table: {eq: "ml_page"}, data: {language: {eq: "${lang}"}}}) {
-              edges {
-                node {
-                  data {
-                    title
-                    language
-                  }
-                }
-              }  
-            }  
-          }             
-        `)
-      )
-    })
-    return promise;
   }
 
 }
