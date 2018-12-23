@@ -13,7 +13,7 @@ export default {
   },
   "en": {
     title: "Hubsy Café & Coworking",
-    description: "Hubsy Café & Coworking, your co-working coffee in the heart of Paris.",
+    description: "Hubsy Café & Coworking, your co-working cafe in the heart of Paris.",
     keywords: "Café, co-working, office, work, study, Paris",
     facebook: {
       url: "https://www.hubsy.fr/en",

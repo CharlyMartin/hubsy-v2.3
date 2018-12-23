@@ -1,7 +1,8 @@
 const fetch = require('./data-functions.js');
 const path = require('path');
 
-// Page templates
+
+// Page template components
 const homePage = path.resolve(`src/templates/home.jsx`);
 const shopsPage = path.resolve(`src/templates/shops.jsx`);
 const shopPage = path.resolve(`src/templates/shop.jsx`);
@@ -12,8 +13,8 @@ const baristaPage = path.resolve(`src/templates/barista-training.jsx`);
 const cgvPage = path.resolve(`src/templates/cgv.jsx`);
 const mlPage = path.resolve(`src/templates/ml.jsx`);
 
-// Promises
 
+// Page creations
 exports.createPages = ({ graphql, actions }) => {
   // The Gatsby API “createPages” is called once the
   // data layer is bootstrapped to let plugins create pages from data.
