@@ -38,6 +38,21 @@ exports.createPages = ({ graphql, actions }) => {
       console.log(`built: ${prefix}${pathname}`);
     });
   }
+  
+  // Function creates slugs from names
+  function slugify(text) {
+    return text
+      .toString()
+      .toLowerCase()
+      .trim()
+      .replace(/\s+/g, '-') // Replace spaces with -
+      .replace('é', 'e')
+      .replace('à', 'a')
+      .replace(/[^\w-]+/g, '') // Remove all non-word chars
+      .replace(/--+/g, '-') // Replace multiple - with single -
+      // .replace(/^-+/, '') // Trim - from start of text
+      // .replace(/-+$/, '') // Trim - from end of text
+  }
 
 
   // Start of the loop to create pages in "fr" & "en"
@@ -65,7 +80,8 @@ exports.createPages = ({ graphql, actions }) => {
     fetch.shopsData(locale, graphql)
       .then(response => {
         response.data.allAirtable.edges.forEach((result => {
-          const pathname = `shops/${result.node.data.slug}`
+          const pathname = `shops/${result.node.data.slug}`;
+          console.log(slugify(result.node.data.name));
           const obj = {
             path: `${prefix}${pathname}`,
             component: shopPage,
