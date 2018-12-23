@@ -1,14 +1,15 @@
 import React from 'react';
 import { graphql } from 'gatsby'
 import Layout from '../components/layout';
-// import PageHeader from '../components/page_header';
+
+import '../css/pages/legal.css'
 
 const CGVPage = (props) => {
   return (
     <Layout prefix={props.pageContext.prefix} locale={props.pageContext.locale}>
-      <div className="container-sm">
-        <h1>Hello</h1>
-      </div>
+      <div  className="container-sm mg-xxl-top-bottom pd-xl-top-bottom"
+            id="cgv-page"
+            dangerouslySetInnerHTML={{__html: props.data.airtable.data.content_md.childMarkdownRemark.html}} />
     </Layout>
   );
 };
@@ -21,11 +22,11 @@ export default CGVPage;
 
 export const query = graphql`
   {
-    allAirtable(filter: {table: {eq: "cgv_page"}}) {
-      edges {
-        node {
-          data {
-            title
+    airtable(table: {eq: "cgv_page"}) {
+      data {
+        content_md {
+          childMarkdownRemark {
+            html
           }
         }
       }

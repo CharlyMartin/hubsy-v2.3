@@ -1,33 +1,32 @@
 import React from 'react';
 import { graphql } from 'gatsby'
 import Layout from '../components/layout';
-// import PageHeader from '../components/page_header';
 
-const LegalPage = (props) => {
-  console.log(props);
+import '../css/pages/legal.css'
+
+const MLPage = (props) => {
   return (
     <Layout prefix={props.pageContext.prefix} locale={props.pageContext.locale}>
-      <div className="container-sm">
-        <h1>Hello</h1>
-      </div>
+      <div  className="container-sm mg-xxl-top-bottom pd-xl-top-bottom"
+            id="ml-page"
+            dangerouslySetInnerHTML={{__html: props.data.airtable.data.content_md.childMarkdownRemark.html}} />
     </Layout>
   );
 };
   
-export default LegalPage;
+export default MLPage;
 
 // Two sources of data for this component:
 // - props.pageContext => coming from the createPage() action in gatsby-node
 // - props.data => coming from the page Query below
 
-// Convert allAirtable to airtable query (since there's only one line);
 export const query = graphql`
   {
-    allAirtable(filter: {table: {eq: "ml_page"}}) {
-      edges {
-        node {
-          data {
-            title
+    airtable(table: {eq: "ml_page"}) {
+      data {
+        content_md {
+          childMarkdownRemark {
+            html
           }
         }
       }

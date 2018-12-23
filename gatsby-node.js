@@ -2,6 +2,7 @@ const fetch = require('./data-functions.js');
 const path = require('path');
 
 // Page templates
+const home = path.resolve(`src/templates/home.jsx`);
 const shopsPage = path.resolve(`src/templates/shops.jsx`);
 const shopPage = path.resolve(`src/templates/shop.jsx`);
 const pricingPage = path.resolve(`src/templates/pricing.jsx`);
@@ -9,7 +10,7 @@ const aboutPage = path.resolve(`src/templates/about.jsx`);
 const roomsPage = path.resolve(`src/templates/rooms.jsx`);
 const baristaPage = path.resolve(`src/templates/barista-training.jsx`);
 const cgvPage = path.resolve(`src/templates/cgv.jsx`);
-const mlPage = path.resolve(`src/templates/legal.jsx`);
+const mlPage = path.resolve(`src/templates/ml.jsx`);
 
 // Page Object Template
 function buildPageObj(url, comp, lang, pref, d) {

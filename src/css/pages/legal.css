@@ -1,0 +1,4 @@
+#cgv-page h2, #ml-page h2 {
+  margin-top: var(--space-xxl);
+  margin-bottom: var(--space-sm);
+}
