@@ -12,7 +12,7 @@ import menu from '../images/icons/menu.png';
 
 import { navbarDropdown } from '../utilities/navbar_dropdown';
 
-import links from '../data/links';
+import links from '../data/external-links';
 
 import '../css/components/navbar.css';
 
@@ -41,16 +41,15 @@ class Navbar extends React.Component {
   }
   
   render() {
-    // console.log(this.props);
     const edges = this.props.data.allAirtable.edges;
     const array = this.filterObjects(edges, this.props.locale);
     const content = array[0].node.data;
+    // console.log(this.props);
 
     return (
       <div>
         <div className="navbar">
-          {/* <div className="container"> */}
-            <div className="navbar-flex-container">
+          <div className="navbar-flex-container">
 
               <div className="navbar-side" id="navbar-left">
                 <div className="navbar-element">
@@ -65,8 +64,6 @@ class Navbar extends React.Component {
                   <Link to={this.prefixLocale("pricing")}>{content.pricing}</Link>
                 </div>
 
-                {/* <div className="navbar-element with-dropdown">
-                  <span>{content.booking}</span> */}
                 <div className="navbar-element">
                   <Link to={this.prefixLocale("rooms")}>{content.booking}</Link>
                   
@@ -138,11 +135,10 @@ class Navbar extends React.Component {
                   </div>
 
                 </div>
-
               </div>
 
             </div>
-        </div>
+          </div>
 
         <div className="navbar-placeholder" ></div>
       </div>

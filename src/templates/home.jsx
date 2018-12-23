@@ -23,7 +23,7 @@ import '../css/components/hero_image.css';
 
 // Data
 import reviews from '../data/reviews.js';
-import links from '../data/links.js';
+import links from '../data/external-links.js';
 
 // Components under src/pages become pages automatically with paths based on their file name.
 // For example src/pages/index.jsx is mapped to yoursite.com and src/pages/about.jsx becomes yoursite.com/about/.
@@ -88,7 +88,7 @@ class HomePage extends React.Component {
 
     return (
       <Layout prefix={pageContext.prefix} locale={pageContext.locale}>
-        <div path="" title={{"fr": "Accueil", "en": "Home"}} id="home-page">
+        <div id="home-page" path={pageContext.pathname}>
 
           <HeroImage class="home-hero image-centered" images={pageContext.data.pictures}>
             {this.renderAlert(pageContext.data)}

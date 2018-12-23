@@ -27,33 +27,36 @@ class Layout extends React.Component {
   }
 
   render() {
+    const locale = this.props.locale;
+    const prefix = this.props.prefix;
+    const path = this.props.children.props.path;
+    const title = "Hubsy | Café & Coworking";
+
     return (
       <div>
-        <Helmet title={`${meta[this.props.locale].title}`}>
-        {/* <Helmet title={`${this.props.children.props.title[this.props.locale]} | ${meta[this.props.locale].title}`}> */}
+        <Helmet title={title}>
           {/* Already done by Gatsby */}
           {/* <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" /> */}
 
-          <html lang={this.props.locale} />
-          <meta name="description" content={meta[this.props.locale].description} />
-          <meta name="keywords" content={meta[this.props.locale].keywords} />
+          <html lang={locale} />
+          <meta name="description" content={meta[locale].description} />
+          <meta name="keywords" content={meta[locale].keywords} />
 
-          <meta property="og:url"           content={meta[this.props.locale].facebook.url} />
+          <meta property="og:url"           content={meta[locale].facebook.url} />
           <meta property="og:type"          content="website" />
-          <meta property="og:locale"        content={meta[this.props.locale].facebook.locale} />
-          <meta property="og:site_name"     content={meta[this.props.locale].facebook.title} />
-          <meta property="og:title"         content={meta[this.props.locale].facebook.title} />
-          <meta property="og:description"   content={meta[this.props.locale].facebook.description} />
+          <meta property="og:locale"        content={meta[locale].facebook.locale} />
+          <meta property="og:site_name"     content={meta[locale].facebook.title} />
+          <meta property="og:title"         content={meta[locale].facebook.title} />
+          <meta property="og:description"   content={meta[locale].facebook.description} />
           <meta property="og:image"         content={image} />
           <meta property="og:image:width"   content="1200" />
           <meta property="og:image:height"  content="800" />
         </Helmet>
 
-        {/* <Navbar locale={this.props.locale} prefix={this.props.prefix} path={this.props.children.props.path} /> */}
-        <Navbar locale={this.props.locale} prefix={this.props.prefix} />
-        <NavbarMobile locale={this.props.locale} prefix={this.props.prefix} />
+        <Navbar locale={locale} prefix={prefix} path={path}/>
+        <NavbarMobile locale={locale} prefix={prefix} path={path}/>
         {this.props.children}
-        <Footer locale={this.props.locale} prefix={this.props.prefix} />
+        <Footer locale={locale} prefix={prefix} />
       </div>
     )
   }

@@ -8,7 +8,7 @@ import Button from '../components/button';
 
 import '../css/pages/barista.css';
 
-import links from '../data/links';
+import links from '../data/external-links';
 
 class BaristaPage extends React.Component {
   constructor(props) {
@@ -25,7 +25,7 @@ class BaristaPage extends React.Component {
 
     return (
       <Layout prefix={pageContext.prefix} locale={pageContext.locale}>
-        <div path="barista-training" title={{"fr": "Devenir Barista", "en": "Become a Barista"}}>
+        <div id="barista-page" path={pageContext.pathname}>
           <div className="page-hero image-centered"
                 style={{backgroundImage: `url(${pageContext.data.picture[0].url})`}}
                 data-animation="fade-in" />

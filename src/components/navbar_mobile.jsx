@@ -11,7 +11,7 @@ import flagFR from '../images/lang/fr.png';
 import flagEN from '../images/lang/en.png';
 import instagram from '../images/icons/instagram.png';
 
-import links from '../data/links';
+import links from '../data/external-links';
 
 import '../css/components/navbar_mobile.css';
 

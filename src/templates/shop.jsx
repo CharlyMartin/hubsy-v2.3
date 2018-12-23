@@ -78,7 +78,7 @@ class ShopPage extends React.Component {
 
     return (
       <Layout prefix={pageContext.prefix} locale={pageContext.locale}>
-        <div path="shops" title={{"fr": `Hubsy ${pageContext.data.name}`, "en": `Hubsy ${pageContext.data.name}`}} id="shop-page">
+        <div id="shop-page" path={pageContext.pathname}>
           
           <HeroImage class="shop-hero image-bottom" images={pageContext.data.pictures}>
             <div className="container">

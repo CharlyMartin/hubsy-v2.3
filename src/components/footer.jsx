@@ -2,7 +2,7 @@ import React from 'react';
 import { StaticQuery, graphql } from "gatsby";
 import { Link } from 'gatsby'
 
-import links from '../data/links';
+import links from '../data/external-links';
 
 import '../css/components/footer.css'
 

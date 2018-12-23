@@ -6,7 +6,7 @@ import PageHeader from '../components/page_header';
 
 import '../css/pages/about.css';
 
-import links from '../data/links';
+import links from '../data/external-links';
 
 class aboutPage extends React.Component {
   constructor(props) {
@@ -22,7 +22,7 @@ class aboutPage extends React.Component {
 
     return (
       <Layout prefix={pageContext.prefix} locale={pageContext.locale}>
-        <div path="about" title={{"fr": "Concept", "en": "About"}}>
+        <div id="about-page" path={pageContext.pathname}>
           <div className="container mg-xxl-top-bottom">
             <PageHeader title={pageContext.data.title} subtitle={pageContext.data.subtitle} />
 
