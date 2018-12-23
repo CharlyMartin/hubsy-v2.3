@@ -9,7 +9,7 @@ const MLPage = (props) => {
     <Layout prefix={props.pageContext.prefix} locale={props.pageContext.locale}>
       <div  className="container-sm mg-xxl-top-bottom pd-xl-top-bottom"
             id="ml-page"
-            path={this.props.pageContext.pathname}
+            path={props.pageContext.pathname}
             dangerouslySetInnerHTML={{__html: props.data.airtable.data.content_md.childMarkdownRemark.html}} />
     </Layout>
   );
