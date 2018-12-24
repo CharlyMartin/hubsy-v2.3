@@ -1,4 +1,4 @@
-export default {
+module.exports = {
   home: {
     path: '',
     title: {
@@ -14,7 +14,7 @@ export default {
     },
   },
   about: {
-    path: 'about',
+    path: 'concept',
     title: {
       'fr': 'Le Concept Hubsy',
       'en': 'The Hubsy Concept'

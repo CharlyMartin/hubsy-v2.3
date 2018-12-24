@@ -4,7 +4,7 @@ import { Link } from 'gatsby'
 
 import Image from '../components/image'
 
-import { navbarMobile } from '../utilities/navbar_mobile';
+import { navbarMobile } from '../utilities/toggle_navbar';
 
 // import logo from '../images/logo/logo.png';
 import flagFR from '../images/lang/fr.png';
@@ -12,6 +12,7 @@ import flagEN from '../images/lang/en.png';
 import instagram from '../images/icons/instagram.png';
 
 import links from '../data/external-links';
+import nav from '../data/internal-links';
 
 import '../css/components/navbar_mobile.css';
 
@@ -58,31 +59,31 @@ class NavbarMobile extends React.Component {
           <div className="mobile-background" />
           <div className="mobile-content-container">
             <div className="mobile-content-main">
-              <Link to={this.prefixLocale("about")}>
+              <Link to={this.prefixLocale(nav.about.path)}>
                 <div className="mobile-element">
                   {content.concept}
                 </div>
               </Link>
 
-              <Link to={this.prefixLocale("pricing")}>
+              <Link to={this.prefixLocale(nav.pricing.path)}>
                 <div className="mobile-element">
                   {content.pricing}
                 </div>
               </Link>
 
-              <Link to={this.prefixLocale("rooms")}>
+              <Link to={this.prefixLocale(nav.rooms.path)}>
                 <div className="mobile-element">
                   {content.booking}
                 </div>
               </Link>
 
-              <Link to={this.prefixLocale("shops")}>
+              <Link to={this.prefixLocale(nav.shops.path)}>
                 <div className="mobile-element" id="mobile-main">
                   {content.venues}
                 </div>
               </Link>
 
-              <Link to={this.prefixLocale("barista-training")}>
+              <Link to={this.prefixLocale(nav.barista.path)}>
                 <div className="mobile-element">
                   {content.barista}
                 </div>

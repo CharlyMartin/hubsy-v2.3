@@ -3,6 +3,7 @@ import { StaticQuery, graphql } from "gatsby";
 import { Link } from 'gatsby'
 
 import links from '../data/external-links';
+import nav from '../data/internal-links';
 
 import '../css/components/footer.css'
 
@@ -42,8 +43,8 @@ class Footer extends React.Component {
               
               <div className="column-quarter footer-column">
                 <h3>{content.coworking_title}</h3>
-                <Link to={this.prefixLocale("about")} className="footer-element">{content.concept}</Link>
-                <Link to={this.prefixLocale("pricing")} className="footer-element">{content.pricing}</Link>
+                <Link to={this.prefixLocale(nav.about.path)} className="footer-element">{content.concept}</Link>
+                <Link to={this.prefixLocale(nav.pricing.path)} className="footer-element">{content.pricing}</Link>
                 <a className="footer-element" href={links.blog} target="_blank" rel="noopener noreferrer">{content.blog}</a>
               </div>
 
@@ -51,18 +52,15 @@ class Footer extends React.Component {
               <div className="column-quarter footer-column">
                 <h3>{content.location_title}</h3>
                 {this.renderShopLinks(content.linked_rooms)}
-                {/* <Link to={this.prefixLocale("shops")} className="footer-element">Hubsy ...</Link>
-                <Link to={this.prefixLocale("shops")} className="footer-element">Hubsy ...</Link>
-                <Link to={this.prefixLocale("shops")} className="footer-element">Hubsy ...</Link> */}
               </div>
 
               
               <div className="column-quarter footer-column">
                 <h3>{content.services_title}</h3>
-                <Link to={this.prefixLocale("rooms")} className="footer-element">{content.book}</Link>
+                <Link to={this.prefixLocale(nav.rooms.path)} className="footer-element">{content.book}</Link>
                 <a className="footer-element" href={links.privatise_form} target="_blank" rel="noopener noreferrer">{content.privatise}</a>
                 <a className="footer-element" href={links.shopify} target="_blank" rel="noopener noreferrer">{content.coffee}</a>
-                <Link to={this.prefixLocale("barista-training")} className="footer-element">{content.barista}</Link>
+                <Link to={this.prefixLocale(nav.barista.path)} className="footer-element">{content.barista}</Link>
                 <a className="footer-element" href={links.jobs_form} target="_blank" rel="noopener noreferrer">{content.jobs}</a>
                 {/* <a className="footer-element footer-button" href="" target="_blank" rel="noopener noreferrer">{content.jobs}</a> */}
               </div>
@@ -84,8 +82,8 @@ class Footer extends React.Component {
           <div className="container">
             <div className="footer-bottom-container">
               <h4>Hubsy 2015 - {new Date().getFullYear()}</h4>
-              <Link to="/mentions-legales" className="footer-bottom-element">Mentions Légales</Link>
-              <Link to="/conditions-generales-vente" className="footer-bottom-element">Conditions Générales de Vente</Link>
+              <Link to={nav.ml.path} className="footer-bottom-element">Mentions Légales</Link>
+              <Link to={nav.cgv.path} className="footer-bottom-element">Conditions Générales de Vente</Link>
             </div>
           </div>
         </div>

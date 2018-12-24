@@ -13,6 +13,7 @@ import menu from '../images/icons/menu.png';
 import { navbarDropdown } from '../utilities/navbar_dropdown';
 
 import links from '../data/external-links';
+import nav from '../data/internal-links';
 
 import '../css/components/navbar.css';
 
@@ -52,23 +53,24 @@ class Navbar extends React.Component {
 
               <div className="navbar-side" id="navbar-left">
                 <div className="navbar-element">
-                  <Link to={this.prefixLocale("shops")}>{content.venues}</Link>
+                  <Link to={this.prefixLocale(nav.shops.path)}>{content.venues}</Link>
                 </div>
 
                 <div className="navbar-element">
-                  <Link to={this.prefixLocale("about")}>{content.concept}</Link>
+                  <Link to={this.prefixLocale(nav.about.path)}>{content.concept}</Link>
                 </div>
 
                 <div className="navbar-element">
-                  <Link to={this.prefixLocale("pricing")}>{content.pricing}</Link>
+                  <Link to={this.prefixLocale(nav.pricing.path)}>{content.pricing}</Link>
                 </div>
-
-                <div className="navbar-element">
-                  <Link to={this.prefixLocale("rooms")}>{content.booking}</Link>
+                
+                {/* Dropdown is desactivated, no class with dropdown */}
+                <div className="navbar-element"> 
+                  <Link to={this.prefixLocale(nav.rooms.path)}>{content.booking}</Link>
                   
 
                   <div className="navbar-dropdown" id="booking">
-                    <Link to={this.prefixLocale("rooms")}>
+                    <Link to={this.prefixLocale(nav.rooms.path)}>
                       <div className="navbar-dropdown-item">
                         <h3>{content.book}</h3>
                         <p className="text-small">{content.book_text}</p>
@@ -86,7 +88,7 @@ class Navbar extends React.Component {
               </div>
 
               <div className="navbar-logo">
-                <Link to={this.prefixLocale("")}>
+                <Link to={this.prefixLocale(nav.home.path)}>
                   <Image src={logo} />
                 </Link>
               </div>
@@ -99,7 +101,7 @@ class Navbar extends React.Component {
 
                 <div className="navbar-side-container">
                   <span className="navbar-element">
-                    <Link to={this.prefixLocale("barista-training")}>{content.barista}</Link>
+                    <Link to={this.prefixLocale(nav.barista.path)}>{content.barista}</Link>
                   </span>
 
                   <span className="navbar-element">

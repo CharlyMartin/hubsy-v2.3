@@ -7,6 +7,7 @@ import PageHeader from '../components/page_header';
 import '../css/pages/about.css';
 
 import links from '../data/external-links';
+import nav from '../data/internal-links';
 
 class aboutPage extends React.Component {
   constructor(props) {
@@ -35,7 +36,7 @@ class aboutPage extends React.Component {
                   <p>{pageContext.data.item_1_text}</p>
                   <br/>
                   <br/>
-                  <Link to={this.prefixLocale("shops")}>
+                  <Link to={this.prefixLocale(nav.shops.path)}>
                     <Button text={pageContext.data.item_1_button} class="button-beige" />
                   </Link>
                 </div>
@@ -73,7 +74,7 @@ class aboutPage extends React.Component {
                   <p>{pageContext.data.item_3_text}</p>
                   <br/>
                   <br/>
-                  <Link to={this.prefixLocale("pricing")}>
+                  <Link to={this.prefixLocale(nav.pricing.path)}>
                     <Button text={pageContext.data.item_3_button} class="button-green-transparent" />
                   </Link>
                 </div>

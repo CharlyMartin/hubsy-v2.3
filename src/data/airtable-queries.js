@@ -1,6 +1,5 @@
 // FUNCTIONS PULLING DATA FROM AIRTABLE
 module.exports = {
-
   homePage: function(lang, graphql) {
     const promise = new Promise(function(resolve) {
       resolve(

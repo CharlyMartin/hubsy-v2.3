@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, graphql } from 'gatsby'
+import { Link } from 'gatsby'
 
 // Components
 import Layout from '../components/layout';
@@ -24,6 +24,7 @@ import '../css/components/hero_image.css';
 // Data
 import reviews from '../data/reviews.js';
 import links from '../data/external-links.js';
+import nav from '../data/internal-links';
 
 // Components under src/pages become pages automatically with paths based on their file name.
 // For example src/pages/index.jsx is mapped to yoursite.com and src/pages/about.jsx becomes yoursite.com/about/.
@@ -98,7 +99,7 @@ class HomePage extends React.Component {
           <div className="container mg-xl-top mg-xxl-bottom">
             <div className="brand-container-top mg-xl-bottom">
               <h1 id="title">{pageContext.data.brand}</h1>
-              <Link to={this.prefixLocale("shops")}>
+              <Link to={this.prefixLocale(nav.shops.path)}>
                 <Button class="button-beige" text={pageContext.data.button} />
               </Link>
             </div>
@@ -127,7 +128,7 @@ class HomePage extends React.Component {
           </div>
 
           <div className="container text-center mg-xl-bottom">
-            <Link to={this.prefixLocale("about")}>
+            <Link to={this.prefixLocale(nav.about.path)}>
               <Button class="button-beige-transparent" text={pageContext.data.concept} />
             </Link>
           </div>

@@ -20,6 +20,8 @@ import '../css/pages/shop.css';
 import '../css/components/badge.css';
 import '../css/components/hero_image.css';
 
+import nav from '../data/internal-links';
+
 class ShopPage extends React.Component {
   constructor(props) {
     super(props);
@@ -71,9 +73,9 @@ class ShopPage extends React.Component {
     const markers = this.formatMarker(pageContext);
     const fullAddress = `${pageContext.data.street}, ${pageContext.data.postcode} ${pageContext.data.city}`
 
-    const backgroundImage = {
-      backgroundImage: `url(${this.state.selectedImage.url})`,
-    };
+    // const backgroundImage = {
+    //   backgroundImage: `url(${this.state.selectedImage.url})`,
+    // };
     
 
     return (
@@ -133,7 +135,7 @@ class ShopPage extends React.Component {
                   
                   <div className="button-item-container">
                     <Item image={meeting} text={pageContext.data.meeting_rooms} />
-                    <Link to={this.prefixLocale(`rooms#${pageContext.data.slug}`)}>
+                    <Link to={this.prefixLocale(`${nav.rooms.path}#${pageContext.data.slug}`)}>
                       <Button text={content.button_1} class="button-beige"/>
                     </Link>
                   </div>
@@ -149,7 +151,7 @@ class ShopPage extends React.Component {
                   <h2>{content.prices}</h2>
                   <p>{pageContext.data.prices}</p>
                   <br />
-                  <Link to={this.prefixLocale("pricing")}>
+                  <Link to={this.prefixLocale(nav.pricing.path)}>
                     <Button class="button-green-transparent" text={content.button_2} />
                   </Link>
                 </div>
