@@ -34,9 +34,16 @@ const viewAll = 'Grid view';
 module.exports = {
   siteMetadata: {
     title: 'Hubsy | Café & Coworking',
+    siteUrl: 'https://www.hubsy.fr'
   },
   plugins: [
     'gatsby-plugin-react-helmet',
+    {
+      resolve: `gatsby-plugin-sitemap`,
+      options: {
+        output: `/sitemap.xml`,
+      }
+    },
     {
       resolve: `gatsby-source-filesystem`,
       options: {

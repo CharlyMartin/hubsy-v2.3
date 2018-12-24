@@ -41,6 +41,7 @@ class Layout extends React.Component {
         <Helmet title={title}>
           {/* Already done by Gatsby */}
           {/* <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" /> */}
+          
           {/* <script dangerouslySetInnerHTML={this.googleTagManagerHead()}></script> */}
           <script>{this.renderTagManagerHead()}</script>
 
@@ -61,7 +62,7 @@ class Layout extends React.Component {
         
         {/* Google Tag Manager Body */}
         <noscript>
-          <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N98GSNQ" height="0" width="0" style="display:none;visibility:hidden" />
+          <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N98GSNQ" style={{display: 'none', visibility: 'hidden', height: '0', width: '0'}} />
         </noscript>
         <Navbar locale={locale} prefix={prefix} path={path}/>
         <NavbarMobile locale={locale} prefix={prefix} path={path}/>
