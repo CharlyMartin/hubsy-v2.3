@@ -47,7 +47,7 @@ class Navbar extends React.Component {
     const content = array[0].node.data;
 
     return (
-      <div>
+      <div className="navbar-component">
         <div className="navbar">
           <div className="navbar-flex-container">
 

@@ -36,7 +36,7 @@ class Footer extends React.Component {
     const content = array[0].node.data;
 
     return (
-      <div>
+      <div className="footer-component">
         <div className="footer mg-xxl-top">
           <div className="container pd-xxl-top pd-xxl-bottom">
             <div className="column-layout">
