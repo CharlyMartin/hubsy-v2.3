@@ -12,7 +12,7 @@ const CGVPage = (props) => {
       <div  className="container-sm mg-xxl-top-bottom pd-xl-top-bottom"
             id="cgv-page"
             path={props.pageContext.pathname}
-            pageTitle={pages.cgv.title[props.pageContext.locale]}
+            name={pages.cgv.title[props.pageContext.locale]}
             dangerouslySetInnerHTML={{__html: props.data.airtable.data.content_md.childMarkdownRemark.html}} />
     </Layout>
   );

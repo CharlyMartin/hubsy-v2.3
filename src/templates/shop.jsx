@@ -80,7 +80,7 @@ class ShopPage extends React.Component {
 
     return (
       <Layout prefix={pageContext.prefix} locale={pageContext.locale}>
-        <div id="shop-page" path={pageContext.pathname} pageTitle={pageContext.data.name}>
+        <div id="shop-page" path={pageContext.pathname} name={pageContext.data.name}>
           
           <HeroImage class="shop-hero image-bottom" images={pageContext.data.pictures}>
             <div className="container">

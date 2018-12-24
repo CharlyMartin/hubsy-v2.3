@@ -73,7 +73,7 @@ class ShopsPage extends React.Component {
 
     return (
       <Layout prefix={pageContext.prefix} locale={pageContext.locale}>
-        <div id="shops-page" path={pageContext.pathname} pageTitle={pages.rooms.title[pageContext.locale]}>
+        <div id="shops-page" path={pageContext.pathname} name={pages.shops.title[pageContext.locale]}>
         
           <div className="container mg-xxl-top-bottom">
             <h1>{pageContext.data.title}</h1>
