@@ -7,7 +7,7 @@ import PageHeader from '../components/page_header';
 import '../css/pages/about.css';
 
 import links from '../data/external-links';
-import nav from '../data/internal-links';
+import pages from '../data/internal-links';
 
 class aboutPage extends React.Component {
   constructor(props) {
@@ -23,7 +23,7 @@ class aboutPage extends React.Component {
 
     return (
       <Layout prefix={pageContext.prefix} locale={pageContext.locale}>
-        <div id="about-page" path={pageContext.pathname}>
+        <div id="about-page" path={pageContext.pathname} pageTitle={pages.about.title[pageContext.locale]}>
           <div className="container mg-xxl-top-bottom">
             <PageHeader title={pageContext.data.title} subtitle={pageContext.data.subtitle} />
 
@@ -36,7 +36,7 @@ class aboutPage extends React.Component {
                   <p>{pageContext.data.item_1_text}</p>
                   <br/>
                   <br/>
-                  <Link to={this.prefixLocale(nav.shops.path)}>
+                  <Link to={this.prefixLocale(pages.shops.path)}>
                     <Button text={pageContext.data.item_1_button} class="button-beige" />
                   </Link>
                 </div>
@@ -74,7 +74,7 @@ class aboutPage extends React.Component {
                   <p>{pageContext.data.item_3_text}</p>
                   <br/>
                   <br/>
-                  <Link to={this.prefixLocale(nav.pricing.path)}>
+                  <Link to={this.prefixLocale(pages.pricing.path)}>
                     <Button text={pageContext.data.item_3_button} class="button-green-transparent" />
                   </Link>
                 </div>

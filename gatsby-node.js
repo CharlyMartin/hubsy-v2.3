@@ -1,6 +1,6 @@
 const path = require('path');
 const fetch = require('./src/data/airtable-queries');
-const nav = require('./src/data/internal-links');
+const pages = require('./src/data/internal-links');
 
 
 // Page template components
@@ -60,22 +60,22 @@ exports.createPages = ({ graphql, actions }) => {
   Object.entries({'fr': '/', 'en': '/en/'}).forEach( ([locale, prefix]) => {
 
     fetch.homePage(locale, graphql)
-      .then(resp => createPageFrom(resp, nav.home.path, homePage, locale, prefix));
+      .then(resp => createPageFrom(resp, pages.home.path, homePage, locale, prefix));
 
     fetch.shopsPage(locale, graphql)
-      .then(resp => createPageFrom(resp, nav.shops.path, shopsPage, locale, prefix));
+      .then(resp => createPageFrom(resp, pages.shops.path, shopsPage, locale, prefix));
 
     fetch.pricingPage(locale, graphql)
-      .then(resp => createPageFrom(resp, nav.pricing.path, pricingPage, locale, prefix));
+      .then(resp => createPageFrom(resp, pages.pricing.path, pricingPage, locale, prefix));
 
     fetch.aboutPage(locale, graphql)
-      .then(resp => createPageFrom(resp, nav.about.path, aboutPage, locale, prefix));
+      .then(resp => createPageFrom(resp, pages.about.path, aboutPage, locale, prefix));
 
     fetch.roomsPage(locale, graphql)
-      .then(resp => createPageFrom(resp, nav.rooms.path, roomsPage, locale, prefix));
+      .then(resp => createPageFrom(resp, pages.rooms.path, roomsPage, locale, prefix));
 
     fetch.baristaPage(locale, graphql)
-      .then(resp => createPageFrom(resp, nav.barista.path, baristaPage, locale, prefix));
+      .then(resp => createPageFrom(resp, pages.barista.path, baristaPage, locale, prefix));
     
     // Shop pages based on slugs in shops table
     fetch.shopsData(locale, graphql)
@@ -103,24 +103,24 @@ exports.createPages = ({ graphql, actions }) => {
 
   // Creating CGV and ML in french only, so outside of the loop.
   createPage({
-    path: nav.cgv.path,
+    path: pages.cgv.path,
     component: cgvPage,
     context: {
       locale: "fr",
       prefix: "/"
     }
   })
-  console.log(`built: ${nav.cgv.path}`);
+  console.log(`built: ${pages.cgv.path}`);
 
   createPage({
-    path: nav.ml.path,
+    path: pages.ml.path,
     component: mlPage,
     context: {
       locale: "fr",
       prefix: "/"
     }
   });
-  console.log(`built: ${nav.ml.path}`);
+  console.log(`built: ${pages.ml.path}`);
 };
 
 

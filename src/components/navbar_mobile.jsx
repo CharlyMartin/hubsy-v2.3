@@ -12,7 +12,7 @@ import flagEN from '../images/lang/en.png';
 import instagram from '../images/icons/instagram.png';
 
 import links from '../data/external-links';
-import nav from '../data/internal-links';
+import pages from '../data/internal-links';
 
 import '../css/components/navbar_mobile.css';
 
@@ -59,31 +59,31 @@ class NavbarMobile extends React.Component {
           <div className="mobile-background" />
           <div className="mobile-content-container">
             <div className="mobile-content-main">
-              <Link to={this.prefixLocale(nav.about.path)}>
+              <Link to={this.prefixLocale(pages.about.path)}>
                 <div className="mobile-element">
                   {content.concept}
                 </div>
               </Link>
 
-              <Link to={this.prefixLocale(nav.pricing.path)}>
+              <Link to={this.prefixLocale(pages.pricing.path)}>
                 <div className="mobile-element">
                   {content.pricing}
                 </div>
               </Link>
 
-              <Link to={this.prefixLocale(nav.rooms.path)}>
+              <Link to={this.prefixLocale(pages.rooms.path)}>
                 <div className="mobile-element">
                   {content.booking}
                 </div>
               </Link>
 
-              <Link to={this.prefixLocale(nav.shops.path)}>
+              <Link to={this.prefixLocale(pages.shops.path)}>
                 <div className="mobile-element" id="mobile-main">
                   {content.venues}
                 </div>
               </Link>
 
-              <Link to={this.prefixLocale(nav.barista.path)}>
+              <Link to={this.prefixLocale(pages.barista.path)}>
                 <div className="mobile-element">
                   {content.barista}
                 </div>

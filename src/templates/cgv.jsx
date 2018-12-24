@@ -2,6 +2,8 @@ import React from 'react';
 import { graphql } from 'gatsby'
 import Layout from '../components/layout';
 
+import pages from '../data/internal-links';
+
 import '../css/pages/legal.css'
 
 const CGVPage = (props) => {
@@ -10,6 +12,7 @@ const CGVPage = (props) => {
       <div  className="container-sm mg-xxl-top-bottom pd-xl-top-bottom"
             id="cgv-page"
             path={props.pageContext.pathname}
+            pageTitle={pages.cgv.title[props.pageContext.locale]}
             dangerouslySetInnerHTML={{__html: props.data.airtable.data.content_md.childMarkdownRemark.html}} />
     </Layout>
   );

@@ -7,6 +7,8 @@ import Button from '../components/button';
 import PageHeader from '../components/page_header';
 // import Disclaimer from '../components/disclaimer'
 
+import pages from '../data/internal-links';
+
 import '../css/pages/pricing.css'
 
 class PricingPage extends React.Component {
@@ -23,7 +25,7 @@ class PricingPage extends React.Component {
 
     return (
       <Layout prefix={pageContext.prefix} locale={pageContext.locale}>
-        <div id="pricing-page" path={pageContext.pathname}>
+        <div id="pricing-page" path={pageContext.pathname} pageTitle={pages.pricing.title[pageContext.locale]}>
           <div className="container mg-xxl-top-bottom">
             <PageHeader title={pageContext.data.title} subtitle={pageContext.data.subtitle_1} />
 

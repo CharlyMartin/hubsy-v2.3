@@ -9,6 +9,7 @@ import Button from '../components/button';
 import '../css/pages/barista.css';
 
 import links from '../data/external-links';
+import pages from '../data/internal-links';
 
 class BaristaPage extends React.Component {
   constructor(props) {
@@ -25,7 +26,7 @@ class BaristaPage extends React.Component {
 
     return (
       <Layout prefix={pageContext.prefix} locale={pageContext.locale}>
-        <div id="barista-page" path={pageContext.pathname}>
+        <div id="barista-page" path={pageContext.pathname} pageTitle={pages.barista.title[pageContext.locale]}>
           <div className="page-hero image-centered"
                 style={{backgroundImage: `url(${pageContext.data.picture[0].url})`}}
                 data-animation="fade-in" />

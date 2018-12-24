@@ -30,7 +30,7 @@ class Layout extends React.Component {
     const locale = this.props.locale;
     const prefix = this.props.prefix;
     const path = this.props.children.props.path;
-    const title = "Hubsy | Café & Coworking";
+    const title = `${this.props.children.props.pageTitle} | Hubsy Café & Coworking`;
 
     return (
       <div>

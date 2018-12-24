@@ -20,7 +20,7 @@ import '../css/pages/shop.css';
 import '../css/components/badge.css';
 import '../css/components/hero_image.css';
 
-import nav from '../data/internal-links';
+import pages from '../data/internal-links';
 
 class ShopPage extends React.Component {
   constructor(props) {
@@ -80,7 +80,7 @@ class ShopPage extends React.Component {
 
     return (
       <Layout prefix={pageContext.prefix} locale={pageContext.locale}>
-        <div id="shop-page" path={pageContext.pathname}>
+        <div id="shop-page" path={pageContext.pathname} pageTitle={pageContext.data.name}>
           
           <HeroImage class="shop-hero image-bottom" images={pageContext.data.pictures}>
             <div className="container">
@@ -135,7 +135,7 @@ class ShopPage extends React.Component {
                   
                   <div className="button-item-container">
                     <Item image={meeting} text={pageContext.data.meeting_rooms} />
-                    <Link to={this.prefixLocale(`${nav.rooms.path}#${pageContext.data.slug}`)}>
+                    <Link to={this.prefixLocale(`${pages.rooms.path}#${pageContext.data.slug}`)}>
                       <Button text={content.button_1} class="button-beige"/>
                     </Link>
                   </div>
@@ -151,7 +151,7 @@ class ShopPage extends React.Component {
                   <h2>{content.prices}</h2>
                   <p>{pageContext.data.prices}</p>
                   <br />
-                  <Link to={this.prefixLocale(nav.pricing.path)}>
+                  <Link to={this.prefixLocale(pages.pricing.path)}>
                     <Button class="button-green-transparent" text={content.button_2} />
                   </Link>
                 </div>

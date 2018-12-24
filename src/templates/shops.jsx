@@ -1,10 +1,11 @@
 import React from 'react';
 import { graphql, Link } from 'gatsby';
-// import ReactMapboxGl, { Layer, Feature, Marker } from "react-mapbox-gl";
 
 import Layout from '../components/layout';
 import Card from '../components/card';
 import Map from '../components/map';
+
+import pages from '../data/internal-links';
 
 import '../css/pages/shops.css';
 
@@ -72,7 +73,7 @@ class ShopsPage extends React.Component {
 
     return (
       <Layout prefix={pageContext.prefix} locale={pageContext.locale}>
-        <div id="shops-page" path={pageContext.pathname}>
+        <div id="shops-page" path={pageContext.pathname} pageTitle={pages.rooms.title[pageContext.locale]}>
         
           <div className="container mg-xxl-top-bottom">
             <h1>{pageContext.data.title}</h1>
