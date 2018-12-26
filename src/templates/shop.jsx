@@ -52,6 +52,38 @@ class ShopPage extends React.Component {
     ]
   }
 
+  renderStructuredData(content) {
+    console.log(content);
+    return (
+      `{
+        "@context":"http://schema.org",
+        "@type":"LocalBusiness",
+        "@id":"https://www.hubsy.fr${this.prefixLocale(content.pathname)}",
+        "url":"https://www.hubsy.fr${this.prefixLocale(content.pathname)}",
+        "name":"Hubsy ${content.data.name}",
+        "description":"${content.data.description}",
+        "image":"${content.data.pictures[0].url}",
+        "logo":"${content.data.pictures[0].url}",
+        "telephone": "${content.data.phone}",
+        "memberOf": "Hubsy Café & Coworking",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "${content.data.street}",
+          "addressLocality": "${content.data.city}",
+          "addressRegion": "Ile-de-France",
+          "postalCode": "${content.data.postcode}",
+          "addressCountry": "France"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": "${content.data.lat}",
+          "longitude": "${content.data.lng}"
+        },
+        "priceRange": "$"
+      }`
+    )
+  }
+
   prefixLocale(path) {
     return `${this.props.pageContext.prefix}${path}`;
   }
@@ -169,6 +201,9 @@ class ShopPage extends React.Component {
 
             </div>  
           </div>
+
+          <script type="application/ld+json"
+                  dangerouslySetInnerHTML={{__html: this.renderStructuredData(pageContext)}}/>
         </div>
       </Layout>
     )
