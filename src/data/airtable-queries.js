@@ -129,17 +129,26 @@ module.exports = {
                   loyalty_title
                   loyalty_subtitle
                   loyalty_price
-                  loyalty_button
+                  loyalty_1
+                  loyalty_2
+                  loyalty_3
+                  loyalty_4
 
                   week_title
                   week_subtitle
                   week_price
-                  week_button
+                  week_1
+                  week_2
+                  week_3
+                  week_4
 
                   month_title
                   month_subtitle
                   month_price
-                  month_button
+                  month_1
+                  month_2
+                  month_3
+                  month_4
 
                   button_1
                   excluding_tax

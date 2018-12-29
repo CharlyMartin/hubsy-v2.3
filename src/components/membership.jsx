@@ -16,17 +16,17 @@ class Membership extends React.Component {
   render() {
     return (
       <div className="membership" onClick={this.toggle}>
-        <div className="membership-content pd-md">
+        <div className="membership-content pd-lg">
 
           <div className="membership-title text-center">
-            <h3>Offre Semaine</h3>  
+            <h3>{this.props.title}</h3>  
           </div>
 
           <div className="membership-outlook text-center">
-            <p className="text-small">Profitez de tout Hubsy en illimité pendant 5 jours consécutifs</p>
+            <p className="text-small">{this.props.subtitle}</p>
 
             <div className="membership-price">
-              <p>100$</p>
+              <p>{this.props.price}</p>
             </div>
           </div>
 

@@ -5,13 +5,16 @@
   box-shadow: var(--shadow-lighter);
   transition: all 500ms ease;
   cursor: pointer;
-  transition: all 500ms ease;
+  transition: all 200ms ease;
   height: fit-content;
 }
 
 .membership:hover {
   transform: translateY(-1px);
   box-shadow: var(--shadow-light);
+}
+
+.membership-content {
 }
 
 .membership-title * {
@@ -52,17 +55,17 @@
 
 .membership-process p {
   margin-top: 0;
+  /* font-size: 15px; */
 }
 
 .membership-step {
   display: flex;
   align-items: center;
-  margin-top: var(--space-md);
-  margin-bottom: var(--space-md);
+  margin-top: var(--space-lg);
+  margin-bottom: var(--space-lg);
 }
 
 .membership-step .number-item {
-  margin-left: var(--space-xs);
   margin-right: var(--space-lg);
   flex-shrink: 0;
 }

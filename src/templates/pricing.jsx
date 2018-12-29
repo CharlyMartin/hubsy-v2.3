@@ -22,6 +22,7 @@ class PricingPage extends React.Component {
   
   render() {
     const pageContext = this.props.pageContext;
+    console.log(pageContext);
 
     return (
       <Layout prefix={pageContext.prefix} locale={pageContext.locale}>
@@ -68,69 +69,69 @@ class PricingPage extends React.Component {
                 <h3 className="text-center">{pageContext.data.subtitle_2}</h3>
 
                 <div className="grid">
-                  <Membership>
+                  <Membership title={pageContext.data.loyalty_title} subtitle={pageContext.data.loyalty_subtitle} price={pageContext.data.loyalty_price}>
                     <div className="membership-step">
                       <NumberItem number="1" class="transparent" />
-                      <p>Je me rends chez Hubsy</p>
+                      <p>{pageContext.data.loyalty_1}</p>
                     </div>
                     
                     <div className="membership-step">
                       <NumberItem number="2" class="transparent" />
-                      <p>Je souscris à l’offre lors de mon passage au comptoir</p>
+                      <p>{pageContext.data.loyalty_2}</p>
                     </div>
 
                     <div className="membership-step">
                       <NumberItem number="3" class="transparent" />
-                      <p>Je recois ma carte de membre gratuitement</p>
+                      <p>{pageContext.data.loyalty_3}</p>
                     </div>
 
                     <div className="membership-step">
                       <NumberItem number="4" class="plain" />
-                      <p>Je profite des avantages Hubsy</p>
+                      <p>{pageContext.data.loyalty_4}</p>
                     </div>
                   </Membership>
 
-                  <Membership>
+                  <Membership title={pageContext.data.week_title} subtitle={pageContext.data.week_subtitle} price={pageContext.data.week_price}>
                     <div className="membership-step">
                       <NumberItem number="1" class="transparent" />
-                      <p>Je me rends chez Hubsy</p>
+                      <p>{pageContext.data.week_1}</p>
                     </div>
                     
                     <div className="membership-step">
                       <NumberItem number="2" class="transparent" />
-                      <p>Je souscris à l’offre lors de mon passage au comptoir</p>
+                      <p>{pageContext.data.week_2}</p>
                     </div>
 
                     <div className="membership-step">
                       <NumberItem number="3" class="transparent" />
-                      <p>Je recois ma carte de membre gratuitement</p>
+                      <p>{pageContext.data.week_3}</p>
                     </div>
 
                     <div className="membership-step">
                       <NumberItem number="4" class="plain" />
-                      <p>Je profite des avantages Hubsy</p>
+                      <p>{pageContext.data.week_4}</p>
                     </div>
                   </Membership>
 
-                  <Membership>
+                  <Membership title={pageContext.data.month_title} subtitle={pageContext.data.month_subtitle} price={pageContext.data.month_price}>
                     <div className="membership-step">
                       <NumberItem number="1" class="transparent" />
-                      <p>Je me rends chez Hubsy</p>
+                      <p>{pageContext.data.month_1}</p>
                     </div>
                     
                     <div className="membership-step">
                       <NumberItem number="2" class="transparent" />
-                      <p>Je souscris à l’offre lors de mon passage au comptoir</p>
+                      <p>{pageContext.data.month_2}</p>
                     </div>
 
                     <div className="membership-step">
                       <NumberItem number="3" class="transparent" />
-                      <p>Je recois ma carte de membre gratuitement</p>
+                      <p>{pageContext.data.month_3}</p>
                     </div>
 
                     <div className="membership-step">
                       <NumberItem number="4" class="plain" />
-                      <p>Je profite des avantages Hubsy</p>
+                      <p>{pageContext.data.month_4}</p>
                     </div>
                   </Membership>
                 </div> 
