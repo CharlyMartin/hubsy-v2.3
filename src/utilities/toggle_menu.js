@@ -1,4 +1,4 @@
-function navbarMobile() {
+function toggleMenu() {
   // 1. Variables
   const button = document.querySelector('#menu-button');
   const cross = document.querySelector('#close');
@@ -20,4 +20,4 @@ function navbarMobile() {
   cross.addEventListener('click', close);
 }
 
-export { navbarMobile };
+export { toggleMenu };

@@ -4,7 +4,7 @@ import { Link } from 'gatsby'
 
 import Image from '../components/image'
 
-import { navbarMobile } from '../utilities/toggle_navbar';
+import { toggleMenu } from '../utilities/toggle_menu';
 
 // import logo from '../images/logo/logo.png';
 import flagFR from '../images/lang/fr.png';
@@ -23,10 +23,6 @@ class NavbarMobile extends React.Component {
     super(props);
   }
 
-  componentDidMount() {
-    navbarMobile();
-  }
-
   renderFlag() {
     if (this.props.locale === 'fr') return (<Image src={flagEN} /> );
     if (this.props.locale === 'en') return (<Image src={flagFR} /> );
@@ -43,6 +39,10 @@ class NavbarMobile extends React.Component {
 
   filterObjects(array, lang = 'fr') {
     return array.filter(obj => obj.node.data.language === lang);
+  }
+
+  componentDidMount() {
+    toggleMenu();
   }
   
   render() {

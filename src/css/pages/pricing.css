@@ -31,12 +31,13 @@
 }
 
 .prices-container h2 {
-  opacity: 0.94;
+  opacity: 0.96;
   margin-bottom: var(--space-lg);
 }
 
 .prices-container p {
-  opacity: 0.85;
+  opacity: 0.9;
+  margin-top: var(--space-xs);
 }
 
 .prices-cap * {
@@ -58,6 +59,13 @@
   color: var(--hubsy-beige);
   margin-bottom: var(--space-lg);
   font-size: var(--h1-size);
+}
+
+
+
+#memberships > h3 {
+  padding-top: calc(var(--space-xxl) * 2);
+  margin-bottom: var(--space-xxl);
 }
 
 /* Laptop 11 inches */

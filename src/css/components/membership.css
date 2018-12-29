@@ -1,0 +1,76 @@
+.membership {
+  width: 100%;
+  background: white;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-lighter);
+  transition: all 500ms ease;
+  cursor: pointer;
+  transition: all 500ms ease;
+  height: fit-content;
+}
+
+.membership:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-light);
+}
+
+.membership-title * {
+  color: var(--black-normal);
+  margin-bottom: var(--space-lg);
+}
+
+.membership-price {
+  background: var(--hubsy-green-light);
+  color: var(--hubsy-green);
+  margin-top: var(--space-lg);
+  border-radius: var(--radius-sm);
+  padding: var(--space-xs);
+  transition: all 200ms ease;
+}
+
+.membership-price p {
+  margin-top: 0;
+  color: var(--hubsy-green);
+  font-weight: 600;
+}
+
+.membership:hover .membership-price {
+  background: var(--hubsy-green);
+}
+
+.membership:hover .membership-price p {
+  color: white;
+}
+
+
+/* The list of steps to get there */
+.membership-process {
+  /* padding-top: var(--space-xs); */
+  display: none;
+  /* padding-bottom: var(--space-md); */
+}
+
+.membership-process p {
+  margin-top: 0;
+}
+
+.membership-step {
+  display: flex;
+  align-items: center;
+  margin-top: var(--space-md);
+  margin-bottom: var(--space-md);
+}
+
+.membership-step .number-item {
+  margin-left: var(--space-xs);
+  margin-right: var(--space-lg);
+  flex-shrink: 0;
+}
+
+.active {
+  display: block;
+}
+
+.hidden {
+  display: none;
+}

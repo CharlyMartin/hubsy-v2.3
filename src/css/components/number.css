@@ -1,0 +1,32 @@
+.number-item {
+  border-radius: 50%;
+  width: 25px;
+  height: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.number-item p {
+  margin: 0;
+  font-size: var(--text-small-size);
+  font-weight: 600;
+}
+
+.transparent {
+  border: 2px solid var(--hubsy-green);
+  background: white;
+}
+
+.transparent p {
+  color: var(--hubsy-green);
+}
+
+.plain {
+  border: 2px solid transparent;
+  background: var(--hubsy-green);
+}
+
+.plain p {
+  color: white;
+}
