@@ -1,4 +1,5 @@
 import React from 'react';
+import Button from '../components/button';
 
 import '../css/components/membership.css';
 
@@ -27,6 +28,10 @@ class Membership extends React.Component {
 
             <div className="membership-price">
               <p>{this.props.price}</p>
+            </div>
+
+            <div className="membership-button">
+              <Button text={this.props.button} class="button-green-transparent" />
             </div>
           </div>
 

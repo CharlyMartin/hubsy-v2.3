@@ -151,6 +151,7 @@ module.exports = {
                   month_4
 
                   button_1
+                  button_2
                   excluding_tax
                   }
                 }

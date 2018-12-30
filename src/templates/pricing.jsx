@@ -69,7 +69,11 @@ class PricingPage extends React.Component {
                 <h3 className="text-center">{pageContext.data.subtitle_2}</h3>
 
                 <div className="grid">
-                  <Membership title={pageContext.data.loyalty_title} subtitle={pageContext.data.loyalty_subtitle} price={pageContext.data.loyalty_price}>
+                  <Membership title={pageContext.data.loyalty_title}
+                              subtitle={pageContext.data.loyalty_subtitle}
+                              price={pageContext.data.loyalty_price}
+                              button={pageContext.data.button_2}>
+
                     <div className="membership-step">
                       <NumberItem number="1" class="transparent" />
                       <p>{pageContext.data.loyalty_1}</p>
@@ -91,7 +95,11 @@ class PricingPage extends React.Component {
                     </div>
                   </Membership>
 
-                  <Membership title={pageContext.data.week_title} subtitle={pageContext.data.week_subtitle} price={pageContext.data.week_price}>
+                  <Membership title={pageContext.data.week_title}
+                              subtitle={pageContext.data.week_subtitle}
+                              price={pageContext.data.week_price}
+                              button={pageContext.data.button_2}>
+
                     <div className="membership-step">
                       <NumberItem number="1" class="transparent" />
                       <p>{pageContext.data.week_1}</p>
@@ -113,7 +121,11 @@ class PricingPage extends React.Component {
                     </div>
                   </Membership>
 
-                  <Membership title={pageContext.data.month_title} subtitle={pageContext.data.month_subtitle} price={pageContext.data.month_price}>
+                  <Membership title={pageContext.data.month_title}
+                              subtitle={pageContext.data.month_subtitle}
+                              price={pageContext.data.month_price}
+                              button={pageContext.data.button_2}>
+
                     <div className="membership-step">
                       <NumberItem number="1" class="transparent" />
                       <p>{pageContext.data.month_1}</p>

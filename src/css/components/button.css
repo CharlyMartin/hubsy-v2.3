@@ -1,5 +1,5 @@
 .button {
-  padding: 10px 24px;
+  padding: calc(var(--space-sm) * 1.5) var(--space-lg);
   border-radius: var(--radius-md);
   transition: all 200ms ease;
   font-weight: 700;

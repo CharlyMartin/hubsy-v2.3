@@ -14,9 +14,6 @@
   box-shadow: var(--shadow-light);
 }
 
-.membership-content {
-}
-
 .membership-title * {
   color: var(--black-normal);
   margin-bottom: var(--space-lg);
@@ -34,23 +31,36 @@
 .membership-price p {
   margin-top: 0;
   color: var(--hubsy-green);
-  font-weight: 600;
+  font-weight: 700;
 }
 
-.membership:hover .membership-price {
+/* .membership:hover .membership-price {
   background: var(--hubsy-green);
 }
 
 .membership:hover .membership-price p {
+  color: white;
+} */
+
+.membership-button {
+  margin-top: var(--space-xl);
+}
+
+.membership-button .button {
+  display: block;
+  padding: var(--space-xs);
+  font-weight: 600;
+}
+
+.membership:hover .button {
+  background: var(--hubsy-green);
   color: white;
 }
 
 
 /* The list of steps to get there */
 .membership-process {
-  /* padding-top: var(--space-xs); */
   display: none;
-  /* padding-bottom: var(--space-md); */
 }
 
 .membership-process p {
