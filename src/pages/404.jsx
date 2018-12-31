@@ -14,8 +14,8 @@ class NotFoundPage extends React.Component {
           <div className="full-page">
             <div className="container-sm">
               <h1>Cette page n'existe plus 😬</h1>
-              <p>Et un jour toi aussi, tout comme cette page, tu n'existeras plus…  Ton temps est limité, ne le gâche ton existence sur des choses futiles. Tu dois bien avoir des rêves dans la vie non !? Tu sais comme ce road-trip en Australie avec tes potes, ou cette start-up dont tu parles à tout le monde depuis 3 ans.</p>
-              <p>Ben alors, qu'est ce que tu attends ? Allez, attrape ton ordi, tes écouteurs et passe chez Hubsy. Commence à réaliser tes rêves aujourd'hui. Avec du bon café, tout est possible 🙂</p>
+              <p>Et un jour toi aussi, tout comme cette page, tu n'existeras plus…  Ton temps est limité, ne gâche ton existence sur des choses futiles. Tu dois bien avoir des rêves dans la vie non !? Tu sais comme ce road-trip en Australie avec tes potes, ou cette start-up dont tu parles à tout le monde depuis 3 ans.</p>
+              <p>Ben alors, qu'est ce que tu attends ? Allez, attrape ton ordi, tes écouteurs et passe chez Hubsy. Commence à réaliser tes rêves aujourd'hui. Avec du bon café, tout est possible.</p>
               <p>Clique sur le bouton et trouve un espace proche de chez toi. On t'attend !</p>
 
               <br/>

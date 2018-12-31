@@ -40,13 +40,13 @@
   margin-top: var(--space-xs);
 }
 
-.prices-cap * {
+/* .prices-cap * {
   margin-bottom: 0;
-}
+} */
 
-.prices-cap h2 {
+/* .prices-cap h3 {
   margin-bottom: 0;
-}
+} */
 
 
 
