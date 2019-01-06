@@ -161,9 +161,9 @@ class ShopPage extends React.Component {
                   <h2>{content.amenities}</h2>
                   <Item image={wifi}    text={pageContext.data.internet} />
                   <Item image={coffee}  text={pageContext.data.coffee} />
-                  <Item image={screen}  text={pageContext.data.screen} />
-                  <Item image={apple}   text={pageContext.data.food} />
                   <Item image={drinks}  text={pageContext.data.drinks} />
+                  <Item image={apple}   text={pageContext.data.food} />
+                  <Item image={screen}  text={pageContext.data.screen} />
                   
                   <div className="button-item-container">
                     <Item image={meeting} text={pageContext.data.meeting_rooms} />
