@@ -33,6 +33,8 @@ export const query = graphql`
             html
           }
         }
+        seo_title
+        seo_description
       }
     }
   }

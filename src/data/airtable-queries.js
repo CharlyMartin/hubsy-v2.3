@@ -13,7 +13,7 @@ module.exports = {
                     caption
                     button
                     referrals
-                    google
+                    google_reviews
                     testimonials
                     pictures {
                       url
@@ -22,6 +22,8 @@ module.exports = {
                     alert
                     alert_message
                     language
+                    seo_title
+                    seo_description
                   }
                 }
               }
@@ -43,6 +45,9 @@ module.exports = {
                 node {
                   data {
                     title
+                    language
+                    seo_title
+                    seo_description
                   }
                 }
               }
@@ -94,6 +99,8 @@ module.exports = {
                     screen
                     printer
                     slug
+                    seo_title
+                    seo_description
                   }
                 }
               }
@@ -153,6 +160,8 @@ module.exports = {
                   button_1
                   button_2
                   excluding_tax
+                  seo_title
+                  seo_description
                   }
                 }
               }
@@ -194,6 +203,9 @@ module.exports = {
                     item_3_picture {
                       url
                     }
+
+                    seo_title
+                    seo_description
                   }
                 }
               }
@@ -220,6 +232,8 @@ module.exports = {
                     privatise
                     capacity
                     button
+                    seo_title
+                    seo_description
                   }
                 }
               }
@@ -267,6 +281,8 @@ module.exports = {
                     training_2_pdf {
                       url
                     }
+                    seo_title
+                    seo_description
                   }
                 }
               }
