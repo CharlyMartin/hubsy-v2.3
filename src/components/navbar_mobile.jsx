@@ -46,7 +46,6 @@ class NavbarMobile extends React.Component {
   }
   
   render() {
-    // console.log(this.props);
     const edges = this.props.data.allAirtable.edges;
     const array = this.filterObjects(edges, this.props.locale);
     const content = array[0].node.data;

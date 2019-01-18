@@ -24,7 +24,6 @@ class Card extends React.Component {
 
   // handleMouseIn() {
   //   this.setState({mouseOver: true});
-  //   console.log(this.props);
   // }
 
   render() {
