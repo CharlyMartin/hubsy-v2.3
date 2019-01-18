@@ -67,8 +67,8 @@ class RoomsPage extends React.Component {
     const shopsData = this.filterObjects(edges, pageContext.locale);
 
     return (
-      <Layout prefix={pageContext.prefix} locale={pageContext.locale}>
-        <div id="rooms-page" path={pageContext.pathname} name={pages.rooms.title[pageContext.locale]}>
+      <Layout prefix={pageContext.prefix} locale={pageContext.locale} title={pageContext.data.seo_title} description={pageContext.data.seo_description}>
+        <div id="rooms-page" path={pageContext.pathname}>
           <div className="container mg-xxl-top-bottom">
             <PageHeader title={pageContext.data.title} subtitle={pageContext.data.subtitle} />
 

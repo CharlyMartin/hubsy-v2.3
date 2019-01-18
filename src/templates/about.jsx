@@ -22,8 +22,8 @@ class aboutPage extends React.Component {
     const pageContext = this.props.pageContext;
 
     return (
-      <Layout prefix={pageContext.prefix} locale={pageContext.locale}>
-        <div id="about-page" path={pageContext.pathname} name={pages.about.title[pageContext.locale]}>
+      <Layout prefix={pageContext.prefix} locale={pageContext.locale} title={pageContext.data.seo_title} description={pageContext.data.seo_description}>
+        <div id="about-page" path={pageContext.pathname}>
           <div className="container mg-xxl-top-bottom">
             <PageHeader title={pageContext.data.title} subtitle={pageContext.data.subtitle} />
 

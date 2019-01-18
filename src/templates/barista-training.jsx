@@ -25,8 +25,8 @@ class BaristaPage extends React.Component {
     console.log(pageContext.data.training_1_pdf[0].url);
 
     return (
-      <Layout prefix={pageContext.prefix} locale={pageContext.locale}>
-        <div id="barista-page" path={pageContext.pathname} name={pages.barista.title[pageContext.locale]}>
+      <Layout prefix={pageContext.prefix} locale={pageContext.locale} title={pageContext.data.seo_title} description={pageContext.data.seo_description}>
+        <div id="barista-page" path={pageContext.pathname}>
           <div className="page-hero image-centered"
                 style={{backgroundImage: `url(${pageContext.data.picture[0].url})`}}
                 data-animation="fade-in" />

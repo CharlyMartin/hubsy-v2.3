@@ -25,8 +25,8 @@ class PricingPage extends React.Component {
     console.log(pageContext);
 
     return (
-      <Layout prefix={pageContext.prefix} locale={pageContext.locale}>
-        <div id="pricing-page" path={pageContext.pathname} name={pages.pricing.title[pageContext.locale]}>
+      <Layout prefix={pageContext.prefix} locale={pageContext.locale} title={pageContext.data.seo_title} description={pageContext.data.seo_description}>
+        <div id="pricing-page" path={pageContext.pathname}>
           <div className="container mg-xxl-top-bottom">
             <PageHeader title={pageContext.data.title} subtitle={pageContext.data.subtitle_1} />
 

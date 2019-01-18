@@ -7,12 +7,12 @@ import pages from '../data/internal-links';
 import '../css/pages/legal.css'
 
 const CGVPage = (props) => {
+  console.log(props);
   return (
-    <Layout prefix={props.pageContext.prefix} locale={props.pageContext.locale}>
+    <Layout prefix={props.pageContext.prefix} locale={props.pageContext.locale} title={props.data.airtable.data.seo_title} description={props.data.airtable.data.seo_description}>
       <div  className="container-sm mg-xxl-top-bottom pd-xl-top-bottom"
             id="cgv-page"
             path={props.pageContext.pathname}
-            name={pages.cgv.title[props.pageContext.locale]}
             dangerouslySetInnerHTML={{__html: props.data.airtable.data.content_md.childMarkdownRemark.html}} />
     </Layout>
   );

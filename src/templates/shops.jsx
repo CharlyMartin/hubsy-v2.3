@@ -72,8 +72,8 @@ class ShopsPage extends React.Component {
     const markersData = this.formatMarkers(shopsData);
 
     return (
-      <Layout prefix={pageContext.prefix} locale={pageContext.locale}>
-        <div id="shops-page" path={pageContext.pathname} name={pages.shops.title[pageContext.locale]}>
+      <Layout prefix={pageContext.prefix} locale={pageContext.locale} title={pageContext.data.seo_title} description={pageContext.data.seo_description}>
+        <div id="shops-page" path={pageContext.pathname}>
         
           <div className="container mg-xxl-top-bottom">
             <h1>{pageContext.data.title}</h1>

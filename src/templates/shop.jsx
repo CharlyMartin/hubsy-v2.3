@@ -111,7 +111,7 @@ class ShopPage extends React.Component {
     
 
     return (
-      <Layout prefix={pageContext.prefix} locale={pageContext.locale}>
+      <Layout prefix={pageContext.prefix} locale={pageContext.locale} title={pageContext.data.seo_title} description={pageContext.data.seo_description}>
         <div id="shop-page" path={pageContext.pathname} name={pageContext.data.name}>
           
           <HeroImage class="shop-hero image-centered" images={pageContext.data.pictures}>
