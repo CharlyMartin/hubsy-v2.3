@@ -2,12 +2,9 @@ import React from 'react';
 import { graphql } from 'gatsby'
 import Layout from '../components/layout';
 
-import pages from '../data/internal-links';
-
 import '../css/pages/legal.css'
 
 const CGVPage = (props) => {
-  console.log(props);
   return (
     <Layout prefix={props.pageContext.prefix} locale={props.pageContext.locale} title={props.data.airtable.data.seo_title} description={props.data.airtable.data.seo_description}>
       <div  className="container-sm mg-xxl-top-bottom pd-xl-top-bottom"

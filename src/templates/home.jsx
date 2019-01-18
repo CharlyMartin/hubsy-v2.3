@@ -113,7 +113,7 @@ class HomePage extends React.Component {
           <div className="wrapper-beige testimonials text-center mg-xl-bottom">
             <div className="container pd-xxl-top pd-xxl-bottom">
               <h3>{pageContext.data.testimonials}</h3>
-              <p className="mg-xl-bottom testimonials-subtitle">{pageContext.data.google}</p>
+              <p className="mg-xl-bottom testimonials-subtitle">{pageContext.data.google_reviews}</p>
               <div id="google">
                 <Image src={google} />
               </div>

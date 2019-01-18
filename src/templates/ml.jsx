@@ -2,8 +2,6 @@ import React from 'react';
 import { graphql } from 'gatsby'
 import Layout from '../components/layout';
 
-import pages from '../data/internal-links';
-
 import '../css/pages/legal.css'
 
 const MLPage = (props) => {
