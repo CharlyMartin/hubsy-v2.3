@@ -85,7 +85,6 @@ class HomePage extends React.Component {
 
   render() {    
     const pageContext = this.props.pageContext;
-    console.log(pageContext);
     // const images = this.formatImages(pageContext.data.pictures);
 
     return (

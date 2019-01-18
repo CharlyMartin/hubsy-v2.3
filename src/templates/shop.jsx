@@ -53,7 +53,6 @@ class ShopPage extends React.Component {
   }
 
   renderStructuredData(content) {
-    console.log(content);
     return (
       `{
         "@context":"http://schema.org",

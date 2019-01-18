@@ -22,7 +22,6 @@ class BaristaPage extends React.Component {
   
   render() {
     const pageContext = this.props.pageContext;
-    console.log(pageContext.data.training_1_pdf[0].url);
 
     return (
       <Layout prefix={pageContext.prefix} locale={pageContext.locale} title={pageContext.data.seo_title} description={pageContext.data.seo_description}>
