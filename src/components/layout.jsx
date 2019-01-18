@@ -34,20 +34,18 @@ class Layout extends React.Component {
     const locale = this.props.locale;
     const prefix = this.props.prefix;
     const path = this.props.children.props.path;
-    const title = `${this.props.children.props.name} | Hubsy Café & Coworking`;
 
     return (
       <div>
-        <Helmet title={title}>
+        <Helmet title={`${this.props.title} | Hubsy Café & Coworking`}>
           {/* Already done by Gatsby */}
           {/* <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" /> */}
           
-          {/* <script dangerouslySetInnerHTML={this.googleTagManagerHead()}></script> */}
           <script>{this.renderTagManagerHead()}</script>
+          {/* <script dangerouslySetInnerHTML={this.googleTagManagerHead()}></script> */}
 
           <html lang={locale} />
-          <meta name="description" content={meta[locale].description} />
-          <meta name="keywords" content={meta[locale].keywords} />
+          <meta name="description" content={this.props.description} />
 
           <meta property="og:url"           content={meta[locale].facebook.url} />
           <meta property="og:type"          content="website" />

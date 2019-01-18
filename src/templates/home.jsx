@@ -85,11 +85,12 @@ class HomePage extends React.Component {
 
   render() {    
     const pageContext = this.props.pageContext;
+    console.log(pageContext);
     // const images = this.formatImages(pageContext.data.pictures);
 
     return (
-      <Layout prefix={pageContext.prefix} locale={pageContext.locale}>
-        <div id="home-page" path={pageContext.pathname} name={pages.home.title[pageContext.locale]}>
+      <Layout prefix={pageContext.prefix} locale={pageContext.locale} title={pageContext.data.seo_title} description={pageContext.data.seo_description}>
+        <div id="home-page" path={pageContext.pathname}>
 
           <HeroImage class="home-hero image-centered" images={pageContext.data.pictures}>
             {this.renderAlert(pageContext.data)}
