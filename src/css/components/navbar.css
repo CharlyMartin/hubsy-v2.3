@@ -39,7 +39,8 @@
 }
 
 .navbar-logo img {
-  width: var(--navbar-height);
+  width: 75px;
+  padding-top: 5px;
 }
 
 .navbar-menu {

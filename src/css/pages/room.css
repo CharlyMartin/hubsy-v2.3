@@ -7,8 +7,10 @@
   padding-bottom: var(--space-xxl);
 }
 
-.rooms h3 {
+.rooms .room-shops {
   display: inline;
+  color: var(--black-normal);
+  padding-bottom: var(--space-xs);
 }
 
 .rooms a > p:hover {
@@ -16,5 +18,5 @@
 }
 
 .rooms .grid {
-  margin-top: var(--space-lg);
+  margin-top: var(--space-xl);
 }
