@@ -4,6 +4,7 @@
   position: relative;
   padding: var(--space-xs) 0;
   box-shadow: var(--shadow-light);
+  text-align: center;
 }
 
 .alert p {
@@ -27,4 +28,11 @@
 
 .cross-container img {
   width: 12px;
+}
+
+@media screen and (max-width: 560px) {
+  /* Up to that screen width, the following rules apply: */
+  .alert .cross-container {
+    padding-right: var(--space-sm);
+  }
 }
