@@ -51,11 +51,12 @@
   width: 15px;
 }
 
-
-.referrals img {
-  width: 90px;
+/* Actual sizing of the images is done in HomePageQuery (90px) */
+.referrals div:first-child {
   margin: var(--space-xl);
 }
+
+
 
 /* iPad */
 @media screen and (max-width: 850px) {

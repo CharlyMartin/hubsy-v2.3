@@ -1,5 +1,6 @@
 import React from 'react';
-import { Link } from 'gatsby'
+import { Link, graphql } from 'gatsby'
+import Img from 'gatsby-image';
 
 // Components
 import Layout from '../components/layout';
@@ -10,11 +11,11 @@ import Alert from '../components/alert';
 import HeroImage from '../components/hero_image';
 
 // Images
-import leParisien from '../images/referrals/le_parisien.png';
-import timeout from '../images/referrals/timeout.png';
-import tf1 from '../images/referrals/tf1.png';
-import telerama from '../images/referrals/telerama.png';
-import forbes from '../images/referrals/forbes.png';
+// import leParisien from '../images/referrals/le_parisien.png';
+// import timeout from '../images/referrals/timeout.png';
+// import tf1 from '../images/referrals/tf1.png';
+// import telerama from '../images/referrals/telerama.png';
+// import forbes from '../images/referrals/forbes.png';
 import google from '../images/icons/google.png';
 
 // CSS
@@ -25,6 +26,9 @@ import '../css/components/hero_image.css';
 import reviews from '../data/reviews.js';
 import links from '../data/external-links.js';
 import pages from '../data/internal-links';
+
+// Functions
+import { sample, textEllipsis, prefixLocale } from '../helpers/functions';
 
 // Components under src/pages become pages automatically with paths based on their file name.
 // For example src/pages/index.jsx is mapped to yoursite.com and src/pages/about.jsx becomes yoursite.com/about/.
@@ -38,37 +42,17 @@ class HomePage extends React.Component {
     // pageContext, as it is not created by createPage().
     // There's data on "/en" as this one is created by createPage().
     this.state = {
-      reviews: this.sample(this.filterReviews(), 3)
+      reviews: sample(this.filterReviews(), 3)
     }
-  }
-
-  prefixLocale(path) {
-    return `${this.props.pageContext.prefix}${path}`;
   }
 
   filterReviews() {
     return reviews.filter(r => r.language === this.props.pageContext.locale);
   }
 
-  sample(arr, number) {
-    // Shuffling array
-    for (let i = arr.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [arr[i], arr[j]] = [arr[j], arr[i]];
-    }
-    
-    // Return the x first items
-    return arr.slice(0, number);
-  }
-
-  textEllipsis(str, limit = 110) {
-    if (str.length > limit) return (`${str.substring(0, limit - 1).trim()}...`);
-    return str
-  }
-
   renderReviews() {
     return this.state.reviews.map(r => {
-      const clippedContent = this.textEllipsis(r.content);
+      const clippedContent = textEllipsis(r.content);
       return (
         <div className="column-third" key={r.id}>
           <Review first={r.first} content={clippedContent} />
@@ -83,9 +67,19 @@ class HomePage extends React.Component {
     )
   }
 
+  renderReferrals() {
+    return this.props.data.referrals.edges.map((obj) => {
+      return (
+        <a href={links[`${obj.node.name}`]} target="_blank" rel="noopener noreferrer" key={obj.node.name}>
+          <Img fixed={obj.node.childImageSharp.fixed} />
+        </a>
+      )
+    });
+  }
+
   render() {    
     const pageContext = this.props.pageContext;
-    // const images = this.formatImages(pageContext.data.pictures);
+    const prefix = this.props.pageContext.prefix;
 
     return (
       <Layout prefix={pageContext.prefix} locale={pageContext.locale} title={pageContext.data.seo_title} description={pageContext.data.seo_description}>
@@ -99,7 +93,7 @@ class HomePage extends React.Component {
           <div className="container mg-xl-top mg-xxl-bottom">
             <div className="brand-container-top mg-xl-bottom">
               <h1 id="title">{pageContext.data.brand}</h1>
-              <Link to={this.prefixLocale(pages.shops.path)}>
+              <Link to={prefixLocale(prefix, pages.shops.path)}>
                 <Button class="button-beige" text={pageContext.data.button} />
               </Link>
             </div>
@@ -128,7 +122,7 @@ class HomePage extends React.Component {
           </div>
 
           <div className="container text-center mg-xl-bottom">
-            <Link to={this.prefixLocale(pages.about.path)}>
+            <Link to={prefixLocale(prefix, pages.about.path)}>
               <Button class="button-beige-transparent" text={pageContext.data.concept} />
             </Link>
           </div>
@@ -142,11 +136,17 @@ class HomePage extends React.Component {
             <h3 className="mg-xl-bottom">{pageContext.data.referrals}</h3>
 
             <div className="referrals">
-              <a href={links.timeout} target="_blank" rel="noopener noreferrer">
+              {this.renderReferrals()}
+              {/* <Img fixed={this.props.data.referrals.edges[0].node.childImageSharp.fixed} />
+              <Img fixed={this.props.data.referrals.edges[1].node.childImageSharp.fixed} />
+              <Img fixed={this.props.data.referrals.edges[2].node.childImageSharp.fixed} />
+              <Img fixed={this.props.data.referrals.edges[3].node.childImageSharp.fixed} />
+              <Img fixed={this.props.data.referrals.edges[4].node.childImageSharp.fixed} /> */}
+              {/* <a href={links.timeout} target="_blank" rel="noopener noreferrer">
                 <Image src={timeout} />
-              </a>
+              </a> */}
 
-              <a href={links.tf1} target="_blank" rel="noopener noreferrer">
+              {/* <a href={links.tf1} target="_blank" rel="noopener noreferrer">
                 <Image src={tf1} />
               </a>
 
@@ -160,7 +160,7 @@ class HomePage extends React.Component {
 
               <a href={links.telerama} target="_blank" rel="noopener noreferrer">
                 <Image src={telerama} />
-              </a>
+              </a> */}
             </div>
           </div>
 
@@ -171,3 +171,20 @@ class HomePage extends React.Component {
 }
   
 export default HomePage;
+
+export const query = graphql`
+  query homePageQuery {
+    referrals: allFile(filter: {relativeDirectory: {eq: "referrals"}}) {
+      edges {
+        node {
+          name
+          childImageSharp {
+            fixed(width: 90) {
+              ...GatsbyImageSharpFixed
+            }
+          }
+        }
+      }
+    }
+  }
+`
