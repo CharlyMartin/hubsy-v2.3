@@ -6,6 +6,7 @@ import Img from 'gatsby-image';
 import Layout from '../components/layout';
 import Button from '../components/button';
 import Image from '../components/image';
+import ExternalLink from '../components/external_link';
 import Review from '../components/review';
 import Alert from '../components/alert';
 import HeroImage from '../components/hero_image';
@@ -68,11 +69,11 @@ class HomePage extends React.Component {
   }
 
   renderReferrals() {
-    return this.props.data.referrals.edges.map((obj) => {
+    return this.props.data.referrals.edges.map(({ node }) => {
       return (
-        <a href={links[`${obj.node.name}`]} target="_blank" rel="noopener noreferrer" key={obj.node.name}>
-          <Img fixed={obj.node.childImageSharp.fixed} />
-        </a>
+        <ExternalLink href={links[`${node.name}`]} key={node.name}>
+          <Img fixed={node.childImageSharp.fixed} />
+        </ExternalLink>
       )
     });
   }
