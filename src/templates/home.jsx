@@ -137,30 +137,6 @@ class HomePage extends React.Component {
 
             <div className="referrals">
               {this.renderReferrals()}
-              {/* <Img fixed={this.props.data.referrals.edges[0].node.childImageSharp.fixed} />
-              <Img fixed={this.props.data.referrals.edges[1].node.childImageSharp.fixed} />
-              <Img fixed={this.props.data.referrals.edges[2].node.childImageSharp.fixed} />
-              <Img fixed={this.props.data.referrals.edges[3].node.childImageSharp.fixed} />
-              <Img fixed={this.props.data.referrals.edges[4].node.childImageSharp.fixed} /> */}
-              {/* <a href={links.timeout} target="_blank" rel="noopener noreferrer">
-                <Image src={timeout} />
-              </a> */}
-
-              {/* <a href={links.tf1} target="_blank" rel="noopener noreferrer">
-                <Image src={tf1} />
-              </a>
-
-              <a href={links.forbes} target="_blank" rel="noopener noreferrer">
-                <Image src={forbes} />
-              </a>
-
-              <a href={links.le_parisien} target="_blank" rel="noopener noreferrer">
-                <Image src={leParisien} />
-              </a>
-
-              <a href={links.telerama} target="_blank" rel="noopener noreferrer">
-                <Image src={telerama} />
-              </a> */}
             </div>
           </div>
 
