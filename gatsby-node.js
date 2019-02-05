@@ -19,7 +19,7 @@ const mlPage = path.resolve(`src/templates/ml.jsx`);
 exports.createPages = ({ graphql, actions }) => {
   // The Gatsby API “createPages” is called once the
   // data layer is bootstrapped to let plugins create pages from data.
-  const { createPage } = actions;
+  const { createPage, createNode } = actions;
 
   // Function creating pages from parameters provided
   function createPageFrom(response, pathname, component, locale, prefix) {
@@ -121,6 +121,31 @@ exports.createPages = ({ graphql, actions }) => {
     }
   });
   console.log(`built: ${pages.ml.path}`);
+
+
+
+
+
+  // Node creation test
+
+  createNode({
+    // Data for the node.
+    field1: `a string`,
+    field2: 10,
+    field3: true,
+  
+    // Required fields.
+    id: `a-node-id`,
+    parent: null, // or null if it's a source node without a parent
+    children: [],
+    internal: {
+      type: `fileNode`,
+      contentDigest: "contentDigest",
+      mediaType: `image/jpeg`, // optional
+      content: `test`, // optional
+      description: `Cool Service: "Title of entry"`, // optional
+    }
+  })
 };
 
 
