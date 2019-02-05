@@ -1,6 +1,6 @@
 import React from 'react';
 
-function ExternalLink({ href, key, children }) {
+function ExtLink({ href, key, children }) {
   return (
     <a href={href} target="_blank" rel="noopener noreferrer">
       {children}
@@ -8,7 +8,7 @@ function ExternalLink({ href, key, children }) {
   )  
 }
 
-export default ExternalLink;
+export default ExtLink;
 
 
 
