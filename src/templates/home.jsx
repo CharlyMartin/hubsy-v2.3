@@ -5,14 +5,10 @@ import Img from 'gatsby-image';
 // Components
 import Layout from '../components/layout';
 import Button from '../components/button';
-import Image from '../components/image';
 import ExtLink from '../components/external_link';
 import Review from '../components/review';
 import Alert from '../components/alert';
 import HeroImage from '../components/hero_image';
-
-// Images
-import google from '../images/icons/google.png';
 
 // CSS
 import '../css/pages/home.css';
@@ -105,7 +101,6 @@ class HomePage extends React.Component {
               <p className="mg-xl-bottom testimonials-subtitle">{pageContext.data.google_reviews}</p>
               <div id="google">
                 <Img fixed={this.props.data.googleLogo.childImageSharp.fixed}/>
-                {/* <Image src={google} /> */}
               </div>
               
               <div className="reviews">
