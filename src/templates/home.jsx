@@ -76,9 +76,9 @@ class HomePage extends React.Component {
       <Layout prefix={pageContext.prefix} locale={pageContext.locale} title={pageContext.data.seo_title} description={pageContext.data.seo_description}>
         <div id="home-page" path={pageContext.pathname}>
 
-          <HeroImage class="home-hero image-centered" images={pageContext.data.pictures}>
+          {/* <HeroImage class="home-hero image-centered" images={pageContext.data.pictures}>
             {this.renderAlert(pageContext.data)}
-          </HeroImage>
+          </HeroImage> */}
 
           {/* Brand + Tagline */}
           <div className="container mg-xl-top mg-xxl-bottom">
