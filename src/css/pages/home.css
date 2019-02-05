@@ -37,14 +37,11 @@
   color: var(--black-light);
 }
 
+/* Actual sizing of the images is done in HomePageQuery (25px) */
 #google {
   position: absolute;
   right: var(--space-md);
   top: var(--space-md);
-}
-
-#google img {
-  width: 25px;
 }
 
 .reviews img {
@@ -76,6 +73,10 @@
   #title {
     font-size: var(--title-size-mobile);
   }
+
+  #caption {
+    font-size: var(--h3-size);
+   }
 }
 
 /* Mobile (Iphone, Pixel, Galaxy) */

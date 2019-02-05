@@ -104,7 +104,8 @@ class HomePage extends React.Component {
               <h3>{pageContext.data.testimonials}</h3>
               <p className="mg-xl-bottom testimonials-subtitle">{pageContext.data.google_reviews}</p>
               <div id="google">
-                <Image src={google} />
+                <Img fixed={this.props.data.googleLogo.childImageSharp.fixed}/>
+                {/* <Image src={google} /> */}
               </div>
               
               <div className="reviews">
@@ -154,6 +155,13 @@ export const query = graphql`
               ...GatsbyImageSharpFixed
             }
           }
+        }
+      }
+    }
+    googleLogo: file(relativePath: {eq: "icons/google.png"}) {
+      childImageSharp {
+        fixed(width: 25, height: 25) {
+          ...GatsbyImageSharpFixed
         }
       }
     }
