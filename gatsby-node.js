@@ -1,4 +1,6 @@
 const path = require('path');
+const { createRemoteFileNode } = require(`gatsby-source-filesystem`);
+
 const fetch = require('./src/data/airtable-queries');
 const pages = require('./src/data/internal-links');
 
@@ -16,45 +18,78 @@ const mlPage = path.resolve(`src/templates/ml.jsx`);
 
 
 // Page creations
-exports.createPages = ({ graphql, actions }) => {
+exports.createPages = ({ graphql, actions, createNodeId, store, cache }) => {
   // The Gatsby API “createPages” is called once the
   // data layer is bootstrapped to let plugins create pages from data.
-  const { createPage, createNode } = actions;
+  const { createPage, createNode, createNodeField } = actions;
 
-  // Function creating pages from parameters provided
+  // Function creating localised pages from parameters provided
   function createPageFrom(response, pathname, component, locale, prefix) {
-    response.data.allAirtable.edges.forEach(result => {
-
-      createPage({
-        path: `${prefix}${pathname}`,
-        component,
-        context: {
-          locale,
-          prefix,
-          pathname,
-          data: result.node.data
-        }
-      })
-
-      console.log(`built: ${prefix}${pathname}`);
-    });
-  }
-  
-  // Function creates slugs from names
-  function slugify(text) {
-    return text
-      .toString()
-      .toLowerCase()
-      .trim()
-      .replace(/\s+/g, '-') // Replace spaces with -
-      .replace('é', 'e')
-      .replace('à', 'a')
-      .replace(/[^\w-]+/g, '') // Remove all non-word chars
-      .replace(/--+/g, '-') // Replace multiple - with single -
-      // .replace(/^-+/, '') // Trim - from start of text
-      // .replace(/-+$/, '') // Trim - from end of text
+    const node = response.data.allAirtable.edges[0].node;
+    const pagePath = `${prefix}${pathname}`;
+    console.log(`built: ${pagePath}`);
+    
+    createPage({
+      path: pagePath,
+      component,
+      context: {
+        locale,
+        prefix,
+        pathname,
+        data: node.data
+      }
+    })
   }
 
+    // response.data.allAirtable.edges.map(result => {
+      
+    //   const pagePath = `${prefix}${pathname}`;
+    //   
+
+    //   createPage({
+    //     path: pagePath,
+    //     component,
+    //     context: {
+    //       locale,
+    //       prefix,
+    //       pathname,
+    //       data: result.node.data
+    //     }
+    //   })
+
+    //   // const promise = new Promise(function(resolve, reject) {
+    //   //   resolve(result.node.data.pictures);
+    //   // });
+
+    //   // return promise;
+
+    //   // // Pathname for home is empty string
+    //   // if (pathname === '') {
+    //   //   const pictures = result.node.data.pictures;
+    //   //   // console.log(pictures);
+    //   //   pictures.forEach(picture => {
+    //   //     console.log(picture.url);
+          
+    //   //     // https://www.gatsbyjs.org/packages/gatsby-source-filesystem/#createremotefilenode
+    //   //     createRemoteFileNode({
+    //   //       url: picture.url, // The source url of the remote file
+    //   //       store,
+    //   //       cache,
+    //   //       createNode,
+    //   //       createNodeId,
+    //   //     }).then(node => {
+    //   //       node.sourceInstanceName = `${prefix}${pathname}`;
+    //   //       console.log(node);
+    //   //       // createNodeField({
+    //   //       //   node,
+    //   //       //   name: `parent`,
+    //   //       //   value: `${prefix}${pathname}`
+    //   //       // })
+    //   //     });
+    //   //     // console.log('HEEEELLLLOOOOO')
+    //   //   })
+    //   // };
+    // });
 
   // Start of the loop to create pages in "fr" & "en"
   Object.entries({'fr': '/', 'en': '/en/'}).forEach( ([locale, prefix]) => {
@@ -82,7 +117,6 @@ exports.createPages = ({ graphql, actions }) => {
       .then(response => {
         response.data.allAirtable.edges.forEach((result => {
           const pathname = `shops/${result.node.data.slug}`;
-          console.log(slugify(result.node.data.name));
           const obj = {
             path: `${prefix}${pathname}`,
             component: shopPage,
@@ -124,29 +158,81 @@ exports.createPages = ({ graphql, actions }) => {
 
 
 
-
-
-  // Node creation test
-
-  createNode({
-    // Data for the node.
-    field1: `a string`,
-    field2: 10,
-    field3: true,
+  // Node creation test.
+  // This create a new node available through allFileNode
+  // createNode({
+  //   // Data for the node.
+  //   field1: `a string`,
+  //   field2: 10,
+  //   field3: true,
   
-    // Required fields.
-    id: `a-node-id`,
-    parent: null, // or null if it's a source node without a parent
-    children: [],
-    internal: {
-      type: `fileNode`,
-      contentDigest: "contentDigest",
-      mediaType: `image/jpeg`, // optional
-      content: `test`, // optional
-      description: `Cool Service: "Title of entry"`, // optional
-    }
-  })
+  //   // Required fields.
+  //   id: `a-node-id`,
+  //   parent: null, // or null if it's a source node without a parent
+  //   children: [],
+  //   internal: {
+  //     type: `fileNode`,
+  //     contentDigest: "contentDigest",
+  //     mediaType: `image/jpeg`, // optional
+  //     content: `test`, // optional
+  //     description: `Cool Service: "Title of entry"`, // optional
+  //   }
+  // })
 };
+
+// exports.onCreateNode = ({ node, actions }) => {
+//   const { createNode, createNodeField } = actions
+//   console.log(`NEW NODE`);
+//   console.log(`id: ${node.internal.id}`)
+//   console.log(`type: ${node.internal.type}`)
+//   console.log(`parent: ${node.internal.parent}`)
+//   console.log(`contentDigest: ${node.internal.contentDigest}`)
+//   console.log(`children: ${node.internal.children}`)
+//   console.log(`mediaType: ${node.internal.mediaType}`)
+//   console.log(`content: ${node.internal.content}`)
+//   console.log(`description: ${node.internal.description}`)
+//   console.log(`---------------------`);
+//   // Transform the new node here and create a new node or
+//   // create a new node field.
+// }
+
+// Only works for the 404 page, not the templates.
+// exports.onCreatePage = ({ page, actions }) => {
+//   console.log(page);
+//   // const { createPage, deletePage } = actions
+
+//   // deletePage(page)
+//   // // You can access the variable "house" in your page queries now
+//   // createPage({
+//   //   ...page,
+//   //   context: {
+//   //     house: Gryffindor,
+//   //   },
+//   // })
+// }
+
+// exports.setFieldsOnGraphQLNodeType = ({ type }) => {
+//   console.log(type);
+//   // if (type.name === `File`) {
+//   //   return {
+//   //     newField: {
+//   //       type: GraphQLString,
+//   //       args: {
+//   //         myArgument: {
+//   //           type: GraphQLString,
+//   //         }
+//   //       },
+//   //       resolve: (source, fieldArgs) => {
+//   //         return `Id of this node is ${source.id}.
+//   //                 Field was called with argument: ${fieldArgs.myArgument}`
+//   //       }
+//   //     }
+//   //   }
+//   // }
+
+//   // by default return empty object
+//   return {}
+// }
 
 
 // mapbox-gl expects global obj window to be available, but it's not during build sequence.
