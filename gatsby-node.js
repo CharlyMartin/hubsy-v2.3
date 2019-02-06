@@ -28,7 +28,7 @@ exports.createPages = ({ graphql, actions, createNodeId, store, cache }) => {
     const node = response.data.allAirtable.edges[0].node;
     const pagePath = `${prefix}${pathname}`;
     console.log(`built: ${pagePath}`);
-    
+
     createPage({
       path: pagePath,
       component,
@@ -39,7 +39,7 @@ exports.createPages = ({ graphql, actions, createNodeId, store, cache }) => {
         data: node.data
       }
     })
-  }
+  };
 
     // response.data.allAirtable.edges.map(result => {
       

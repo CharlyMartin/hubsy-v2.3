@@ -1,4 +1,4 @@
-/* .hero-image {
+.hero-image {
   height: var(--hero-height);
   width: 100%;
   position: relative;
@@ -27,6 +27,15 @@
   cursor: pointer;
 }
 
+.arrow {
+  /* flex-basis: 50%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer; */
+}
+
 .arrow:hover {
   background: var(--white-normal);
 }
@@ -44,7 +53,7 @@
   transform: rotate(-90deg) translateY(1px);
 }
 
-
+/* iPad */
 @media screen and (max-width: 850px) {
   .hero-image {
     height: var(--hero-height-mobile);
@@ -56,10 +65,13 @@
     justify-content: space-between;
     background: transparent;
     box-shadow: none;
+    /* padding: 0 var(--space-lg); */
+    /* bottom: calc(var(--space-lg)); */
   }
 
   .arrow-container {
     padding: var(--space-lg);
+    /* Flex-basis makes them fit the size of the arrow */
     flex-basis: auto;
   }
 
@@ -82,4 +94,9 @@
   .arrow img {
     width: 12px;
   }
+}
+
+/* Mobile (Iphone, Pixel, Galaxy) */
+/* @media screen and (max-width: 560px) {
+
 } */

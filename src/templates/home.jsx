@@ -8,7 +8,7 @@ import Button from '../components/button';
 import ExtLink from '../components/external_link';
 import Review from '../components/review';
 import Alert from '../components/alert';
-import HeroImage from '../components/hero_image';
+import ImageSlider from '../components/image_slider';
 
 // CSS
 import '../css/pages/home.css';
@@ -75,10 +75,9 @@ class HomePage extends React.Component {
     return (
       <Layout prefix={pageContext.prefix} locale={pageContext.locale} title={pageContext.data.seo_title} description={pageContext.data.seo_description}>
         <div id="home-page" path={pageContext.pathname}>
-
-          {/* <HeroImage class="home-hero image-centered" images={pageContext.data.pictures}>
-            {this.renderAlert(pageContext.data)}
-          </HeroImage> */}
+          
+          {this.renderAlert(pageContext.data)}
+          <ImageSlider class="home-hero" images={this.props.data.banners.edges} />
 
           {/* Brand + Tagline */}
           <div className="container mg-xl-top mg-xxl-bottom">
@@ -157,6 +156,17 @@ export const query = graphql`
       childImageSharp {
         fixed(width: 25, height: 25) {
           ...GatsbyImageSharpFixed
+        }
+      }
+    }
+    banners: allFile(filter: {sourceInstanceName: {eq: "__PROGRAMMATIC__"}}, limit: 8) {
+      edges {
+        node {
+          childImageSharp {
+            fluid {
+              ...GatsbyImageSharpFluid
+            }
+          }
         }
       }
     }
