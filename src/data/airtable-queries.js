@@ -53,7 +53,7 @@ module.exports = {
     `)
   },
 
-  shopsQuery: function(lang, graphql) {
+  shopQuery: function(lang, graphql) {
     console.log(`running shopsQuery for ${lang}`);
     return graphql(`
       {

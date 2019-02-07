@@ -20,6 +20,7 @@ class aboutPage extends React.Component {
   
   render() {
     const pageContext = this.props.pageContext;
+    console.log(this.props.data.images);
 
     return (
       <Layout prefix={pageContext.prefix} locale={pageContext.locale} title={pageContext.data.seo_title} description={pageContext.data.seo_description}>
@@ -102,25 +103,21 @@ export default aboutPage;
 
 
 
+// It seems like the FR images get erased by the EN ones.
+// Only EN images are available.
 
-// export const query = graphql`
-//   {
-//     allAirtable(filter: {table: {eq: "navbar"}}) {
-//       edges {
-//         node {
-//           data {
-//             brand
-//             caption
-//             button
-//             referrals
-//             pictures {
-//               url
-//             }
-//             concept
-//             language
-//           }
-//         }
-//       }
-//     }
-//   }
-// `
+export const query = graphql`
+  query aboutPageQuery {
+    images: allFile( filter: {name: {regex: "/airtable-about-en/"}}, sort: {fields: [name]} )  {
+      edges {
+        node {
+          childImageSharp {
+            fluid {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
+      }
+    }
+  }
+`
