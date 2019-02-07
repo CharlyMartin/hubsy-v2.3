@@ -159,7 +159,7 @@ export const query = graphql`
         }
       }
     }
-    banners: allFile(filter: {sourceInstanceName: {eq: "__PROGRAMMATIC__"}}, limit: 8) {
+    banners: allFile(filter: {name: {eq: "Hubsy"}}) {
       edges {
         node {
           childImageSharp {
@@ -172,3 +172,15 @@ export const query = graphql`
     }
   }
 `
+
+// banners: allFile(filter: {sourceInstanceName: {eq: "__PROGRAMMATIC__"}}) {
+//   edges {
+//     node {
+//       childImageSharp {
+//         fluid {
+//           ...GatsbyImageSharpFluid
+//         }
+//       }
+//     }
+//   }
+// }

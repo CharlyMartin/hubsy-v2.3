@@ -1,9 +1,10 @@
+// External Librairies
 const path = require('path');
 const { createRemoteFileNode } = require(`gatsby-source-filesystem`);
 
-const fetch = require('./src/data/airtable-queries');
+// External objects
+const run = require('./src/data/airtable-queries');
 const pages = require('./src/data/internal-links');
-
 
 // Page template components
 const homePage = path.resolve(`src/templates/home.jsx`);
@@ -16,19 +17,42 @@ const baristaPage = path.resolve(`src/templates/barista-training.jsx`);
 const cgvPage = path.resolve(`src/templates/cgv.jsx`);
 const mlPage = path.resolve(`src/templates/ml.jsx`);
 
-
 // Page creations
 exports.createPages = ({ graphql, actions, createNodeId, store, cache }) => {
   // The Gatsby API “createPages” is called once the
   // data layer is bootstrapped to let plugins create pages from data.
-  const { createPage, createNode, createNodeField } = actions;
+  const { createPage, createNode } = actions;
+
+  // Function adding images to the Gastby's data layer (sourcesystem)
+  function addImageToSource(array) {
+    array.forEach(function(url) {
+      createRemoteFileNode({
+        url,
+        store,
+        cache,
+        createNode,
+        createNodeId,
+      }).then(node => {
+        node.name = 'Hubsy';
+        console.log(node);
+      })
+    })
+  }
+
+  // Function extracting the urls of the images from the graphQL object
+  function extractImagesURL(data, keys) {
+    // keys is the name of keys that contain the pictures URL in the data obj
+    return keys.map(key => data[key])
+      .flat(2)
+      .map(obj => obj.url);
+  }
 
   // Function creating localised pages from parameters provided
-  function createPageFrom(response, pathname, component, locale, prefix) {
-    const node = response.data.allAirtable.edges[0].node;
+  async function createPageFrom(resp, pathname, component, locale, prefix, imageKeys = []) {
+    const node = resp.data.allAirtable.edges[0].node;
     const pagePath = `${prefix}${pathname}`;
-    console.log(`built: ${pagePath}`);
 
+    // Gatsby plugin to create pages from template components
     createPage({
       path: pagePath,
       component,
@@ -38,7 +62,15 @@ exports.createPages = ({ graphql, actions, createNodeId, store, cache }) => {
         pathname,
         data: node.data
       }
-    })
+    });
+    console.log(`built ${pagePath}`);
+
+    // const imageURLs = await extractImagesURL(node.data, imageKeys);
+    return new Promise((resolve) => {
+      resolve(
+        extractImagesURL(node.data, imageKeys)
+      )}
+    );
   };
 
     // response.data.allAirtable.edges.map(result => {
@@ -93,27 +125,29 @@ exports.createPages = ({ graphql, actions, createNodeId, store, cache }) => {
 
   // Start of the loop to create pages in "fr" & "en"
   Object.entries({'fr': '/', 'en': '/en/'}).forEach( ([locale, prefix]) => {
+    console.log(`starting page creation for ${locale} - ${prefix}`);
 
-    fetch.homePage(locale, graphql)
-      .then(resp => createPageFrom(resp, pages.home, homePage, locale, prefix));
+    run.homeQuery(locale, graphql)
+      .then(resp => createPageFrom(resp, pages.home, homePage, locale, prefix, ['pictures']))
+      .then(array => addImageToSource(array));
 
-    fetch.shopsPage(locale, graphql)
-      .then(resp => createPageFrom(resp, pages.shops, shopsPage, locale, prefix));
+    // run.shopsQuery(locale, graphql)
+    //   .then(resp => createPageFrom(resp, pages.shops, shopsPage, locale, prefix));
 
-    fetch.pricingPage(locale, graphql)
-      .then(resp => createPageFrom(resp, pages.pricing, pricingPage, locale, prefix));
+    // run.pricingQuery(locale, graphql)
+    //   .then(resp => createPageFrom(resp, pages.pricing, pricingPage, locale, prefix));
 
-    fetch.aboutPage(locale, graphql)
-      .then(resp => createPageFrom(resp, pages.about, aboutPage, locale, prefix));
+    // run.aboutQuery(locale, graphql)
+    //   .then(resp => createPageFrom(resp, pages.about, aboutPage, locale, prefix));
 
-    fetch.roomsPage(locale, graphql)
-      .then(resp => createPageFrom(resp, pages.rooms, roomsPage, locale, prefix));
+    // run.roomsQuery(locale, graphql)
+    //   .then(resp => createPageFrom(resp, pages.rooms, roomsPage, locale, prefix));
 
-    fetch.baristaPage(locale, graphql)
-      .then(resp => createPageFrom(resp, pages.barista, baristaPage, locale, prefix));
+    // run.baristaQuery(locale, graphql)
+    //   .then(resp => createPageFrom(resp, pages.barista, baristaPage, locale, prefix));
     
     // Shop pages based on slugs in shops table
-    fetch.shopsData(locale, graphql)
+    run.shopsQuery(locale, graphql)
       .then(response => {
         response.data.allAirtable.edges.forEach((result => {
           const pathname = `${pages.shops}/${result.node.data.slug}`;
@@ -181,17 +215,16 @@ exports.createPages = ({ graphql, actions, createNodeId, store, cache }) => {
 };
 
 // exports.onCreateNode = ({ node, actions }) => {
-//   const { createNode, createNodeField } = actions
-//   console.log(`NEW NODE`);
-//   console.log(`id: ${node.internal.id}`)
-//   console.log(`type: ${node.internal.type}`)
-//   console.log(`parent: ${node.internal.parent}`)
-//   console.log(`contentDigest: ${node.internal.contentDigest}`)
-//   console.log(`children: ${node.internal.children}`)
-//   console.log(`mediaType: ${node.internal.mediaType}`)
-//   console.log(`content: ${node.internal.content}`)
-//   console.log(`description: ${node.internal.description}`)
-//   console.log(`---------------------`);
+//   // const { createNode, createNodeField } = actions
+//   // console.log(`id: ${node.internal.id}`);
+//   // console.log(`type: ${node.internal.type}`);
+//   // console.log(`parent: ${node.internal.parent}`);
+//   // console.log(`contentDigest: ${node.internal.contentDigest}`);
+//   // console.log(`children: ${node.internal.children}`);
+//   // console.log(`mediaType: ${node.internal.mediaType}`);
+//   // console.log(`content: ${node.internal.content}`);
+//   // console.log(`description: ${node.internal.description}`);
+//   // console.log(`---------------------`);
 //   // Transform the new node here and create a new node or
 //   // create a new node field.
 // }

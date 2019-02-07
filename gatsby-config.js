@@ -86,7 +86,7 @@ module.exports = {
             tableName: 'home_page',
             tableView: viewAll,
             // The mapping adds the image to the internal node system of Gatsby
-            mapping: { 'pictures': `fileNode` },
+            // mapping: { 'pictures': `fileNode` },
           },
           {
             baseId: contentBaseId,

@@ -1,8 +1,9 @@
 // FUNCTIONS PULLING DATA FROM AIRTABLE
 module.exports = {
-  homePage: function(lang, graphql) {
+  homeQuery: function(lang, graphql) {
     // The graphql function already returns a Promise so wrapping it
     // around a Promise is not necessary.
+    console.log(`running homeQuery for ${lang}`);
     return graphql(`
       {
         allAirtable(filter: {table: {eq: "home_page"}, data: {language: {eq: "${lang}"}}}) {
@@ -32,7 +33,8 @@ module.exports = {
     `)
   },
 
-  shopsPage: function(lang, graphql) {
+  shopsQuery: function(lang, graphql) {
+    console.log(`running shopsQuery for ${lang}`);
     return graphql(`
       {
         allAirtable(filter: {table: {eq: "shops_page"}, data: {language: {eq: "${lang}"}}}) {
@@ -51,7 +53,8 @@ module.exports = {
     `)
   },
 
-  shopsData: function(lang, graphql) {
+  shopsQuery: function(lang, graphql) {
+    console.log(`running shopsQuery for ${lang}`);
     return graphql(`
       {
         allAirtable(filter: {table: {eq: "shops"}, data: {language: {eq: "${lang}"}}}) {
@@ -99,7 +102,8 @@ module.exports = {
     `)
   },
 
-  pricingPage: function(lang, graphql) {
+  pricingQuery: function(lang, graphql) {
+    console.log(`running pricingQuery for ${lang}`);
     return graphql(`
       {
         allAirtable(filter: {table: {eq: "pricing_page"}, data: {language: {eq: "${lang}"}}}) {
@@ -155,7 +159,8 @@ module.exports = {
     `)
   },
 
-  aboutPage: function(lang, graphql) {
+  aboutQuery: function(lang, graphql) {
+    console.log(`running aboutQuery for ${lang}`);
     return graphql(`
       {
         allAirtable(filter: {table: {eq: "about_page"}, data: {language: {eq: "${lang}"}}}) {
@@ -194,7 +199,8 @@ module.exports = {
     `)
   },
 
-  roomsPage: function(lang, graphql) {
+  roomsQuery: function(lang, graphql) {
+    console.log(`running roomsQuery for ${lang}`);
     return graphql(`
       {
         allAirtable(filter: {table: {eq: "rooms_page"}, data: {language: {eq: "${lang}"}}}) {
@@ -217,7 +223,8 @@ module.exports = {
     `)
   },
 
-  baristaPage: function(lang, graphql) {
+  baristaQuery: function(lang, graphql) {
+    console.log(`running baristaQuery for ${lang}`);
     return graphql(`
       {
         allAirtable(filter: {table: {eq: "barista_page"}, data: {language: {eq: "${lang}"}}}) {
