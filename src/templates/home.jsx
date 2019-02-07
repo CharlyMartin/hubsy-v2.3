@@ -159,7 +159,7 @@ export const query = graphql`
         }
       }
     }
-    banners: allFile(filter: {name: {eq: "Hubsy"}}) {
+    banners: allFile(filter: {name: {eq: "AirtableHome"}}) {
       edges {
         node {
           childImageSharp {
@@ -172,15 +172,3 @@ export const query = graphql`
     }
   }
 `
-
-// banners: allFile(filter: {sourceInstanceName: {eq: "__PROGRAMMATIC__"}}) {
-//   edges {
-//     node {
-//       childImageSharp {
-//         fluid {
-//           ...GatsbyImageSharpFluid
-//         }
-//       }
-//     }
-//   }
-// }

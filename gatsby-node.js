@@ -24,7 +24,7 @@ exports.createPages = ({ graphql, actions, createNodeId, store, cache }) => {
   const { createPage, createNode } = actions;
 
   // Function adding images to the Gastby's data layer (sourcesystem)
-  function addImageToSource(array) {
+  function addImageToSource(array, parent) {
     array.forEach(function(url) {
       createRemoteFileNode({
         url,
@@ -33,7 +33,7 @@ exports.createPages = ({ graphql, actions, createNodeId, store, cache }) => {
         createNode,
         createNodeId,
       }).then(node => {
-        node.name = 'Hubsy';
+        node.name = `Airtable${parent}`;
         console.log(node);
       })
     })
@@ -65,12 +65,10 @@ exports.createPages = ({ graphql, actions, createNodeId, store, cache }) => {
     });
     console.log(`built ${pagePath}`);
 
-    // const imageURLs = await extractImagesURL(node.data, imageKeys);
+    const imageURLs = await extractImagesURL(node.data, imageKeys);
     return new Promise((resolve) => {
-      resolve(
-        extractImagesURL(node.data, imageKeys)
-      )}
-    );
+      resolve(imageURLs)
+    });
   };
 
     // response.data.allAirtable.edges.map(result => {
@@ -129,7 +127,7 @@ exports.createPages = ({ graphql, actions, createNodeId, store, cache }) => {
 
     run.homeQuery(locale, graphql)
       .then(resp => createPageFrom(resp, pages.home, homePage, locale, prefix, ['pictures']))
-      .then(array => addImageToSource(array));
+      .then(array => addImageToSource(array, 'Home') );
 
     // run.shopsQuery(locale, graphql)
     //   .then(resp => createPageFrom(resp, pages.shops, shopsPage, locale, prefix));
