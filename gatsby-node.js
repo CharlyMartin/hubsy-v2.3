@@ -95,28 +95,28 @@ exports.createPages = ({ graphql, actions, createNodeId, store, cache }) => {
   Object.entries({'fr': '/', 'en': '/en/'}).forEach( ([locale, prefix]) => {
 
     fetch.homePage(locale, graphql)
-      .then(resp => createPageFrom(resp, pages.home.path, homePage, locale, prefix));
+      .then(resp => createPageFrom(resp, pages.home, homePage, locale, prefix));
 
     fetch.shopsPage(locale, graphql)
-      .then(resp => createPageFrom(resp, pages.shops.path, shopsPage, locale, prefix));
+      .then(resp => createPageFrom(resp, pages.shops, shopsPage, locale, prefix));
 
     fetch.pricingPage(locale, graphql)
-      .then(resp => createPageFrom(resp, pages.pricing.path, pricingPage, locale, prefix));
+      .then(resp => createPageFrom(resp, pages.pricing, pricingPage, locale, prefix));
 
     fetch.aboutPage(locale, graphql)
-      .then(resp => createPageFrom(resp, pages.about.path, aboutPage, locale, prefix));
+      .then(resp => createPageFrom(resp, pages.about, aboutPage, locale, prefix));
 
     fetch.roomsPage(locale, graphql)
-      .then(resp => createPageFrom(resp, pages.rooms.path, roomsPage, locale, prefix));
+      .then(resp => createPageFrom(resp, pages.rooms, roomsPage, locale, prefix));
 
     fetch.baristaPage(locale, graphql)
-      .then(resp => createPageFrom(resp, pages.barista.path, baristaPage, locale, prefix));
+      .then(resp => createPageFrom(resp, pages.barista, baristaPage, locale, prefix));
     
     // Shop pages based on slugs in shops table
     fetch.shopsData(locale, graphql)
       .then(response => {
         response.data.allAirtable.edges.forEach((result => {
-          const pathname = `shops/${result.node.data.slug}`;
+          const pathname = `${pages.shops}/${result.node.data.slug}`;
           const obj = {
             path: `${prefix}${pathname}`,
             component: shopPage,
@@ -137,24 +137,24 @@ exports.createPages = ({ graphql, actions, createNodeId, store, cache }) => {
 
   // Creating CGV and ML in french only, so outside of the loop.
   createPage({
-    path: pages.cgv.path,
+    path: pages.cgv,
     component: cgvPage,
     context: {
       locale: "fr",
       prefix: "/"
     }
   })
-  console.log(`built: ${pages.cgv.path}`);
+  console.log(`built: ${pages.cgv}`);
 
   createPage({
-    path: pages.ml.path,
+    path: pages.ml,
     component: mlPage,
     context: {
       locale: "fr",
       prefix: "/"
     }
   });
-  console.log(`built: ${pages.ml.path}`);
+  console.log(`built: ${pages.ml}`);
 
 
 

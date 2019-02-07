@@ -53,24 +53,24 @@ class Navbar extends React.Component {
 
               <div className="navbar-side" id="navbar-left">
                 <div className="navbar-element">
-                  <Link to={this.prefixLocale(pages.shops.path)}>{content.venues}</Link>
+                  <Link to={this.prefixLocale(pages.shops)}>{content.venues}</Link>
                 </div>
 
                 <div className="navbar-element">
-                  <Link to={this.prefixLocale(pages.about.path)}>{content.concept}</Link>
+                  <Link to={this.prefixLocale(pages.about)}>{content.concept}</Link>
                 </div>
 
                 <div className="navbar-element">
-                  <Link to={this.prefixLocale(pages.pricing.path)}>{content.pricing}</Link>
+                  <Link to={this.prefixLocale(pages.pricing)}>{content.pricing}</Link>
                 </div>
                 
                 {/* Dropdown is desactivated, no class with dropdown */}
                 <div className="navbar-element"> 
-                  <Link to={this.prefixLocale(pages.rooms.path)}>{content.booking}</Link>
+                  <Link to={this.prefixLocale(pages.rooms)}>{content.booking}</Link>
                   
 
                   <div className="navbar-dropdown" id="booking">
-                    <Link to={this.prefixLocale(pages.rooms.path)}>
+                    <Link to={this.prefixLocale(pages.rooms)}>
                       <div className="navbar-dropdown-item">
                         <h3>{content.book}</h3>
                         <p className="text-small">{content.book_text}</p>
@@ -88,7 +88,7 @@ class Navbar extends React.Component {
               </div>
 
               <div className="navbar-logo">
-                <Link to={this.prefixLocale(pages.home.path)}>
+                <Link to={this.prefixLocale(pages.home)}>
                   <Image src={logo} />
                 </Link>
               </div>
@@ -101,7 +101,7 @@ class Navbar extends React.Component {
 
                 <div className="navbar-side-container">
                   <span className="navbar-element">
-                    <Link to={this.prefixLocale(pages.barista.path)}>{content.barista}</Link>
+                    <Link to={this.prefixLocale(pages.barista)}>{content.barista}</Link>
                   </span>
 
                   <span className="navbar-element">

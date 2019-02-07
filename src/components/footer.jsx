@@ -43,8 +43,8 @@ class Footer extends React.Component {
               
               <div className="column-quarter footer-column">
                 <h3>{content.coworking_title}</h3>
-                <Link to={this.prefixLocale(pages.about.path)} className="footer-element">{content.concept}</Link>
-                <Link to={this.prefixLocale(pages.pricing.path)} className="footer-element">{content.pricing}</Link>
+                <Link to={this.prefixLocale(pages.about)} className="footer-element">{content.concept}</Link>
+                <Link to={this.prefixLocale(pages.pricing)} className="footer-element">{content.pricing}</Link>
                 <a className="footer-element" href={links.blog} target="_blank" rel="noopener noreferrer">{content.blog}</a>
               </div>
 
@@ -57,10 +57,10 @@ class Footer extends React.Component {
               
               <div className="column-quarter footer-column">
                 <h3>{content.services_title}</h3>
-                <Link to={this.prefixLocale(pages.rooms.path)} className="footer-element">{content.book}</Link>
+                <Link to={this.prefixLocale(pages.rooms)} className="footer-element">{content.book}</Link>
                 <a className="footer-element" href={links.privatise_form} target="_blank" rel="noopener noreferrer">{content.privatise}</a>
                 <a className="footer-element" href={links.shopify} target="_blank" rel="noopener noreferrer">{content.coffee}</a>
-                <Link to={this.prefixLocale(pages.barista.path)} className="footer-element">{content.barista}</Link>
+                <Link to={this.prefixLocale(pages.barista)} className="footer-element">{content.barista}</Link>
                 <a className="footer-element" href={links.jobs_form} target="_blank" rel="noopener noreferrer">{content.jobs}</a>
                 {/* <a className="footer-element footer-button" href="" target="_blank" rel="noopener noreferrer">{content.jobs}</a> */}
               </div>
@@ -82,8 +82,8 @@ class Footer extends React.Component {
           <div className="container">
             <div className="footer-bottom-container">
               <h4>Hubsy 2015 - {new Date().getFullYear()}</h4>
-              <Link to={pages.ml.path} className="footer-bottom-element">Mentions Légales</Link>
-              <Link to={pages.cgv.path} className="footer-bottom-element">Conditions Générales de Vente</Link>
+              <Link to={pages.ml} className="footer-bottom-element">Mentions Légales</Link>
+              <Link to={pages.cgv} className="footer-bottom-element">Conditions Générales de Vente</Link>
             </div>
           </div>
         </div>

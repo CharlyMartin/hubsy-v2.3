@@ -36,7 +36,7 @@ class aboutPage extends React.Component {
                   <p>{pageContext.data.item_1_text}</p>
                   <br/>
                   <br/>
-                  <Link to={this.prefixLocale(pages.shops.path)}>
+                  <Link to={this.prefixLocale(pages.shops)}>
                     <Button text={pageContext.data.item_1_button} class="button-beige" />
                   </Link>
                 </div>
@@ -74,7 +74,7 @@ class aboutPage extends React.Component {
                   <p>{pageContext.data.item_3_text}</p>
                   <br/>
                   <br/>
-                  <Link to={this.prefixLocale(pages.pricing.path)}>
+                  <Link to={this.prefixLocale(pages.pricing)}>
                     <Button text={pageContext.data.item_3_button} class="button-green-transparent" />
                   </Link>
                 </div>

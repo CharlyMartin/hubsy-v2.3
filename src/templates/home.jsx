@@ -83,7 +83,7 @@ class HomePage extends React.Component {
           <div className="container mg-xl-top mg-xxl-bottom">
             <div className="brand-container-top mg-xl-bottom">
               <h1 id="title">{pageContext.data.brand}</h1>
-              <Link to={prefixLocale(prefix, pages.shops.path)}>
+              <Link to={prefixLocale(prefix, pages.shops)}>
                 <Button class="button-beige" text={pageContext.data.button} />
               </Link>
             </div>
@@ -112,7 +112,7 @@ class HomePage extends React.Component {
           </div>
 
           <div className="container text-center mg-xl-bottom">
-            <Link to={prefixLocale(prefix, pages.about.path)}>
+            <Link to={prefixLocale(prefix, pages.about)}>
               <Button class="button-beige-transparent" text={pageContext.data.concept} />
             </Link>
           </div>

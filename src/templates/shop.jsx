@@ -166,7 +166,7 @@ class ShopPage extends React.Component {
                   
                   <div className="button-item-container">
                     <Item image={meeting} text={pageContext.data.meeting_rooms} />
-                    <Link to={this.prefixLocale(`${pages.rooms.path}#${pageContext.data.slug}`)}>
+                    <Link to={this.prefixLocale(`${pages.rooms}#${pageContext.data.slug}`)}>
                       <Button text={content.button_1} class="button-beige"/>
                     </Link>
                   </div>
@@ -182,7 +182,7 @@ class ShopPage extends React.Component {
                   <h2>{content.prices}</h2>
                   <p>{pageContext.data.prices}</p>
                   <br />
-                  <Link to={this.prefixLocale(pages.pricing.path)}>
+                  <Link to={this.prefixLocale(pages.pricing)}>
                     <Button class="button-green-transparent" text={content.button_2} />
                   </Link>
                 </div>

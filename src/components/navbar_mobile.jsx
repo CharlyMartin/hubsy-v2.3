@@ -58,31 +58,31 @@ class NavbarMobile extends React.Component {
           <div className="mobile-background" />
           <div className="mobile-content-container">
             <div className="mobile-content-main">
-              <Link to={this.prefixLocale(pages.about.path)}>
+              <Link to={this.prefixLocale(pages.about)}>
                 <div className="mobile-element">
                   {content.concept}
                 </div>
               </Link>
 
-              <Link to={this.prefixLocale(pages.pricing.path)}>
+              <Link to={this.prefixLocale(pages.pricing)}>
                 <div className="mobile-element">
                   {content.pricing}
                 </div>
               </Link>
 
-              <Link to={this.prefixLocale(pages.rooms.path)}>
+              <Link to={this.prefixLocale(pages.rooms)}>
                 <div className="mobile-element">
                   {content.booking}
                 </div>
               </Link>
 
-              <Link to={this.prefixLocale(pages.shops.path)}>
+              <Link to={this.prefixLocale(pages.shops)}>
                 <div className="mobile-element" id="mobile-main">
                   {content.venues}
                 </div>
               </Link>
 
-              <Link to={this.prefixLocale(pages.barista.path)}>
+              <Link to={this.prefixLocale(pages.barista)}>
                 <div className="mobile-element">
                   {content.barista}
                 </div>
