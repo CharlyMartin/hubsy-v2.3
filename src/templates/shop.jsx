@@ -53,10 +53,6 @@ class ShopPage extends React.Component {
     ]
   }
 
-  // createSharp(slug) {
-  //   if ()
-  // }
-
   renderStructuredData(content) {
     return (
       `{
@@ -88,6 +84,16 @@ class ShopPage extends React.Component {
     )
   }
 
+  createSharpPath(slug) {
+    const mapping = {
+      'arts-metiers': 'am',
+      'republique' : 'rep',
+      'saint-lazare' : 'sl'
+    }
+    const key = mapping[slug];
+    return this.props.data[key].edges;
+  }
+
   prefixLocale(path) {
     return `${this.props.pageContext.prefix}${path}`;
   }
@@ -108,25 +114,25 @@ class ShopPage extends React.Component {
     const content = array[0].node.data;
     const markers = this.formatMarker(pageContext);
     const fullAddress = `${pageContext.data.street}, ${pageContext.data.postcode} ${pageContext.data.city}`
-    console.log(this.props);
-
-    const mapping = {
-      artsMetiers: 'arts-metiers',
-      republique: 'republique'
-    }    
-
+    // console.log(pageContext.data.slug);
     return (
       <Layout prefix={pageContext.prefix} locale={pageContext.locale} title={pageContext.data.seo_title} description={pageContext.data.seo_description}>
         <div id="shop-page" path={pageContext.pathname} name={pageContext.data.name}>
           
-          <HeroImage class="shop-hero image-centered" images={pageContext.data.pictures}>
+          {/* {this.createSharpPath(pageContext.data.slug)} */}
+          <ImageSlider class="shop-hero" images={this.createSharpPath(pageContext.data.slug)}>
+
             <div className="container">
               <div className="shop-hero-title">
                 <h1>Hubsy {pageContext.data.name}</h1>
                 <p className={`badge badge-big ${this.setBadgeColor()}`}>{pageContext.data.status_long}</p>
               </div>
             </div>
-          </HeroImage>
+
+          </ImageSlider>
+          {/* <HeroImage class="shop-hero image-centered" images={pageContext.data.pictures}>
+
+          </HeroImage> */}
 
           <br/>
 
@@ -250,10 +256,9 @@ export const query = graphql`
       }
     }
 
-    artsMetier: allFile(filter: {name: {regex: "/airtable-arts-metiers/"}}) {
+    am: allFile(filter: {name: {regex: "/airtable-arts-metiers/"}}) {
       edges {
         node {
-          id
           childImageSharp {
             fluid {
               ...GatsbyImageSharpFluid
@@ -263,10 +268,9 @@ export const query = graphql`
       }
     }
 
-    republique: allFile(filter: {name: {regex: "/airtable-republique/"}}) {
+    rep: allFile(filter: {name: {regex: "/airtable-republique/"}}) {
       edges {
         node {
-          id
           childImageSharp {
             fluid {
               ...GatsbyImageSharpFluid
@@ -276,10 +280,9 @@ export const query = graphql`
       }
     }
 
-    saintLazarre: allFile(filter: {name: {regex: "/airtable-saint-lazare/"}}) {
+    sl: allFile(filter: {name: {regex: "/airtable-saint-lazare/"}}) {
       edges {
         node {
-          id
           childImageSharp {
             fluid {
               ...GatsbyImageSharpFluid
