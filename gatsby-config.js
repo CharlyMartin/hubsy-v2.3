@@ -36,14 +36,20 @@ module.exports = {
     title: 'Hubsy | Café & Coworking',
     siteUrl: 'https://www.hubsy.fr'
   },
+
   plugins: [
     'gatsby-plugin-react-helmet',
+    'gatsby-plugin-offline',
+    'gatsby-transformer-remark',
+    'gatsby-transformer-sharp',
+    'gatsby-plugin-sharp',
     {
       resolve: `gatsby-plugin-sitemap`,
       options: {
         output: `/sitemap.xml`,
       }
     },
+
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -51,8 +57,7 @@ module.exports = {
         path: `${__dirname}/src/images`,
       },
     },
-    'gatsby-transformer-sharp',
-    'gatsby-plugin-sharp',
+
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
@@ -65,8 +70,6 @@ module.exports = {
         icon: 'src/images/logo/logo.png', // This path is relative to the root of the site.
       },
     },
-    'gatsby-plugin-offline',
-    'gatsby-transformer-remark',
     // Airtable config
     // Split data into 2 tables: Pages + Shared (Navbar + Footer + Shops + Rooms)
     {
@@ -156,6 +159,21 @@ module.exports = {
             mapping: {'content_md': 'text/markdown'}
           },
         ]
+      }
+    },
+
+    {
+      resolve: `gatsby-plugin-google-tagmanager`,
+      options: {
+        id: process.env.GOOGLE_TAG_MANAGER_ID,
+  
+        // Include GTM in development.
+        // Defaults to false meaning GTM will only be loaded in production.
+        includeInDevelopment: true,
+  
+        // Specify optional GTM environment details.
+        // gtmAuth: "YOUR_GOOGLE_TAGMANAGER_ENVIROMENT_AUTH_STRING",
+        // gtmPreview: "YOUR_GOOGLE_TAGMANAGER_ENVIROMENT_PREVIEW_NAME",
       }
     }
   ]

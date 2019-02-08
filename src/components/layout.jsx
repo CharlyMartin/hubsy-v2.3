@@ -1,7 +1,6 @@
-// External librairies
+// Librairies
 import React from 'react';
 import Helmet from 'react-helmet';
-// import { StaticQuery, graphql } from 'gatsby';
 
 // Components
 import Navbar from './navbar';
@@ -26,9 +25,9 @@ class Layout extends React.Component {
     super(props)
   }
 
-  renderTagManagerHead() {
-    return `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-N98GSNQ');`
-  }
+  // renderTagManagerHead() {
+  //   return `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-N98GSNQ');`
+  // }
 
   render() {
     const locale = this.props.locale;
@@ -41,7 +40,7 @@ class Layout extends React.Component {
           {/* Already done by Gatsby */}
           {/* <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" /> */}
           
-          <script>{this.renderTagManagerHead()}</script>
+          {/* <script>{this.renderTagManagerHead()}</script> */}
           {/* <script dangerouslySetInnerHTML={this.googleTagManagerHead()}></script> */}
 
           <html lang={locale} />
@@ -59,9 +58,9 @@ class Layout extends React.Component {
         </Helmet>
         
         {/* Google Tag Manager Body */}
-        <noscript>
+        {/* <noscript>
           <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N98GSNQ" style={{display: 'none', visibility: 'hidden', height: '0', width: '0'}} />
-        </noscript>
+        </noscript> */}
         
         <Navbar locale={locale} prefix={prefix} path={path}/>
         <NavbarMobile locale={locale} prefix={prefix} path={path}/>
