@@ -1,5 +1,5 @@
-.fade-in {
-  animation: fadein 3500ms;
+.gatsby-image-wrapper {
+  animation: fadein 800ms;
 }
 
 @keyframes fadein {
