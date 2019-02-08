@@ -39,14 +39,17 @@ exports.createPages = async ({ graphql, actions, createNodeId, store, cache }) =
         createNodeId,
       })
       
-      const nodeName = `airtable-${parent}-${locale}-${counter}`;
+      const name = `airtable-${parent}-${locale}-${counter}`;
+
       createNodeField({
         node: newNode,
         name: `parentTable`,
-        value: nodeName,
+        value: name,
       })
+
+      newNode.name = name;
       counter++;
-      // console.log(`remote node create ${newNode.fields.parentTable}`);
+      console.log(`\n⚛️  ${newNode.name} (node)`);
     }
   }
 
@@ -75,7 +78,7 @@ exports.createPages = async ({ graphql, actions, createNodeId, store, cache }) =
         }
       })
 
-      console.log(`built: ${pagePath}`);
+      console.log(`\n📄 ${pagePath} (page)`);
     }
   }
 
@@ -93,11 +96,10 @@ exports.createPages = async ({ graphql, actions, createNodeId, store, cache }) =
         prefix,
         pathname,
         data: node.data,
-        pics: "pics"
       }
     });
 
-    console.log(`built ${pagePath}`);
+    console.log(`\n📄 ${pagePath} (page)`);
 
     const imageURLs = await extractImagesURL(node.data, imageKeys);
     return new Promise((resolve) => {
@@ -109,13 +111,12 @@ exports.createPages = async ({ graphql, actions, createNodeId, store, cache }) =
   // Start of the loop to create pages in "fr" & "en"
   for (const array of Object.entries(locales)) {
     const [locale, prefix] = array;
-    console.log(`starting page creation for ${locale} - ${prefix}`);
+    console.log(`\n🚀 Starting page creation for ${locale} - ${prefix}`);
 
     // Waiting for all images to be added to the source data layer
     await run.homeQuery(locale, graphql)
       .then(r => createSinglePage(r, pages.home, homePage, locale, prefix, ['pictures']))
       .then(r => addImagesToSource(r.imageURLs, 'home', locale));
-    console.log(test);
 
     run.shopsQuery(locale, graphql)
       .then(r => createSinglePage(r, pages.shops, shopsPage, locale, prefix));

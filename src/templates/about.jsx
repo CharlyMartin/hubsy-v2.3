@@ -106,18 +106,18 @@ export default aboutPage;
 // It seems like the FR images get erased by the EN ones.
 // Only EN images are available.
 
-export const query = graphql`
-  query aboutPageQuery {
-    images: allFile( filter: {name: {regex: "/airtable-about-en/"}}, sort: {fields: [name]} )  {
-      edges {
-        node {
-          childImageSharp {
-            fluid {
-              ...GatsbyImageSharpFluid
-            }
-          }
-        }
-      }
-    }
-  }
-`
+// export const query = graphql`
+//   query aboutPageQuery {
+//     images: allFile( filter: {name: {regex: "/airtable-about-en/"}}, sort: {fields: [name]} )  {
+//       edges {
+//         node {
+//           childImageSharp {
+//             fluid {
+//               ...GatsbyImageSharpFluid
+//             }
+//           }
+//         }
+//       }
+//     }
+//   }
+// `

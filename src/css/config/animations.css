@@ -1,8 +1,8 @@
 .gatsby-image-wrapper {
-  animation: fadein 800ms;
+  animation: fadein 500ms;
 }
 
 @keyframes fadein {
-  from { opacity: 0; }
+  from { opacity: 0.7; }
   to   { opacity: 1; }
 }

@@ -160,9 +160,10 @@ export const query = graphql`
         }
       }
     }
-    banners: allFile(filter: {name: {regex: "/airtable-home/"}}, sort: {fields: [name]}) {
+    banners: allFile(filter: {name: {regex: "/airtable-home/"}}) {
       edges {
         node {
+          id
           childImageSharp {
             fluid {
               ...GatsbyImageSharpFluid
