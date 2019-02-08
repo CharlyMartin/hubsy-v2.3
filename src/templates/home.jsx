@@ -5,7 +5,7 @@ import Img from 'gatsby-image';
 // Components
 import Layout from '../components/layout';
 import Button from '../components/button';
-import ExtLink from '../components/external_link';
+import A from '../components/a';
 import Review from '../components/review';
 import Alert from '../components/alert';
 import ImageSlider from '../components/image_slider';
@@ -18,7 +18,7 @@ import reviews from '../data/reviews.js';
 import links from '../data/external-links.js';
 import pages from '../data/internal-links';
 
-// Helper functions
+// Helpers
 import { sample, textEllipsis, prefixLocale } from '../helpers/functions';
 
 // Components under src/pages become pages automatically with paths based on their file name.
@@ -61,16 +61,15 @@ class HomePage extends React.Component {
   renderReferrals() {
     return this.props.data.referrals.edges.map(({ node }) => {
       return (
-        <ExtLink href={links[`${node.name}`]} key={node.name}>
+        <A href={links[`${node.name}`]} key={node.name}>
           <Img fixed={node.childImageSharp.fixed} />
-        </ExtLink>
+        </A>
       )
     });
   }
 
   render() {    
     const pageContext = this.props.pageContext;
-    const prefix = this.props.pageContext.prefix;
     console.log(this.props.pageContext);
 
     return (
@@ -85,7 +84,7 @@ class HomePage extends React.Component {
           <div className="container mg-xl-top mg-xxl-bottom">
             <div className="brand-container-top mg-xl-bottom">
               <h1 id="title">{pageContext.data.brand}</h1>
-              <Link to={prefixLocale(prefix, pages.shops)}>
+              <Link to={prefixLocale(this.props.pageContext.prefix, pages.shops)}>
                 <Button class="button-beige" text={pageContext.data.button} />
               </Link>
             </div>
@@ -114,7 +113,7 @@ class HomePage extends React.Component {
           </div>
 
           <div className="container text-center mg-xl-bottom">
-            <Link to={prefixLocale(prefix, pages.about)}>
+            <Link to={prefixLocale(this.props.pageContext.prefix, pages.about)}>
               <Button class="button-beige-transparent" text={pageContext.data.concept} />
             </Link>
           </div>

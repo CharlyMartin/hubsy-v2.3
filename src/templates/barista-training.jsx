@@ -1,23 +1,22 @@
+// Librairies
 import React from 'react';
-// import { Link, graphql } from 'gatsby'
 
+// Components
 import Layout from '../components/layout';
 import PageHeader from '../components/page_header';
 import Card from '../components/card';
 import Button from '../components/button';
+import A from '../components/a';
 
+// CSS
 import '../css/pages/barista.css';
 
+// Data
 import links from '../data/external-links';
-import pages from '../data/internal-links';
 
 class BaristaPage extends React.Component {
   constructor(props) {
     super(props);
-  }
-
-  prefixLocale(path) {
-    return `${this.props.pageContext.prefix}${path}`;
   }
   
   render() {
@@ -64,25 +63,25 @@ class BaristaPage extends React.Component {
               <div className="column-layout">
               
                 <div className="column-half column-one">
-                  <a href={pageContext.data.training_1_pdf[0].url} target="_blank" rel="noopener noreferrer">
+                  <A href={pageContext.data.training_1_pdf[0].url}>
                     <Card
-                      title={pageContext.data.training_1_title}
-                      subtitle={pageContext.data.training_1_subtitle}
-                      path="#"
-                      picture={pageContext.data.training_1_picture[0].url}
-                    />
-                  </a>
+                        title={pageContext.data.training_1_title}
+                        subtitle={pageContext.data.training_1_subtitle}
+                        path="#"
+                        picture={pageContext.data.training_1_picture[0].url}
+                      />
+                  </A>
                 </div>
 
                 <div className="column-half column-two">
-                  <a href={pageContext.data.training_2_pdf[0].url} target="_blank" rel="noopener noreferrer">
+                  <A href={pageContext.data.training_2_pdf[0].url}>
                     <Card
                       title={pageContext.data.training_2_title}
                       subtitle={pageContext.data.training_2_subtitle}
                       path="#"
                       picture={pageContext.data.training_2_picture[0].url}
                     />
-                  </a>
+                  </A>
                 </div>
               </div>
             </div>
@@ -90,9 +89,9 @@ class BaristaPage extends React.Component {
             <br/>
 
             <div className="text-center">
-              <a href={links.barista_form} target="_blank" rel="noopener noreferrer">
+              <A href={links.barista_form}>
                 <Button text={pageContext.data.button} class="button-beige" />
-              </a>
+              </A>
             </div>
 
           </div>

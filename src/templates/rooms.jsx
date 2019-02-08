@@ -1,24 +1,28 @@
+// Librairies
 import React from 'react';
-import { Link, graphql } from 'gatsby'
+import { graphql, Link } from 'gatsby'
 
+// Components
 import Layout from '../components/layout';
 import PageHeader from '../components/page_header';
 import Disclaimer from '../components/disclaimer';
 import Button from '../components/button';
 import Card from '../components/card';
+import A from '../components/a';
 
+// CSS
 import '../css/pages/room.css'
 
+// Data
 import links from '../data/external-links';
 import pages from '../data/internal-links';
+
+// Helpers
+import { prefixLocale } from '../helpers/functions';
 
 class RoomsPage extends React.Component {
   constructor(props) {
     super(props);
-  }
-
-  prefixLocale(path) {
-    return `${this.props.pageContext.prefix}${path}`;
   }
 
   filterObjects(array, lang = 'fr') {
@@ -48,7 +52,7 @@ class RoomsPage extends React.Component {
   renderCards(array) {
     return array.map(obj => {      
       return (
-        <a href={obj.data.supersaas} target="_blank" rel="noopener noreferrer" key={obj.data.record_id}>
+        <A href={obj.data.supersaas} key={obj.data.record_id}>
           <Card
             title={obj.data.name}
             // subtitle={`${this.props.pageContext.data.capacity} ${obj.data.capacity}`}
@@ -56,7 +60,7 @@ class RoomsPage extends React.Component {
             picture={obj.data.pictures[0].url}
             status=""
           />
-        </a>
+        </A>
       )
     })
   }
@@ -77,11 +81,13 @@ class RoomsPage extends React.Component {
               {shopsData.map(obj => {
                 return (
                   <div className="rooms" key={obj.node.data.name} id={obj.node.data.slug}>
-                    <a href={this.prefixLocale(`shops/${obj.node.data.slug}`)}>
+                    <Link to={prefixLocale(this.props.pageContext.prefix, `${pages.shops}/${obj.node.data.slug}`)}>
+                      
                       <h3 className="room-shops">{`Hubsy ${obj.node.data.name}`}</h3>
                       <span className="text-small"> - {obj.node.data.street} {obj.node.data.postcode}
                       </span>
-                    </a>
+
+                    </Link>
                     
                     <div className="grid">
                       {this.renderCards(obj.node.data.linked_rooms)}
@@ -95,9 +101,9 @@ class RoomsPage extends React.Component {
             {/* <div className="page-section"> */}
 
             <Disclaimer text={pageContext.data.privatise}>
-              <a href={links.privatise_form} target="_blank" rel="noopener noreferrer">
+              <A href={links.privatise_form}>
                 <Button text={pageContext.data.button} class="button-green-transparent" />
-              </a>
+              </A>
             </Disclaimer>
             
           </div>

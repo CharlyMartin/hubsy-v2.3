@@ -1,19 +1,23 @@
+// External librairies
 import React from 'react';
 import Helmet from 'react-helmet';
 // import { StaticQuery, graphql } from 'gatsby';
 
+// Components
 import Navbar from './navbar';
 import NavbarMobile from './navbar_mobile';
 import Footer from './footer';
 
+// Data
 import meta from '../data/meta';
-import { fadeinImages } from '../utilities/fadein_images';
 
+// CSS
 import '../css/global.css';
+
+// Images
 import image from '../images/hubsy.jpg';
 
 // We can now add GraphQL queries to any component in our app (not just page components) using StaticQuery
-
 // page queries can accept variables (via pageContext) but can only be added to page components
 // StaticQuery does not accept variables (hence the name “static”), but can be used in any component, including pages
 
@@ -25,10 +29,6 @@ class Layout extends React.Component {
   renderTagManagerHead() {
     return `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-N98GSNQ');`
   }
-
-  // componentDidMount() {
-  //   fadeinImages();
-  // }
 
   render() {
     const locale = this.props.locale;
@@ -62,6 +62,7 @@ class Layout extends React.Component {
         <noscript>
           <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N98GSNQ" style={{display: 'none', visibility: 'hidden', height: '0', width: '0'}} />
         </noscript>
+        
         <Navbar locale={locale} prefix={prefix} path={path}/>
         <NavbarMobile locale={locale} prefix={prefix} path={path}/>
         {this.props.children}

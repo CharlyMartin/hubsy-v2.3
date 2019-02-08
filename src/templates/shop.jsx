@@ -1,13 +1,15 @@
+// External librairies
 import React from 'react';
 import { Link, graphql } from 'gatsby';
 
+// Components
 import Layout from '../components/layout';
 import Button from '../components/button';
 import Item from '../components/item';
 import Map from '../components/map';
-import HeroImage from '../components/hero_image';
 import ImageSlider from '../components/image_slider';
 
+// Images
 import coffee from '../images/icons/coffee.png';
 import screen from '../images/icons/screen.png';
 import apple from '../images/icons/apple.png';
@@ -17,20 +19,20 @@ import phone from '../images/icons/phone.png';
 import printer from '../images/icons/printer.png';
 import wifi from '../images/icons/wifi.png';
 
+// CSS
 import '../css/pages/shop.css';
 import '../css/components/badge.css';
 import '../css/components/hero_image.css';
 
+// Data
 import pages from '../data/internal-links';
+
+// Helpers
+import { prefixLocale } from '../helpers/functions';
 
 class ShopPage extends React.Component {
   constructor(props) {
     super(props);
-
-    this.state = {
-      images: this.props.pageContext.data.pictures,
-      selectedImage: this.props.pageContext.data.pictures[0],
-    }
   }
 
   setBadgeColor() {
@@ -53,13 +55,13 @@ class ShopPage extends React.Component {
     ]
   }
 
-  renderStructuredData(content) {
+  renderStructuredData(prefix, content) {
     return (
       `{
         "@context":"http://schema.org",
         "@type":"LocalBusiness",
-        "@id":"https://www.hubsy.fr${this.prefixLocale(content.pathname)}",
-        "url":"https://www.hubsy.fr${this.prefixLocale(content.pathname)}",
+        "@id":"https://www.hubsy.fr${prefixLocale(prefix, `${pages.shops}/${content.data.slug}`)}",
+        "url":"https://www.hubsy.fr${prefixLocale(prefix, `${pages.shops}/${content.data.slug}`)}",
         "name":"Hubsy ${content.data.name}",
         "description":"${content.data.description}",
         "image":"${content.data.pictures[0].url}",
@@ -94,10 +96,6 @@ class ShopPage extends React.Component {
     return this.props.data[key].edges;
   }
 
-  prefixLocale(path) {
-    return `${this.props.pageContext.prefix}${path}`;
-  }
-
   filterObjects(array, lang = 'fr') {
     // Components are called internally during the build sequence,
     // it doesn't pass a locale arg, which makes it undefined.
@@ -119,20 +117,14 @@ class ShopPage extends React.Component {
       <Layout prefix={pageContext.prefix} locale={pageContext.locale} title={pageContext.data.seo_title} description={pageContext.data.seo_description}>
         <div id="shop-page" path={pageContext.pathname} name={pageContext.data.name}>
           
-          {/* {this.createSharpPath(pageContext.data.slug)} */}
           <ImageSlider class="shop-hero" images={this.createSharpPath(pageContext.data.slug)}>
-
             <div className="container">
               <div className="shop-hero-title">
                 <h1>Hubsy {pageContext.data.name}</h1>
                 <p className={`badge badge-big ${this.setBadgeColor()}`}>{pageContext.data.status_long}</p>
               </div>
             </div>
-
           </ImageSlider>
-          {/* <HeroImage class="shop-hero image-centered" images={pageContext.data.pictures}>
-
-          </HeroImage> */}
 
           <br/>
 
@@ -178,7 +170,7 @@ class ShopPage extends React.Component {
                   
                   <div className="button-item-container">
                     <Item image={meeting} text={pageContext.data.meeting_rooms} />
-                    <Link to={this.prefixLocale(`${pages.rooms}#${pageContext.data.slug}`)}>
+                    <Link to={prefixLocale(this.props.pageContext.prefix, `${pages.rooms}#${pageContext.data.slug}`)}>
                       <Button text={content.button_1} class="button-beige"/>
                     </Link>
                   </div>
@@ -194,7 +186,7 @@ class ShopPage extends React.Component {
                   <h2>{content.prices}</h2>
                   <p>{pageContext.data.prices}</p>
                   <br />
-                  <Link to={this.prefixLocale(pages.pricing)}>
+                  <Link to={prefixLocale(this.props.pageContext.prefix, pages.pricing)}>
                     <Button class="button-green-transparent" text={content.button_2} />
                   </Link>
                 </div>
@@ -214,7 +206,7 @@ class ShopPage extends React.Component {
           </div>
 
           <script type="application/ld+json"
-                  dangerouslySetInnerHTML={{__html: this.renderStructuredData(pageContext)}}/>
+                  dangerouslySetInnerHTML={{__html: this.renderStructuredData(this.props.pageContext.prefix, pageContext)}}/>
         </div>
       </Layout>
     )

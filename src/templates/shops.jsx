@@ -1,22 +1,21 @@
+// Librairies
 import React from 'react';
 import { graphql, Link } from 'gatsby';
 
+// Components
 import Layout from '../components/layout';
 import Card from '../components/card';
 import Map from '../components/map';
 
+// Data
 import pages from '../data/internal-links';
 
+// CSS
 import '../css/pages/shops.css';
 
 class ShopsPage extends React.Component {
   constructor(props) {
     super(props);
-
-    // this.state = {
-    //   shops: this.filterObjects(this.props.data.allAirtable.edges, this.props.pageContext.locale),
-    //   selectedShop: ''
-    // }
   }
 
   formatMarkers(array) {
@@ -32,10 +31,6 @@ class ShopsPage extends React.Component {
     })
   }
 
-  prefixLocale(path) {
-    return `${this.props.pageContext.locale}${path}`;
-  }
-
   filterObjects(array, lang = 'fr') {
     // Components are called internally during the build sequence,
     // it doesn't pass a locale arg, which makes it undefined.
@@ -44,13 +39,13 @@ class ShopsPage extends React.Component {
     return array.filter(obj => obj.node.data.language === lang);
   }
 
-  renderCards(array, locale) {
+  renderCards(array, prefix) {
     return (
       <div className="shops-container">
         {array.map(obj => {
           const address = `${obj.node.data.street}, ${obj.node.data.postcode}`
           return (
-            <Link to={`${locale}shops/${obj.node.data.slug}`} key={obj.node.data.record_id}>
+            <Link to={`${prefix}${pages.shops}/${obj.node.data.slug}`} key={obj.node.data.record_id}>
               <Card
                 title={obj.node.data.name}
                 subtitle={address}

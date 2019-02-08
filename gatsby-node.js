@@ -162,7 +162,24 @@ exports.createPages = async ({ graphql, actions, createNodeId, store, cache }) =
   });
   console.log(`built: ${pages.ml}`);
 
+  // mapbox-gl expects global obj window to be available, but it's not during build sequence.
+  // This overrides the webpack config and doesn't run mapbox-gl code server-side.
+  exports.onCreateWebpackConfig = ({ actions, stage }) => {
+    if (stage === "build-html") {
+      actions.setWebpackConfig({
+        module: {
+          rules: [
+            {
+              test: /mapbox-gl/,
+              use: ['null-loader']
+            },
+          ],
+        }
+      })
+    }
+  };
 
+  // TESTS
 
   // Node creation test.
   // This create a new node available through allFileNode
@@ -185,6 +202,8 @@ exports.createPages = async ({ graphql, actions, createNodeId, store, cache }) =
   //   }
   // })
 };
+
+
 
 // exports.onCreateNode = ({ node, actions }) => {
 //   const { createNode, createNodeField } = actions
@@ -241,22 +260,7 @@ exports.createPages = async ({ graphql, actions, createNodeId, store, cache }) =
 // }
 
 
-// mapbox-gl expects global obj window to be available, but it's not during build sequence.
-// This overrides the webpack config and doesn't run mapbox-gl code server-side.
-exports.onCreateWebpackConfig = ({ actions, stage }) => {
-  if (stage === "build-html") {
-    actions.setWebpackConfig({
-      module: {
-        rules: [
-          {
-            test: /mapbox-gl/,
-            use: ['null-loader']
-          },
-        ],
-      }
-    })
-  }
-};
+
 
 // Test
 // exports.onPreBootstrap = () => {

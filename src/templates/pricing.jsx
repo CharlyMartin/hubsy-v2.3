@@ -1,23 +1,20 @@
+// Librairies
 import React from 'react';
 // import { Link, graphql } from 'gatsby'
 
+// Components
 import Layout from '../components/layout';
 import Membership from '../components/membership';
 import Button from '../components/button';
 import PageHeader from '../components/page_header';
 import NumberItem from '../components/number_item'
 
-import pages from '../data/internal-links';
-
+// CSS
 import '../css/pages/pricing.css'
 
 class PricingPage extends React.Component {
   constructor(props) {
     super(props);
-  }
-
-  prefixLocale(path) {
-    return `${this.props.pageContext.prefix}${path}`;
   }
   
   render() {

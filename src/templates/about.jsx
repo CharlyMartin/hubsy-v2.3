@@ -1,21 +1,26 @@
+// External librairies
 import React from 'react';
 import { Link } from 'gatsby'
+
+// Components
 import Button from '../components/button';
 import Layout from '../components/layout';
 import PageHeader from '../components/page_header';
+import A from '../components/a';
 
+// CSS
 import '../css/pages/about.css';
 
+// Data
 import links from '../data/external-links';
 import pages from '../data/internal-links';
+
+// Helper functions
+import { prefixLocale } from '../helpers/functions';
 
 class aboutPage extends React.Component {
   constructor(props) {
     super(props);
-  }
-
-  prefixLocale(path) {
-    return `${this.props.pageContext.prefix}${path}`;
   }
   
   render() {
@@ -37,7 +42,7 @@ class aboutPage extends React.Component {
                   <p>{pageContext.data.item_1_text}</p>
                   <br/>
                   <br/>
-                  <Link to={this.prefixLocale(pages.shops)}>
+                  <Link to={prefixLocale(this.props.pageContext.prefix, pages.shops)}>
                     <Button text={pageContext.data.item_1_button} class="button-beige" />
                   </Link>
                 </div>
@@ -56,9 +61,10 @@ class aboutPage extends React.Component {
                   <p>{pageContext.data.item_2_text}</p>
                   <br/>
                   <br/>
-                  <a href={links.shopify} target="_blank" rel="noopener noreferrer">
+                  
+                  <A href={links.shopify}>
                     <Button text={pageContext.data.item_2_button} class="button-green-transparent" />
-                  </a>
+                  </A>
                 </div>
 
                 <div className="picture-column">
@@ -75,7 +81,7 @@ class aboutPage extends React.Component {
                   <p>{pageContext.data.item_3_text}</p>
                   <br/>
                   <br/>
-                  <Link to={this.prefixLocale(pages.pricing)}>
+                  <Link to={prefixLocale(this.props.pageContext.prefix, pages.pricing)}>
                     <Button text={pageContext.data.item_3_button} class="button-green-transparent" />
                   </Link>
                 </div>
