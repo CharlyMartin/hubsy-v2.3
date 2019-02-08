@@ -18,35 +18,42 @@ const cgvPage = path.resolve(`src/templates/cgv.jsx`);
 const mlPage = path.resolve(`src/templates/ml.jsx`);
 
 // Page creations
-exports.createPages = ({ graphql, actions, createNodeId, store, cache }) => {
+exports.createPages = async ({ graphql, actions, createNodeId, store, cache }) => {
   // The Gatsby API “createPages” is called once the
   // data layer is bootstrapped to let plugins create pages from data.
   const { createPage, createNode, createNodeField } = actions;
 
   // Function adding images to the Gastby's data layer (sourcesystem)
-  function addImagesToSource(array, parent, locale) {
+  async function addImagesToSource(array, parent, locale) {
     let counter = 1;
 
-    array.forEach(function(url) {
-      createRemoteFileNode({
+    for (const url of array) {
+      const newNode = await createRemoteFileNode({
         url,
         store,
         cache,
         createNode,
         createNodeId,
-      }).then(node => { 
-        createNodeField({
-          node,
-          name: `parentTable`,
-          value: `airtable-${parent}-${locale}-${counter}`
-        })
-
-        node.name = `airtable-${parent}-${locale}-${counter}`;
-        counter++;
-
-        console.log(`${node.name}: ${node.relativePath}`);
       })
-    })
+      
+      const nodeName = `airtable-${parent}-${locale}-${counter}`;
+
+      createNodeField({
+        node: newNode,
+        name: `parentTable`,
+        value: nodeName,
+      })
+
+      newNode.name = nodeName;
+      counter++;
+
+      console.log(`remote node create ${newNode.fields.parentTable}`);
+    }
+
+
+
+      //   console.log(`${node.name}: ${node.relativePath}`);
+
   }
 
   // Function extracting the urls of the images from the graphQL object
@@ -73,6 +80,7 @@ exports.createPages = ({ graphql, actions, createNodeId, store, cache }) => {
         data: node.data
       }
     });
+    
     console.log(`built ${pagePath}`);
 
     const imageURLs = await extractImagesURL(node.data, imageKeys);
@@ -83,52 +91,53 @@ exports.createPages = ({ graphql, actions, createNodeId, store, cache }) => {
 
 
   // Start of the loop to create pages in "fr" & "en"
-  Object.entries({'fr': '/', 'en': '/en/'}).forEach( ([locale, prefix]) => {
+  for (const array of Object.entries({'fr': '/', 'en': '/en/'})) {
+    const [locale, prefix] = array;
     console.log(`starting page creation for ${locale} - ${prefix}`);
 
     run.homeQuery(locale, graphql)
       .then(resp => createPageFrom(resp, pages.home, homePage, locale, prefix, ['pictures']))
       .then(resp => addImagesToSource(resp.imageURLs, 'home', locale));
 
-    run.shopsQuery(locale, graphql)
-      .then(resp => createPageFrom(resp, pages.shops, shopsPage, locale, prefix));
+    // run.shopsQuery(locale, graphql)
+    //   .then(resp => createPageFrom(resp, pages.shops, shopsPage, locale, prefix));
 
-    run.pricingQuery(locale, graphql)
-      .then(resp => createPageFrom(resp, pages.pricing, pricingPage, locale, prefix));
+    // run.pricingQuery(locale, graphql)
+    //   .then(resp => createPageFrom(resp, pages.pricing, pricingPage, locale, prefix));
 
-    run.aboutQuery(locale, graphql)
-      .then(resp => createPageFrom(resp, pages.about, aboutPage, locale, prefix, ['item_1_picture', 'item_2_picture', 'item_3_picture']))
-      .then(resp => addImagesToSource(resp.imageURLs, 'about', locale));
+    // run.aboutQuery(locale, graphql)
+    //   .then(resp => createPageFrom(resp, pages.about, aboutPage, locale, prefix, ['item_1_picture', 'item_2_picture', 'item_3_picture']))
+    //   .then(resp => addImagesToSource(resp.imageURLs, 'about', locale));
 
-    run.roomsQuery(locale, graphql)
-      .then(resp => createPageFrom(resp, pages.rooms, roomsPage, locale, prefix));
+    // run.roomsQuery(locale, graphql)
+    //   .then(resp => createPageFrom(resp, pages.rooms, roomsPage, locale, prefix));
 
-    run.baristaQuery(locale, graphql)
-      .then(resp => createPageFrom(resp, pages.barista, baristaPage, locale, prefix, ['picture', 'training_1_picture', 'training_2_picture']))
-      .then(resp => addImagesToSource(resp.imageURLs, 'barista', locale));
+    // run.baristaQuery(locale, graphql)
+    //   .then(resp => createPageFrom(resp, pages.barista, baristaPage, locale, prefix, ['picture', 'training_1_picture', 'training_2_picture']))
+    //   .then(resp => addImagesToSource(resp.imageURLs, 'barista', locale));
 
 
     // Shop pages based on slugs in shops table
-    run.shopQuery(locale, graphql)
-      .then(response => {
-        response.data.allAirtable.edges.forEach((result => {
-          const pathname = `${pages.shops}/${result.node.data.slug}`;
-          const obj = {
-            path: `${prefix}${pathname}`,
-            component: shopPage,
-            context: {
-              locale,
-              prefix,
-              pathname,
-              data: result.node.data
-            }
-          };
-          createPage(obj);
-          console.log(`built: ${prefix}${pathname}`);
-        }))
-      })
+    // run.shopQuery(locale, graphql)
+    //   .then(response => {
+    //     response.data.allAirtable.edges.forEach((result => {
+    //       const pathname = `${pages.shops}/${result.node.data.slug}`;
+    //       const obj = {
+    //         path: `${prefix}${pathname}`,
+    //         component: shopPage,
+    //         context: {
+    //           locale,
+    //           prefix,
+    //           pathname,
+    //           data: result.node.data
+    //         }
+    //       };
+    //       createPage(obj);
+    //       console.log(`built: ${prefix}${pathname}`);
+    //     }))
+    //   })
 
-  }); // End of the loop
+  }; // End of the loop
 
 
   // Creating CGV and ML in french only, so outside of the loop.

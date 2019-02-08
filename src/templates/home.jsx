@@ -159,7 +159,7 @@ export const query = graphql`
         }
       }
     }
-    banners: allFile( filter: {name: {regex: "/airtable-home-en/"}}, sort: {fields: [name]} )  {
+    banners: allFile(filter: {name: {regex: "/airtable-home/"}}, sort: {fields: [name]}) {
       edges {
         node {
           childImageSharp {
