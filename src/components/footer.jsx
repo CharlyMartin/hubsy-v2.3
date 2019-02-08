@@ -1,25 +1,30 @@
+// Librairies
 import React from 'react';
 import { StaticQuery, graphql } from "gatsby";
 import { Link } from 'gatsby'
 
+// Components
+import A from './a';
+
+// Data
 import links from '../data/external-links';
 import pages from '../data/internal-links';
 
-import '../css/components/footer.css'
+// CSS
+import '../css/components/footer.css';
+
+// Helper functions
+import { prefixLocale } from '../helpers/functions';
 
 class Footer extends React.Component {
   constructor(props) {
     super(props);
   }
 
-  prefixLocale(path) {
-    return `${this.props.prefix}${path}`;
-  }
-
   renderShopLinks(array) {
     return array.map(obj => {      
       return (
-        <Link to={this.prefixLocale(`shops/${obj.data.slug}`)} className="footer-element" key={obj.data.slug}>
+        <Link to={prefixLocale(this.props.prefix, `${pages.shops}/${obj.data.slug}`)} className="footer-element" key={obj.data.slug}>
           {`Hubsy ${obj.data.name}`}
         </Link>
       )
@@ -43,9 +48,9 @@ class Footer extends React.Component {
               
               <div className="column-quarter footer-column">
                 <h3>{content.coworking_title}</h3>
-                <Link to={this.prefixLocale(pages.about)} className="footer-element">{content.concept}</Link>
-                <Link to={this.prefixLocale(pages.pricing)} className="footer-element">{content.pricing}</Link>
-                <a className="footer-element" href={links.blog} target="_blank" rel="noopener noreferrer">{content.blog}</a>
+                <Link to={prefixLocale(this.props.prefix, pages.about)} className="footer-element">{content.concept}</Link>
+                <Link to={prefixLocale(this.props.prefix, pages.pricing)} className="footer-element">{content.pricing}</Link>
+                <A class="footer-element" href={links.blog}> {content.blog} </A>
               </div>
 
               
@@ -57,21 +62,21 @@ class Footer extends React.Component {
               
               <div className="column-quarter footer-column">
                 <h3>{content.services_title}</h3>
-                <Link to={this.prefixLocale(pages.rooms)} className="footer-element">{content.book}</Link>
-                <a className="footer-element" href={links.privatise_form} target="_blank" rel="noopener noreferrer">{content.privatise}</a>
-                <a className="footer-element" href={links.shopify} target="_blank" rel="noopener noreferrer">{content.coffee}</a>
-                <Link to={this.prefixLocale(pages.barista)} className="footer-element">{content.barista}</Link>
-                <a className="footer-element" href={links.jobs_form} target="_blank" rel="noopener noreferrer">{content.jobs}</a>
+                <Link to={prefixLocale(this.props.prefix, pages.rooms)} className="footer-element">{content.book}</Link>
+                <A class="footer-element" href={links.privatise_form}> {content.privatise} </A>
+                <A class="footer-element" href={links.shopify}> {content.coffee} </A>
+                <Link to={prefixLocale(this.props.prefix, pages.barista)} className="footer-element"> {content.barista} </Link>
+                <A class="footer-element" href={links.jobs_form}> {content.jobs} </A>
                 {/* <a className="footer-element footer-button" href="" target="_blank" rel="noopener noreferrer">{content.jobs}</a> */}
               </div>
 
               
               <div className="column-quarter footer-column">
                 <h3>{content.contact_title}</h3>
-                <a className="footer-element" rel="noopener noreferrer" href={`mailto:${content.email}`}>{content.email}</a>
-                <a className="footer-element" rel="noopener noreferrer" href={`tel:${content.phone}`}>{content.phone}</a>
-                <a className="footer-element" rel="noopener noreferrer" href={links.fb_desktop} target="_blank">Facebook</a>
-                <a className="footer-element" rel="noopener noreferrer" href={links.ig_desktop} target="_blank">Instagram</a>
+                <A class="footer-element" href={`mailto:${content.email}`}> {content.email} </A>
+                <A class="footer-element" href={`tel:${content.phone}`}> {content.phone} </A>
+                <A class="footer-element" href={links.fb_desktop}> Facebook </A>
+                <A class="footer-element" href={links.ig_desktop}> Instagram </A>
               </div>
 
             </div>

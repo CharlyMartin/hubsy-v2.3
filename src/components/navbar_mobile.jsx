@@ -1,22 +1,29 @@
+// Librairies
 import React from 'react';
 import { StaticQuery, graphql } from "gatsby";
 import { Link } from 'gatsby'
 
-import Image from '../components/image'
+// Components
+import Image from '../components/image';
+import A from '../components/a'
 
+// Utilities
 import { toggleMenu } from '../utilities/toggle_menu';
 
-// import logo from '../images/logo/logo.png';
+// Images
 import flagFR from '../images/lang/fr.png';
 import flagEN from '../images/lang/en.png';
 import instagram from '../images/icons/instagram.png';
 
+// Data
 import links from '../data/external-links';
 import pages from '../data/internal-links';
 
+// CSS
 import '../css/components/navbar_mobile.css';
 
-
+// Helpers
+import { prefixLocale } from '../helpers/functions';
 
 class NavbarMobile extends React.Component {
   constructor(props) {
@@ -31,10 +38,6 @@ class NavbarMobile extends React.Component {
   createLangLink() {
     if (this.props.locale === 'fr') return `/en/${this.props.path}`;
     if (this.props.locale === 'en') return `/${this.props.path}`;
-  }
-
-  prefixLocale(path) {
-    return `${this.props.prefix}${path}`;
   }
 
   filterObjects(array, lang = 'fr') {
@@ -58,47 +61,47 @@ class NavbarMobile extends React.Component {
           <div className="mobile-background" />
           <div className="mobile-content-container">
             <div className="mobile-content-main">
-              <Link to={this.prefixLocale(pages.about)}>
+              <Link to={prefixLocale(this.props.prefix, pages.about)}>
                 <div className="mobile-element">
                   {content.concept}
                 </div>
               </Link>
 
-              <Link to={this.prefixLocale(pages.pricing)}>
+              <Link to={prefixLocale(this.props.prefix, pages.pricing)}>
                 <div className="mobile-element">
                   {content.pricing}
                 </div>
               </Link>
 
-              <Link to={this.prefixLocale(pages.rooms)}>
+              <Link to={prefixLocale(this.props.prefix, pages.rooms)}>
                 <div className="mobile-element">
                   {content.booking}
                 </div>
               </Link>
 
-              <Link to={this.prefixLocale(pages.shops)}>
+              <Link to={prefixLocale(this.props.prefix, pages.shops)}>
                 <div className="mobile-element" id="mobile-main">
                   {content.venues}
                 </div>
               </Link>
 
-              <Link to={this.prefixLocale(pages.barista)}>
+              <Link to={prefixLocale(this.props.prefix, pages.barista)}>
                 <div className="mobile-element">
                   {content.barista}
                 </div>
               </Link>
 
-              <a href={links.blog} target="_blank" rel="noopener noreferrer">
+              <A href={links.blog}>
                 <div className="mobile-element">
                   {content.blog}
                 </div>
-              </a>
+              </A>
 
-              <a href={links.shopify} target="_blank" rel="noopener noreferrer">
+              <A href={links.shopify}>
                 <div className="mobile-element">
                   {content.coffee}
                 </div>
-              </a>
+              </A>
             </div>
 
             <div className="mobile-links">
@@ -110,11 +113,11 @@ class NavbarMobile extends React.Component {
               </Link>
 
               {/* INSTAGRAM */}
-              <a rel="noopener noreferrer" href={links.ig_mobile} target="_blank">
+              <A href={links.ig_mobile}>
                 <div className="square">
                   <Image src={instagram}/>
                 </div>
-              </a>
+              </A>
             </div>
 
           </div>

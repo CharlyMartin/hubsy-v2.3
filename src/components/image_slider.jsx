@@ -1,9 +1,16 @@
+// Libraries
 import React from 'react';
-import Image from './image';
 import Img from 'gatsby-image';
 
+// Components
+import Image from './image';
+
+// CSS
 import '../css/components/image_slider.css';
+
+// Images
 import caret from '../images/icons/caret.png'
+
 
 class ImageSlider extends React.Component {
   constructor(props) {
@@ -13,10 +20,6 @@ class ImageSlider extends React.Component {
       index: 0,
     }
   }
-
-  // formatImages(array) {
-  //   return array.map(i => i.url);
-  // }
 
   getLastIndex() {
     return (this.state.images.length - 1);

@@ -1,9 +1,9 @@
 import React from 'react';
 
-function A({ href, children }) {
+function A(props) {
   return (
-    <a href={href} target="_blank" rel="noopener noreferrer">
-      {children}
+    <a href={props.href} target="_blank" rel="noopener noreferrer" className={props.class}>
+      {props.children}
     </a>
   )  
 }

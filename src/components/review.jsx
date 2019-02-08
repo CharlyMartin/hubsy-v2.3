@@ -1,9 +1,15 @@
+// Librairies
 import React from 'react';
-import star from '../images/icons/star.png';
-import Image from './image';
-// import { Link } from 'gatsby';
 
+// Components
+import Image from './image';
+
+// Images
+import star from '../images/icons/star.png';
+
+// CSS
 import '../css/components/review.css'
+
 
 const Review = (props) => {
   return (

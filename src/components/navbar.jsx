@@ -1,21 +1,31 @@
+// Librairies
 import React from 'react';
 import { StaticQuery, graphql } from "gatsby";
 import { Link } from 'gatsby'
 
+// Components
 import Image from './image';
+import A from './a';
 
+// Images
 import logo from '../images/logo/logo.png';
 import flagFR from '../images/lang/fr.png';
 import flagEN from '../images/lang/en.png';
 import caret from '../images/icons/caret.png';
 import menu from '../images/icons/menu.png';
 
+// Utilities
 import { navbarDropdown } from '../utilities/navbar_dropdown';
 
+// Data
 import links from '../data/external-links';
 import pages from '../data/internal-links';
 
+// CSS
 import '../css/components/navbar.css';
+
+// Helpers
+import { prefixLocale } from '../helpers/functions';
 
 
 
@@ -27,10 +37,6 @@ class Navbar extends React.Component {
   renderFlag() {
     if (this.props.locale === 'fr') return (<Image src={flagFR} /> );
     if (this.props.locale === 'en') return (<Image src={flagEN} /> );
-  }
-
-  prefixLocale(path) {
-    return `${this.props.prefix}${path}`;
   }
 
   filterObjects(array, lang = 'fr') {
@@ -53,42 +59,42 @@ class Navbar extends React.Component {
 
               <div className="navbar-side" id="navbar-left">
                 <div className="navbar-element">
-                  <Link to={this.prefixLocale(pages.shops)}>{content.venues}</Link>
+                  <Link to={prefixLocale(this.props.prefix, pages.shops)}>{content.venues}</Link>
                 </div>
 
                 <div className="navbar-element">
-                  <Link to={this.prefixLocale(pages.about)}>{content.concept}</Link>
+                  <Link to={prefixLocale(this.props.prefix, pages.about)}>{content.concept}</Link>
                 </div>
 
                 <div className="navbar-element">
-                  <Link to={this.prefixLocale(pages.pricing)}>{content.pricing}</Link>
+                  <Link to={prefixLocale(this.props.prefix, pages.pricing)}>{content.pricing}</Link>
                 </div>
                 
                 {/* Dropdown is desactivated, no class with dropdown */}
                 <div className="navbar-element"> 
-                  <Link to={this.prefixLocale(pages.rooms)}>{content.booking}</Link>
+                  <Link to={prefixLocale(this.props.prefix, pages.rooms)}>{content.booking}</Link>
                   
 
                   <div className="navbar-dropdown" id="booking">
-                    <Link to={this.prefixLocale(pages.rooms)}>
+                    <Link to={prefixLocale(this.props.prefix, pages.rooms)}>
                       <div className="navbar-dropdown-item">
                         <h3>{content.book}</h3>
                         <p className="text-small">{content.book_text}</p>
                       </div>
                     </Link>
 
-                    <a href={links.privatise_form} target="_blank" rel="noopener noreferrer">
+                    <A href={links.privatise_form}>
                       <div className="navbar-dropdown-item">
                         <h3>{content.privatize}</h3>
                         <p className="text-small">{content.privatize_text}</p>
                       </div>
-                    </a>
+                    </A>
                   </div>
                 </div>
               </div>
 
               <div className="navbar-logo">
-                <Link to={this.prefixLocale(pages.home)}>
+                <Link to={prefixLocale(this.props.prefix, pages.home)}>
                   <Image src={logo} />
                 </Link>
               </div>
@@ -101,15 +107,15 @@ class Navbar extends React.Component {
 
                 <div className="navbar-side-container">
                   <span className="navbar-element">
-                    <Link to={this.prefixLocale(pages.barista)}>{content.barista}</Link>
+                    <Link to={prefixLocale(this.props.prefix, pages.barista)}>{content.barista}</Link>
                   </span>
 
                   <span className="navbar-element">
-                    <a href={links.shopify} target="_blank" rel="noopener noreferrer">{content.coffee}</a>
+                    <A href={links.shopify}> {content.coffee} </A>
                   </span>
 
                   <span className="navbar-element">
-                    <a href={links.blog} target="_blank" rel="noopener noreferrer">{content.blog}</a>
+                    <A href={links.blog}> {content.blog} </A>
                   </span>
 
                   <div className="navbar-language with-dropdown">
