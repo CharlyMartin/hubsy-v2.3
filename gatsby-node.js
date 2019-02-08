@@ -17,6 +17,9 @@ const baristaPage = path.resolve(`src/templates/barista-training.jsx`);
 const cgvPage = path.resolve(`src/templates/cgv.jsx`);
 const mlPage = path.resolve(`src/templates/ml.jsx`);
 
+// Local objects
+const locales = {'fr': '/', 'en': '/en/'};
+
 // Page creations
 exports.createPages = async ({ graphql, actions, createNodeId, store, cache }) => {
   // The Gatsby API “createPages” is called once the
@@ -37,24 +40,16 @@ exports.createPages = async ({ graphql, actions, createNodeId, store, cache }) =
       })
       
       const nodeName = `airtable-${parent}-${locale}-${counter}`;
-
       createNodeField({
         node: newNode,
         name: `parentTable`,
         value: nodeName,
       })
-
-      newNode.name = nodeName;
       counter++;
-
-      console.log(`remote node create ${newNode.fields.parentTable}`);
+      // console.log(`remote node create ${newNode.fields.parentTable}`);
     }
-
-
-
-      //   console.log(`${node.name}: ${node.relativePath}`);
-
   }
+
 
   // Function extracting the urls of the images from the graphQL object
   function extractImagesURL(data, keys) {
@@ -64,9 +59,29 @@ exports.createPages = async ({ graphql, actions, createNodeId, store, cache }) =
       .map(obj => obj.url);
   }
 
+  function createPagesFromSlug(r, pathname, component, locale, prefix) {
+    for (const i of r.data.allAirtable.edges) {
+      // console.log(node);
+      const pagePath = `${prefix}${pathname}/${i.node.data.slug}`;
+
+      createPage({
+        path: pagePath,
+        component,
+        context: {
+          locale,
+          prefix,
+          pathname,
+          data: i.node.data
+        }
+      })
+
+      console.log(`built: ${pagePath}`);
+    }
+  }
+
   // Function creating localised pages from parameters provided
-  async function createPageFrom(resp, pathname, component, locale, prefix, imageKeys = []) {
-    const node = resp.data.allAirtable.edges[0].node;
+  async function createSinglePage(r, pathname, component, locale, prefix, imageKeys = []) {
+    const node = r.data.allAirtable.edges[0].node;
     const pagePath = `${prefix}${pathname}`;
 
     // Gatsby plugin to create pages from template components
@@ -77,10 +92,11 @@ exports.createPages = async ({ graphql, actions, createNodeId, store, cache }) =
         locale,
         prefix,
         pathname,
-        data: node.data
+        data: node.data,
+        pics: "pics"
       }
     });
-    
+
     console.log(`built ${pagePath}`);
 
     const imageURLs = await extractImagesURL(node.data, imageKeys);
@@ -91,52 +107,33 @@ exports.createPages = async ({ graphql, actions, createNodeId, store, cache }) =
 
 
   // Start of the loop to create pages in "fr" & "en"
-  for (const array of Object.entries({'fr': '/', 'en': '/en/'})) {
+  for (const array of Object.entries(locales)) {
     const [locale, prefix] = array;
     console.log(`starting page creation for ${locale} - ${prefix}`);
 
-    run.homeQuery(locale, graphql)
-      .then(resp => createPageFrom(resp, pages.home, homePage, locale, prefix, ['pictures']))
-      .then(resp => addImagesToSource(resp.imageURLs, 'home', locale));
+    // Waiting for all images to be added to the source data layer
+    await run.homeQuery(locale, graphql)
+      .then(r => createSinglePage(r, pages.home, homePage, locale, prefix, ['pictures']))
+      .then(r => addImagesToSource(r.imageURLs, 'home', locale));
+    console.log(test);
 
-    // run.shopsQuery(locale, graphql)
-    //   .then(resp => createPageFrom(resp, pages.shops, shopsPage, locale, prefix));
+    run.shopsQuery(locale, graphql)
+      .then(r => createSinglePage(r, pages.shops, shopsPage, locale, prefix));
 
-    // run.pricingQuery(locale, graphql)
-    //   .then(resp => createPageFrom(resp, pages.pricing, pricingPage, locale, prefix));
+    run.pricingQuery(locale, graphql)
+      .then(r => createSinglePage(r, pages.pricing, pricingPage, locale, prefix));
 
-    // run.aboutQuery(locale, graphql)
-    //   .then(resp => createPageFrom(resp, pages.about, aboutPage, locale, prefix, ['item_1_picture', 'item_2_picture', 'item_3_picture']))
-    //   .then(resp => addImagesToSource(resp.imageURLs, 'about', locale));
+    run.aboutQuery(locale, graphql)
+      .then(r => createSinglePage(r, pages.about, aboutPage, locale, prefix))
 
-    // run.roomsQuery(locale, graphql)
-    //   .then(resp => createPageFrom(resp, pages.rooms, roomsPage, locale, prefix));
+    run.roomsQuery(locale, graphql)
+      .then(r => createSinglePage(r, pages.rooms, roomsPage, locale, prefix));
 
-    // run.baristaQuery(locale, graphql)
-    //   .then(resp => createPageFrom(resp, pages.barista, baristaPage, locale, prefix, ['picture', 'training_1_picture', 'training_2_picture']))
-    //   .then(resp => addImagesToSource(resp.imageURLs, 'barista', locale));
+    run.baristaQuery(locale, graphql)
+      .then(r => createSinglePage(r, pages.barista, baristaPage, locale, prefix));
 
-
-    // Shop pages based on slugs in shops table
-    // run.shopQuery(locale, graphql)
-    //   .then(response => {
-    //     response.data.allAirtable.edges.forEach((result => {
-    //       const pathname = `${pages.shops}/${result.node.data.slug}`;
-    //       const obj = {
-    //         path: `${prefix}${pathname}`,
-    //         component: shopPage,
-    //         context: {
-    //           locale,
-    //           prefix,
-    //           pathname,
-    //           data: result.node.data
-    //         }
-    //       };
-    //       createPage(obj);
-    //       console.log(`built: ${prefix}${pathname}`);
-    //     }))
-    //   })
-
+    run.shopQuery(locale, graphql)
+      .then(r => createPagesFromSlug(r, pages.shops, shopPage, locale, prefix));
   }; // End of the loop
 
 
@@ -186,16 +183,17 @@ exports.createPages = async ({ graphql, actions, createNodeId, store, cache }) =
 };
 
 // exports.onCreateNode = ({ node, actions }) => {
-//   // const { createNode, createNodeField } = actions
+//   const { createNode, createNodeField } = actions
 //   // console.log(`id: ${node.internal.id}`);
-//   // console.log(`type: ${node.internal.type}`);
+//   console.log(`type: ${node.name}`);
+//   console.log(`type: ${node.internal.type}`);
 //   // console.log(`parent: ${node.internal.parent}`);
 //   // console.log(`contentDigest: ${node.internal.contentDigest}`);
 //   // console.log(`children: ${node.internal.children}`);
 //   // console.log(`mediaType: ${node.internal.mediaType}`);
 //   // console.log(`content: ${node.internal.content}`);
 //   // console.log(`description: ${node.internal.description}`);
-//   // console.log(`---------------------`);
+//   console.log(`---------------------`);
 //   // Transform the new node here and create a new node or
 //   // create a new node field.
 // }
