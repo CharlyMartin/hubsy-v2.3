@@ -64,6 +64,8 @@ class ImageSlider extends React.Component {
       <div className={`hero-image ${this.props.class}`}>
         <Img fluid={currentImg} sizes={currentImg} style={style}/>
 
+        {this.props.children}
+
         <div className="arrows">
           <div className="arrow-container" id="left" onClick={this.getPreviousSlide.bind(this)}>
             <div className="arrow">

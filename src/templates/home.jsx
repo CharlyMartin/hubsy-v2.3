@@ -77,8 +77,9 @@ class HomePage extends React.Component {
       <Layout prefix={pageContext.prefix} locale={pageContext.locale} title={pageContext.data.seo_title} description={pageContext.data.seo_description}>
         <div id="home-page" path={pageContext.pathname}>
           
-          {this.renderAlert(pageContext.data)}
-          <ImageSlider class="home-hero" images={this.props.data.banners.edges} />
+          <ImageSlider class="home-hero" images={this.props.data.banners.edges}>
+            {this.renderAlert(pageContext.data)}
+          </ImageSlider>
 
           {/* Brand + Tagline */}
           <div className="container mg-xl-top mg-xxl-bottom">

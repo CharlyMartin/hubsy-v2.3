@@ -62,7 +62,7 @@ exports.createPages = async ({ graphql, actions, createNodeId, store, cache }) =
       .map(obj => obj.url);
   }
 
-  function createPagesFromSlug(r, pathname, component, locale, prefix) {
+  async function createPagesFromSlug(r, pathname, component, locale, prefix, imageKeys = []) {    
     for (const i of r.data.allAirtable.edges) {
       // console.log(node);
       const pagePath = `${prefix}${pathname}/${i.node.data.slug}`;
@@ -79,6 +79,9 @@ exports.createPages = async ({ graphql, actions, createNodeId, store, cache }) =
       })
 
       console.log(`\n📄 ${pagePath} (page)`);
+
+      let imageURLs = await extractImagesURL(i.node.data, imageKeys);
+      await addImagesToSource(imageURLs, i.node.data.slug, locale);
     }
   }
 
@@ -118,23 +121,23 @@ exports.createPages = async ({ graphql, actions, createNodeId, store, cache }) =
       .then(r => createSinglePage(r, pages.home, homePage, locale, prefix, ['pictures']))
       .then(r => addImagesToSource(r.imageURLs, 'home', locale));
 
-    run.shopsQuery(locale, graphql)
+    await run.shopsQuery(locale, graphql)
       .then(r => createSinglePage(r, pages.shops, shopsPage, locale, prefix));
 
-    run.pricingQuery(locale, graphql)
+    await run.pricingQuery(locale, graphql)
       .then(r => createSinglePage(r, pages.pricing, pricingPage, locale, prefix));
 
-    run.aboutQuery(locale, graphql)
+    await run.aboutQuery(locale, graphql)
       .then(r => createSinglePage(r, pages.about, aboutPage, locale, prefix))
 
-    run.roomsQuery(locale, graphql)
+    await run.roomsQuery(locale, graphql)
       .then(r => createSinglePage(r, pages.rooms, roomsPage, locale, prefix));
 
-    run.baristaQuery(locale, graphql)
+    await run.baristaQuery(locale, graphql)
       .then(r => createSinglePage(r, pages.barista, baristaPage, locale, prefix));
 
-    run.shopQuery(locale, graphql)
-      .then(r => createPagesFromSlug(r, pages.shops, shopPage, locale, prefix));
+    await run.shopQuery(locale, graphql)
+      .then(r => createPagesFromSlug(r, pages.shops, shopPage, locale, prefix, ['pictures']))
   }; // End of the loop
 
 

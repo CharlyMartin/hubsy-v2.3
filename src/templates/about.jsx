@@ -20,7 +20,7 @@ class aboutPage extends React.Component {
   
   render() {
     const pageContext = this.props.pageContext;
-    console.log(this.props.data.images);
+    // console.log(this.props.data.images);
 
     return (
       <Layout prefix={pageContext.prefix} locale={pageContext.locale} title={pageContext.data.seo_title} description={pageContext.data.seo_description}>

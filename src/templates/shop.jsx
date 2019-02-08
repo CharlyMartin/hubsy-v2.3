@@ -6,6 +6,7 @@ import Button from '../components/button';
 import Item from '../components/item';
 import Map from '../components/map';
 import HeroImage from '../components/hero_image';
+import ImageSlider from '../components/image_slider';
 
 import coffee from '../images/icons/coffee.png';
 import screen from '../images/icons/screen.png';
@@ -51,6 +52,10 @@ class ShopPage extends React.Component {
       }
     ]
   }
+
+  // createSharp(slug) {
+  //   if ()
+  // }
 
   renderStructuredData(content) {
     return (
@@ -103,11 +108,12 @@ class ShopPage extends React.Component {
     const content = array[0].node.data;
     const markers = this.formatMarker(pageContext);
     const fullAddress = `${pageContext.data.street}, ${pageContext.data.postcode} ${pageContext.data.city}`
+    console.log(this.props);
 
-    // const backgroundImage = {
-    //   backgroundImage: `url(${this.state.selectedImage.url})`,
-    // };
-    
+    const mapping = {
+      artsMetiers: 'arts-metiers',
+      republique: 'republique'
+    }    
 
     return (
       <Layout prefix={pageContext.prefix} locale={pageContext.locale} title={pageContext.data.seo_title} description={pageContext.data.seo_description}>
@@ -215,9 +221,9 @@ export default ShopPage;
 // - props.pageContext => coming from the createPage() action in gatsby-node
 // - props.data => coming from the page Query below
 
-
+// export const query = shopQuery('republique' ,graphql);
 export const query = graphql`
-  {
+  query shopPageQuery{
     allAirtable(filter: {table: {eq: "shop_page"}}) {
       edges {
         node {
@@ -239,6 +245,45 @@ export const query = graphql`
             button_1
             button_2
             nearby
+          }
+        }
+      }
+    }
+
+    artsMetier: allFile(filter: {name: {regex: "/airtable-arts-metiers/"}}) {
+      edges {
+        node {
+          id
+          childImageSharp {
+            fluid {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
+      }
+    }
+
+    republique: allFile(filter: {name: {regex: "/airtable-republique/"}}) {
+      edges {
+        node {
+          id
+          childImageSharp {
+            fluid {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
+      }
+    }
+
+    saintLazarre: allFile(filter: {name: {regex: "/airtable-saint-lazare/"}}) {
+      edges {
+        node {
+          id
+          childImageSharp {
+            fluid {
+              ...GatsbyImageSharpFluid
+            }
           }
         }
       }
