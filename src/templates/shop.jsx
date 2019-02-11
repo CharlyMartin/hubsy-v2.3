@@ -251,11 +251,7 @@ export const query = graphql`
     am: allFile(filter: {name: {regex: "/airtable-arts-metiers/"}}) {
       edges {
         node {
-          childImageSharp {
-            fluid {
-              ...GatsbyImageSharpFluid
-            }
-          }
+          ...HeroImageFuild
         }
       }
     }
@@ -263,11 +259,7 @@ export const query = graphql`
     rep: allFile(filter: {name: {regex: "/airtable-republique/"}}) {
       edges {
         node {
-          childImageSharp {
-            fluid {
-              ...GatsbyImageSharpFluid
-            }
-          }
+          ...HeroImageFuild
         }
       }
     }
@@ -275,11 +267,7 @@ export const query = graphql`
     sl: allFile(filter: {name: {regex: "/airtable-saint-lazare/"}}) {
       edges {
         node {
-          childImageSharp {
-            fluid {
-              ...GatsbyImageSharpFluid
-            }
-          }
+          ...HeroImageFuild
         }
       }
     }

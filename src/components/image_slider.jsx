@@ -74,7 +74,7 @@ class ImageSlider extends React.Component {
     return (
       <Img
         fluid={currentImg}
-        // sizes={currentImg}
+        sizes={currentImg}
         title="Hubsy Café"
         alt="Hubsy Café"
         className="gatsby-image-element"

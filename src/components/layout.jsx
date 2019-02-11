@@ -1,6 +1,7 @@
 // Librairies
 import React from 'react';
 import Helmet from 'react-helmet';
+import {graphql} from 'gatsby';
 
 // Components
 import Navbar from './navbar';
@@ -70,6 +71,16 @@ class Layout extends React.Component {
     )
   }
 }
+
+export const query = graphql`
+  fragment HeroImageFuild on File {
+    childImageSharp {
+      fluid(maxWidth: 1440, quality: 100) {
+        ...GatsbyImageSharpFluid_withWebp
+      }
+    }
+  }
+`
 
 export default Layout;
 
