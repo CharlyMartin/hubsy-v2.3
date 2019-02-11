@@ -162,10 +162,9 @@ export const query = graphql`
     banners: allFile(filter: {name: {regex: "/airtable-home/"}}) {
       edges {
         node {
-          id
           childImageSharp {
-            fluid {
-              ...GatsbyImageSharpFluid
+            fluid(maxWidth: 1200) {
+              ...GatsbyImageSharpFluid_withWebp_tracedSVG
             }
           }
         }

@@ -16,45 +16,51 @@ class ImageSlider extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      images: this.props.images,
-      index: 0,
+      // images: this.props.images,
+      selectedImg: 0,
     }
   }
 
   getLastIndex() {
-    return (this.state.images.length - 1);
+    const result = this.props.images.length - 1;
+    // console.log(result);
+    return result;
   }
 
   isLast() {
-    return (this.getLastIndex() === this.state.index);
+    const result = (this.getLastIndex() === this.state.selectedImg);
+    // console.log(result);
+    return result;
   }
 
   isFirst() {
-    return (this.state.index === 0);
-    
+    const result = this.state.selectedImg === 0
+    // console.log(result);
+    return result;
   }
 
   getNextSlide() {
     if (this.isLast()) {
-      this.setState({index: 0});
+      this.setState({selectedImg: 0});
       return;
     }
 
-    this.setState({index: this.state.index += 1});
+    this.setState({selectedImg: this.state.selectedImg += 1});
   }
 
   getPreviousSlide() {
     if (this.isFirst()) {
-      this.setState({index: this.getLastIndex()});
+      this.setState({selectedImg: this.getLastIndex()});
       return;
     }
 
-    this.setState({index: this.state.index -= 1})
+    this.setState({selectedImg: this.state.selectedImg -= 1})
   }
 
-  render() {
-    // console.log(this.props.images[0], this.state.index);
-    const currentImg = this.props.images[this.state.index].node.childImageSharp.fluid;
+  renderImage() {
+    const images = this.props.images;
+    const index = this.state.selectedImg;
+    const currentImg = images[index].node.childImageSharp.fluid;
     const style = {
       position: "absolute",
       left: 0,
@@ -62,10 +68,26 @@ class ImageSlider extends React.Component {
       width: "100%",
       height: "100%"
     }
-    // console.log(currentImg)
+
+    console.log(`Image index: ${index}`, currentImg);
+
+    return (
+      <Img
+        fluid={currentImg}
+        // sizes={currentImg}
+        title="Hubsy Café"
+        alt="Hubsy Café"
+        className="gatsby-image-element"
+        style={style}
+        fadeIn={true}
+      />
+    )
+  }
+
+  render() {
     return (
       <div className={`hero-image ${this.props.class}`}>
-        <Img fluid={currentImg} sizes={currentImg} style={style}/>
+        {this.renderImage()}
 
         {this.props.children}
 
