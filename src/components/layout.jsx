@@ -75,7 +75,7 @@ class Layout extends React.Component {
 export const query = graphql`
   fragment HeroImageFuild on File {
     childImageSharp {
-      fluid(maxWidth: 1440, quality: 100) {
+      fluid(maxWidth: 1000, quality: 100) {
         ...GatsbyImageSharpFluid_withWebp
       }
     }
