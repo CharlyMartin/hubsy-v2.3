@@ -86,15 +86,15 @@ class ShopPage extends React.Component {
     )
   }
 
-  createSharpPath(slug) {
-    const mapping = {
-      'arts-metiers': 'am',
-      'republique' : 'rep',
-      'saint-lazare' : 'sl'
-    }
-    const key = mapping[slug];
-    return this.props.data[key].edges;
-  }
+  // createSharpPath(slug) {
+  //   const mapping = {
+  //     'arts-metiers': 'am',
+  //     'republique' : 'rep',
+  //     'saint-lazare' : 'sl'
+  //   }
+  //   const key = mapping[slug];
+  //   return this.props.data[key].edges;
+  // }
 
   filterObjects(array, lang = 'fr') {
     // Components are called internally during the build sequence,
@@ -117,7 +117,7 @@ class ShopPage extends React.Component {
       <Layout prefix={pageContext.prefix} locale={pageContext.locale} title={pageContext.data.seo_title} description={pageContext.data.seo_description}>
         <div id="shop-page" path={pageContext.pathname} name={pageContext.data.name}>
           
-          <HeroImage class="shop-hero" images={this.createSharpPath(pageContext.data.slug)}>
+          <HeroImage class="shop-hero" images={pageContext.data.pictures}>
             <div className="container">
               <div className="shop-hero-title">
                 <h1>Hubsy {pageContext.data.name}</h1>
@@ -178,9 +178,6 @@ class ShopPage extends React.Component {
                   <Item image={phone}   text={pageContext.data.booths} />
                   <Item image={printer} text={pageContext.data.printer} />
                 </div>
-                {/* <div className="mg-xxl-top">
-                  <h2>{content.nearby}</h2>
-                </div> */}
 
                 <div className="mg-xxl-top" id="prices">
                   <h2>{content.prices}</h2>
@@ -247,29 +244,29 @@ export const query = graphql`
         }
       }
     }
-
-    am: allFile(filter: {name: {regex: "/airtable-arts-metiers/"}}) {
-      edges {
-        node {
-          ...HeroImageFuild
-        }
-      }
-    }
-
-    rep: allFile(filter: {name: {regex: "/airtable-republique/"}}) {
-      edges {
-        node {
-          ...HeroImageFuild
-        }
-      }
-    }
-
-    sl: allFile(filter: {name: {regex: "/airtable-saint-lazare/"}}) {
-      edges {
-        node {
-          ...HeroImageFuild
-        }
-      }
-    }
   }
 `
+
+// am: allFile(filter: {name: {regex: "/airtable-arts-metiers/"}}) {
+//   edges {
+//     node {
+//       ...HeroImageFuild
+//     }
+//   }
+// }
+
+// rep: allFile(filter: {name: {regex: "/airtable-republique/"}}) {
+//   edges {
+//     node {
+//       ...HeroImageFuild
+//     }
+//   }
+// }
+
+// sl: allFile(filter: {name: {regex: "/airtable-saint-lazare/"}}) {
+//   edges {
+//     node {
+//       ...HeroImageFuild
+//     }
+//   }
+// }
