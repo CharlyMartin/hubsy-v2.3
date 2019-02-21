@@ -70,7 +70,6 @@ class HomePage extends React.Component {
 
   render() {    
     const pageContext = this.props.pageContext;
-    console.log(pageContext);
 
     return (
       <Layout prefix={pageContext.prefix} locale={pageContext.locale} title={pageContext.data.seo_title} description={pageContext.data.seo_description}>
