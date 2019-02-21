@@ -11,6 +11,7 @@ class Alert extends React.Component {
     super(props)
 
     this.state = {visible: true}
+    this.close = this.close.bind(this);
   }
 
   // componentDidMount() {
@@ -32,7 +33,7 @@ class Alert extends React.Component {
       <div className="alert">
         <div className="container">
           <p>{this.props.content}</p>
-          <div className="cross-container" onClick={this.close.bind(this)}>
+          <div className="cross-container" onClick={this.close}>
             <Image src={cross_white}/>
           </div>
         </div>

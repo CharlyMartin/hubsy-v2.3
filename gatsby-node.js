@@ -119,7 +119,7 @@ exports.createPages = async ({ graphql, actions, createNodeId, store, cache }) =
     // Waiting for all images to be added to the source data layer
     await run.homeQuery(locale, graphql)
       .then(r => createSinglePage(r, pages.home, homePage, locale, prefix, ['pictures']))
-      .then(r => addImagesToSource(r.imageURLs, 'home', locale));
+      // .then(r => addImagesToSource(r.imageURLs, 'home', locale));
 
     await run.shopsQuery(locale, graphql)
       .then(r => createSinglePage(r, pages.shops, shopsPage, locale, prefix));
@@ -137,7 +137,8 @@ exports.createPages = async ({ graphql, actions, createNodeId, store, cache }) =
       .then(r => createSinglePage(r, pages.barista, baristaPage, locale, prefix));
 
     await run.shopQuery(locale, graphql)
-      .then(r => createPagesFromSlug(r, pages.shops, shopPage, locale, prefix, ['pictures']))
+      // .then(r => createPagesFromSlug(r, pages.shops, shopPage, locale, prefix, ['pictures']))
+      .then(r => createPagesFromSlug(r, pages.shops, shopPage, locale, prefix))
   }; // End of the loop
 
 
