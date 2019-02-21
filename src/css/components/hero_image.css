@@ -1,4 +1,4 @@
-/* .hero-image {
+.hero-image {
   height: var(--hero-height);
   width: 100%;
   position: relative;
@@ -82,4 +82,4 @@
   .arrow img {
     width: 12px;
   }
-} */
+}

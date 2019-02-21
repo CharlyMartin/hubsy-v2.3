@@ -7,7 +7,7 @@ import Layout from '../components/layout';
 import Button from '../components/button';
 import Item from '../components/item';
 import Map from '../components/map';
-import ImageSlider from '../components/image_slider';
+import HeroImage from '../components/hero_image';
 
 // Images
 import coffee from '../images/icons/coffee.png';
@@ -117,14 +117,14 @@ class ShopPage extends React.Component {
       <Layout prefix={pageContext.prefix} locale={pageContext.locale} title={pageContext.data.seo_title} description={pageContext.data.seo_description}>
         <div id="shop-page" path={pageContext.pathname} name={pageContext.data.name}>
           
-          <ImageSlider class="shop-hero" images={this.createSharpPath(pageContext.data.slug)}>
+          <HeroImage class="shop-hero" images={this.createSharpPath(pageContext.data.slug)}>
             <div className="container">
               <div className="shop-hero-title">
                 <h1>Hubsy {pageContext.data.name}</h1>
                 <p className={`badge badge-big ${this.setBadgeColor()}`}>{pageContext.data.status_long}</p>
               </div>
             </div>
-          </ImageSlider>
+          </HeroImage>
 
           <br/>
 

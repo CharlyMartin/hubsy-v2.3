@@ -8,7 +8,7 @@ import Button from '../components/button';
 import A from '../components/a';
 import Review from '../components/review';
 import Alert from '../components/alert';
-import ImageSlider from '../components/image_slider';
+import HeroImage from '../components/hero_image';
 
 // CSS
 import '../css/pages/home.css';
@@ -54,14 +54,14 @@ class HomePage extends React.Component {
 
   renderAlert(data) {
     return (
-      data.alert === "true" ? <Alert content={data.alert_message}/> : <div />
+      data.alert === "true" ? <Alert content={data.alert_message}/> : null
     )
   }
 
   renderReferrals() {
-    return this.props.data.referrals.edges.map(({ node }) => {
+    return this.props.data.referrals.edges.map(( { node } ) => {
       return (
-        <A href={links[`${node.name}`]} key={node.name}>
+        <A href={links[node.name]} key={node.name}>
           <Img fixed={node.childImageSharp.fixed} />
         </A>
       )
@@ -70,14 +70,15 @@ class HomePage extends React.Component {
 
   render() {    
     const pageContext = this.props.pageContext;
+    console.log(pageContext);
 
     return (
       <Layout prefix={pageContext.prefix} locale={pageContext.locale} title={pageContext.data.seo_title} description={pageContext.data.seo_description}>
         <div id="home-page" path={pageContext.pathname}>
           
-          <ImageSlider class="home-hero" images={this.props.data.banners.edges}>
+          <HeroImage class="home-hero" images={pageContext.data.pictures}>
             {this.renderAlert(pageContext.data)}
-          </ImageSlider>
+          </HeroImage>
 
           {/* Brand + Tagline */}
           <div className="container mg-xl-top mg-xxl-bottom">

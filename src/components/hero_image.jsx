@@ -7,10 +7,10 @@ import caret from '../images/icons/caret.png'
 class HeroImage extends React.Component {
   constructor(props) {
     super(props)
+    
     this.state = {
       images: this.formatImages(this.props.images),
-      index: 0,
-      intervalID: this.initSlider
+      selectedImage: 0,
     }
   }
 
@@ -23,49 +23,38 @@ class HeroImage extends React.Component {
   }
 
   isLast() {
-    return (this.getLastIndex() === this.state.index);
+    return (this.getLastIndex() === this.state.selectedImage);
   }
 
   isFirst() {
-    return (this.state.index === 0);
-    
+    return (this.state.selectedImage === 0);
   }
 
   getNextSlide() {
     if (this.isLast()) {
-      this.setState({index: 0});
+      this.setState({selectedImage: 0});
       return;
     }
 
-    this.setState({index: this.state.index += 1});
+    this.setState({selectedImage: this.state.selectedImage += 1});
   }
 
   getPreviousSlide() {
     if (this.isFirst()) {
-      this.setState({index: this.getLastIndex()});
+      this.setState({selectedImage: this.getLastIndex()});
       return;
     }
 
-    this.setState({index: this.state.index -= 1})
+    this.setState({selectedImage: this.state.selectedImage -= 1})
   }
-
-  // initSlider() {
-  //   return setInterval(() => {
-  //     this.getNextSlide();
-  //   }, 2000);
-  // }
-
-  // componentDidMount() {
-  //   this.initSlider()
-  // }
 
   render() {
     const style = {
-      backgroundImage: `url(${this.state.images[this.state.index]})`,
+      backgroundImage: `url(${this.state.images[this.state.selectedImage]})`,
     }
 
     return (
-      <div className={`hero-image ${this.props.class}`} style={style} data-animation="fade-in">
+      <div className={`hero-image image-centered ${this.props.class}`} style={style}>
         
         {this.props.children}
 
