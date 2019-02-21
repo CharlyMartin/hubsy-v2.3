@@ -37,7 +37,8 @@
     "format": "prettier --write \"src/**/*.js\"",
     "test": "echo \"Error: no test specified\" && exit 1",
     "deploy": "git push origin master:deploy",
-    "clean": "rm -rf .cache && rm -rf public"
+    "clean": "rm -rf .cache && rm -rf public",
+    "lint": "eslint src"
   },
   "devDependencies": {
     "eslint-config-airbnb": "^17.1.0",

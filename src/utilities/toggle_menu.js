@@ -5,15 +5,14 @@ function toggleMenu() {
   const navbar = document.querySelector('.mobile');
 
   // 2. Functions
-  const open = () => {
+  function open() {
     navbar.classList.add('mobile-in');
     navbar.classList.remove('mobile-out');
-  };
-  
-  const close = () => {
+  }
+  function close() {
     navbar.classList.add('mobile-out');
     navbar.classList.remove('mobile-in');
-  };
+  }
 
   // 3. Events
   button.addEventListener('click', open);

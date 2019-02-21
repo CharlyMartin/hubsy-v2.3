@@ -7,4 +7,4 @@ module.exports = {
   barista: 'barista-training',
   cgv: 'conditions-generales-vente',
   ml: 'mentions-legales',
-}
+};

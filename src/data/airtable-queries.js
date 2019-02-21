@@ -1,6 +1,6 @@
 // FUNCTIONS PULLING DATA FROM AIRTABLE
 module.exports = {
-  homeQuery: function(lang, graphql) {
+  homeQuery(lang, graphql) {
     // The graphql function already returns a Promise so wrapping it
     // around a Promise is not necessary.
     console.log(`running homeQuery for ${lang}`);
@@ -30,10 +30,10 @@ module.exports = {
           }
         }
       }
-    `)
+    `);
   },
 
-  shopsQuery: function(lang, graphql) {
+  shopsQuery(lang, graphql) {
     console.log(`running shopsQuery for ${lang}`);
     return graphql(`
       {
@@ -50,10 +50,10 @@ module.exports = {
           }
         }
       }
-    `)
+    `);
   },
 
-  shopQuery: function(lang, graphql) {
+  shopQuery(lang, graphql) {
     console.log(`running shopsQuery for ${lang}`);
     return graphql(`
       {
@@ -99,10 +99,10 @@ module.exports = {
           }
         }
       }
-    `)
+    `);
   },
 
-  pricingQuery: function(lang, graphql) {
+  pricingQuery(lang, graphql) {
     console.log(`running pricingQuery for ${lang}`);
     return graphql(`
       {
@@ -156,10 +156,10 @@ module.exports = {
           }
         }
       }
-    `)
+    `);
   },
 
-  aboutQuery: function(lang, graphql) {
+  aboutQuery(lang, graphql) {
     console.log(`running aboutQuery for ${lang}`);
     return graphql(`
       {
@@ -196,10 +196,10 @@ module.exports = {
           }
         }
       }        
-    `)
+    `);
   },
 
-  roomsQuery: function(lang, graphql) {
+  roomsQuery(lang, graphql) {
     console.log(`running roomsQuery for ${lang}`);
     return graphql(`
       {
@@ -220,10 +220,10 @@ module.exports = {
           }
         }
       }        
-    `)
+    `);
   },
 
-  baristaQuery: function(lang, graphql) {
+  baristaQuery(lang, graphql) {
     console.log(`running baristaQuery for ${lang}`);
     return graphql(`
       {
@@ -265,7 +265,6 @@ module.exports = {
           }
         }
       }             
-    `)
-  }
-
-}
+    `);
+  },
+};

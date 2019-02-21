@@ -7,7 +7,11 @@ function navbarDropdown() {
   function closeOnLeave(element) {
     element.addEventListener('mouseleave', () => {
       element.classList.remove('dropdown-active');
-    })
+    });
+  }
+
+  function closeAll() {
+    dropdowns.forEach(d => d.classList.remove('dropdown-active'));
   }
 
   function open(event) {
@@ -16,10 +20,6 @@ function navbarDropdown() {
     const dropdown = event.currentTarget.querySelector('.navbar-dropdown');
     dropdown.classList.add('dropdown-active');
     closeOnLeave(dropdown);
-  }
-
-  function closeAll() {
-    dropdowns.forEach(d => d.classList.remove('dropdown-active'));
   }
 
   // 3. Events

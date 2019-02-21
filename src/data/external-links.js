@@ -14,4 +14,4 @@ export default {
   forbes: 'https://www.forbes.fr/management/les-tiers-lieux-s-imposent/',
   le_parisien: 'http://www.leparisien.fr/paris-75/paris-75003/husby-reinvente-le-cafe-bureau-partage-pour-la-generation-y-a-paris-06-01-2016-5426597.php',
   telerama: 'https://sortir.telerama.fr/paris/lieux/bars/hubsy-cafe,28001.php',
-}
+};
