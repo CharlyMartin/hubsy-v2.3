@@ -37,7 +37,7 @@ class Layout extends React.Component {
 
     return (
       <div>
-        <Helmet title={`${this.props.title} | Hubsy Café & Coworking`}>
+        <Helmet title={this.props.title}>
           {/* Already done by Gatsby */}
           {/* <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" /> */}
           
