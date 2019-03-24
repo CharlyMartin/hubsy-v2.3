@@ -11,7 +11,8 @@ export default {
   barista_video: 'https://www.youtube.com/embed/dXO8Zufs2Es',
   timeout: 'https://www.timeout.fr/paris/bars/hubsy',
   tf1: 'https://vimeo.com/153919166#t=NaNs',
-  forbes: 'https://www.forbes.fr/management/les-tiers-lieux-s-imposent/',
+  forbes: 'https://www.forbes.fr/management/les-tiers-lieux-s-imposent',
   le_parisien: 'http://www.leparisien.fr/paris-75/paris-75003/husby-reinvente-le-cafe-bureau-partage-pour-la-generation-y-a-paris-06-01-2016-5426597.php',
+  le_figaro: 'http://www.lefigaro.fr/societes/2019/03/21/20005-20190321ARTFIG00168-les-cafes-sans-alcool-facturent-a-l-heure-les-travailleurs-independants.php',
   telerama: 'https://sortir.telerama.fr/paris/lieux/bars/hubsy-cafe,28001.php',
 };
