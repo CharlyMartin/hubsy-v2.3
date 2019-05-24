@@ -12,6 +12,7 @@ import pages from '../data/internal-links';
 
 // CSS
 import '../css/pages/shops.css';
+import '../css/components/badge.css';
 
 class ShopsPage extends React.Component {
   constructor(props) {
@@ -39,6 +40,12 @@ class ShopsPage extends React.Component {
     return array.filter(obj => obj.node.data.language === lang);
   }
 
+  setBadgeColor(live) {
+    if (live === "true") return "badge-green";
+    if (live === "false") return "badge-red";
+    return "";
+  }
+
   renderCards(array, prefix) {
     return (
       <div className="shops-container">
@@ -52,7 +59,11 @@ class ShopsPage extends React.Component {
                 status={obj.node.data.status_short}
                 picture={obj.node.data.pictures[0].url}
                 live={obj.node.data.live}
-              />
+              >
+                <p className={`badge ${this.setBadgeColor(obj.node.data.live)}`}>
+                  {obj.node.data.status_short}
+                </p>
+              </Card>
             </Link>
           )}
         )}

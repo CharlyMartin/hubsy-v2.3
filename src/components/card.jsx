@@ -1,54 +1,28 @@
-import React from 'react';
+import React, { Children } from 'react';
 
 import '../css/components/card.css';
-import '../css/components/badge.css';
 
-class Card extends React.Component {
-  constructor(props) {
-    super(props)
+function Card(props) {
 
-    this.state = {
-      mouseOver: false
-    }
-  }
+  return (
+    <div className="card"
+      >
+      <div  className="card-picture image-centered"
+            style={{backgroundImage: `url(${props.picture})`}}
+            data-animation="fade-in" />
 
-  setBadgeColor() {
-    if (this.props.live === "true") return "badge-green";
-    if (this.props.live === "false") return "badge-red";
-    return "";
-  }
+      <div className="card-content pd-md">
+        <div className="card-text-container">
+          <h2>{props.title}</h2>
+          <p>{props.subtitle}</p>
+        </div>
 
-  // handleMouseOut() {
-  //   this.setState({mouseOver: false});
-  // }
-
-  // handleMouseIn() {
-  //   this.setState({mouseOver: true});
-  // }
-
-  render() {
-    return (
-      <div className="card"
-        // onMouseEnter={this.handleMouseIn.bind(this, this.props)}
-        // onMouseLeave={this.handleMouseOut.bind(this, this.props)}
-        >
-        <div  className="card-picture image-centered"
-              style={{backgroundImage: `url(${this.props.picture})`}}
-              data-animation="fade-in" />
-
-        <div className="card-content pd-md">
-          <div className="card-text-container">
-            <h2>{this.props.title}</h2>
-            <p>{this.props.subtitle}</p>
-          </div>
-
-          <div className="card-badge-container">
-            <p className={`badge ${this.setBadgeColor()}`}>{this.props.status}</p>
-          </div>
+        <div className="card-badge-container">
+          {props.children}
         </div>
       </div>
-    );
-  }
+    </div>
+  );
 
 };
 
