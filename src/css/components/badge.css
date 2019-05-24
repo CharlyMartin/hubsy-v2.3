@@ -1,9 +1,21 @@
 .badge {
   font-size: var(--text-small-size);
-  font-weight: 300;
-  padding: 0 var(--space-xs);
+  font-weight: 400;
+  padding: 0 var(--space-sm);
   border-radius: var(--radius-sm);
   width: fit-content;
+}
+
+.badge-green-transparent {
+  border: 1px var(--hubsy-green) solid;
+  color: var(--hubsy-green);
+  font-weight: 600;
+  transition: all 100ms ease;
+}
+
+.card:hover .badge-green-transparent {
+  background: var(--hubsy-green);
+  color: white;
 }
 
 .badge.badge-big {

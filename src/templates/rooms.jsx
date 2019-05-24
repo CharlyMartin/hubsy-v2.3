@@ -55,11 +55,13 @@ class RoomsPage extends React.Component {
         <A href={obj.data.supersaas} key={obj.data.record_id}>
           <Card
             title={obj.data.name}
-            // subtitle={`${this.props.pageContext.data.capacity} ${obj.data.capacity}`}
             subtitle={obj.data.capacity}
             picture={obj.data.pictures[0].url}
-            status=""
-          />
+          >
+            <p className='badge badge-green-transparent'>
+              Reserver
+            </p>
+          </Card>
         </A>
       )
     })

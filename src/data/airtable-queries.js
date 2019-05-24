@@ -212,6 +212,7 @@ module.exports = {
                 language
                 privatise
                 capacity
+                book
                 button
                 seo_title
                 seo_description
