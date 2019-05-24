@@ -12,6 +12,7 @@ import A from '../components/a';
 
 // CSS
 import '../css/pages/room.css'
+import '../css/components/badge.css';
 
 // Data
 import links from '../data/external-links';
