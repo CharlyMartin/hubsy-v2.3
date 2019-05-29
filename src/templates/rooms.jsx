@@ -51,7 +51,7 @@ class RoomsPage extends React.Component {
   // }
 
   renderCards(array) {
-    return array.map(obj => {      
+    return array.map(obj => {
       return (
         <A href={obj.data.supersaas} key={obj.data.record_id}>
           <Card
@@ -60,7 +60,7 @@ class RoomsPage extends React.Component {
             picture={obj.data.pictures[0].url}
           >
             <p className='badge badge-green-transparent'>
-              Reserver
+              {this.props.pageContext.data.book}
             </p>
           </Card>
         </A>
