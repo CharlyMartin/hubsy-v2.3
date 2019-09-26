@@ -1,25 +1,25 @@
-import React from 'react';
+import React from 'react'
 import { Link, graphql } from 'gatsby'
-import Img from 'gatsby-image';
+import Img from 'gatsby-image'
 
 // Components
-import Layout from '../components/layout';
-import Button from '../components/button';
-import A from '../components/a';
-import Review from '../components/review';
-import Alert from '../components/alert';
-import HeroImage from '../components/hero_image';
+import Layout from '../components/layout'
+import Button from '../components/button'
+import A from '../components/a'
+import Review from '../components/review'
+import Alert from '../components/alert'
+import HeroImage from '../components/hero_image'
 
 // CSS
-import '../css/pages/home.css';
+import '../css/pages/home.css'
 
 // Data
-import reviews from '../data/reviews.js';
-import links from '../data/external-links.js';
-import pages from '../data/internal-links';
+import reviews from '../data/reviews.js'
+import links from '../data/external-links.js'
+import pages from '../data/internal-links'
 
 // Helpers
-import { sample, textEllipsis, prefixLocale } from '../helpers/functions';
+import { sample, textEllipsis, prefixLocale } from '../helpers/functions'
 
 // Components under src/pages become pages automatically with paths based on their file name.
 // For example src/pages/index.jsx is mapped to yoursite.com and src/pages/about.jsx becomes yoursite.com/about/.
@@ -27,23 +27,23 @@ import { sample, textEllipsis, prefixLocale } from '../helpers/functions';
 
 class HomePage extends React.Component {
   constructor(props) {
-    super(props);
+    super(props)
 
-    // Index default to root url. Hence, "/" does not have access to 
+    // Index default to root url. Hence, "/" does not have access to
     // pageContext, as it is not created by createPage().
     // There's data on "/en" as this one is created by createPage().
     this.state = {
-      reviews: sample(this.filterReviews(), 3)
+      reviews: sample(this.filterReviews(), 3),
     }
   }
 
   filterReviews() {
-    return reviews.filter(r => r.language === this.props.pageContext.locale);
+    return reviews.filter(r => r.language === this.props.pageContext.locale)
   }
 
   renderReviews() {
     return this.state.reviews.map(r => {
-      const clippedContent = textEllipsis(r.content);
+      const clippedContent = textEllipsis(r.content)
       return (
         <div className="column-third" key={r.id}>
           <Review first={r.first} content={clippedContent} />
@@ -53,28 +53,30 @@ class HomePage extends React.Component {
   }
 
   renderAlert(data) {
-    return (
-      data.alert === "true" ? <Alert content={data.alert_message}/> : null
-    )
+    return data.alert === 'true' ? <Alert content={data.alert_message} /> : null
   }
 
   renderReferrals() {
-    return this.props.data.referrals.edges.map(( { node } ) => {
+    return this.props.data.referrals.edges.map(({ node }) => {
       return (
         <A href={links[node.name]} key={node.name}>
           <Img fixed={node.childImageSharp.fixed} />
         </A>
       )
-    });
+    })
   }
 
-  render() {    
-    const pageContext = this.props.pageContext;
+  render() {
+    const pageContext = this.props.pageContext
 
     return (
-      <Layout prefix={pageContext.prefix} locale={pageContext.locale} title={pageContext.data.seo_title} description={pageContext.data.seo_description}>
+      <Layout
+        prefix={pageContext.prefix}
+        locale={pageContext.locale}
+        title={pageContext.data.seo_title}
+        description={pageContext.data.seo_description}
+      >
         <div id="home-page" path={pageContext.pathname}>
-          
           <HeroImage class="home-hero" images={pageContext.data.pictures}>
             {this.renderAlert(pageContext.data)}
           </HeroImage>
@@ -83,7 +85,9 @@ class HomePage extends React.Component {
           <div className="container mg-xl-top mg-xxl-bottom">
             <div className="brand-container-top mg-xl-bottom">
               <h1 id="title">{pageContext.data.brand}</h1>
-              <Link to={prefixLocale(this.props.pageContext.prefix, pages.shops)}>
+              <Link
+                to={prefixLocale(this.props.pageContext.prefix, pages.shops)}
+              >
                 <Button class="button-beige" text={pageContext.data.button} />
               </Link>
             </div>
@@ -92,55 +96,59 @@ class HomePage extends React.Component {
 
           <br />
           <br />
-          
+
           {/* Google Reviews */}
           <div className="wrapper-beige testimonials text-center mg-xl-bottom">
             <div className="container pd-xxl-top pd-xxl-bottom">
               <h3>{pageContext.data.testimonials}</h3>
-              <p className="mg-xl-bottom testimonials-subtitle">{pageContext.data.google_reviews}</p>
+              <p className="mg-xl-bottom testimonials-subtitle">
+                {pageContext.data.google_reviews}
+              </p>
               <div id="google">
-                <Img fixed={this.props.data.googleLogo.childImageSharp.fixed}/>
+                <Img fixed={this.props.data.googleLogo.childImageSharp.fixed} />
               </div>
-              
+
               <div className="reviews">
-                <div className="column-layout">
-                  {this.renderReviews()}
-                </div>
+                <div className="column-layout">{this.renderReviews()}</div>
               </div>
-              
             </div>
           </div>
 
+          <br />
+          <br />
+
           <div className="container text-center mg-xl-bottom">
             <Link to={prefixLocale(this.props.pageContext.prefix, pages.about)}>
-              <Button class="button-beige-transparent" text={pageContext.data.concept} />
+              <Button
+                class="button-beige-transparent"
+                text={pageContext.data.concept}
+              />
             </Link>
           </div>
 
-          <br/>
-          <br/>
-          <br/>
+          <br />
+          <br />
+          <br />
 
           {/* Company Referrals */}
-          <div className="container text-center">
+          {/* <div className="container text-center">
             <h3 className="mg-xl-bottom">{pageContext.data.referrals}</h3>
 
             <div className="referrals">
               {this.renderReferrals()}
             </div>
-          </div>
-
+          </div> */}
         </div>
       </Layout>
     )
   }
 }
-  
-export default HomePage;
+
+export default HomePage
 
 export const query = graphql`
   query homePageQuery {
-    referrals: allFile(filter: {relativeDirectory: {eq: "referrals"}}) {
+    referrals: allFile(filter: { relativeDirectory: { eq: "referrals" } }) {
       edges {
         node {
           name
@@ -152,14 +160,14 @@ export const query = graphql`
         }
       }
     }
-    googleLogo: file(relativePath: {eq: "icons/google.png"}) {
+    googleLogo: file(relativePath: { eq: "icons/google.png" }) {
       childImageSharp {
         fixed(width: 25, height: 25) {
           ...GatsbyImageSharpFixed
         }
       }
     }
-    banners: allFile(filter: {name: {regex: "/airtable-home/"}}) {
+    banners: allFile(filter: { name: { regex: "/airtable-home/" } }) {
       edges {
         node {
           ...HeroImageFuild

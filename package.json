@@ -36,7 +36,7 @@
     "format": "prettier --write \"src/**/*.js\"",
     "test": "echo \"Error: no test specified\" && exit 1",
     "deploy": "git push origin master:deploy",
-    "clean": "rm -rf .cache && rm -rf public",
+    "clean": "rm -rf .cache && rm -rf public && rm -rf node_modules",
     "lint": "eslint src"
   },
   "devDependencies": {
