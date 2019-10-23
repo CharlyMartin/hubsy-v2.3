@@ -3,7 +3,7 @@ module.exports = {
   homeQuery(lang, graphql) {
     // The graphql function already returns a Promise so wrapping it
     // around a Promise is not necessary.
-    console.log(`running homeQuery for ${lang}`);
+    console.log(`running homeQuery for ${lang}`)
     return graphql(`
       {
         allAirtable(filter: {table: {eq: "home_page"}, data: {language: {eq: "${lang}"}}}) {
@@ -30,11 +30,11 @@ module.exports = {
           }
         }
       }
-    `);
+    `)
   },
 
   shopsQuery(lang, graphql) {
-    console.log(`running shopsQuery for ${lang}`);
+    console.log(`running shopsQuery for ${lang}`)
     return graphql(`
       {
         allAirtable(filter: {table: {eq: "shops_page"}, data: {language: {eq: "${lang}"}}}) {
@@ -50,11 +50,11 @@ module.exports = {
           }
         }
       }
-    `);
+    `)
   },
 
   shopQuery(lang, graphql) {
-    console.log(`running shopsQuery for ${lang}`);
+    console.log(`running shopsQuery for ${lang}`)
     return graphql(`
       {
         allAirtable(filter: {table: {eq: "shops"}, data: {language: {eq: "${lang}"}}}) {
@@ -99,11 +99,11 @@ module.exports = {
           }
         }
       }
-    `);
+    `)
   },
 
   pricingQuery(lang, graphql) {
-    console.log(`running pricingQuery for ${lang}`);
+    console.log(`running pricingQuery for ${lang}`)
     return graphql(`
       {
         allAirtable(filter: {table: {eq: "pricing_page"}, data: {language: {eq: "${lang}"}}}) {
@@ -156,11 +156,11 @@ module.exports = {
           }
         }
       }
-    `);
+    `)
   },
 
   aboutQuery(lang, graphql) {
-    console.log(`running aboutQuery for ${lang}`);
+    console.log(`running aboutQuery for ${lang}`)
     return graphql(`
       {
         allAirtable(filter: {table: {eq: "about_page"}, data: {language: {eq: "${lang}"}}}) {
@@ -196,11 +196,11 @@ module.exports = {
           }
         }
       }        
-    `);
+    `)
   },
 
   roomsQuery(lang, graphql) {
-    console.log(`running roomsQuery for ${lang}`);
+    console.log(`running roomsQuery for ${lang}`)
     return graphql(`
       {
         allAirtable(filter: {table: {eq: "rooms_page"}, data: {language: {eq: "${lang}"}}}) {
@@ -221,11 +221,11 @@ module.exports = {
           }
         }
       }        
-    `);
+    `)
   },
 
   baristaQuery(lang, graphql) {
-    console.log(`running baristaQuery for ${lang}`);
+    console.log(`running baristaQuery for ${lang}`)
     return graphql(`
       {
         allAirtable(filter: {table: {eq: "barista_page"}, data: {language: {eq: "${lang}"}}}) {
@@ -240,7 +240,9 @@ module.exports = {
                 picture {
                   url
                 }
-
+                picture_2 {
+                  url
+                }
                 description
                 training_1_title
                 training_1_subtitle
@@ -250,7 +252,6 @@ module.exports = {
                 training_1_pdf {
                   url
                 }
-
                 training_2_title
                 training_2_subtitle
                 training_2_picture {
@@ -266,6 +267,6 @@ module.exports = {
           }
         }
       }             
-    `);
+    `)
   },
-};
+}
