@@ -1,19 +1,21 @@
 // Librairies
 import React from 'react'
+import { Link } from 'gatsby'
 
 // Components
 import Layout from '../components/layout'
 import PageHeader from '../components/page_header'
 import Card from '../components/card'
-import Button from '../components/button'
+// import Button from '../components/button'
 import A from '../components/a'
-import Image from '../components/background_image.jsx'
+import Image from '../components/background_image'
 
 // CSS
 import '../css/pages/barista.css'
 
 // Data
 import links from '../data/external-links'
+import routes from '../data/internal-links'
 
 class BaristaPage extends React.Component {
   constructor(props) {
@@ -84,37 +86,37 @@ class BaristaPage extends React.Component {
               <div className="column-layout">
                 <div className="column-half column-one">
                   {/* <A href={pageContext.data.training_1_pdf[0].url}> */}
-                  <A href={links.barista_form}>
+                  <Link to={routes.shops}>
                     <Card
                       title={pageContext.data.training_1_title}
                       subtitle={pageContext.data.training_1_subtitle}
                       path="#"
                       picture={pageContext.data.training_1_picture[0].url}
                     />
-                  </A>
+                  </Link>
                 </div>
 
                 <div className="column-half column-two">
                   {/* <A href={pageContext.data.training_2_pdf[0].url}> */}
-                  <A href={links.barista_form}>
+                  <Link to={routes.rooms}>
                     <Card
                       title={pageContext.data.training_2_title}
                       subtitle={pageContext.data.training_2_subtitle}
                       path="#"
                       picture={pageContext.data.training_2_picture[0].url}
                     />
-                  </A>
+                  </Link>
                 </div>
               </div>
             </div>
 
             <br />
 
-            <div className="text-center">
+            {/* <div className="text-center">
               <A href={links.barista_form}>
                 <Button text={pageContext.data.button} class="button-beige" />
               </A>
-            </div>
+            </div> */}
           </div>
         </div>
       </Layout>
