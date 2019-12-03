@@ -131,13 +131,13 @@ class HomePage extends React.Component {
           <br />
 
           {/* Company Referrals */}
-          {/* <div className="container text-center">
+          <div className="container text-center">
             <h3 className="mg-xl-bottom">{pageContext.data.referrals}</h3>
 
             <div className="referrals">
               {this.renderReferrals()}
             </div>
-          </div> */}
+          </div>
         </div>
       </Layout>
     )
